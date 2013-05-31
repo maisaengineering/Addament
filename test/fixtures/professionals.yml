@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company_name: MyString
+  title: MyString
+  location: MyString
+  role: MyString
+  start_date: 2013-05-30
+  end_date: 2013-05-30
+  description: MyText
+  professional_headline: MyString
+  aspriations: MyText
+  achievements: MyText
+  affiliations: MyText
+  project_name: MyString
+  project_end_date: 2013-05-30
+  project_start_date: 2013-05-30
+  project_description: MyText
+  user_id: 1
+
+two:
+  company_name: MyString
+  title: MyString
+  location: MyString
+  role: MyString
+  start_date: 2013-05-30
+  end_date: 2013-05-30
+  description: MyText
+  professional_headline: MyString
+  aspriations: MyText
+  achievements: MyText
+  affiliations: MyText
+  project_name: MyString
+  project_end_date: 2013-05-30
+  project_start_date: 2013-05-30
+  project_description: MyText
+  user_id: 1

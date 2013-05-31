@@ -1,0 +1,53 @@
+<h1>Listing professionals</h1>
+
+<table>
+  <tr>
+    <th>Company name</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Role</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Description</th>
+    <th>Professional headline</th>
+    <th>Aspriations</th>
+    <th>Achievements</th>
+    <th>Affiliations</th>
+    <th>Project name</th>
+    <th>Project end date</th>
+    <th>Project start date</th>
+    <th>Project description</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @professionals.each do |professional| %>
+  <tr>
+    <td><%= professional.company_name %></td>
+    <td><%= professional.title %></td>
+    <td><%= professional.location %></td>
+    <td><%= professional.role %></td>
+    <td><%= professional.start_date %></td>
+    <td><%= professional.end_date %></td>
+    <td><%= professional.description %></td>
+    <td><%= professional.professional_headline %></td>
+    <td><%= professional.aspriations %></td>
+    <td><%= professional.achievements %></td>
+    <td><%= professional.affiliations %></td>
+    <td><%= professional.project_name %></td>
+    <td><%= professional.project_end_date %></td>
+    <td><%= professional.project_start_date %></td>
+    <td><%= professional.project_description %></td>
+    <td><%= professional.user_id %></td>
+    <td><%= link_to 'Show', professional %></td>
+    <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+    <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Professional', new_professional_path %>

@@ -1,0 +1,61 @@
+<%= form_for(@profile, url: about_update_profiles_path, :method => "post", :remote => true) do |f| %>
+    <br/>
+        <table>
+          <tr>
+            <td>
+              <% if current_user.profile.image? %>
+              <%= image_tag(current_user.profile.image.url(:thumb)) %>
+              <% else %>
+              <%= image_tag("missing.png",height: 70,width: 80) %>
+              <% end %>
+            </td>
+            <td><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
+            <td>
+              <div class="profile_text" style="display: block; color:white;">
+                <%= @profile.about %>
+              </div>
+              <div class="profile_text2" style="display: none;">
+                <%= f.text_area :about, :rows => 2, :cols => 50 %>
+              </div>
+            </td>
+          </tr>
+        </table>
+    <br/>
+    <div style="display: none;">
+    <%=  f.submit "update Profile", :id=> "save" %>
+    </div>
+
+
+<% end %>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+   $('.aboutbutton').click(function(){
+
+      $('.profile_text').css('display', 'none');
+      $('.profile_text2').css('display', 'block');
+   });
+   </script>
+<script>
+    $(document).ready(function(){
+        if("<%= @profile.about %>")
+        {
+
+           $(".profile_text").html("<%= @profile.about %>").show();
+            $(".profile_text2").hide();
+        }
+        else
+        {
+            $(".profile_text2").show();
+            $(".profile_text").hide();
+        }
+
+    });
+</script>
+
+<script>
+    $('#profile_about').blur(function() {
+        $('#save').trigger('click');
+    });
+</script>
+

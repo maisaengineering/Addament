@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company name:</b>
+  <%= @professional.company_name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @professional.title %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @professional.location %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @professional.role %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @professional.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @professional.end_date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @professional.description %>
+</p>
+
+<p>
+  <b>Professional headline:</b>
+  <%= @professional.professional_headline %>
+</p>
+
+<p>
+  <b>Aspriations:</b>
+  <%= @professional.aspriations %>
+</p>
+
+<p>
+  <b>Achievements:</b>
+  <%= @professional.achievements %>
+</p>
+
+<p>
+  <b>Affiliations:</b>
+  <%= @professional.affiliations %>
+</p>
+
+<p>
+  <b>Project name:</b>
+  <%= @professional.project_name %>
+</p>
+
+<p>
+  <b>Project end date:</b>
+  <%= @professional.project_end_date %>
+</p>
+
+<p>
+  <b>Project start date:</b>
+  <%= @professional.project_start_date %>
+</p>
+
+<p>
+  <b>Project description:</b>
+  <%= @professional.project_description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @professional.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_professional_path(@professional) %> |
+<%= link_to 'Back', professionals_path %>
