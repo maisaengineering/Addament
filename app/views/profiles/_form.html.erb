@@ -111,7 +111,8 @@
           </tr>
           <tr>
             <td>
-         <%= f.fields_for :professional do |professional| %>
+              <% @professionals = f.object.new_record? ? f.object.professionals.build : f.object.professionals.first %>
+         <%= f.fields_for :professionals,@professionals  do |professional| %>
           
               <table class="profile_data2">
                 <tr class="profile">

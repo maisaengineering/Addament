@@ -1,8 +1,8 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :birthday, :city, :first_name, :interests, :last_name, :location, :phone_number, :state, :image, :user_id, :about, :professional_attributes
+  attr_accessible :birthday, :city, :first_name, :interests, :last_name, :location, :phone_number, :state, :image, :user_id, :about, :professionals_attributes
   mount_uploader :image, ImageUploader
-  has_many :professional
-  accepts_nested_attributes_for :professional
+  has_many :professionals
+  accepts_nested_attributes_for :professionals
   belongs_to :user
 
   def complete_percentage()

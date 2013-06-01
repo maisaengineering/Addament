@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
-    @professional = @profile.professional.build
+    @professional = @profile.professionals.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @profile }
