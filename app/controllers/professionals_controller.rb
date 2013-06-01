@@ -1,6 +1,7 @@
 class ProfessionalsController < ApplicationController
   # GET /professionals
   # GET /professionals.json
+  layout false
   def index
     @professionals = Professional.all
 
@@ -24,6 +25,7 @@ class ProfessionalsController < ApplicationController
   # GET /professionals/new
   # GET /professionals/new.json
   def new
+    @profile = current_user.profile
     @professional = Professional.new
 
     respond_to do |format|

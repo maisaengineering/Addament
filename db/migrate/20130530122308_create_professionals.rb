@@ -16,7 +16,7 @@ class CreateProfessionals < ActiveRecord::Migration
       t.date :project_end_date
       t.date :project_start_date
       t.text :project_description
-      t.integer :user_id
+      t.integer :profile_id
 
       t.timestamps
     end
