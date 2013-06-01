@@ -45,12 +45,12 @@
                       %input.span2{:type => "text", :placeholder => "search.."}
                       %button.btn{:type => "button"}
                         %i.icon-search
-                / %td
-                /   .profile_pic
-                /     - if current_user.profile.image?
-                /       = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
-                /     - else
-                /       = image_tag("missing.png",height: 25,width: 25)
+                %td
+                  .profile_pic
+                    - if current_user.profile.image?
+                      = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
+                    - else
+                      = image_tag("missing.png",height: 25,width: 25)
                 / %td
                 /   .names
                 /     %p

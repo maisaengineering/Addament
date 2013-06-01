@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  #include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -12,16 +12,17 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
+  
   # storage :fog
 
-   #  process :resize_to_fit => [200, 200]
-   # version :thumb do
-   #   process :resize_to_fit => [100, 100]
-   # end
+    process :resize_to_fit => [200, 200]
+   version :thumb do
+     process :resize_to_fit => [100, 100]
+   end
 
-   # version :small do
-   #   process :resize_to_fit => [25, 25]
-   # end
+   version :small do
+     process :resize_to_fit => [25, 25]
+   end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir

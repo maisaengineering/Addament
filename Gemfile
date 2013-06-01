@@ -18,6 +18,7 @@ gem 'fb_graph'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'simple_form'
+gem 'public_activity'
 
 
 gem 'omniauth-linkedin'
