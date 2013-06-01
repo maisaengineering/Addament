@@ -19,6 +19,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'simple_form'
 gem 'public_activity'
+gem 'mailboxer'
+gem 'impressionist'
 
 
 gem 'omniauth-linkedin'

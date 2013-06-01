@@ -9,6 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :location
       t.string :city
       t.string :state
+      t.string :about
       t.string :interests
 
       t.timestamps

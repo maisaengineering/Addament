@@ -1,5 +1,13 @@
 Addament::Application.routes.draw do
   resources :professionals
+  
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
 
  # devise_for :users

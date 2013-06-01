@@ -32,7 +32,7 @@
                 %li
                   = link_to "PROFILE", about_profiles_path
                 %li
-                  %a{:href => "#contact"} MESSAGES
+                  = link_to "MESSAGES", conversations_path
                 %li
                   %a{:href => "#contact"} NETWORK
                 %li
@@ -47,7 +47,7 @@
                         %i.icon-search
                 %td
                   .profile_pic
-                    - if current_user.profile.image?
+                    - unless current_user.profile.nil?
                       = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
                     - else
                       = image_tag("missing.png",height: 25,width: 25)
