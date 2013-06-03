@@ -40,7 +40,9 @@
                   %td
                     %table.message_updates
                       %tr
-                        %td Mentee1 :
+                        %td
+                          %h2 Inbox
+                          %ul= render "message"
                       %tr
                         %td
                           .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
@@ -264,13 +266,15 @@
                           %table
                             %tr
                               %td.associations
-                                .assoc_number 1
+                                .assoc_number
+                                  = @current ? @current : "0"
                               %td.school_text Today
                             %tr
                               %td.space2
                             %tr
                               %td.organization
-                                .assoc_number 10
+                                .assoc_number
+                                  = @past ? @past : "0"
                               %td.school_text Past 3 months
                             %tr
                               %td.space2

@@ -48,7 +48,10 @@
                 %td
                   .profile_pic
                     - unless current_user.profile.nil?
-                      = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
+                      - unless current_user.profile.image.url.nil?
+                        = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
+                      -else
+                        = image_tag("missing.png",height: 25,width: 25)
                     - else
                       = image_tag("missing.png",height: 25,width: 25)
                 / %td

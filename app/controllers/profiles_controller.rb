@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
+  before_filter :check_user_profile, only: [:about]
   before_filter :authenticate_user!
   #before_filter :find_or_build_profile,except: [:create]
   def index
@@ -46,8 +47,9 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(params[:profile])
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render json: @profile, status: :created, location: @profile }
+        format.html {redirect_to my_account_path }
+        #format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        #format.json { render json: @profile, status: :created, location: @profile }
       else
         format.html { render action: "new" }
         format.json { render json: @profile.errors, status: :unprocessable_entity }

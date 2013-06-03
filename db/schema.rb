@@ -111,11 +111,11 @@ ActiveRecord::Schema.define(:version => 20130601120002) do
     t.string   "location"
     t.string   "city"
     t.string   "state"
+    t.string   "about"
     t.string   "interests"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "image"
-    t.string   "about"
   end
 
   create_table "receipts", :force => true do |t|
