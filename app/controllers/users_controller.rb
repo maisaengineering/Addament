@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @following =  current_user.all_following.count
+    @follow = current_user.follow_count
+
   	@user = current_user
     current_date = Time.now
     last_three_month = current_date - 3.months
