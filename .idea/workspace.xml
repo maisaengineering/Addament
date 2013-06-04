@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20a868f-3f58-43c4-98d9-3a85b176a1e5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.haml" afterPath="$PROJECT_DIR$/app/views/users/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
     </list>
     <ignored path="addament_mysql.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +30,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="56" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.52680224">
+            <state line="37" column="56" selection-start="1181" selection-end="1181" vertical-scroll-proportion="-11.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="30" selection-start="453" selection-end="453" vertical-scroll-proportion="0.4902655">
               <folding />
             </state>
           </provider>
@@ -103,18 +111,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about_update.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/profiles/about_update.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="47" selection-start="24" selection-end="47" vertical-scroll-proportion="-0.0">
-              <folding>
-                <marker date="1369382792000" expanded="true" signature="139:175" placeholder="{...}" />
-                <marker date="1369382792000" expanded="true" signature="181:216" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -134,7 +130,6 @@
         <option value="$PROJECT_DIR$/app/controllers/profiles_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/conversations/_conversation.html.haml" />
         <option value="$PROJECT_DIR$/app/views/users/_message.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/profile.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -144,6 +139,7 @@
         <option value="$PROJECT_DIR$/app/views/users/public_profile.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -792,13 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="408" selection-end="408" vertical-scroll-proportion="0.17128874">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/profile.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
@@ -817,8 +806,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="47" selection-start="24" selection-end="47" vertical-scroll-proportion="-0.0">
           <folding>
-            <marker date="1369382792000" expanded="true" signature="139:175" placeholder="{...}" />
-            <marker date="1369382792000" expanded="true" signature="181:216" placeholder="{...}" />
+            <marker date="1369382792000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1369382792000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -881,7 +870,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="56" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.52680224">
+        <state line="37" column="56" selection-start="1181" selection-end="1181" vertical-scroll-proportion="-11.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="30" selection-start="453" selection-end="453" vertical-scroll-proportion="0.4902655">
           <folding />
         </state>
       </provider>
