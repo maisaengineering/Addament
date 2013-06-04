@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   is_impressionable
+
   attr_accessible :birthday, :city, :first_name, :interests, :last_name, :location, :phone_number, :state, :image, :user_id, :about, :professionals_attributes
   mount_uploader :image, ImageUploader
   has_many :professionals

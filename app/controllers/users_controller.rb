@@ -5,6 +5,23 @@ class UsersController < ApplicationController
   end
 
   def public_profile
+    @users = User.where("id != ? ", current_user.id)
+
+    @followee =  current_user.user_followers
+
+  end
+  def follow
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    current_user.follow(user)
+    #redirect_to("/my_account")
+
+  end
+  def unfollow
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    current_user.stop_following(user)
+    #redirect_to("/my_account")
   end
 
   def show
@@ -12,8 +29,10 @@ class UsersController < ApplicationController
     current_date = Time.now
     last_three_month = current_date - 3.months
     lat_seven_month = current_date - 7.months
-    @current = Impression.where("impressionable_id = ? and created_at = ?", current_user.profile.id, current_date).count
-    @past = Impression.where("impressionable_id = ? and created_at BETWEEN ? AND ?", current_user.profile.id, current_date, last_three_month).count
+    @current = Impression.where("impressionable_id = ? and DATE(created_at) = ?", current_user.profile.id, Date.today).count
+    @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 3.months.ago).count
+    @past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 7.months.ago).count
+    #raise @past.inspect
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
     @conversation = []
     if reciver

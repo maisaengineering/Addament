@@ -1,2 +1,81 @@
-<h1>Users#public_profile</h1>
-<p>Find me in app/views/users/public_profile.html.erb</p>
+<table>
+  <tr>
+    <td>
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Users</a></li>
+          <li><a href="#tab2" data-toggle="tab">Followee</a></li>
+          <li><a href="#tab3" data-toggle="tab">Following</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+
+          <p>
+                      <%= render :partial => 'all_users' %>
+
+          </p>
+
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>
+            <p>
+              <% @followee.in_groups_of(2, false) do |lists| %>
+                <table>
+                  <tr>
+                    <%  for user in lists %>
+                        <td>
+                          <table>
+                            <tr>
+                              <td>
+                                <%=  user.profile.first_name %>
+                              </td>
+
+                            </tr>
+                          </table>
+
+                        </td>
+                        </tr>
+                    <% end %>
+                    </table>
+
+            <% end %>
+
+            </p>
+
+
+
+            </p>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <p>
+              <% @users.in_groups_of(2, false) do |lists| %>
+                <table>
+                  <tr>
+                    <%  for user in lists %>
+                        <td>
+                          <table>
+                            <tr>
+
+                              <% if current_user.following?(user) %>
+                                  <td>
+                                    <%=  user.profile.first_name %>
+                                  </td>
+                                  <td> <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :remote => true, :id => user.id}, :class => "btn" %></td>
+                              <% end %>
+                            </tr>
+                          </table>
+
+                        </td>
+                        </tr>
+                    <% end %>
+                    </table>
+
+            <% end %>
+
+              .</p>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

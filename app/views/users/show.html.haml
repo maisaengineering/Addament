@@ -280,7 +280,8 @@
                               %td.space2
                             %tr
                               %td.company
-                                .assoc_number 73
+                                .assoc_number
+                                  = @past_seven ? @past_seven : "0"
                               %td.school_text Past 7 months
                 %tr
                   %table

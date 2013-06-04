@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'public_activity'
 gem 'mailboxer'
 gem 'impressionist'
+gem 'acts_as_follower'
 
 
 gem 'omniauth-linkedin'

@@ -1,0 +1,25 @@
+<% @users.in_groups_of(2, false) do |lists| %>
+    <table>
+      <tr>
+        <%  for user in lists %>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <%=  user.profile.first_name %>
+                  </td>
+                  <% unless current_user.following?(user) %>
+
+                      <td> <%= button_to "Follow", {:controller => :users, :action => :follow,  :id => user.id},:remote => true, :class => "btn" %></td>
+                  <% else %>
+                      <td> <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "btn" %></td>
+                  <% end %>
+                </tr>
+              </table>
+
+            </td>
+            </tr>
+        <% end %>
+        </table>
+
+<% end %>
