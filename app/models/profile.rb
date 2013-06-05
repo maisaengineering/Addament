@@ -1,4 +1,5 @@
 class Profile < ActiveRecord::Base
+  #after_save :check_method
   is_impressionable
 
   attr_accessible :birthday, :city, :first_name, :interests, :last_name, :location, :phone_number, :state, :image, :user_id, :about, :professionals_attributes
@@ -21,5 +22,9 @@ class Profile < ActiveRecord::Base
     #percentage += 30 if  user.educations.present?
     #percentage += 30 if  professional_industries.present?
     return percentage
+  end
+
+  def check_method
+    raise self.changes.inspect
   end
 end

@@ -45,7 +45,7 @@
                     %table.message_updates
                       %tr
                         %td
-                          %h2 Inbox
+                          %h2
                           %ul= render "message"
 
               %table.chat
@@ -75,19 +75,7 @@
                   %td
                     %table.todo_list_updates
                       %tr
-                        %td 11:00 A.M-
-                      %tr
-                        %td Mentor1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
-                      %tr
-                        %td 11:00 A.M-
-                      %tr
-                        %td Mentee1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+                        %td Under Progress....
       %td.box2_td
         %table
           %tr
@@ -109,10 +97,16 @@
                                   - user = User.find(activity.trackable_id)
                                   %tr
                                     %td
-                                      =image_tag("missing.png")
+                                      - unless user.profile.nil?
+                                        - unless user.profile.image.url.nil?
+                                          = image_tag(user.profile.image.url(:small),height: 25,width: 25)
+                                        -else
+                                          = image_tag("missing.png",height: 25,width: 25)
+                                      - else
+                                        = image_tag("missing.png",height: 25,width: 25)
                                       - unless user.profile.nil?
                                         =user.profile.first_name + " " + user.profile.last_name + " " + "updated"
-                                      =activity.trackable_type
+                                      =activity.trackable_type + " "+ "information"
                                       %tr
                                         %td
                                           %table
@@ -121,6 +115,7 @@
                                                 = time_ago_in_words(activity.created_at) + " " + "ago"
                                               %td.comment comment
                                               %td.share share
+                                          %hr
                         %tr
                           %td
                             - if @activities.length > 3
@@ -242,7 +237,7 @@
                       %td Latest Activity:
                     %tr
                       %td
-                        -#= current_user.updated_at
+                        = current_user.profile.updated_at.strftime("%B %d, %Y")
                     %tr
                       %td Date Joined
                     %tr

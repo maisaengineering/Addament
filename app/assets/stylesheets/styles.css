@@ -423,4 +423,7 @@ td.mentor
 
     cursor: pointer;
 }
+textarea {
+    resize: none;
+}
 

@@ -2,8 +2,12 @@
 <% @conversation.each do |message| %>
     <% user =  User.find(message.sender_id) %>
     <%=  user.profile.first_name + " " + user.profile.last_name %>
+    <br/>
     <%=  link_to message.subject, conversation_path(message.conversation_id) %>
-
+    <br/>
+<% end %>
+<% if @conversation.length == 0 %>
+<p>No Messages</p>
 <% end %>
 <% if @conversation.length > 3 %>
     <%=  link_to "more", conversations_path %>
