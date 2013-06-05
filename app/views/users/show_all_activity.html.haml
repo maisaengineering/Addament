@@ -1,0 +1,22 @@
+.mentee_activites
+  %table
+    %tr
+      %td
+        %td.activity_users
+          %table
+            -  @more.each do |activity|
+              - user = User.find(activity.trackable_id)
+              %tr
+                %td
+                  =image_tag("missing.png")
+                  =activity.trackable_type
+                  - unless user.profile.nil?
+                    =user.profile.first_name + " " + user.profile.last_name
+                  %tr
+                    %td
+                      %table
+                        %tr
+                          %td.time_ago
+                            = time_ago_in_words(activity.created_at) + " " + "ago"
+                          %td.comment comment
+                          %td.share share

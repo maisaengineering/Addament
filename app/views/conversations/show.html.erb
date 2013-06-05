@@ -1,0 +1,33 @@
+<style type="text/css">
+  .posted_text, .subject {
+      padding-left: 6px;
+  }
+  p {
+      color: white;
+  }
+</style>
+<ul>
+  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+  <%  user = User.where("id = ? ", receipt.receiver_id).first %>
+      <% message = receipt.message %>
+      <% unless user.profile.nil? %>
+      <p><%=  user.profile.first_name %><span class="posted_text">Posted</span><span class="subject"><%=  message.subject %></span></p>
+      <% else %>
+      <p><%=  message.subject %></p>
+      <% end %>
+
+      <p><%=  message.body %></p>
+  <% end %>
+</ul>
+<%= button_tag "Reply", :id=> "reply" %>
+<div class="reply_form" style="display: none;">
+<%= render 'messages/form', conversation: conversation %>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+  $('#reply').click(function(){
+  $('.reply_form').show();
+  });
+
+</script>

@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <div class="container">
   <table class="main_table">
     <tr>
@@ -202,7 +205,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script>
   $(function(){
-    $('#dt5').datepicker()
+    $('#dt5').datepicker({
+        changeMonth: true,
+        changeYear: true
+    });
   });
 </script>
 <script>

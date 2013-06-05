@@ -23,19 +23,18 @@ class UsersController < ApplicationController
     current_user.stop_following(user)
     #redirect_to("/my_account")
   end
+  def show_all_activity
+    @more = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).order('created_at desc')
+
+  end
 
   def show
+    @activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     @following =  current_user.all_following.count
     @follow = current_user.follow_count
-
-  	@user = current_user
-    current_date = Time.now
-    last_three_month = current_date - 3.months
-    lat_seven_month = current_date - 7.months
     @current = Impression.where("impressionable_id = ? and DATE(created_at) = ?", current_user.profile.id, Date.today).count
-    @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 3.months.ago).count
-    @past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 7.months.ago).count
-    #raise @past.inspect
+    #@past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 3.months.ago).count
+    #@past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 7.months.ago).count
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
     @conversation = []
     if reciver

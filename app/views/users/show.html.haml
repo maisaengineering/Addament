@@ -30,10 +30,14 @@
                           %table.follow_and_followee
                             %tr
                               %td.mentor
-                                .mentors Mentor #{@follow}
+                                .mentors
+                                  Mentor
+                                  = @follow ? @follow : "0"
                             %tr
                               %td.mentor
-                                .mentee Mentee #{@following}
+                                .mentee
+                                  Mentee
+                                  = @following ? @following : "0"
                             %tr
                               %td
                                 .peers Peers     2
@@ -43,19 +47,7 @@
                         %td
                           %h2 Inbox
                           %ul= render "message"
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
-                      %tr
-                        %td Mentee1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
-                      %tr
-                        %td Mentee1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+
               %table.chat
                 %tr
                   %td
@@ -77,20 +69,7 @@
                   %td
                     %table.chat_updates
                       %tr
-                        %td Mentor1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
-                      %tr
-                        %td Mentee1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
-                      %tr
-                        %td Mentee1 :
-                      %tr
-                        %td
-                          .network_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit..
+                        %td Coming Soon..
               %table
                 %tr
                   %td
@@ -124,57 +103,28 @@
                       %table
                         %tr
                           %td
-                            = image_tag("missing.png")
-                          %td{:valign => "top"}
-                            %table
-                              %tr
-                                %td.activity_users @Username
-                              %tr
-                                %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                              %tr
-                                %td
-                                  %table
-                                    %tr
-                                      %td.time_ago 1 hour ago
-                                      %td.comment comment
-                                      %td.share share
-                      %hr
-                      %table
+                            %td.activity_users
+                              %table
+                                -  @activities.each do |activity|
+                                  - user = User.find(activity.trackable_id)
+                                  %tr
+                                    %td
+                                      =image_tag("missing.png")
+                                      - unless user.profile.nil?
+                                        =user.profile.first_name + " " + user.profile.last_name + " " + "updated"
+                                      =activity.trackable_type
+                                      %tr
+                                        %td
+                                          %table
+                                            %tr
+                                              %td.time_ago
+                                                = time_ago_in_words(activity.created_at) + " " + "ago"
+                                              %td.comment comment
+                                              %td.share share
                         %tr
                           %td
-                            = image_tag("missing.png")
-                          %td{:valign => "top"}
-                            %table
-                              %tr
-                                %td.activity_users @Username
-                              %tr
-                                %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                              %tr
-                                %td
-                                  %table
-                                    %tr
-                                      %td.time_ago 1 hour ago
-                                      %td.comment comment
-                                      %td.share share
-                      %hr
-                      %table
-                        %tr
-                          %td
-                            = image_tag("missing.png")
-                          %td{:valign => "top"}
-                            %table
-                              %tr
-                                %td.activity_users @Username
-                              %tr
-                                %td.activity_users Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-                              %tr
-                                %td
-                                  %table
-                                    %tr
-                                      %td.time_ago 1 hour ago
-                                      %td.comment comment
-                                      %td.share share
-                      %hr
+                            - if @activities.length > 3
+                              = link_to "more", show_all_activity_path
   %table.table_footer
     %tr
       %td.footer_middle
@@ -235,7 +185,10 @@
               %table.box_table4
                 %tr
                   %td
-                    = image_tag("image.png", :size => "70x80")
+                    - if current_user.profile.image?
+                      = image_tag(current_user.profile.image.url(:thumb))
+                    - else
+                      = image_tag("missing.png",height: 70,width: 80)
                   %td{:valign => "top"}
                     %table
                       %tr
@@ -287,6 +240,20 @@
                   %table
                     %tr
                       %td Latest Activity:
+                    %tr
+                      %td
+                        -#= current_user.updated_at
+                    %tr
+                      %td Date Joined
+                    %tr
+                      %td
+                        = current_user.created_at.strftime("%B %d, %Y")
+                    %tr
+                      %td About
+                    %tr
+                      %td
+                        = current_user.profile.about
+
   %table.table_footer
     %tr
       %td.footer_middle
