@@ -30,10 +30,14 @@
                           %table.follow_and_followee
                             %tr
                               %td.mentor
-                                .mentors Mentor4
+                                .mentors
+                                  Mentor
+                                  = @follow ? @follow : "0"
                             %tr
                               %td.mentor
-                                .mentee Mentee   5
+                                .mentee
+                                  Mentee
+                                  = @following ? @following : "0"
                             %tr
                               %td
                                 .peers Peers     2
@@ -106,7 +110,8 @@
                                   %tr
                                     %td
                                       =image_tag("missing.png")
-                                      =user.profile.first_name + " " + user.profile.last_name + " " + "updated"
+                                      - unless user.profile.nil?
+                                        =user.profile.first_name + " " + user.profile.last_name + " " + "updated"
                                       =activity.trackable_type
                                       %tr
                                         %td
@@ -118,7 +123,8 @@
                                               %td.share share
                         %tr
                           %td
-                            = link_to "more", show_all_activity_path
+                            - if @activities.length > 3
+                              = link_to "more", show_all_activity_path
   %table.table_footer
     %tr
       %td.footer_middle
