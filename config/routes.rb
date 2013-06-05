@@ -45,6 +45,7 @@ Addament::Application.routes.draw do
   
    match "/my_account" => "users#show",as: :my_account
    match "/public_profile" => "users#public_profile",as: :public_profile
+   match "/show_all_activity" => "users#show_all_activity",as: :show_all_activity
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
