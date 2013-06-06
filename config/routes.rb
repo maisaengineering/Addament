@@ -1,4 +1,7 @@
 Addament::Application.routes.draw do
+  resources :companies
+
+
   resources :professionals
   
   resources :conversations, only: [:index, :show, :new, :create] do

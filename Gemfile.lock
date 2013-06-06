@@ -165,6 +165,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    select2-rails (3.4.1)
+      sass-rails
+      thor (~> 0.14)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -218,6 +221,7 @@ DEPENDENCIES
   rails (= 3.2.12)
   rmagick
   sass-rails (~> 3.2.3)
+  select2-rails
   simple_form
   twitter
   twitter-bootstrap-rails

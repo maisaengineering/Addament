@@ -28,6 +28,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
+    @company = Company.all
     @professional = @profile.professionals.build
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @company = Company.all
    @profile = Profile.find(params[:id])
    
   end

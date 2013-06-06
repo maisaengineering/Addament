@@ -22,6 +22,7 @@ gem 'public_activity'
 gem 'mailboxer'
 gem 'impressionist'
 gem 'acts_as_follower'
+gem 'select2-rails'
 
 #group :production do
 #  gem 'pg'
