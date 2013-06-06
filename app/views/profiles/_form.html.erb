@@ -68,7 +68,7 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd1">Birthday</td>
-                  <td class="even"><%= f.text_field :birthday, :id => "dt5" %></td>
+                  <td class="even"><%= f.text_field :birthday, :id => "datepicker" %></td>
                 </tr>
 
                 <tr class="profile">
@@ -132,7 +132,7 @@
                 </tr>
                 <tr class="profile">
                   <td class="odd">Date Started</td>
-                  <td class="even"><%=  professional.text_field :start_date %></td>
+                  <td class="even"><%=  professional.text_field :start_date, :id => "datepicker1" %></td>
                 </tr>
                 <tr class="profile">
                   <td class="odd">Professional Headline</td>
@@ -202,14 +202,17 @@
     </tr>
   </table>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+
 <script>
-  $(function(){
-    $('#dt5').datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-  });
+    $("#datepicker").datepick();
+    $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
+</script>
+<script>
+    $("#datepicker1").datepick();
+    $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
 </script>
 <script>
   $(window).load(function(){
