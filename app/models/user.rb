@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
  acts_as_messageable
   acts_as_followable
   acts_as_follower
-
+ ROLES = %w(Mentor Mentee)
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   has_one :profile
   has_many :todos
   # attr_accessible :title, :body
