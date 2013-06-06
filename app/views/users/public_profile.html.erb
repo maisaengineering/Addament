@@ -4,7 +4,7 @@
       <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Users</a></li>
-          <li><a href="#tab2" data-toggle="tab">Followee</a></li>
+          <li><a href="#tab2" data-toggle="tab" id="followee" >Followee</a></li>
           <li><a href="#tab3" data-toggle="tab">Following</a></li>
         </ul>
         <div class="tab-content">
@@ -18,62 +18,15 @@
           </div>
           <div class="tab-pane" id="tab2">
             <p>
-            <p>
-              <% @followee.in_groups_of(2, false) do |lists| %>
-                <table>
-                  <tr>
-                    <%  for user in lists %>
-                        <td>
-                          <table>
-                            <tr>
-                              <td>
-                                <%=  user.profile.first_name %>
-                              </td>
 
-                            </tr>
-                          </table>
-
-                        </td>
-                        </tr>
-                    <% end %>
-                    </table>
-
-            <% end %>
-
+              <%= render :partial => 'followee' %>
             </p>
 
-
-
-            </p>
           </div>
           <div class="tab-pane" id="tab3">
             <p>
-              <% @users.in_groups_of(2, false) do |lists| %>
-                <table>
-                  <tr>
-                    <%  for user in lists %>
-                        <td>
-                          <table>
-                            <tr>
 
-                              <% if current_user.following?(user) %>
-                                  <td>
-                                   <%  unless user.profile.nil? %>
-                                    <%=  user.profile.first_name %>
-                                  </td>
-                                  <td> <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :remote => true, :id => user.id}, :class => "btn" %></td>
-                                   <%  end %>
-                              <% end %>
-                            </tr>
-                          </table>
-
-                        </td>
-                        </tr>
-                    <% end %>
-                    </table>
-
-            <% end %>
-
+              <%= render :partial => 'following' %>
               .</p>
           </div>
         </div>
@@ -81,3 +34,4 @@
     </td>
   </tr>
 </table>
+

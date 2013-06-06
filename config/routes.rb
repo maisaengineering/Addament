@@ -34,6 +34,7 @@ Addament::Application.routes.draw do
       get 'tokenizer'
       post 'follow'
       post 'unfollow'
+      post 'follow_list'
     end
   end
     resources :profiles do

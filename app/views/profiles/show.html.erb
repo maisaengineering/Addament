@@ -1,45 +1,108 @@
+<br/>
+<div id="professional_overview" style="background-color: white; width: 500px;margin-left: 250px;  padding-left: 10px;">
+ <table>
+   <tr>
+     <td>
+       <% if current_user.profile.image? %>
+           <%= image_tag(current_user.profile.image.url(:thumb)) %>
+       <% else %>
+           <%= image_tag("missing.png",height: 70,width: 80) %>
+       <% end %>
+     </td>
+
+     <td valign="top">
+       <table>
+         <tr>
+           <td>
+            About Us
+           </td>
+         </tr>
+         <tr>
+           <td>
+             <%= @profile.about %>
+           </td>
+         </tr>
+       </table>
+     </td>
+     <% profile_user = User.find(@profile.user_id) %>
+    <% unless current_user.following?(profile_user) %>
+         <td>
+           <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => profile_user.id}, :remote => true, :class => "btn" %>
+         </td>
+       <% else %>
+         <td>
+           <%= button_to "Follow", {:controller => :users, :action => :follow,  :id => profile_user.id},:remote => true, :class => "btn" %></td>
+     <% end %>
+   </tr>
+ </table>
+</div>
 <p id="notice"><%= notice %></p>
+<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
+  <table style="width: 100%;">
+    <tr>
+      <td>First Name</td>
+      <td><%= @profile.first_name %></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><%= @profile.last_name %></td>
+    </tr>
+    <tr>
+      <td>Birthday</td>
+      <td><%= @profile.birthday %></td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td><%= @profile.location %></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><%= @profile.city %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= @profile.state %></td>
+    </tr>
+    <tr>
+      <td>Interests</td>
+      <td><%= @profile.interests %></td>
+    </tr>
+  </table>
+</div>
+<br/>
+<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
+  <p>Professionals</p>
+  </div>
+<div id="professional_overview" style="background-color: white; width: 500px;margin-left: 250px;  padding-left: 10px;">
+      <% professional = profile_professional(@profile.id) %>
+  <% professional.each do |profession| %>
+  <table>
+    <tr>
+      <td>Company Name</td>
+      <td><%=  profession.company_name %></td>
+    </tr>
+    <tr>
+     <td>Location</td>
+      <td><%=  profession.location %></td>
+    </tr>
+    <tr>
+      <td>Role</td>
+      <td><%=  profession.role %></td>
+    </tr>
+    <tr>
+      <td>Project Name</td>
+      <td><%=  profession.project_name %></td>
+    </tr>
+    <tr>
+      <td>Project Description</td>
+      <td><%=  profession.project_description %></td>
+    </tr>
+  </table>
+    <% end %>
+    </div>
+<br/>
+<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
+ <%= render :partial => "profile_follow_followee" %>
+</div>
 
-<p>
-  <b>First name:</b>
-  <%= @profile.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @profile.last_name %>
-</p>
-
-<p>
-  <b>Phone number:</b>
-  <%= @profile.phone_number %>
-</p>
-
-<p>
-  <b>Birthday:</b>
-  <%= @profile.birthday %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @profile.location %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @profile.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @profile.state %>
-</p>
-
-<p>
-  <b>Interests:</b>
-  <%= @profile.interests %>
-</p>
-
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Back', public_profile_path %>
