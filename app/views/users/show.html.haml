@@ -75,7 +75,25 @@
                   %td
                     %table.todo_list_updates
                       %tr
-                        %td Under Progress....
+                        %td
+                          -@todos.each do |todo|
+                            %tr
+                              %td
+                                %table
+                                  %tr
+                                    %td
+                                      =todo.event_date.to_date
+                                  %tr
+                                    %td
+                                      =link_to("#{todo.start_time.strftime("%I:%M%p")}   #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id))
+                                  %tr
+                                    %td
+                                      =todo.title
+                                  %tr
+                                    %td
+                                      =truncate todo.description, length: 100        
+                                
+
       %td.box2_td
         %table
           %tr

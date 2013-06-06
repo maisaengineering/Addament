@@ -3,7 +3,7 @@ Addament::Application.routes.draw do
 
 
   resources :professionals
-  
+  resources :todos
   resources :conversations, only: [:index, :show, :new, :create] do
     member do
       post :reply

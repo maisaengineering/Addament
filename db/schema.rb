@@ -151,6 +151,17 @@ ActiveRecord::Schema.define(:version => 20130606051911) do
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
+  create_table "todos", :force => true do |t|
+    t.string   "event_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false

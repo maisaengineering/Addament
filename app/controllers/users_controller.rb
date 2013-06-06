@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def show
     @activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     @following =  current_user.all_following.count
+    @todos = Todo.where("user_id =?", current_user.id).order('created_at desc').limit(3)
     @follow = current_user.follow_count
     @current = Impression.where("impressionable_id = ? and DATE(created_at) = ?", current_user.profile.id, Date.today).count
     @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 3.months.ago).count

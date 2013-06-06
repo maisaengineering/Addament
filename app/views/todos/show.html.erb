@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
+<%= @todo.title %>
+<%= @todo.event_date.to_date.strftime("%B %d, %Y") %>
 
 
-<%= link_to 'Edit', edit_todo_path(@todo) %> |
-<%= link_to 'Back', todos_path %>
+<%= link_to 'Back', root_url %>

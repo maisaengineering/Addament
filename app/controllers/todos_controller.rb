@@ -40,6 +40,7 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
+
     @todo = Todo.new(params[:todo])
 
     respond_to do |format|

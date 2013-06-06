@@ -9,9 +9,38 @@
       <% end %>
       </ul>
     </div>
+
   <% end %>
 
+  <%= f.label :Title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :Description %>:
+  <%= f.text_area :description, :size => "10x10" %><br />
+
+  <%= f.label :Date %>
+  <%= f.text_field :event_date, :id => "datepicker" %><br>
+
+  <%= f.label :Start_Time %>
+  <%= f.time_select :start_time %><br />
+
+  <%= f.label :End_Time %>
+  <%= f.time_select :end_time %><br />
+  
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "SAVE" %>
   </div>
+
 <% end %>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+
+
+<script>
+    $("#datepicker").datepick();
+    $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
+</script>

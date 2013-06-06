@@ -66,7 +66,7 @@ function Datepicker() {
 		dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
 		dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 		dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-		dateFormat: 'mm/dd/yyyy', // See options on formatDate
+		dateFormat: 'yyyy-mm-dd', // See options on formatDate
 		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
 		renderer: this.defaultRenderer, // The rendering templates
 		prevText: '&lt;Prev', // Text for the previous month command
