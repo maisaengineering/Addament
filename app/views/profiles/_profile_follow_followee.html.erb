@@ -1,0 +1,39 @@
+<% profile_user = User.find(@profile.user_id) %>
+<h6>Following</h6>
+<% @users.each do |user_follow| %>
+    <table>
+      <tr>
+         <% if profile_user.following?(user_follow) %>
+            <td>
+              <%  unless user_follow.profile.nil? %>
+                  <%= link_to "#{user_follow.profile.first_name}", profile_path(user_follow.profile.id)  %>
+                  </td>
+
+              <%  end %>
+        <% end %>
+      </tr>
+    </table>
+<% end %>
+
+<h6>Followee</h6>
+<% @followee =  profile_user.user_followers %>
+<% @followee.in_groups_of(2, false) do |lists| %>
+    <table>
+      <tr>
+        <%  for user in lists %>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+                  </td>
+
+                </tr>
+              </table>
+
+            </td>
+            </tr>
+        <% end %>
+        </table>
+
+<% end %>

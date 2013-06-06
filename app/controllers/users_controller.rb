@@ -6,26 +6,25 @@ class UsersController < ApplicationController
 
   def public_profile
     @users = User.where("id != ? ", current_user.id)
-
     @followee =  current_user.user_followers
+   end
 
-  end
   def follow
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
     current_user.follow(user)
-    #redirect_to("/my_account")
-
+    @followee =  current_user.user_followers
   end
+
   def unfollow
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
     current_user.stop_following(user)
-    #redirect_to("/my_account")
+    @followee =  current_user.user_followers
   end
+
   def show_all_activity
     @more = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).order('created_at desc')
-
   end
 
   def show
