@@ -33,8 +33,8 @@ class UsersController < ApplicationController
     @following =  current_user.all_following.count
     @follow = current_user.follow_count
     @current = Impression.where("impressionable_id = ? and DATE(created_at) = ?", current_user.profile.id, Date.today).count
-    #@past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 3.months.ago).count
-    #@past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and ?", current_user.profile.id, Date.today, 7.months.ago).count
+    @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 3.months.ago).count
+    @past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 7.months.ago).count
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
     @conversation = []
     if reciver

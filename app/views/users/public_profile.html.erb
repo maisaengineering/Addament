@@ -58,9 +58,11 @@
 
                               <% if current_user.following?(user) %>
                                   <td>
+                                   <%  unless user.profile.nil? %>
                                     <%=  user.profile.first_name %>
                                   </td>
                                   <td> <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :remote => true, :id => user.id}, :class => "btn" %></td>
+                                   <%  end %>
                               <% end %>
                             </tr>
                           </table>
