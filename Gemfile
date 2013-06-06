@@ -23,9 +23,9 @@ gem 'mailboxer'
 gem 'impressionist'
 gem 'acts_as_follower'
 
-group :production do
-  gem 'pg'
-end
+#group :production do
+#  gem 'pg'
+#end
 
 
 gem 'omniauth-linkedin'
