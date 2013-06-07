@@ -87,7 +87,17 @@
                   <td class="odd">Interests</td>
                   <td class="even"><%= f.text_area :interests, :rows => 3, :cols => 32 %></td>
                 </tr>
+                <%  if current_user.user_role.blank? %>
+                <tr class="profile">
+                  <td class="odd">Interests</td>
+                  <td class="even">
+                    <% User::ROLES.each do |role| %>
+                     <%= check_box_tag "[user_role][]",role %> <%= role %>
+                    <% end %>
 
+
+                 </tr>
+                 <% end %>
 
                 <tr>
                   <td><%=  f.submit "Update Profile", :id=> "save" %></td>

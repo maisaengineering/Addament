@@ -36,6 +36,8 @@ class UsersController < ApplicationController
     @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 3.months.ago).count
     @past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 7.months.ago).count
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
+    current_user_company = User.get_current_company_name(current_user)
+    @peer = Professional.where("company_name = ? and profile_id != ?",current_user_company, current_user.profile.id).count
     @conversation = []
     if reciver
       reciver.each do |receiver|

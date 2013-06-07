@@ -11,3 +11,7 @@ company = Company.create(company_name: "Google")
 company = Company.create(company_name: "Infosys")
 company = Company.create(company_name: "Yahoo")
 puts "----------  Created 5 Companies ---------------"
+
+#(1..5).each do |e|
+#  User.create!(email: "mentee#{e}@maisasolutions.com" ,user_role: ['Mentee'],password: 'password',password_confirmation: 'password')
+#end

@@ -12,6 +12,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   has_one :profile
   has_many :todos
+
+  def self.get_current_company_name(user_id)
+    company = user_id.profile.professionals
+    company.each do |get_company|
+      if get_company.end_date==nil
+         @current_company =  get_company.company_name
+      end
+    end
+    return @current_company
+  end
   # attr_accessible :title, :body
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google]
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
