@@ -76,13 +76,14 @@
                     %table.todo_list_updates
                       %tr
                         %td
+                          = link_to("Add Todo", new_todo_path)
                           -@todos.each do |todo|
                             %tr
                               %td
                                 %table
                                   %tr
                                     %td
-                                      =todo.event_date.to_date
+                                      =todo.event_date.to_date.strftime("%B %d, %Y")
                                   %tr
                                     %td
                                       =link_to("#{todo.start_time.strftime("%I:%M%p")}   #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id))
