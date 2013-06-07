@@ -80,7 +80,8 @@ class ProfilesController < ApplicationController
 
    def about
      @profile = current_user.profile
-   end
+     @past = Professional.where("profile_id = ?", current_user.profile.id)
+    end
   def about_update
    @profile = current_user.profile
    @profile.update_column(:about, params[:profile][:about])
