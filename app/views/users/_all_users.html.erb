@@ -5,13 +5,14 @@
             <td>
               <table>
                 <tr>
-
+                  <% unless user.profile.nil? %>
                   <% unless current_user.following?(user) %>
                       <td>
                         <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
                       </td>
 
                       <td> <%= button_to "Follow", {:controller => :users, :action => :follow,  :id => user.id},:remote => true, :class => "btn" %></td>
+                   <% end %>
                    <% end %>
                 </tr>
               </table>
