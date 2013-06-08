@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Goal name:</b>
+  <%= @goal.goal_name %>
+</p>
+
+<p>
+  <b>Target date:</b>
+  <%= @goal.target_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

@@ -1,4 +1,10 @@
 Addament::Application.routes.draw do
+  resources :milestones
+
+
+  resources :goals
+
+
   resources :companies
 
 

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  goal_name: MyString
+  target_date: 2013-06-08
+
+two:
+  goal_name: MyString
+  target_date: 2013-06-08

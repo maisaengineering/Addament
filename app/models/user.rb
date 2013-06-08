@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   has_one :profile
   has_many :todos
+  has_many :goals
 
   def self.get_current_company_name(user_id)
     company = user_id.profile.professionals
