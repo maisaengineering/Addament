@@ -25,7 +25,7 @@
        </table>
      </td>
      <% profile_user = User.find(@profile.user_id) %>
-    <% unless current_user.following?(profile_user) %>
+    <% if current_user.following?(profile_user) %>
          <td>
            <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => profile_user.id}, :remote => true, :class => "btn" %>
          </td>

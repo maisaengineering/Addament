@@ -40,7 +40,10 @@
                                   = @following ? @following : "0"
                             %tr
                               %td
-                                .peers Peers     2
+                                .peers
+                                  Peers
+                                  = @peer ? @peer : "0"
+
                   %td
                     %table.message_updates
                       %tr

@@ -49,6 +49,10 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(params[:profile])
+    if params[:user_role]
+      up_user= User.find(current_user.id)
+      up_user.update_attributes(:user_role => params[:user_role])
+    end
     respond_to do |format|
       if @profile.save
         format.html {redirect_to my_account_path }
@@ -80,7 +84,8 @@ class ProfilesController < ApplicationController
 
    def about
      @profile = current_user.profile
-   end
+     @past = Professional.where("profile_id = ?", current_user.profile.id)
+    end
   def about_update
    @profile = current_user.profile
    @profile.update_column(:about, params[:profile][:about])

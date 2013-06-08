@@ -27,6 +27,50 @@
 
 
 <% end %>
+
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
+          <li><a href="#tab2" data-toggle="tab" id="followee" >present</a></li>
+          <li><a href="#tab3" data-toggle="tab">future</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+
+          <p>
+            <% @past.each do |past| %>
+
+            <% if past.end_date!=nil %>
+            
+             <%= past.company_name %>
+
+            <% end %>
+            <% end %>
+           
+          </p>
+
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>  
+              <% @past.each do |present| %>
+            <% if present.end_date == nil %>
+               <%= present.company_name %>
+
+            <% end %>
+            <% end %>
+             
+            </p>
+
+          </div>
+          <div class="tab-pane" id="tab3">
+            <p>
+               future
+              </p>
+          </div>
+        </div>
+      </div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
 <script>
