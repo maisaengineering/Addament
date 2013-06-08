@@ -24,6 +24,9 @@ class MilestonesController < ApplicationController
   # GET /milestones/new
   # GET /milestones/new.json
   def new
+
+
+    @goal_id =  params[:id]
     @milestone = Milestone.new
 
     respond_to do |format|
@@ -44,8 +47,8 @@ class MilestonesController < ApplicationController
 
     respond_to do |format|
       if @milestone.save
-        format.html { redirect_to @milestone, notice: 'Milestone was successfully created.' }
-        format.json { render json: @milestone, status: :created, location: @milestone }
+        format.html { redirect_to goals_path, notice: 'Milestone was successfully created.' }
+        #format.json { render json: @milestone, status: :created, location: @milestone }
       else
         format.html { render action: "new" }
         format.json { render json: @milestone.errors, status: :unprocessable_entity }

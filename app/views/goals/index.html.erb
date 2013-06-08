@@ -1,13 +1,49 @@
 <br/>
-<table style="background: white;width: 200px; height: 100px;">
 <% @goals.each do |goal| %>
-  <tr>
-    <td><%= goal.goal_name %></td>
-  </tr>
-  <tr>
-    <td><%= goal.target_date %></td>
-  </tr>
+  <table>
+    <tr>
+        <td>
+            <table style="background: white;width: 200px; height: 100px;">
+                <tr>
+                    <td><%= goal.goal_name %></td>
+                </tr>
+                <tr>
+                    <td><%= goal.target_date %></td>
+                </tr>
+          </table>
+          <br/>
+        </td>
+        <td>
+          <% milestone = Milestone.where("goal_id = ?", goal.id) %>
+          <% milestone.each do |mile_stone| %>
+          <table style="background: white;width: 200px; height: 100px;">
+            <tr>
+              <td>
+                <%=  mile_stone.mile_Stone_step %>
+              </td>
+            </tr>
+          </table>
+              <% end %>
+          <div class="button2">
+            <%=  link_to "Add MileStone", new_milestone_path(:id=> goal.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+
+
+
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Add More Professional</h3>
+              </div>
+              <div class="modal-body">
+                <p></p>
+              </div>
+
+            </div>
+          </div>
+        </td>
+    </tr>
+  </table>
+
 <% end %>
 
-</table>
-<%= link_to 'New Goal', new_goal_path %>
+  <%= link_to 'New Goal', new_goal_path %>
