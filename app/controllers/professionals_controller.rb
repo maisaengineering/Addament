@@ -22,6 +22,7 @@ class ProfessionalsController < ApplicationController
     end
   end
 
+
   # GET /professionals/new
   # GET /professionals/new.json
   def new

@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, :order => [:year, :month] %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date, :order => [:year, :month] %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -46,6 +46,7 @@
   <div class="field">
     <%= f.label :aspriations %><br />
     <%= f.text_area :aspriations %>
+
   </div>
   <div class="field">
     <%= f.label :achievements %><br />
@@ -61,11 +62,11 @@
   </div>
   <div class="field">
     <%= f.label :project_end_date %><br />
-    <%= f.date_select :project_end_date %>
+    <%= f.date_select :project_end_date, :order => [:year, :month] %>
   </div>
   <div class="field">
     <%= f.label :project_start_date %><br />
-    <%= f.date_select :project_start_date %>
+    <%= f.date_select :project_start_date, :order => [:year, :month] %>
   </div>
   <div class="field">
     <%= f.label :project_description %><br />

@@ -37,6 +37,10 @@ class ConversationsController < ApplicationController
     @conversation ||= mailbox.conversations.find(params[:id])
   end
 
+  def recipients
+    @recipients = current_user.following?(user)
+  end
+
   def conversation_params(*keys)
     fetch_params(:conversation, *keys)
   end

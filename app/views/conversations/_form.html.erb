@@ -1,0 +1,18 @@
+<%= simple_form_for :conversation, url: :conversations do |f| %>
+<%= f.input :recipients %>
+<%= f.input :subject %>
+<%= f.input :body %>
+<div class="form-actions">
+  <%= f.button :submit %>
+      </div>
+<% end %>
+<% @company = User.all %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $("#conversation_recipients").click(function() {
+        $("#conversation_recipients").select2({tags:[<% for i in 0...@company.length %>
+            '<%= @company[i].email %>',
+            <% end %>]});
+    });
+
+</script>
