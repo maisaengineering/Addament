@@ -43,10 +43,28 @@
 
             <% if past.end_date!=nil %>
             
-             <%= past.company_name %>
+             <%= past.company_name %><br>
+             <%= past.title %><br>
+             <%= past.start_date %><br>
+             <%= past.end_date %><br>
+             <%= past.project_name %>
 
             <% end %>
             <% end %>
+            <div class="button2">
+                    <%=  link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+
+                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Add More Professional</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p></p>
+                      </div>
+
+                    </div>
+                    </div>
            
           </p>
 
@@ -55,7 +73,10 @@
             <p>  
               <% @past.each do |present| %>
             <% if present.end_date == nil %>
-               <%= present.company_name %>
+               <%= present.company_name %><br>
+               <%= present.start_date %><br>
+               <%= present.location %><br>
+               <%= present.project_name %><br>
 
             <% end %>
             <% end %>
