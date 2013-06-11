@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Current activity:</b>
+  <%= @my_activity.current_activity %>
+</p>
+
+
+<%= link_to 'Edit', edit_my_activity_path(@my_activity) %> |
+<%= link_to 'Back', my_activities_path %>

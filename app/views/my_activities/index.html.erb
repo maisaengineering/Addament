@@ -1,0 +1,23 @@
+<h1>Listing my_activities</h1>
+
+<table>
+  <tr>
+    <th>Current activity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @my_activities.each do |my_activity| %>
+  <tr>
+    <td><%= my_activity.current_activity %></td>
+    <td><%= link_to 'Show', my_activity %></td>
+    <td><%= link_to 'Edit', edit_my_activity_path(my_activity) %></td>
+    <td><%= link_to 'Destroy', my_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New My activity', new_my_activity_path %>

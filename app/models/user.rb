@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :todos
   has_many :goals
+  has_many :my_activity
 
   def self.get_current_company_name(user_id)
     company = user_id.profile.professionals

@@ -51,8 +51,9 @@
           </tr>
           <tr>
             <td>
-              <%= form_for(@profile) do |f| %>
-              <%= f.hidden_field :user_id, :value=> current_user.id %>
+              <%= form_for(@profile, {:multipart => true}) do |f| %>
+
+            <%= f.hidden_field :user_id, :value=> current_user.id %>
               <table class="profile_data">
                 <tr class="profile">
                   <td class="odd">First Name</td>
@@ -102,7 +103,8 @@
                 <tr>
                   <td><%=  f.submit "Update Profile", :id=> "save" %></td>
                   <td>
-                          <%=  f.file_field :image, :class => 'fileUploadContainer', :value => "Choose file" %>
+
+                    <%= f.file_field :avatar_file1, :class => 'fileUploadContainer', :value => "Choose file"  %>
 
                   </td>
                 </tr>

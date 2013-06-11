@@ -1,4 +1,7 @@
 Addament::Application.routes.draw do
+  resources :my_activities
+
+
   resources :milestones
 
 
@@ -47,6 +50,7 @@ Addament::Application.routes.draw do
       collection do
          get 'path'
         get 'about'
+        get 'code_image'
         post 'about_update'
       end
     end 

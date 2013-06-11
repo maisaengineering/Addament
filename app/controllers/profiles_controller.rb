@@ -64,6 +64,12 @@ class ProfilesController < ApplicationController
       end
     end
   end
+  def code_image
+
+    profille = Profile.find(current_user.profile.id)
+    @image = profille.avatar_file
+    send_data(@image,:disposition => 'inline')
+  end
 
   # PUT /profiles/1
   # PUT /profiles/1.json

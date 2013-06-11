@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608045058) do
+ActiveRecord::Schema.define(:version => 20130611100423) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -95,6 +95,13 @@ ActiveRecord::Schema.define(:version => 20130608045058) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "my_activities", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "current_activity"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "notifications", :force => true do |t|
     t.string   "type"
     t.text     "body"
@@ -147,9 +154,16 @@ ActiveRecord::Schema.define(:version => 20130608045058) do
     t.string   "state"
     t.text     "about"
     t.string   "interests"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "image"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.binary   "avatar_file",         :limit => 2147483647
+    t.binary   "avatar_small_file",   :limit => 2147483647
+    t.binary   "avatar_thumb_file",   :limit => 2147483647
   end
 
   create_table "receipts", :force => true do |t|
