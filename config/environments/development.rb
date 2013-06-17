@@ -36,12 +36,10 @@ Addament::Application.configure do
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.asset_host = 'http://localhost:3000'
-  config.action_mailer.delivery_method = :smtp
-  # change to false to prevent email from being sent during development
-  # If you want check emails are working or not, just change perform_deliveries to true
+  # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "text/html"
 
   config.action_mailer.smtp_settings = {
       address: "smtp.gmail.com",
@@ -50,6 +48,6 @@ Addament::Application.configure do
       authentication: "plain",
       enable_starttls_auto: true,
       user_name: "addament.engineer@gmail.com",
-      password: "addament123#"
+      password: "maisa123#"
   }
 end

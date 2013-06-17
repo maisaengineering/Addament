@@ -1,4 +1,10 @@
 Addament::Application.routes.draw do
+
+  resources :feedback do
+    collection do
+      post 'send_email'
+    end
+    end
   resources :educations
 
 
@@ -64,6 +70,7 @@ Addament::Application.routes.draw do
          get 'path'
         get 'about'
         get 'code_image'
+         get 'other_user_image'
         post 'about_update'
       end
     end 

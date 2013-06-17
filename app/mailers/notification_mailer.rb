@@ -18,4 +18,11 @@ class NotificationMailer < ActionMailer::Base
          :subject => t('mailboxer.notification_mailer.subject', :subject => subject),
          :template_name => 'new_notification_email'
   end
+
+  def feedback_email(email, title, category, message)
+    mail :to => "praneetheee240@gmail.com", :subject => title, :body => "#{category}"'<br/>'"#{message}",:template_name => 'feedback_email'
+  end
+  def customer_email(email)
+    mail(:to => email, :subject => "Feed back", :body =>"Thanks for giving feed back" )
+  end
 end

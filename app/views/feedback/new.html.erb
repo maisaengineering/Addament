@@ -1,0 +1,38 @@
+
+<br/>
+
+
+<%= form_tag('/feedback/send_email') do %>
+    <table>
+      <tr>
+        <td>Subject</td>
+        <td><%= text_field_tag :title %></td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>
+         <%= select_tag :category,  options_for_select([["suggest new feautres"],["Improve this page"],["I like this page"]]) %>
+        </td>
+      </tr>
+      <tr>
+        <td>Message</td>
+        <td><%= text_area_tag :message %></td>
+      </tr>
+      </table>
+
+
+    <%= hidden_field_tag :email, current_user.email %>
+
+
+    <div><%= submit_tag 'Send' %></div>
+<% end %>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $(window).load(function(){
+
+        $('select').css({'width': 200});
+
+    });
+</script>

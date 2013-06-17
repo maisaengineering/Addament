@@ -81,7 +81,8 @@ Addament::Application.configure do
       authentication: "plain",
       enable_starttls_auto: true,
       user_name: "addament.engineer@gmail.com",
-      password: "addament123#"
+      password: "maisa123#"
   }
+
 
 end
