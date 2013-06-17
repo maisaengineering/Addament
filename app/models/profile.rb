@@ -15,8 +15,9 @@ class Profile < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   has_many :professionals
+  has_many :education
   accepts_nested_attributes_for :professionals
-  belongs_to :user
+  belongs_to :users
   include PublicActivity::Model
   tracked
 

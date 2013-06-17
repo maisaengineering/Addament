@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :schools
+
+
   resources :feedback do
     collection do
       post 'send_email'
