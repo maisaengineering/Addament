@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  school: MyString
+  date_attended: 2013-06-17
+  degree: MyString
+  field_of_study: MyString
+  grade: MyString
+  activities_and_societies: MyString
+  description: MyText
+  skills: MyText
+
+two:
+  school: MyString
+  date_attended: 2013-06-17
+  degree: MyString
+  field_of_study: MyString
+  grade: MyString
+  activities_and_societies: MyString
+  description: MyText
+  skills: MyText

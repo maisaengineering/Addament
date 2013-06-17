@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611100423) do
+ActiveRecord::Schema.define(:version => 20130617063955) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
   add_index "activities", ["recipient_id", "recipient_type"], :name => "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], :name => "index_activities_on_trackable_id_and_trackable_type"
 
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "commenter_id"
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "companies", :force => true do |t|
     t.string   "company_name"
     t.datetime "created_at",   :null => false
@@ -40,6 +48,20 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
     t.string   "subject",    :default => ""
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "educations", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "school"
+    t.date     "date_attended"
+    t.string   "degree"
+    t.string   "field_of_study"
+    t.string   "grade"
+    t.string   "activities_and_societies"
+    t.text     "description"
+    t.text     "skills"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "follows", :force => true do |t|
@@ -122,6 +144,13 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
 
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "current_post"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "professionals", :force => true do |t|
     t.string   "company_name"
     t.string   "title"
@@ -154,12 +183,10 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
     t.string   "state"
     t.text     "about"
     t.string   "interests"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "image"
-    t.binary   "avatar_file",       :limit => 2147483647
-    t.binary   "avatar_small_file", :limit => 2147483647
-    t.binary   "avatar_thumb_file", :limit => 2147483647
+    t.binary   "avatar_file",  :limit => 2147483647
   end
 
   create_table "receipts", :force => true do |t|
@@ -199,6 +226,10 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "user_role"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"

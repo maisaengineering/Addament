@@ -1,0 +1,4 @@
+$("#post_form").html("<%= escape_javascript(render(:partial => "form"))%>");
+$("#post_comment").html("<%= escape_javascript(render(:partial => "posts_comments", @posts => @posts))%>");
+
+

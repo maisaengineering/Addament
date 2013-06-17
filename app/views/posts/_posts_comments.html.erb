@@ -1,0 +1,48 @@
+<table>
+    <tr>
+      <th>Current post</th>
+
+    </tr>
+    <% i = 1 %>
+    <% @posts.each do |post| %>
+        <tr>
+          <td>
+
+            <% user = User.find(post.user_id) %>
+            <% unless user.profile.avatar_file.nil? %>
+                <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+            <% else %>
+                <%=  image_tag("missing.png",height: 25,width: 25) %>
+            <% end %>
+          </td>
+          <td><%= user.profile.first_name  %><%= post.current_post %></td>
+          <td><div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div></td>
+          <td>
+
+            <div class="profile_text<%= i %>" style="display: none;">
+              <div class="comment_form">
+                <%=  render 'comments/form', :id => post.id %>
+              </div>
+
+            </div>
+
+          </td>
+          <td>
+            <%=render post.comments%>
+          </td>
+        </tr>
+        <% i +=1 %>
+    <% end %>
+  </table>
+
+  <br />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+    function open_form(e)
+    {
+
+        $('.profile_text'+ e).css('display', 'block');
+
+    }
+</script>

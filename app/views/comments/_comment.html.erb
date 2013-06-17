@@ -1,0 +1,28 @@
+<% profile = Profile.where("user_id =? ",comment.commenter_id).first %>
+<table>
+  <tr>
+    <% unless profile.avatar_file.nil? %>
+        <td>
+          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image"} %>
+        </td>
+    <% else %>
+        <td>
+          <%=  image_tag("missing.png",height: 25,width: 25) %>
+        </td>
+    <% end %>
+    <td>
+      <%= comment.created_at.strftime("%d %b") %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%=  profile.first_name %></td>
+    <td>Commented</td>
+    <td><%=  comment.description %></td>
+  </tr>
+  <tr>
+    <td>
+      <%= time_ago_in_words(comment.created_at) %>ago
+    </td>
+    </tr>
+    </table>

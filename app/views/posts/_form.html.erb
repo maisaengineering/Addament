@@ -1,0 +1,27 @@
+<%= form_for(@post, :remote => true) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="field">
+     <br/>
+    <% unless current_user.profile.avatar_file.nil? %>
+        <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image"} %>
+     <% else %>
+        <%=  image_tag("missing.png",height: 25,width: 25) %>
+    <% end %>
+    <%= f.text_area :current_post, :rows => "2", :cols => "2" %>
+  </div>
+  <div class="a">
+    <%= f.submit "post", :id => "save" %>
+  </div>
+<% end %>

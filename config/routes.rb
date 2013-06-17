@@ -1,4 +1,11 @@
 Addament::Application.routes.draw do
+  resources :educations
+
+
+  resources :comments
+
+
+
   resources :my_activities
 
 
@@ -7,6 +14,12 @@ Addament::Application.routes.draw do
 
   resources :goals
 
+  resources :posts do
+    member do
+      get 'comment_current_post'
+      post 'create_comment'
+    end
+  end
 
   resources :companies
 

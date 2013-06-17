@@ -115,33 +115,33 @@
                           %td
                             %td.activity_users
                               %table
-                                -  @activities.each do |activity|
-                                  - user = User.find(activity.trackable_id)
+                                -  @posts.each do |post|
+                                  - user = User.find(post.user_id)
                                   %tr
                                     %td
                                       - unless user.profile.nil?
-                                        - unless user.profile.image.url.nil?
-                                          = image_tag(user.profile.image.url(:small),height: 25,width: 25)
-                                        -else
+                                        - unless current_user.profile.avatar_file.nil?
+                                          = image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image"}
+                                        - else
                                           = image_tag("missing.png",height: 25,width: 25)
-                                      - else
-                                        = image_tag("missing.png",height: 25,width: 25)
                                       - unless user.profile.nil?
-                                        =user.profile.first_name + " " + user.profile.last_name + " " + "updated"
-                                      =activity.trackable_type + " "+ "information"
+                                        =user.profile.first_name + " " + user.profile.last_name
+                                        %br/
+                                        =truncate(post.current_post, length: 1)
                                       %tr
                                         %td
                                           %table
                                             %tr
                                               %td.time_ago
-                                                = time_ago_in_words(activity.created_at) + " " + "ago"
-                                              %td.comment comment
+                                                = time_ago_in_words(post.created_at) + " " + "ago"
+                                              %td.comment
+                                                = link_to "Comment", comment_current_post_post_path(post)
                                               %td.share share
                                           %hr
                         %tr
                           %td
-                            - if @activities.length > 3
-                              = link_to "more", show_all_activity_path
+                            - if @posts.length > 3
+                              = link_to "more", posts_path
   %table.table_footer
     %tr
       %td.footer_middle
