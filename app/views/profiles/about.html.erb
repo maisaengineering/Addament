@@ -1,31 +1,33 @@
 <%= form_for(@profile, url: about_update_profiles_path, :method => "post", :remote => true) do |f| %>
     <br/>
-        <table>
-          <tr>
-            <td>
-              <% unless current_user.profile.avatar_file? %>
+    <table>
+      <tr>
+        <td>
+
+          <% unless current_user.profile.avatar_file? %>
               <%= image_tag("missing.png",height: 70,width: 80) %>
-              <% else %>
+          <% else %>
               <div id ="image" style="width:20px;height:20px;">
-              <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
-            </div>
-              
-              <% end %>
-            </td>
-            <td><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
-            <td>
-              <div class="profile_text" style="display: block; color:white;">
-                <%= @profile.about %>
+                <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
               </div>
-              <div class="profile_text2" style="display: none;">
-                <%= f.text_area :about, :rows => 2, :cols => 220 %>
-              </div>
-            </td>
-          </tr>
-        </table>
+
+
+          <% end %>
+        </td>
+        <td><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
+        <td>
+          <div class="profile_text" style="display: block; color:white;">
+            <%= @profile.about %>
+          </div>
+          <div class="profile_text2" style="display: none;">
+            <%= f.text_area :about, :rows => 2, :cols => 220 %>
+          </div>
+        </td>
+      </tr>
+    </table>
     <br/>
     <div style="display: none;">
-    <%=  f.submit "update Profile", :id=> "save" %>
+      <%=  f.submit "update Profile", :id=> "save" %>
     </div>
 
 
@@ -33,96 +35,105 @@
 
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
-          <li><a href="#tab2" data-toggle="tab" id="followee" >present</a></li>
-          <li><a href="#tab3" data-toggle="tab">future</a></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
+    <li><a href="#tab2" data-toggle="tab" id="followee" >present</a></li>
+    <li><a href="#tab3" data-toggle="tab">future</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
 
-          <p>
-            <% @past.each do |past| %>
+      <p>
+        <% @past.each do |past| %>
 
             <% if past.end_date!=nil %>
-            
-             <%= past.company_name %><br>
-             <%= past.title %><br>
-             <%= past.start_date %><br>
-             <%= past.end_date %><br>
-             <%= past.project_name %>
+
+                <%= past.company_name %><br>
+                <%= past.title %><br>
+                <%= past.start_date %><br>
+                <%= past.end_date %><br>
+                <%= past.project_name %>
 
             <% end %>
-            <% end %>
-            <div class="button2">
-                    <%=  link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+        <% end %>
 
-                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">Add More Professional</h3>
-                      </div>
-                      <div class="modal-body">
-                        <p></p>
-                      </div>
 
-                    </div>
-                    </div>
-           
-          </p>
+      </p>
 
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>  
-              <% @past.each do |present| %>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>
+        <% @past.each do |present| %>
             <% if present.end_date == nil %>
-               <%= present.company_name %><br>
-               <%= present.start_date %><br>
-               <%= present.location %><br>
-               <%= present.project_name %><br>
+                <%= present.company_name %><br>
+                <%= present.start_date %><br>
+                <%= present.location %><br>
+                <%= present.project_name %><br>
 
             <% end %>
-            <% end %>
-             
+        <% end %>
+
+      </p>
+
+    </div>
+    <div class="tab-pane" id="tab3">
+      <p>
+        <% @goal.each do |goal| %>
+            <% user  = User.where(goal.id).first %>
+            <%= raise user.profile.first.inspect %>
+            <% profile = user.profile %>
+            <%= profile.first_name %> <%= profile.last_name %><br>
+            <%= goal.goal_name %><br>
+
             </p>
+            <div id="all_comment_current_post">
+              <%=  render :partial => 'current_comment' %>
+            </div>
 
-          </div>
-          <div class="tab-pane" id="tab3">
-            <p>
-               
-              </p>
-          </div>
-        </div>
-      </div>
+            <%= form_for(:goal_comment, :method => "post", :remote => true) do |f| %>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>
-<script>
-   $('.aboutbutton').click(function(){
+                <div class="field">
+                  <%= f.hidden_field :goal_id, :value => goal.id %>
+                  <%= f.hidden_field :commenter_id, :value => current_user.id %>
+                  Comment<br />
+                  <%= f.text_area :description, :rows => "2", :cols => "2" %>
+                </div>
+                <%= f.submit  %>
+            <% end %>
 
-      $('.profile_text').css('display', 'none');
-      $('.profile_text2').css('display', 'block');
-   });
-</script>
-<script>
-    $(document).ready(function(){
-        if("<%= @profile.about %>")
-        {
+            </div>
+            </div>
+            </div>
+        <% end %>
 
-           $(".profile_text").html("<%= @profile.about %>").show();
-            $(".profile_text2").hide();
-        }
-        else
-        {
-            $(".profile_text2").show();
-            $(".profile_text").hide();
-        }
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+        </script>
+        <script>
+            $('.aboutbutton').click(function(){
 
-    });
-</script>
+                $('.profile_text').css('display', 'none');
+                $('.profile_text2').css('display', 'block');
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+                if("<%= @profile.about %>")
+                {
 
-<script>
-    $('#profile_about').blur(function() {
-        $('#save').trigger('click');
-    });
-</script>
+                    $(".profile_text").html("<%= @profile.about %>").show();
+                    $(".profile_text2").hide();
+                }
+                else
+                {
+                    $(".profile_text2").show();
+                    $(".profile_text").hide();
+                }
+
+            });
+        </script>
+
+        <script>
+            $('#profile_about').blur(function() {
+                $('#save').trigger('click');
+            });
+        </script>
