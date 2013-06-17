@@ -1,0 +1,93 @@
+<table class="main_form">
+			<tr class="removeTop">
+				<td class="removeLeft"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="removeRight"></td>
+			</tr>
+
+			<tr class="ctr">
+				<td ></td>
+				<td class="ctd" ><%= image_tag("/assets/logo.png", :style => "width:149px;height:155px") %></td>
+				<td class="form_title"><h3>Sign up</h3></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr class="fildsRow">
+				<td></td>
+				<td class="form_labels_td">
+				
+				
+				</td>
+				<td class= "form_table_Td">
+
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+					
+					<table class="form_table" style= "margin-left: -118px">
+							<td>Email</td>
+					         <td><%= f.email_field :email, :autofocus => true %></td>
+					    </tr>
+					    <tr>
+					      <td>Password</td>
+					      <td><%= f.password_field :password, :autocomplete => "off" %></td>
+					    </tr> 
+					    <tr>
+					    	<tr>
+					    	<td>Password Confirmation</td>
+					    	<td><%= f.password_field :password_confirmation %></td
+					    </tr> 
+					    <tr>
+					    	<td></td>
+					    	<td>
+								<label>I am a </label>
+								<% User::ROLES.each do |role| %>
+			                     <%= check_box_tag "[user_role][]",role %> <%= role %>
+			                    <% end %>
+                    		</td>
+					    </tr>
+					    <tr>
+					      <td></td>
+					      <td style="text-align: right;"><%= f.submit "Sign Up", :class => "btn2", :style => "width:100px" %></td>
+					    </tr>  
+					
+                    
+                    </table>
+
+					
+				</td>
+				<td class="shareTd">
+					<table>
+						<tr>
+							<td>
+								<p style="color:#aaa;">or</p>
+								<p>Create account using <br/>other social account</p>
+								<div class="sharing_icons_con">
+									<a href="#?"><%= link_to image_tag("/assets/social_shares/facebook.jpg", :class => "sharing_icon"),omniauth_authorize_path(resource_name, "facebook") %>
+									
+									</a>
+									<a href="#?"><%= link_to image_tag("/assets/social_shares/google_plus.jpg", :class => "sharing_icon"),omniauth_authorize_path(resource_name, "google") %></a>
+									<br style="clear:both;"/>
+									<a href="#?"><%= link_to image_tag("/assets/social_shares/twitter.jpg", :class => "sharing_icon"),omniauth_authorize_path(resource_name, "twitter") %>
+									</a>
+									<a href="#?"><%= link_to image_tag("/assets/social_shares/linkedin.png", :class => "sharing_icon"), omniauth_authorize_path(resource_name, "linkedin") %>
+									</a>
+								</div>
+							</td>
+						</tr>
+					</table>			
+				</td>
+				<td></td>
+			</tr>
+
+			<tr class="label_td">
+				<td></td>
+				<td></td>
+				
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+<%end%>

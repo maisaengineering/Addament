@@ -1,98 +1,310 @@
-.profile_background {
-    background-color: white;
-    width: 950px;
-    height: 98px;
+@font-face{
+	font-family: itc_avant_garde;
+	src: url(../fonts/itc_avant_garde-_sdl.woff);
 }
-.edit_profile_background {
-    width: 888px;
-    margin-left: 27px;
-}
-.edit_profile_back {
-    background-color: #51A2D5;
-    width: 874px;
-    padding-top: 14px;
-    padding-left: 13px;
-}
-#profile_background {
-    background-color:#ffffff ;
-    left: 118px;
-    top: 160px;
-    width: 1103px;
-    height: 94px;
-
-}
-.pencil_icon{
-    vertical-align: top;
-}
-.edit_profile_text {
-    margin-top: -6px;
-    color: white;
-    padding-left: 10px;
-}
-.profile_complete_text{
-    color: #ffffff;
-    margin-left: 357px;
-}
-#profile_complete {
-
-    width: 390px;
-    height: 30px;
-}
-.profile_completed {
-margin-top: -21px;
-padding-top: 16px;
-margin-left: -143px;
-}
-.profile_background_1 {
-    background-color: #ffffff;
-    width: 471px;
-    height: 592px;
-
-}
-.Personal {
-    padding-left: 25px;
-    padding-top: 25px;
-    vertical-align: top;
-    color: #B1D580;
-
-    height: 12px;
-
-}
-table.profile_data, tr.profile  {
-    width: 431px;
-    border:1px solid white;
-    margin-left: 19px;
-    margin-top: -30px;
-
-}
-table.profile_data2 {
-    width: 431px;
-    border:1px solid white;
-    margin-left: 19px;
-    margin-top: -77px;
-}
-.space_in_profile {
-    width: 6px;
+*{
+	margin: 0px; padding: 0px;
 }
 
-.profile_background_2 {
-    background-color: #ffffff;
-    width: 471px;
-    height: 598px;
+body{
+	background: url(../images/main-bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: itc_avant_garde;
+}
+#header{
+	height: 120px;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 3px solid #222;
+}
+#header .cen{
+	width: 980px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+#menu{
+	list-style-type: none;
+	margin-top: -45px;margin-left:90px;
+}
+#menu .menuItem{
+	float: left;
+	margin-left: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #51a2d5; 
+	padding-left: 10px;
+	cursor: pointer;
+}
+#menu .menuItemSelected{
+	color: #96c953;
+	cursor: default;
+}
+#header .userDet{
+	font-size: 11px;
+	color: #96c953;
+	display:block;
+	margin-top: 0px;margin-left: 2px;
+	float: left;
+	list-style-type: none;
+	width: 195px;
+}
+#header .srch{
+	background: url(../images/search.gif) no-repeat;
+	background-position:right;
+	margin-left:20px; 
+	height:20px;
+	display: list-item; 
+	float:left; 
+	color: #444444;
+	margin-top:-3px;
+	width: 140px;
+	border: 1px solid #bbb;
+	padding-right: 20px;
+}
+#notifi img{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#notifi .notification{
+	display: list-item;
+	font-size: 10px;
+	font-weight: bold;
+	color: #96c953;
+	margin-left: -53px;
+	/*border: 1px solid #333;*/
+	width: 40px; height: 35px;
+	list-style: none; padding: 1px;
+	background: url(../images/tooltip.png) no-repeat;
+	background-size: 38px 30px;
+	background-position: 0px -4px;
+	text-align: center;
+	padding-bottom: 5px;
+	padding-top: -5px;
+	float: left;
+	margin-top: -25px;
+}
+#footer{
+	background-color: #222;
+	height:116px;width: 100%;
+	background:url(../images/footer-bg.jpg);
+	background-repeat: repeat-x;
+}
+.footerContent #pMenu{
+	font-size: 10px;
+	font-weight: bold;
+	display: block;
+	width: 980px;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+#pMenu .pMenuItem{
+	list-style-type: none;
+	display: list-item;
+	float: left;
+	color: #4a4a4a;
+	padding-right: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+#pMenu li:after{
+	padding-left: 10px;
+	content: " | "
+}
+#pMenu li:last-child:after{
+	content: ""
+}
+.footerContent p{
+	font-size: 10px;
+	font-weight: bold;
+	color: #4a4a4a;
+	letter-spacing: 1px;
+	display: block;
+	width: 980px;
+	border-top: 1px solid #4a4a4a;
+	padding-top: 10px;
+	margin: 0 auto;
+	padding-left: 60px;
+	padding-right: 20px;
+	text-align: left;
+}
+#profile_con_tbl{
+	width: 980px;height: 600px;
+	margin: 0 auto; margin-top: 30px;
+	border-collapse: collapse;
+	align:center;
+}
 
+#profile_con_tbl .tabHeader{
+	width: 100%;height: 95px;
+	background-color: #fff;
 }
-#file {
-    display:none;
-    background-color:red;
-    width:10px;
+#profile_con_tbl #editProfile{
+	background: url(../images/editprofile.gif) no-repeat;background-position: 20px 26px;
+	width: 940px;height: 54px;
+	background-color:#51a2d5; 
+	margin: 18px;color: #fff;
+	line-height: 65px;
+	padding-left: 60px;
 }
-.fileUploadContainer {
-    position: relative;
-    display: block;
-    float: left;
-    width: 230px;
+.profileCompTrg{
+	height: 30px;width: 350px;
+	background-color: #fff;
+	margin-top: -60px;position:absolute;
+	margin-left: 590px;
+	line-height: 30px;
+	font-size: 12px;
+	padding-left: 10px;
+	color: #51a2d5; 
+	font-weight: bold;
+}
+#profile_con_tbl .personal{
+	background-color: #fff;
+	width: 485px;height: 550px;
+	vertical-align: text-top;
+}
+#profile_con_tbl .professional{
+	background-color: #fff;width: 485px;
+	vertical-align: text-top;
+}
+#profile_con_tbl .tdGradent{
+	background: url(../images/footer-div.png);
+	background-repeat: repeat-x;
+ 	height: 145px;
+}
+td{
+	/*border: 1px solid #bbb;*/
+}
+/* ----------------------------------------------- ----        PERSONAL TABLE ... -----------------------------------------  */
+#personalTbl{
+	width: 425px; border-collapse:collapse;
+	/*border: 1px solid #222;*/
+	margin: 0 auto;margin-top: 30px;
+	font-size: 12px;
+}
+#personalTbl tr:nth-child(odd) td{
+	background: rgba(159,202,107,.85);
+}
+#personalTbl tr:nth-child(even) td{
+	background: rgba(159,202,107,.70);
+	background-size: 425px 40px;
+}
+#personalTbl td{
+	padding:5px;
+ 	vertical-align:middle;
+ 	text-align: right;
+ 	color: #fff;
+ 	border-bottom: 2px solid #fff;
 }
 
+#personalTbl input[type="text"]{
+	height: 30px;width: 295px;
+	margin-left: 5px;
+}
+#personalTbl textarea{
+	height: 90px;width: 295px;
+	border: none; resize: none;
+	margin-left: 5px;
+}
+#personalTbl .exmp{
+	 background-color:#fff; 
+	 height:30px;
+	 text-align: right;
+	 padding-right:7.5px;
+	 color:#9fca6b;
+	 font-size: 11px;
+}
+#personalTbl .btns{
+	height: 30px;
+	color: #fff;
+	background: #51A2D5;
+	border: 0px;
+	border-radius: 20px;
+	padding: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.1em;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+	-webkit-transition: background-color,color 400ms linear;
+	-moz-transition: background-color,color 400ms linear;
+	-o-transition: background-color,color 400ms linear;
+	-ms-transition: background-color,color 400ms linear;
+	transition: background-color,color 400ms linear;
+}
+#personalTbl .updateProfile{
+	background: url(../images/updateprofile.gif) no-repeat;background-position: 15px;
+	width:140px;height:30px;
+	color: #fff;background-color: #51a2d5;
+	border: 0px;border-radius: 20px;
+	padding: 2px;font-size: 13px;
+	font-weight: bold; letter-spacing: 1px;
+	padding-left: 40px;padding-right: 20px;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+}
+#personalTbl .chooseFile{
+background: url(../images/choosefile.gif) no-repeat;background-position: 15px;
+	width:140px;height:30px;
+	color: #fff;background-color: #96c953;
+	border: 0px;border-radius: 20px;
+	padding: 2px;font-size: 13px;
+	font-weight: bold; letter-spacing: 1px;
+	padding-left: 40px;padding-right: 20px;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+}
+/* -------------------------------------------------        PROFESSIONAL TABLE..---------------------------------------*/
+#professionalTbl{
+	width: 425px; border-collapse:collapse;
+	/*border: 1px solid #222;*/
+	margin: 0 auto;
+	font-size: 12px;
+	margin-top: 30px;
+}
+
+#professionalTbl tr:nth-child(odd) td{
+	background-color: #fff;
+	background: rgba(105,169,212,.85);
+	margin-bottom: 1px;
+}
+#professionalTbl tr:nth-child(even) td{
+	background: rgba(105,169,212,.70);
+	background-size: 425px 39px;
+}
+#professionalTbl td{
+	padding:5px;
+ 	vertical-align:middle;
+ 	text-align: right;
+ 	color: #fff;
+ 	border-bottom: 2px solid #fff;
+}
+
+#professionalTbl input[type="text"]{
+	height: 30px;width: 295px;
+	margin-left: 5px;
+}
+#professionalTbl textarea{
+	height: 90px;width: 295px;
+	border: none; resize: none;
+	margin-left: 5px;
+}
+#professionalTbl .exmp{
+	 background-color:#fff; 
+	 height:30px;
+	 text-align: right;
+	 padding-right:7.5px;
+	 color:#69a9d4;
+}
+.tableHeaders{
+	height: 50px;
+	vertical-align: text-top;
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+}
 .fileUploadButtonContainer {
     position: relative;
     width: 125px;
@@ -124,5 +336,23 @@ input[type="file"]::-webkit-file-upload-button{
     text-transform: lowercase;
     cursor: pointer;
 }​
+.btn3{
+	color: #fff;
+	background: #9ECA6B;
+	border: 0px;
+	border-radius: 20px;
+	padding: 2px;
+	padding-left: 16px;
+	padding-right: 16px;
+	font-size: 16px;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+	-webkit-transition: background-color,color 400ms linear;
+	-moz-transition: background-color,color 400ms linear;
+	-o-transition: background-color,color 400ms linear;
+	-ms-transition: background-color,color 400ms linear;
+	transition: background-color,color 400ms linear;
+
+}
 
 

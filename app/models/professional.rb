@@ -3,7 +3,7 @@ class Professional < ActiveRecord::Base
   belongs_to :profile
   include PublicActivity::Model
 
-  validate :start_must_be_before_end_date
+ # validate :start_must_be_before_end_date
 
 
    def start_must_be_before_end_date

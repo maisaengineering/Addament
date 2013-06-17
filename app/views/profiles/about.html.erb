@@ -3,10 +3,13 @@
         <table>
           <tr>
             <td>
-              <% if current_user.profile.image? %>
-              <%= image_tag(current_user.profile.image.url(:thumb)) %>
-              <% else %>
+              <% unless current_user.profile.avatar_file? %>
               <%= image_tag("missing.png",height: 70,width: 80) %>
+              <% else %>
+              <div id ="image" style="width:20px;height:20px;">
+              <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
+            </div>
+              
               <% end %>
             </td>
             <td><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
@@ -86,7 +89,7 @@
           </div>
           <div class="tab-pane" id="tab3">
             <p>
-               future
+               
               </p>
           </div>
         </div>
@@ -100,7 +103,7 @@
       $('.profile_text').css('display', 'none');
       $('.profile_text2').css('display', 'block');
    });
-   </script>
+</script>
 <script>
     $(document).ready(function(){
         if("<%= @profile.about %>")
@@ -123,4 +126,3 @@
         $('#save').trigger('click');
     });
 </script>
-

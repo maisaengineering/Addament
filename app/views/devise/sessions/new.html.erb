@@ -1,0 +1,55 @@
+<table class="bg">
+	<tr class="removeTop">
+		<td class="removeLeft"></td>
+		<td></td>
+		<td></td>
+		<td class="removeRight"></td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td class = "logoRow_p" colspan="2"><%= image_tag("/assets/logo.png", :class => "logoRow") %>
+			
+				<p align="right">Professionals To Mentor Younger Professionals.</font></p>
+				<p align="right">A Professional Development Website For </p>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><br><br>
+		<td><%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			<table class="formRow">
+		    <tr>
+                <td>Email</td>
+	     	    <td><%= f.email_field :email, :autofocus => true %></td>
+	     	</tr>
+	     	<tr>
+			    <td>Password</td>
+			    <td><%= f.password_field :password, :autocomplete => "off" %></td>
+		    </tr>
+		</table>
+		<table>   
+		    <tr> 
+		        <td><%= f.check_box :remember_me %>Remember Me</td>
+		        	<td><%= f.submit 'Log in', :class => "btn1" %></td>
+		          <td> <%= link_to "Create Account",  new_user_registration_path, :class => "btn2" %></td>
+                    
+                </td>
+		    </tr>
+		    <tr>
+		    	<td><%= link_to "Forgot Password", new_user_password_path %></td>
+		    </tr>
+		    </table>
+		</td>  
+
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<% end %>

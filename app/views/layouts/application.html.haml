@@ -52,6 +52,7 @@
                         = image_tag url_for(:controller => "profiles", :action => "code_image")
                         = image_tag(current_user.profile.image.url(:small),height: 25,width: 25)
                       -else
+                        = image_tag url_for(:controller => "profiles", :action => "code_image")
                         = image_tag("missing.png",height: 25,width: 25)
                     - else
                       = image_tag("missing.png",height: 25,width: 25)

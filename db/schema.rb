@@ -154,16 +154,12 @@ ActiveRecord::Schema.define(:version => 20130611100423) do
     t.string   "state"
     t.text     "about"
     t.string   "interests"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "image"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.binary   "avatar_file",         :limit => 2147483647
-    t.binary   "avatar_small_file",   :limit => 2147483647
-    t.binary   "avatar_thumb_file",   :limit => 2147483647
+    t.binary   "avatar_file",       :limit => 2147483647
+    t.binary   "avatar_small_file", :limit => 2147483647
+    t.binary   "avatar_thumb_file", :limit => 2147483647
   end
 
   create_table "receipts", :force => true do |t|

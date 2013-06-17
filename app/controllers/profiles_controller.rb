@@ -65,9 +65,8 @@ class ProfilesController < ApplicationController
     end
   end
   def code_image
-
-    profille = Profile.find(current_user.profile.id)
-    @image = profille.avatar_file
+    profile = Profile.find(current_user.profile.id)
+    @image = profile.avatar_file
     send_data(@image,:disposition => 'inline')
   end
 

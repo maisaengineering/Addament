@@ -1,0 +1,113 @@
+@font-face{
+	font-family: itc_avant_garde;
+	src: url(../fonts/itc_avant_garde-_sdl.woff);
+}
+
+body{
+	background: url(/assets/main-bg.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: 80px;
+}
+.bg{
+	background-image: url(/assets/loginform-bg.png);
+	width: 651px;height: 444px;
+	border-collapse: collapse;
+	/*border: 1px solid #fff;*/
+	margin: auto;
+}
+td{
+	/*border: 1px solid #000;*/
+}
+p{
+	font-family: itc_avant_garde;
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: #222;
+}
+label{
+	font-size: 15px;
+	font-family: itc_avant_garde;
+}
+.input_fld{
+	height: 25px;
+	width: 275px;
+	margin-bottom: 15px;
+}
+.removeTop{
+	height: 68px;
+}
+.removeLeft{
+	width: 70px;
+}
+.removeRight{
+	width: 65px;
+}
+.removeBottom{
+	height: 60px;
+}
+.logoRow{
+	margin-top: -25px;
+	
+}
+.formRow{
+	height: 100px;
+}
+.form_lbl{
+	display: block;
+	height: 25px;
+}
+.form_input{
+	display: block;
+	height: 25px;
+	width: 270px;
+	margin-bottom: 10px;
+}
+.btn1 {
+	color: #fff;
+	background: #96c953;
+	border: 0px;
+	border-radius: 20px;
+	padding: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 16px;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+	-webkit-transition: background-color,color 400ms linear;
+	-moz-transition: background-color,color 400ms linear;
+	-o-transition: background-color,color 400ms linear;
+	-ms-transition: background-color,color 400ms linear;
+	transition: background-color,color 400ms linear;
+
+}
+.btn:hover {color: #000;}
+.remember_me{
+	padding-left: 8px;
+	font-size: 16px;
+}
+.logoRow_p p{
+	margin-top: -54px;
+padding-left: 96px
+}
+
+.btn2 {
+	color: #fff;
+	background: #51A2D5;
+	border: 0px;
+	border-radius: 20px;
+	padding: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 16px;
+	font-family: itc_avant_garde;
+	cursor: pointer;
+	-webkit-transition: background-color,color 400ms linear;
+	-moz-transition: background-color,color 400ms linear;
+	-o-transition: background-color,color 400ms linear;
+	-ms-transition: background-color,color 400ms linear;
+	transition: background-color,color 400ms linear;
+
+}
