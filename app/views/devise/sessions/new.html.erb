@@ -1,62 +1,45 @@
 <% if flash[:notice] %>
-<div class="alert alert-success">
-  <button class="close" data-dismiss = "alert" type = "button"> ×</button>
-  <p class="text-info"><%= flash[:notice] %></p>
-</div>
-    <% end %>
-
-<table class="bg">
-	<tr class="removeTop">
-		<td class="removeLeft"></td>
-		<td></td>
-		<td></td>
-		<td class="removeRight"></td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td class = "logoRow_p" colspan="2"><%= image_tag("/assets/logo.png", :class => "logoRow") %>
-			
-				<p align="right">Professionals To Mentor Younger Professionals.</font></p>
-				<p align="right">A Professional Development Website For </p>
-		</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td><br><br>
-		<td><%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-			<table class="formRow">
-		    <tr>
-                <td>Email</td>
-	     	    <td><%= f.email_field :email, :autofocus => true %></td>
-	     	</tr>
-	     	<tr>
-			    <td>Password</td>
-			    <td><%= f.password_field :password, :autocomplete => "off" %></td>
-		    </tr>
-		</table>
-		<table>   
-		    <tr> 
-		        <td><%= f.check_box :remember_me %>Remember Me</td>
-		        	<td><%= f.submit 'Log in', :class => "btn1" %></td>
-		          <td> <%= link_to "Create Account",  new_user_registration_path, :class => "btn2" %></td>
-                    
-                </td>
-		    </tr>
-		    <tr>
-		    	<td><%= link_to "Forgot Password", new_user_password_path %></td>
-		    </tr>
-		    </table>
-		</td>  
-
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+    <div class="alert alert-success">
+      <button class="close" data-dismiss="alert" type="button"> ×</button>
+      <p class="text-info"><%= flash[:notice] %></p>
+    </div>
 <% end %>
+
+
+
+<div class="sign_in_bg">
+  <div class="sign_in_top">
+    <span class="sign_in_logo"><%= image_tag("/assets/logo.png", :class => "logoRow") %></span>
+    <span class="sign_in_site_desc">A Professional Development Website For Professionals To Mentor Younger Professionals.</span>
+  </div>
+  <div class="sign_in_form">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class=> "form-horizontal"}) do |f| %>
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">Email</label>
+          <div class="controls">
+            <%= f.email_field :email, :autofocus => true %>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputPassword">Password</label>
+          <div class="controls">
+            <%= f.password_field :password, :autocomplete => "off" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <label class="checkbox">
+              <%= f.check_box :remember_me %> Remember me
+            </label>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit 'Log in', :class => "login_btn btn" %>
+            <%= link_to "Create Account", new_user_registration_path, :class => "create_account_btn btn" %></td>
+          </div>
+        </div>
+  <% end %>
+  </div>
+</div>
+
