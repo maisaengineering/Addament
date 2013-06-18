@@ -69,11 +69,6 @@ class ProfilesController < ApplicationController
     @image = profile.avatar_file
     send_data(@image,:disposition => 'inline')
   end
-  def other_user_image
-    profile = Profile.find(params[:id])
-    @image = profile.avatar_file
-    send_data(@image)
-  end
 
 
   # PUT /profiles/1

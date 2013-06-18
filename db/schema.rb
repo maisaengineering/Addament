@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617063955) do
+ActiveRecord::Schema.define(:version => 20130617110131) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20130617063955) do
     t.string   "attachment"
     t.boolean  "global",               :default => false
     t.datetime "expires"
+    t.integer  "priority"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
