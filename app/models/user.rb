@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
  ROLES = %w(Mentor Mentee)
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   has_one :profile
@@ -36,6 +37,7 @@ class User < ActiveRecord::Base
                          password:Devise.friendly_token[0,20]
       )
     end
+    user.skip_confirmation!
     user
   end
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
@@ -44,10 +46,10 @@ class User < ActiveRecord::Base
        user = User.create(
           provider:auth.provider,
           uid:auth.uid,
-          email:"praneetheee24@gmail.com",
           password:Devise.friendly_token[0,20]
       )
     end
+    user.skip_confirmation!
     user
   end
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
@@ -60,6 +62,7 @@ class User < ActiveRecord::Base
           password:Devise.friendly_token[0,20]
       )
     end
+    user.skip_confirmation!
     user
   end
 
@@ -73,6 +76,7 @@ class User < ActiveRecord::Base
           password:Devise.friendly_token[0,20]
       )
     end
+    user.skip_confirmation!
     user
   end
   def self.new_with_session(params, session)

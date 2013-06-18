@@ -549,7 +549,11 @@ td{
 }
 /**/
 #activityDiv h3{
+<<<<<<< HEAD
+	background: url(/assets/icons/activity.gif)no-repeat;
+=======
 	background: url(/assets/activity.gif)no-repeat;
+>>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	padding: 20px; padding-left: 50px;
 	background-color:#51a2d5;
 	color: #fff;font-size: 18px;
@@ -569,6 +573,10 @@ td{
 }
 #activityUL .activityLI:last-child{
 	border: none;
+}
+.thumb_image {
+	width: 70px;
+	height: 70px;
 }
 .activityLI img{
 	float: left;
@@ -609,10 +617,11 @@ td{
 }
 /*-----------------------------*/
 #networkDiv{
-	width: 190px; height: 160px;
+	width: 190px; height: 185px;
 	/*background-color: #ffc;*/
 	position: absolute;
 	overflow: hidden;
+	margin-top: -20px;
 }
 #chatUpdatesDiv{
 	width: 190px;height: 240px;
@@ -627,13 +636,14 @@ td{
 	position: absolute;
 	margin-left: 200px;
 	overflow: hidden;
+	margin-top: -20px;
 }
 #todoListDiv{
 	width: 190px;height: 160px;
 	/*background-color: #ff6;*/
 	position: absolute;
 	margin-left: 200px;
-	margin-top: 240px;
+	margin-top: 188px;
 	overflow: hidden;
 }
 
@@ -677,21 +687,28 @@ td{
 	padding-left: 25px;
 }
 #feedsDiv .messagesH2{
+<<<<<<< HEAD
+	background: url(/assets/messages.gif)no-repeat;
+=======
 	background: url(/assets/images/messages.gif)no-repeat;
+>>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
 #newsFeedsDiv .newsfeedsH2{
+	margin: 0px; padding: 0px;
 	padding: 20px;
 	background: url(/assets/newsfeeds.gif)no-repeat;
 	background-position: 20px, 20px;
 	padding-left: 50px;
+	padding-bottom: 0px;
+	margin-top: -20px;
 }
 #messagesDiv p{
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 }
 #todoListDiv p{
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 #todoListDiv .time{
 	font-size: 16px;
@@ -704,9 +721,13 @@ td{
 	padding-left: 15px; padding-right: 20px;
 }
 #newsFeedsDiv  #slideShow{
+	margin: 0px;padding: 0px;
+	margin-left: -5px;
 	width: 490px;height: 189px;
 	overflow: hidden;
-		/*height: 380px;width: 490px;*/
+}
+#newsFeedsDiv  #slideShow image{
+	margin-left: -10px;
 }
 #newsFeedsDiv #thumbs{
 	list-style: none;
@@ -727,7 +748,7 @@ td{
 	position: absolute;
 	float: left;
 	/*background-color: #fcf;*/
-	margin-left: 140px;
+	margin-left: 127px;
 }
 #associations{
 	position: absolute;
@@ -752,11 +773,11 @@ td{
 }
 #assoAndPV li{
 	font-size: 11px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-weight: bold;
 }
 #assoAndPV span{
-	width: 30px; height: 30px;
+	width: 30px; height: 25px;
 	display: inline-block;
 	line-height: 30px; text-align: center;
 	background-color: #fff; color: #fff;
@@ -775,11 +796,11 @@ td{
 	float: left;
 	position: absolute;
 	margin-top: 160px;
-	margin-left: 140px;
+	margin-left: 128px;
 }
 #meeting li{
 	list-style: none;
-	width:250px;height: 40px;
+	width:250px;height: 54px;
 	background-color: #fff;
 	border-bottom: 1px solid #f2f2f2;
 	cursor: pointer;
@@ -804,24 +825,31 @@ td{
 #requests{
 	float: left;
 	position: absolute;
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-top: 320px;
 }
+#requests ul{
+	margin-top: -10px;
+}
 #requests li{
+	margin: 0px; padding: 0px;
+	margin-left: -20px;
 	list-style: none;
 	float: left;
-	width: 122px;
+	width: 135px;
 	background-color: #fff;
 	border-left: 1px solid #f2f2f2;
 }
 #requests li label{
+	margin: 0px; padding: 0px;
 	padding-left: 5px;
 	color:#96c953;
-	padding-top: 5px;
+	padding-top: 0px;
 	padding-bottom: 0px;
 }
 #requests li p{
-	padding-left: 5px;
+	margin: 0px; padding: 0px;
+	padding-left: 0px;
 	color: #54a1d5;
 	font-size: 11px;
 	letter-spacing: 1px;
