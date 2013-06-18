@@ -1,0 +1,168 @@
+
+<!-- .................. HEADER SECTION END.............. -->
+<!-- .................. TOP DIV ........................ -->
+<div id="container">
+  <div id="topDIV">
+    <div id="feedsDiv">
+      <div id="networkDiv">
+        <h2 class="networkH2">Network</h2>
+        <ul>
+          <li class="network_li">Mentees<span class="net_count">4</span></li>
+          <li class="network_li">Mentors<span class="net_count">1</span></li>
+          <li class="network_li">Pers<span class="net_count">9</span></li>
+        </ul>
+      </div>
+      <div id="chatUpdatesDiv">
+        <h2 class="chatUpdatesHk2">Chat Updates</h2>
+        
+      </div>
+      <div id="messagesDiv">
+        <h2 class="messagesH2">Messages</h2>
+        <%= render "message" %>
+      </div>
+      <div id="todoListDiv">
+        <h2 class="todoListH2">To Do List</h2>
+        <%= link_to("Add Todo", new_todo_path)
+                          @todos.each do |todo| %><br>
+        <%= todo.event_date.to_date.strftime("%B %d, %Y") %><br>
+        <%= link_to("#{todo.start_time.strftime("%I:%M%p")}   #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id)) %><br>
+        <%= todo.title %><br>
+        <%= truncate todo.description, length: 100 %>
+        <% end %>
+      </div>
+    </div>
+    <!-- .............. ACTIVITY DIV.......... -->
+    <div id="activityDiv">
+      <h3>Activity</h3>
+      <ul id="activityUL">
+        <li class="activityLI">
+          <%= image_tag("icons/activity.gif") %>
+          <%= @posts.each do |post| %>
+          <%= user = User.find(post.user_id) %>
+          <% unless user.profile.nil? %>
+            <% unless current_user.profile.avatar_file.nil? %>
+              <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image"} %>
+            <%else %>
+              <%= image_tag("missing.png",height: 25,width: 25) %>
+             <% end %> 
+          <% end %> 
+          <% unless user.profile.nil? %>
+          
+          <%= truncate(post.current_post, length: 1) %>
+          <% end %>
+          </ul>
+        </li>
+        <li class="activityLI">
+          <img src="images/avatar_02.png" />
+          <label>@username</label>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quis, voluptates, temporibus unde excepturi aliquid perferendis officia distinctio pariatur</p>
+          <ul id="infoUL">
+            <li class="infoLI">1 hour ago</li>
+            <li class="infoLI">Comment</li>
+            <li class="infoLI">Share</li>
+          </ul>
+        </li>
+        <li class="activityLI">
+          <img src="images/avatar_03.png" />
+          <label>@username</label>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quis, voluptates, temporibus unde excepturi aliquid perferendis officia distinctio pariatur</p>
+          <ul id="infoUL">
+            <li class="infoLI">1 hour ago</li>
+            <li class="infoLI">Comment</li>
+            <li class="infoLI">Share</li>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+  <!-- .................. BOTTOM DIV ..................... -->
+  <div id="bottomDIV">
+    <div id="newsFeedsDiv">
+      <h2 class="newsfeedsH2">News Feeds</h2>
+      <label>Lorem ipsum dolor sit ametendis et.</label>
+      <p>Lorem ipsum dolor sit amet, t rerum qui atque doloribus quasi minima eligendi dolore dolorem! Beatae, consectetur.</p>
+      <div id="slideshow">
+        <div id="slideShow">
+          <img src="images/slide_1.jpg">
+        </div>
+        
+        <div id="thumbs">
+          <ul id="thumbs">
+            <li class="thumb"><img src="images/thumb.jpg"></li>
+            <li class="thumb"><img src="images/thumb.jpg"></li>
+            <li class="thumb"><img src="images/thumb.jpg"></li>
+            <li class="thumb"><img src="images/thumb.jpg"></li>
+            <li class="thumb"><img src="images/thumb.jpg"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="dashboardDiv">
+      <div id="avatar">
+        <%= image_tag("/assets/dashboard_avatar.jpg") %>
+      </div>
+      <div id="user_info">
+        <label style="font-size:10px;color:#96c953;">Latest Activity:</label>
+        <p style="font-size:10px;">Apr 16, 2012</p>
+        <label style="font-size:10px;color:#96c953;">Date Joined:</label>
+        <p style="font-size:10px;padding-bottom:30px;">Apr 16, 2012</p>
+        <label style="font-size:10px;">About:</label>
+        <p style="font-size:10px;text-align: justify;">Lorem ipsum dolor .</p>
+      </div>
+      <div id="assoAndPV">
+        <div id="associations">
+          <label style="color:#96c953;">Associations</label>
+          <ul>
+            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">3</span>Schools</li>
+            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">5</span>Organizations</li>
+            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">7</span>Companies</li>
+          </ul>
+        </div>
+        <div id="profile_views">
+          <label style="color:#54a1d5;">Profile Views</label>
+          <ul style="width:140px;">
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">1</span>Today</li>
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">10</span>Past 7 Months</li>
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">73</span>Past 3 months</li>
+          </ul>
+        </div>
+      </div>
+      <div id="meeting">
+        <ul>
+          <li><span style="margin-left:15px;">You Should Meet</span></li>
+          <li>
+            <label>Bob Smith</label>
+            <p>1 mentor in common</p>
+          </li>
+          <li>
+            <label>Steven Myers</label>
+            <p>5 mentor in common</p>
+          </li>
+          <li>
+            <label>Beth Johnson</label>
+            <p>2 mentor in common</p>
+          </li>
+        </ul>
+      </div>
+      <div id="requests">
+        <label style="padding:4px 0px; font-size:16px;letter-spacing: 1px;color:#96c953;">Requests</label>
+        <ul>
+          <li>
+            <label>Mentees</label>
+            <p>2 news, 3 viewed</p>
+          </li>
+          <li>
+            <label>Peers</label>
+            <p>2 news, 3 viewed</p>
+          </li>
+          <li>
+            <label>Mentors</label>
+            <p>1 news, 0 viewed</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ..................FOOTER SECTION.................... -->

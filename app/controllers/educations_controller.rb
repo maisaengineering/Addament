@@ -25,10 +25,14 @@ class EducationsController < ApplicationController
   # GET /educations/new.json
   def new
     @education = Education.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @education }
+    @school = School.all
+    if !params[:id]
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @educations }
+      end
+    else
+      render :layout => false
     end
   end
 

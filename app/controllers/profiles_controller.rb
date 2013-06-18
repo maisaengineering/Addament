@@ -78,7 +78,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-          format.html {redirect_to my_account_path }
+          format.html {redirect_to new_education_path }
         #format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         #format.json { head :no_content }
       else
@@ -89,10 +89,12 @@ class ProfilesController < ApplicationController
   end
 
    def about
+     @goal = Goal.all
      @profile = current_user.profile
      @past = Professional.where("profile_id = ?", current_user.profile.id)
     end
   def about_update
+
    @profile = current_user.profile
    @profile.update_column(:about, params[:profile][:about])
   end

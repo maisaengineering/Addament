@@ -29,10 +29,14 @@ class ProfessionalsController < ApplicationController
     @profile = current_user.profile
     @professional = Professional.new
 
+    if !params[:id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @professional }
     end
+    else
+      render :layout => false
+      end
   end
 
   # GET /professionals/1/edit
@@ -84,4 +88,5 @@ class ProfessionalsController < ApplicationController
       format.json { head :no_content }
     end
   end
-end
+
+  end
