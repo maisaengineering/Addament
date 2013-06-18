@@ -7,9 +7,11 @@
     %div{:class => "commentbutton#{i} "}
       %a{:href => "javascript:void(0)", :onclick => "open_form(#{i})"} Change Priority
       %div{:class => "profile_text#{i}", :style => "display: none;"}
-        = form_tag('/feedback/send_email', :remote => true) do
+        = form_tag('/feedback/send_email') do
           = select_tag :priority,  options_for_select([["red"],["green"],["Blue"]])
+          = submit_tag 'Send'
         - i +=1
+
     -#|
     -#- if conversation.is_completely_trashed?(current_user)
     -#  = link_to 'Untrash', [:untrash, conversation], method: :post

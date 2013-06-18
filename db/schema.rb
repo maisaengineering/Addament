@@ -204,6 +204,12 @@ ActiveRecord::Schema.define(:version => 20130617110131) do
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
+  create_table "schools", :force => true do |t|
+    t.string   "school_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "todos", :force => true do |t|
     t.string   "event_date"
     t.time     "start_time"
