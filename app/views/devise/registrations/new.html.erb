@@ -42,15 +42,15 @@
 					    <tr>
 					    	<td></td>
 					    	<td>
-								<label>I am a </label>
+								<label class="checkbox inline">I am a </label>
 								<% User::ROLES.each do |role| %>
-			                     <%= check_box_tag "[user_role][]",role %> <%= role %>
+			                     <%= check_box_tag "[user_role][]",role %> <span class="sign_up_checkbox"><%= role %></span>
 			                    <% end %>
                     		</td>
 					    </tr>
 					    <tr>
 					      <td></td>
-					      <td style="text-align: right;"><%= f.submit "Sign Up", :class => "btn2", :style => "width:100px" %></td>
+					      <td style="text-align: right;"><%= f.submit "Sign Up", :class => "sign_up_btn btn", :style => "width:100px" %></td>
 					    </tr>  
 					
                     

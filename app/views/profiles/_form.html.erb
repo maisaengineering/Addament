@@ -8,11 +8,15 @@
 					Edit Profile
 					
 				</div>
-				<div class="profileCompTrg" style="width: 400px;">
-				
-                                    <div class="bar" style="width: 0%;"></div>
+              	<div class="profileCompTrg" style="width: 400px;">
+
+                  <div id="profile_complete">
+                    <div class="progress" style="width: 400px;">
+                       <div class="bar" style="width: 0%;"></div>
+                    </div>
+                  </div>
                                   </div>
-				
+
 			</td>
 		</tr>
 		<tr height="10px">
@@ -64,19 +68,20 @@
 					<tr>
 						<td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Sports, News, Politics,world Affairs, Economics, etc,</td>
 					</tr>
-
+                  <% unless current_user.user_role.nil? %>
                   <tr>
                     <td>Roles</td>
                     <td>
                   <% User::ROLES.each do |role| %>
                       <%= check_box_tag "[user_role][]",role %> <%= role %>
                   <% end %>
+                  <% end %>
                     </td>
                   </tr>
 
 					<tr>
 						<td colspan="2" style="background-color:#fff;" align="center">
-							<%=  f.submit "Update Profile", :class =>"btns"  %>
+							<%=  f.submit "Update Profile", :class =>"btn"  %>
 							<%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file"  %>
 						</td>
 					</tr>
@@ -139,7 +144,7 @@
 
                     </div>
                     </div>
-                    <td style="background-color:#fff;"><%=  f.submit "Next", :class =>"btns"  %></td>
+                    <td style="background-color:#fff;"><%=  f.submit "Next", :class =>"btn"  %></td>
 					</tr>
 					<% end %>
 				</table>

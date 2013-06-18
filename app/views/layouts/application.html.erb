@@ -11,7 +11,7 @@
   <div class="cen">
     <img src="/assets/logo.png">
     <ul id="menu">
-      <li class="menuItem ">HOME</li>
+      <li class="menuItem "> <%= link_to "HOME", my_account_path %></li>
       <li class="menuItem menuItemSelected"><%= link_to "PROFILE", about_profiles_path %></li>
       <li class="menuItem"><%= link_to "MESSAGES", conversations_path %></li>
       <li class="menuItem"><%= link_to "NETWORK", public_profile_path %></li>
@@ -25,7 +25,11 @@
       <% else %>
           <%= image_tag("/assets/missing.png", height: 25, width: 25, :style => "display: list-item; float:left; margin-top:-6px; margin-left:10px;") %>
       <% end %>
-      <label class="userDet">FirstName. LastName</label>
+      <label class="userDet">
+        <% unless current_user.profile.nil? %>
+        <%=  current_user.profile.first_name %> <%=  current_user.profile.last_name %>
+            <% end %>
+      </label>
     </div>
     <div id="notifi">
       <label class="notification">11</label>

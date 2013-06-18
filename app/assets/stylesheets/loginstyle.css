@@ -1,85 +1,90 @@
 
-.bg{
+.sign_in_bg{
 	background-image: url(/assets/loginform-bg.png);
 	width: 651px;height: 444px;
 	border-collapse: collapse;
-	/*border: 1px solid #fff;*/
 	margin: auto;
 }
 
-
-.removeTop{
-	height: 68px;
+.sign_in_top{
+    width:500px;
+    margin-top: 85px;
+    margin-left:80px;
 }
-.removeLeft{
-	width: 70px;
-}
-.removeRight{
-	width: 65px;
-}
-.removeBottom{
-	height: 60px;
-}
-.logoRow{
-	margin-top: -25px;
-
-}
-.formRow{
-	height: 100px;
-}
-.form_lbl{
-	display: block;
-	height: 25px;
-}
-.form_input{
-	display: block;
-	height: 25px;
-	width: 270px;
-	margin-bottom: 10px;
-}
-.btn1 {
-	color: #fff;
-	background: #96c953;
-	border: 0px;
-	border-radius: 20px;
-	padding: 2px;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 16px;
-	font-family: itc_avant_garde;
-	cursor: pointer;
-	-webkit-transition: background-color,color 400ms linear;
-	-moz-transition: background-color,color 400ms linear;
-	-o-transition: background-color,color 400ms linear;
-	-ms-transition: background-color,color 400ms linear;
-	transition: background-color,color 400ms linear;
-
-}
-.btn:hover {color: #000;}
-.remember_me{
-	padding-left: 8px;
-	font-size: 16px;
-}
-.logoRow_p p{
-	margin-top: -54px;
-padding-left: 96px
+.sign_in_logo{
+    height:100px;
+    width:100px;
 }
 
-.btn2 {
-	color: #fff;
-	background: #51A2D5;
-	border: 0px;
-	border-radius: 20px;
-	padding: 2px;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 16px;
-	font-family: itc_avant_garde;
-	cursor: pointer;
-	-webkit-transition: background-color,color 400ms linear;
-	-moz-transition: background-color,color 400ms linear;
-	-o-transition: background-color,color 400ms linear;
-	-ms-transition: background-color,color 400ms linear;
-	transition: background-color,color 400ms linear;
+.sign_in_site_desc{
+    float:right;
+    width:340px;
+    line-height:25px;
+}
 
+.sign_in_form{
+    margin-left:80px;
+    margin-top:10px;
+}
+
+.login_btn {
+    color: #fff;
+    background: #96c953;
+    height:30px;
+    border: 0px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    -webkit-transition: background-color,color 400ms linear;
+    -moz-transition: background-color,color 400ms linear;
+    -o-transition: background-color,color 400ms linear;
+    -ms-transition: background-color,color 400ms linear;
+    transition: background-color,color 400ms linear;
+
+}
+
+.create_account_btn {
+    color: #fff;
+    background: #51A2D5;
+    border: 0px;
+    height: 23px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    -webkit-transition: background-color,color 400ms linear;
+    -moz-transition: background-color,color 400ms linear;
+    -o-transition: background-color,color 400ms linear;
+    -ms-transition: background-color,color 400ms linear;
+    transition: background-color,color 400ms linear;
+    padding-top: 5px;
+}
+
+.sign_up_btn{
+    color: #fff;
+    background: #51A2D5;
+    height:30px;
+    border: 0px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    -webkit-transition: background-color,color 400ms linear;
+    -moz-transition: background-color,color 400ms linear;
+    -o-transition: background-color,color 400ms linear;
+    -ms-transition: background-color,color 400ms linear;
+    transition: background-color,color 400ms linear;
+}
+.sign_up_checkbox{
+    vertical-align: text-top;
 }

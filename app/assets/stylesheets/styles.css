@@ -1,10 +1,10 @@
 @font-face{
 	font-family: itc_avant_garde;
-	src: url(/assets/fonts/itc_avant_garde-_sdl.woff);
+	src: url(/assets/itc_avant_garde-_sdl.woff);
 }
 @font-face{
 	font-family: avenir_next_lt_pro_demi;
-	src:url(/assets/fonts/avenir_next_lt_pro_demi.woff);
+	src:url(/assets/avenir_next_lt_pro_demi.woff);
 }
 
 .validation-error {
@@ -37,6 +37,14 @@ p{
 	font-size: 14px;
 	margin-bottom: 10px;
 	color: #222;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+    color: #000;
 }
 label{
 	font-size: 16px;
@@ -281,10 +289,10 @@ h3{
 }
 .profileCompTrg{
 	height: 30px;width: 350px;
-	background-color: #fff;
+
 	margin-top: -60px;position:absolute;
 	margin-left: 590px;
-	line-height: 30px;
+
 	font-size: 12px;
 	padding-left: 10px;
 	color: #51a2d5; 
@@ -850,6 +858,10 @@ td{
     width: 25px;
     height: 25px;
 }
+
+
+
+
 
 
 

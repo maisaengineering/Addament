@@ -27,3 +27,18 @@ select {
     vertical-align: middle;
 }
 
+
+.checkbox {
+    min-height: 20px;
+    padding-left: 5px;
+}
+
+.checkbox input[type="checkbox"] {
+    float: left;
+    margin-left: 0px;
+}
+
+.form-horizontal .control-group {
+    margin-bottom: 10px;
+    margin-left: -20px;
+}
