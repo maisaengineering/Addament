@@ -7,13 +7,14 @@
       <div id="networkDiv">
         <h2 class="networkH2">Network</h2>
         <ul>
-          <li class="network_li">Mentees<span class="net_count">4</span></li>
-          <li class="network_li">Mentors<span class="net_count">1</span></li>
-          <li class="network_li">Pers<span class="net_count">9</span></li>
+          <li class="network_li">Mentees<span class="net_count"><%= @follow ? @follow : "0" %></span></li>
+          <li class="network_li">Mentors<span class="net_count"><%= @following ? @following : "0" %></span></li>
+          <li class="network_li">Peers<span class="net_count"><%= @peer ? @peer : "0" %></span></li>
         </ul>
       </div>
       <div id="chatUpdatesDiv">
         <h2 class="chatUpdatesHk2">Chat Updates</h2>
+        Coming Soon..
         
       </div>
       <div id="messagesDiv">
@@ -34,46 +35,36 @@
     <!-- .............. ACTIVITY DIV.......... -->
     <div id="activityDiv">
       <h3>Activity</h3>
-      <ul id="activityUL">
-        <li class="activityLI">
-          <%= image_tag("icons/activity.gif") %>
-          <%= @posts.each do |post| %>
-          <%= user = User.find(post.user_id) %>
-          <% unless user.profile.nil? %>
-            <% unless current_user.profile.avatar_file.nil? %>
-              <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image"} %>
-            <%else %>
-              <%= image_tag("missing.png",height: 25,width: 25) %>
+      <ul id="activityUL" style = "margin-top: -17px;" >
+          <% @posts.each do |post| %>
+           <li class="activityLI">
+            <% user = User.find(post.user_id) %>
+            <% unless user.profile.nil? %>
+              <% unless user.profile.avatar_file.nil? %>
+               <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image"} %>
+              <%else %>
+               <%= image_tag("missing.png",height: 70,width: 70) %>
              <% end %> 
           <% end %> 
-          <% unless user.profile.nil? %>
+          <label><%= user.profile.first_name %> <%= user.profile.last_name %></label>
+           <% unless user.profile.nil? %>
           
-          <%= truncate(post.current_post, length: 1) %>
+           <%= truncate(post.current_post, length: 1) %>
+          <% end %>
+           
+           <ul id="infoUL">
+                <li class="infoLI"><%= time_ago_in_words(post.created_at) %> ago </li>
+                <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(post) %></li>
+                <li class="infoLI">Share</li>
+              </ul>
+              </li>
+          <% end %>
+          <% if @posts.length > 2 %>
+            <%= link_to "see more", posts_path , :style => "float:right" %>
           <% end %>
           </ul>
-        </li>
-        <li class="activityLI">
-          <img src="images/avatar_02.png" />
-          <label>@username</label>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quis, voluptates, temporibus unde excepturi aliquid perferendis officia distinctio pariatur</p>
-          <ul id="infoUL">
-            <li class="infoLI">1 hour ago</li>
-            <li class="infoLI">Comment</li>
-            <li class="infoLI">Share</li>
-          </ul>
-        </li>
-        <li class="activityLI">
-          <img src="images/avatar_03.png" />
-          <label>@username</label>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quis, voluptates, temporibus unde excepturi aliquid perferendis officia distinctio pariatur</p>
-          <ul id="infoUL">
-            <li class="infoLI">1 hour ago</li>
-            <li class="infoLI">Comment</li>
-            <li class="infoLI">Share</li>
-          </ul>
-        </li>
-      </ul>
-      <% end %>
+   
+      
     </div>
   </div>
   <!-- .................. BOTTOM DIV ..................... -->
@@ -84,31 +75,34 @@
       <p>Lorem ipsum dolor sit amet, t rerum qui atque doloribus quasi minima eligendi dolore dolorem! Beatae, consectetur.</p>
       <div id="slideshow">
         <div id="slideShow">
-          <img src="images/slide_1.jpg">
+        <%= image_tag("/assets/slide_1.jpg") %>
         </div>
         
         <div id="thumbs">
           <ul id="thumbs">
-            <li class="thumb"><img src="images/thumb.jpg"></li>
-            <li class="thumb"><img src="images/thumb.jpg"></li>
-            <li class="thumb"><img src="images/thumb.jpg"></li>
-            <li class="thumb"><img src="images/thumb.jpg"></li>
-            <li class="thumb"><img src="images/thumb.jpg"></li>
+            <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
+            <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
+            <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
+            <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
           </ul>
         </div>
       </div>
     </div>
     <div id="dashboardDiv">
       <div id="avatar">
-        <%= image_tag("/assets/dashboard_avatar.jpg") %>
+        <% if current_user.profile.avatar_file %>
+        <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:width => 100, :height => 100} %>
+        <% else %>
+                <%= image_tag("/assets/dashboard_avatar.jpg") %>
+        <% end %>
       </div>
       <div id="user_info">
         <label style="font-size:10px;color:#96c953;">Latest Activity:</label>
-        <p style="font-size:10px;">Apr 16, 2012</p>
+        <p style="font-size:10px;"><%= current_user.profile.updated_at.strftime("%B %d, %Y") %></p>
         <label style="font-size:10px;color:#96c953;">Date Joined:</label>
-        <p style="font-size:10px;padding-bottom:30px;">Apr 16, 2012</p>
-        <label style="font-size:10px;">About:</label>
-        <p style="font-size:10px;text-align: justify;">Lorem ipsum dolor .</p>
+        <p style="font-size:10px;padding-bottom:30px;"><%= current_user.created_at.strftime("%B %d, %Y") %></p>
+        <label style="font-size:10px; margin-top: -36px;">About:</label>
+        <p style="font-size:10px;text-align: justify;"><%= current_user.profile.about %></p>
       </div>
       <div id="assoAndPV">
         <div id="associations">
@@ -122,9 +116,9 @@
         <div id="profile_views">
           <label style="color:#54a1d5;">Profile Views</label>
           <ul style="width:140px;">
-            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">1</span>Today</li>
-            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">10</span>Past 7 Months</li>
-            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;">73</span>Past 3 months</li>
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;"><%= @current ? @current : "0" %></span>Today</li>
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;"><%= @past_seven ? @past_seven : "0" %></span>Past 7 Months</li>
+            <li style="color:#54a1d5;"><span class="pv_count"style="background-color:#54a1d5;"><%= @past ? @past : "0" %></span>Past 3 months</li>
           </ul>
         </div>
       </div>
@@ -145,7 +139,7 @@
           </li>
         </ul>
       </div>
-      <div id="requests">
+     <!-- <div id="requests">
         <label style="padding:4px 0px; font-size:16px;letter-spacing: 1px;color:#96c953;">Requests</label>
         <ul>
           <li>

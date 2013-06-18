@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>ADDAMENT PROFILE</title>
+  <%= stylesheet_link_tag "application", :media => "all"%>
+  <%= javascript_include_tag "application"%>
+</head>
+
+<body>
+
+<div id="header">
+  <div class="cen">
+    <img src="/assets/logo.png">
+    <ul id="menu">
+      <li class="menuItem ">HOME</li>
+      <li class="menuItem menuItemSelected"><%= link_to "PROFILE", about_profiles_path %></li>
+      <li class="menuItem"><%= link_to "MESSAGES", conversations_path %></li>
+      <li class="menuItem"><%= link_to "NETWORK", public_profile_path %></li>
+      <li class="menuItem"><%= link_to "PATH", goals_path %></li>
+    </ul>
+    <div>
+      <input type="search" class="srch"/>
+
+      <% if !current_user.profile.nil? %>
+          <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
+      <% else %>
+          <%= image_tag("/assets/missing.png", height: 25, width: 25, :style => "display: list-item; float:left; margin-top:-6px; margin-left:10px;") %>
+      <% end %>
+      <label class="userDet">FirstName. LastName</label>
+    </div>
+    <div id="notifi">
+      <label class="notification">11</label>
+      <img src="/assets/notification.gif" alt="" style="margin-left:-45px;">
+      <% if !current_user.profile.nil? %>
+          <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id) %>
+      <% else %>
+          <%= link_to image_tag("/assets/settings.png") %>
+      <% end %>
+      <%= link_to image_tag("/assets/signout.png"), destroy_user_session_path, :method => 'delete' %>
+    </div>
+  </div>
+</div>
+
+
+<div class="bodycontainer">
+  <%= yield %>
+</div>
+
+
+<div id="footer">
+  <div class="footerContent">
+    <ul id="pMenu">
+      <li class="pMenuItem">HOME</li>
+      <li class="pMenuItem">PROFILE</li>
+      <li class="pMenuItem">INTERACT</li>
+      <li class="pMenuItem">MESSAGES</li>
+      <li class="pMenuItem">MENTORS</li>
+      <li class="pMenuItem">PATH</li>
+    </ul>
+    <br style="clear:both;"/>
+
+    <p>Copyright 2013 Addament. All Rights Reserved<span style="padding-left: 600px;">Privacy Policy</span></p>
+  </div>
+</div>
+</body>
+</html>

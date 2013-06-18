@@ -4,8 +4,9 @@
 }
 @font-face{
 	font-family: avenir_next_lt_pro_demi;
-	src:url(..fonts/avenir_next_lt_pro_demi.woff);
+	src:url(/assets/fonts/avenir_next_lt_pro_demi.woff);
 }
+
 .validation-error {
 	color:red;
 	margin-right:-74px;
@@ -181,7 +182,7 @@ h3{
 	width: 195px;
 }
 #header .srch{
-	background: url(../images/search.gif) no-repeat;
+	background: url(/assets/search.gif) no-repeat;
 	background-position:right;
 	margin-left:20px; 
 	height:20px;
@@ -206,7 +207,7 @@ h3{
 	/*border: 1px solid #333;*/
 	width: 40px; height: 35px;
 	list-style: none; padding: 1px;
-	background: url(../images/tooltip.png) no-repeat;
+	background: url(/assets/tooltip.png) no-repeat;
 	background-size: 38px 30px;
 	background-position: 0px -4px;
 	text-align: center;
@@ -218,7 +219,7 @@ h3{
 #footer{
 	background-color: #222;
 	height:116px;width: 100%;
-	background:url(../images/footer-bg.jpg);
+	background:url(/assets/footer-bg.jpg);
 	background-repeat: repeat-x;
 }
 .footerContent #pMenu{
@@ -271,7 +272,7 @@ h3{
 	background-color: #fff;
 }
 #profile_con_tbl #editProfile{
-	background: url(../images/editprofile.gif) no-repeat;background-position: 20px 26px;
+	background: url(/assets/editprofile.gif) no-repeat;background-position: 20px 26px;
 	width: 940px;height: 54px;
 	background-color:#51a2d5; 
 	margin: 18px;color: #fff;
@@ -299,7 +300,7 @@ h3{
 	vertical-align: text-top;
 }
 #profile_con_tbl .tdGradent{
-	background: url(../images/footer-div.png);
+	background: url(/assets/footer-div.png);
 	background-repeat: repeat-x;
  	height: 145px;
 }
@@ -364,7 +365,7 @@ td{
 	transition: background-color,color 400ms linear;
 }
 #personalTbl .updateProfile{
-	background: url(../images/updateprofile.gif) no-repeat;background-position: 15px;
+	background: url(/assets/updateprofile.gif) no-repeat;background-position: 15px;
 	width:140px;height:30px;
 	color: #fff;background-color: #51a2d5;
 	border: 0px;border-radius: 20px;
@@ -375,7 +376,7 @@ td{
 	cursor: pointer;
 }
 #personalTbl .chooseFile{
-background: url(../images/choosefile.gif) no-repeat;background-position: 15px;
+background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
 	width:140px;height:30px;
 	color: #fff;background-color: #96c953;
 	border: 0px;border-radius: 20px;
@@ -504,7 +505,7 @@ td{
 	/*border: 1px solid #9f9f9f;*/
 	margin: 0 auto; padding: 50px; padding-bottom: 0px;
 
-	background: url(../images/div-bg.png), url(../images/div-bg-2.png);
+	background: url(/assets/div-bg.png), url(/assets/div-bg-2.png);
 	background-repeat: repeat-x;
 	background-position: left top, left bottom;
 	position: relative;
@@ -540,7 +541,11 @@ td{
 }
 /**/
 #activityDiv h3{
-	background: url(../images/activity.gif)no-repeat;
+<<<<<<< HEAD
+	background: url(/assets/icons/activity.gif)no-repeat;
+=======
+	background: url(/assets/activity.gif)no-repeat;
+>>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	padding: 20px; padding-left: 50px;
 	background-color:#51a2d5;
 	color: #fff;font-size: 18px;
@@ -560,6 +565,10 @@ td{
 }
 #activityUL .activityLI:last-child{
 	border: none;
+}
+.thumb_image {
+	width: 70px;
+	height: 70px;
 }
 .activityLI img{
 	float: left;
@@ -592,7 +601,7 @@ td{
 	color: #96c953;
 	/*padding-left: 8px;*/
 	padding-right: 8px;
-	list-style:url(../images/dot.png);
+	list-style:url(/assets/dot.png);
 	margin-left: 10px;
 }
 .activityLI li:first-child{
@@ -600,10 +609,11 @@ td{
 }
 /*-----------------------------*/
 #networkDiv{
-	width: 190px; height: 160px;
+	width: 190px; height: 185px;
 	/*background-color: #ffc;*/
 	position: absolute;
 	overflow: hidden;
+	margin-top: -20px;
 }
 #chatUpdatesDiv{
 	width: 190px;height: 240px;
@@ -618,13 +628,14 @@ td{
 	position: absolute;
 	margin-left: 200px;
 	overflow: hidden;
+	margin-top: -20px;
 }
 #todoListDiv{
 	width: 190px;height: 160px;
 	/*background-color: #ff6;*/
 	position: absolute;
 	margin-left: 200px;
-	margin-top: 240px;
+	margin-top: 188px;
 	overflow: hidden;
 }
 
@@ -653,36 +664,43 @@ td{
 	color: #bbb;
 }
 #feedsDiv .networkH2{
-	background: url(../images/network.gif)no-repeat;
+	background: url(/assets/network.gif)no-repeat;
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
 #feedsDiv .chatUpdatesHk2{
-	background: url(../images/chat-updates.gif)no-repeat;
+	background: url(/assets/chat-updates.gif)no-repeat;
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
 #feedsDiv .todoListH2{
-	background: url(../images/todolist.gif)no-repeat;
+	background: url(/assets/todolist.gif)no-repeat;
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
 #feedsDiv .messagesH2{
-	background: url(../images/messages.gif)no-repeat;
+<<<<<<< HEAD
+	background: url(/assets/messages.gif)no-repeat;
+=======
+	background: url(/assets/images/messages.gif)no-repeat;
+>>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
 #newsFeedsDiv .newsfeedsH2{
+	margin: 0px; padding: 0px;
 	padding: 20px;
-	background: url(../images/newsfeeds.gif)no-repeat;
+	background: url(/assets/newsfeeds.gif)no-repeat;
 	background-position: 20px, 20px;
 	padding-left: 50px;
+	padding-bottom: 0px;
+	margin-top: -20px;
 }
 #messagesDiv p{
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 }
 #todoListDiv p{
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 #todoListDiv .time{
 	font-size: 16px;
@@ -695,9 +713,13 @@ td{
 	padding-left: 15px; padding-right: 20px;
 }
 #newsFeedsDiv  #slideShow{
+	margin: 0px;padding: 0px;
+	margin-left: -5px;
 	width: 490px;height: 189px;
 	overflow: hidden;
-		/*height: 380px;width: 490px;*/
+}
+#newsFeedsDiv  #slideShow image{
+	margin-left: -10px;
 }
 #newsFeedsDiv #thumbs{
 	list-style: none;
@@ -718,7 +740,7 @@ td{
 	position: absolute;
 	float: left;
 	/*background-color: #fcf;*/
-	margin-left: 140px;
+	margin-left: 127px;
 }
 #associations{
 	position: absolute;
@@ -743,11 +765,11 @@ td{
 }
 #assoAndPV li{
 	font-size: 11px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-weight: bold;
 }
 #assoAndPV span{
-	width: 30px; height: 30px;
+	width: 30px; height: 25px;
 	display: inline-block;
 	line-height: 30px; text-align: center;
 	background-color: #fff; color: #fff;
@@ -766,11 +788,11 @@ td{
 	float: left;
 	position: absolute;
 	margin-top: 160px;
-	margin-left: 140px;
+	margin-left: 128px;
 }
 #meeting li{
 	list-style: none;
-	width:250px;height: 40px;
+	width:250px;height: 54px;
 	background-color: #fff;
 	border-bottom: 1px solid #f2f2f2;
 	cursor: pointer;
@@ -795,27 +817,38 @@ td{
 #requests{
 	float: left;
 	position: absolute;
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-top: 320px;
 }
+#requests ul{
+	margin-top: -10px;
+}
 #requests li{
+	margin: 0px; padding: 0px;
+	margin-left: -20px;
 	list-style: none;
 	float: left;
-	width: 122px;
+	width: 135px;
 	background-color: #fff;
 	border-left: 1px solid #f2f2f2;
 }
 #requests li label{
+	margin: 0px; padding: 0px;
 	padding-left: 5px;
 	color:#96c953;
-	padding-top: 5px;
+	padding-top: 0px;
 	padding-bottom: 0px;
 }
 #requests li p{
-	padding-left: 5px;
+	margin: 0px; padding: 0px;
+	padding-left: 0px;
 	color: #54a1d5;
 	font-size: 11px;
 	letter-spacing: 1px;
+}
+.profile_img {
+    width: 25px;
+    height: 25px;
 }
 
 

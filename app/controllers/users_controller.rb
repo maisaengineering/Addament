@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def show
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
-    @posts = Post.all
+    @posts = Post.where("user_id != ?", current_user.id)
     @following =  current_user.all_following.count
     @todos = Todo.where("user_id =?", current_user.id).order('created_at desc').limit(3)
     @follow = current_user.follow_count
