@@ -1,0 +1,29 @@
+<% i =1 %>
+<% @goal.each do |goal| %>
+    <% user  = User.where(goal.id).first %>
+    <% profile = user.profile %>
+    <%= profile.first_name %> <%= profile.last_name %><br>
+    <%= goal.goal_name %><br>
+    <div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
+       <div class="comment_form<%= i %>" style="display: none;">
+        <div class="comment_form">
+          <%=  render 'goal_comments/form', :id => goal.id %>
+        </div>
+
+      </div>
+
+    <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+    </div>
+    <% i += 1 %>
+<% end %>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+    function open_form(e)
+    {
+
+        $('.comment_form'+ e).css('display', 'block');
+
+    }
+</script>

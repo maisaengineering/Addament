@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Goal:</b>
+  <%= @goal_comment.goal_id %>
+</p>
+
+<p>
+  <b>Commenter:</b>
+  <%= @goal_comment.commenter_id %>
+</p>
+
+<p>
+  <b>Comment description:</b>
+  <%= @goal_comment.comment_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_comment_path(@goal_comment) %> |
+<%= link_to 'Back', goal_comments_path %>
