@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<%= image_tag("logo.png") %>
+<p>You're Almost Done! Just Confirm Your Email.<br/>
+  You've successfully created an Addament account. To activate it, please click below to verify your email address.</p>
 
-<p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>Thanks for making Addament your place to develop your career and help others. The goal is to get inspired and inspire other. Together, we will build strong careers as well as stay connected to news and colleagues.
+
+  You are the reason we're here!! Enjoy!!</p>
