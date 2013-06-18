@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   has_one :profile
   has_many :todos
-  has_many :goals
+  has_many :goals, :dependent => :destroy
   has_many :my_activity
 
   def self.get_current_company_name(user_id)
