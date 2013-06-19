@@ -21,6 +21,13 @@ body{
 	-o-background-size: cover;
 	background-size: cover;
 	font-family: itc_avant_garde;
+    margin-left: -4px;
+}
+
+.bodycontainer{
+    width:980px;
+    margin:0 auto;
+    min-height:500px;
 }
 .main_form{
 	background-image: url(/assets/form-bg.png);
@@ -227,7 +234,7 @@ h3{
 }
 
 .header_search_box{
-    margin-left: 70px;
+    margin-left: 55px;
     margin-top: -42px;
 }
 
@@ -237,6 +244,7 @@ input[type="search"]:focus{
 }
 .header_search{
     margin-top: -10px;
+
 }
 
 
@@ -244,6 +252,7 @@ input[type="search"]:focus{
 #notifi img{
 	padding-left: 10px;
 	padding-right: 10px;
+
 }
 #notifi .notification{
 	display: list-item;
@@ -274,7 +283,7 @@ input[type="search"]:focus{
 	font-weight: bold;
 	display: block;
 	width: 980px;
-	padding-top: 50px;
+	padding-top: 29px;
 	margin: 0 auto;
 }
 #pMenu .pMenuItem{
@@ -303,7 +312,6 @@ input[type="search"]:focus{
 	border-top: 1px solid #4a4a4a;
 	padding-top: 10px;
 	margin: 0 auto;
-	padding-left: 60px;
 	padding-right: 20px;
 	text-align: left;
 }
