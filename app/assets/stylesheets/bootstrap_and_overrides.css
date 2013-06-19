@@ -42,3 +42,7 @@ select {
     margin-bottom: 10px;
     margin-left: -20px;
 }
+
+input.span3, textarea.span3, .uneditable-input.span3 {
+    width: 200px;
+}

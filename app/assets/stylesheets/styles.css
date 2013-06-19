@@ -155,26 +155,31 @@ h3{
 #header{
 	height: 120px;
 	width: 100%;
+    margin-top: -4px;
 	background-color: #fff;
 	border-bottom: 3px solid #222;
 }
-#header .cen{
+#header .header_content{
 	width: 980px;
 	margin: 0 auto;
-	padding-top: 20px;
 }
+.header_logo{
+    margin-top: 10px;
+}
+
 #menu{
 	list-style-type: none;
-	margin-top: -45px;margin-left:90px;
+
 }
+
 #menu .menuItem{
 	float: left;
-	margin-left: 20px;
 	font-size: 12px;
 	font-weight: bold;
-	color: #51a2d5; 
-	padding-left: 10px;
+	color: #51a2d5;
 	cursor: pointer;
+    margin-left: 10px;
+    padding-left: 5px;
 }
 #menu .menuItemSelected{
 	color: #96c953;
@@ -184,13 +189,13 @@ h3{
 	font-size: 11px;
 	color: #96c953;
 	display:block;
-	margin-top: 0px;margin-left: 2px;
-	float: left;
+	margin-top: 0px;
+    margin-left: 2px;
 	list-style-type: none;
-	width: 195px;
+    width: 180px;
 }
 #header .srch{
-	background: url(/assets/search.gif) no-repeat;
+	background: url(/assets/search.gif) no-repeat transparent;
 	background-position:right;
 	margin-left:20px; 
 	height:20px;
@@ -202,6 +207,40 @@ h3{
 	border: 1px solid #bbb;
 	padding-right: 20px;
 }
+
+.navbar-search {
+    margin-left: 8px;
+    margin-top: 0px;
+    position: relative;
+}
+
+.navbar-search .search-query {
+    padding-left: 10px !important;
+    background:#e1e1e1;
+    height:20px;
+}
+.navbar-search .icon-search {
+    position: absolute;
+    top: 7px;
+    float:right;
+    right: 11px;
+}
+
+.header_search_box{
+    margin-left: 70px;
+    margin-top: -42px;
+}
+
+input[type="search"]:focus{
+    border-color: rgba(0, 0,0, 0);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0) inset, 0 0 0px rgba(0, 0, 0, 0);
+}
+.header_search{
+    margin-top: -10px;
+}
+
+
+
 #notifi img{
 	padding-left: 10px;
 	padding-right: 10px;
@@ -289,10 +328,10 @@ h3{
 }
 .profileCompTrg{
 	height: 30px;width: 350px;
-
+	background-color: #fff;
 	margin-top: -60px;position:absolute;
 	margin-left: 590px;
-
+	line-height: 30px;
 	font-size: 12px;
 	padding-left: 10px;
 	color: #51a2d5; 
@@ -549,11 +588,7 @@ td{
 }
 /**/
 #activityDiv h3{
-<<<<<<< HEAD
-	background: url(/assets/icons/activity.gif)no-repeat;
-=======
 	background: url(/assets/activity.gif)no-repeat;
->>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	padding: 20px; padding-left: 50px;
 	background-color:#51a2d5;
 	color: #fff;font-size: 18px;
@@ -687,11 +722,7 @@ td{
 	padding-left: 25px;
 }
 #feedsDiv .messagesH2{
-<<<<<<< HEAD
 	background: url(/assets/messages.gif)no-repeat;
-=======
-	background: url(/assets/images/messages.gif)no-repeat;
->>>>>>> 491daa99dc503505087d58473d955b7ba727419d
 	background-position: 0px, 20px;
 	padding-left: 25px;
 }
@@ -857,6 +888,7 @@ td{
 .profile_img {
     width: 25px;
     height: 25px;
+    margin-top: -12px;
 }
 
 
