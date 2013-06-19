@@ -7,21 +7,27 @@
 	src:url(/assets/avenir_next_lt_pro_demi.woff);
 }
 
+html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: itc_avant_garde;
+    background: url(main-bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
 .validation-error {
 	color:red;
 	margin-right:-74px;
-}
-*{
-	margin: 0px; padding: 2px;
-}
-body{ 
-	background: url(/assets/main-bg.png) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	font-family: itc_avant_garde;
-    margin-left: -4px;
 }
 
 .bodycontainer{
@@ -29,9 +35,11 @@ body{
     margin:0 auto;
     min-height:500px;
 }
+
 .main_form{
-	background-image: url(/assets/form-bg.png);
-	width: 938px;height: 640px;
+	background-image: url(form-bg.png);
+	width: 938px;
+    height: 640px;
 	border-collapse: collapse;
 	/*border: 1px solid #fff;*/
 	margin: auto;
@@ -171,7 +179,7 @@ h3{
 	margin: 0 auto;
 }
 .header_logo{
-    margin-top: 10px;
+    padding-top: 15px;
 }
 
 #menu{
@@ -278,7 +286,7 @@ input[type="search"]:focus{
 	background-color: #222;
 	height:116px;
     width: 100%;
-	background:url(/assets/footer-bg.jpg);
+	background:url(footer-bg.jpg);
 	background-repeat: repeat-x;
 }
 .footerContent{
@@ -289,7 +297,7 @@ input[type="search"]:focus{
 	font-size: 10px;
 	font-weight: bold;
 	display: block;
-	margin-top: 30px;
+    padding-top: 40px;
     margin-left: 0px;
 }
 #footer_menu .footer_menu_item{
