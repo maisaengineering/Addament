@@ -1,7 +1,7 @@
-<%= simple_form_for :conversation, url: :conversations do |f| %>
-<%= f.input :recipients %>
-<%= f.input :subject %>
-<%= f.input :body %>
+<%= form_for :conversation, url: :conversations do |f| %>
+Recipents<%= f.text_field :recipients %><br/>
+Subject<%= f.text_field :subject %><br/>
+Body<%= f.text_area :body, :rows => 5, :cols => 5 %><br/>
 <div class="form-actions">
   <%= f.button :submit %>
       </div>

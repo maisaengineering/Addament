@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :goal_comments
+
+
   resources :schools
 
 

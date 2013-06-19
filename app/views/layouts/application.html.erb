@@ -30,13 +30,17 @@
       </td>
       <td>
         <% if !current_user.profile.nil? %>
-            <%= image_tag("/assets/avatar.jpg", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
+            <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
         <% else %>
             <%= image_tag("/assets/avatar.jpg", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
         <% end %>
       </td>
       <td>
-        <label class="userDet">First Name</label>
+        <label class="userDet">
+          <% unless current_user.profile.nil? %>
+              <%=  current_user.profile.first_name %>
+          <% end %>
+        </label>
       </td>
       <td>
         <div id="notifi">

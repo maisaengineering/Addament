@@ -1,0 +1,27 @@
+<% goal_comment = GoalComment.where("goal_id = ?", id) %>
+<table>
+<% goal_comment.each do |goalcomments| %>
+      <tr>
+        <td>
+             <% user = User.find(goalcomments.commenter_id) %>
+            <table>
+              <tr>
+                 <td><%= user.profile.first_name %></td>
+                 <td><%= user.profile.last_name %></td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+        <tr>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <%=  goalcomments.comment_description %>
+              </td>
+            </tr>
+          </table>
+        </td>
+        </tr>
+    <% end %>
+</table>

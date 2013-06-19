@@ -30,6 +30,14 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
+
+    if session[:social_login_data]
+      data = session[:social_login_data]
+      @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),
+                                 location: data.try(:location),
+                                 phone_number: data.try(:phone))
+
+    end
     @company = Company.all
     @professional = @profile.professionals.build
     respond_to do |format|
@@ -55,7 +63,7 @@ class ProfilesController < ApplicationController
     end
     respond_to do |format|
       if @profile.save
-        format.html {redirect_to my_account_path }
+        format.html {redirect_to new_education_path }
         #format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         #format.json { render json: @profile, status: :created, location: @profile }
       else
@@ -70,7 +78,11 @@ class ProfilesController < ApplicationController
     send_data(@image,:disposition => 'inline')
   end
 
-
+  def other_user_image
+    profile = Profile.find(params[:id])
+    @image = profile.avatar_file
+    send_data(@image)
+  end
   # PUT /profiles/1
   # PUT /profiles/1.json
   def update
@@ -92,6 +104,7 @@ class ProfilesController < ApplicationController
      @goal = Goal.all
      @profile = current_user.profile
      @past = Professional.where("profile_id = ?", current_user.profile.id)
+     @goal_comment = GoalComment.new
     end
   def about_update
 
