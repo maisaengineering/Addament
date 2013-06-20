@@ -9,6 +9,7 @@ Addament::Application.routes.draw do
   resources :feedback do
     collection do
       post 'send_email'
+      post 'change_priority'
     end
     end
   resources :educations
