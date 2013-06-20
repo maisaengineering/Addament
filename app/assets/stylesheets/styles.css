@@ -7,24 +7,39 @@
 	src:url(/assets/avenir_next_lt_pro_demi.woff);
 }
 
+html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: itc_avant_garde;
+    background: url(main-bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
 .validation-error {
 	color:red;
 	margin-right:-74px;
 }
-*{
-	margin: 0px; padding: 2px;
+
+.bodycontainer{
+    width:980px;
+    margin:0 auto;
+    min-height:500px;
 }
-body{ 
-	background: url(/assets/main-bg.png) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	font-family: itc_avant_garde;
-}
+
 .main_form{
-	background-image: url(/assets/form-bg.png);
-	width: 938px;height: 640px;
+	background-image: url(form-bg.png);
+	width: 938px;
+    height: 640px;
 	border-collapse: collapse;
 	/*border: 1px solid #fff;*/
 	margin: auto;
@@ -164,7 +179,7 @@ h3{
 	margin: 0 auto;
 }
 .header_logo{
-    margin-top: 10px;
+    padding-top: 15px;
 }
 
 #menu{
@@ -227,7 +242,7 @@ h3{
 }
 
 .header_search_box{
-    margin-left: 70px;
+    margin-left: 55px;
     margin-top: -42px;
 }
 
@@ -237,6 +252,7 @@ input[type="search"]:focus{
 }
 .header_search{
     margin-top: -10px;
+
 }
 
 
@@ -244,6 +260,7 @@ input[type="search"]:focus{
 #notifi img{
 	padding-left: 10px;
 	padding-right: 10px;
+
 }
 #notifi .notification{
 	display: list-item;
@@ -263,50 +280,60 @@ input[type="search"]:focus{
 	float: left;
 	margin-top: -25px;
 }
+
+/* Footer CSS Start */
 #footer{
 	background-color: #222;
-	height:116px;width: 100%;
-	background:url(/assets/footer-bg.jpg);
+	height:116px;
+    width: 100%;
+	background:url(footer-bg.jpg);
 	background-repeat: repeat-x;
 }
-.footerContent #pMenu{
+.footerContent{
+    width: 980px;
+    margin: 0 auto;
+}
+.footerContent #footer_menu{
 	font-size: 10px;
 	font-weight: bold;
 	display: block;
-	width: 980px;
-	padding-top: 50px;
-	margin: 0 auto;
+    padding-top: 40px;
+    margin-left: 0px;
 }
-#pMenu .pMenuItem{
+#footer_menu .footer_menu_item{
 	list-style-type: none;
 	display: list-item;
 	float: left;
 	color: #4a4a4a;
 	padding-right: 20px;
-	margin-bottom: 20px;
 	cursor: pointer;
 }
-#pMenu li:after{
+#footer_menu li:after{
 	padding-left: 10px;
 	content: " | "
 }
-#pMenu li:last-child:after{
+#footer_menu li:last-child:after{
 	content: ""
 }
-.footerContent p{
+.footerContent .footer_copy_rights{
 	font-size: 10px;
 	font-weight: bold;
 	color: #4a4a4a;
-	letter-spacing: 1px;
-	display: block;
-	width: 980px;
+    margin-left: 0;
+    margin-top: 5px;
 	border-top: 1px solid #4a4a4a;
-	padding-top: 10px;
-	margin: 0 auto;
-	padding-left: 60px;
-	padding-right: 20px;
-	text-align: left;
 }
+.footer_rights_details{
+    margin-top:5px;
+}
+.footer_privacy_policy{
+    float:right;
+    margin-right: 0px;
+    margin-top: -25px;
+}
+
+/* Footer CSS End*/
+
 #profile_con_tbl{
 	width: 980px;height: 600px;
 	margin: 0 auto; margin-top: 30px;
@@ -891,7 +918,166 @@ td{
     margin-top: -12px;
 }
 
+/*---------------------path css--------------------*/
 
+
+
+#container{
+	width: 980px; height: 800px;
+	margin: 0 auto;margin-top: 30px;
+	background: url(../images/div-bg.png) repeat-x;
+	background-position: left bottom;
+	/*background-color: #fff;*/
+}
+#leftDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 240px;
+	padding: 20px;
+}
+#centerDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 360px;
+	margin-left: 290px;
+	padding: 20px;
+	text-align: center;
+}
+#rightDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 240px;
+	padding: 20px;
+	margin-left: 700px;
+}
+/* -------------------- LEFT DIV ------------------ */
+#leftDIV li{
+	width: 240px;
+	height: 120px;
+	background-color: #54a1d5;
+	list-style: none;
+	margin-bottom: 10px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+#leftDIV li:first-child{
+	background-color: #96c953;
+}
+#leftDIV li label{
+	display: block;
+	padding-top: 55px;
+	padding-bottom: 0px;
+}
+#leftDIV li p{
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+/* -------------------- RIGHT DIV ------------------ */
+#rightDIV h2{
+	background: url(../images/activity.gif)no-repeat;
+	background-position: 20px ;
+	background-color: #54a1d5;
+	padding: 15px;
+	color: #fff;
+	font-size: 14px;
+	padding-left: 40px;
+}
+#rightDIV li{
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	clear: both;
+	font-weight: bold;
+	padding-bottom: 15px;
+	margin-top: 20px;
+}
+#rightDIV li:last-child{
+ border: none;
+}
+#rightDIV img{
+	float: left;
+	padding-right: 10px;
+}
+#rightDIV li label{
+	font-size: 11px;
+	list-style: none;
+	display: block;
+	color: #54a1d5;
+	margin-top: -4px;
+}
+
+#rightDIV li p{
+	font-size: 10px;
+	text-align: justify;
+	font-weight: bold;
+	color: #686868;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	font-family:itc_avant_garde;
+}
+/* -------------------- CENTER DIV ------------------ */
+#centerDIV label{
+	display: block;
+}
+#centerDIV .roundCornDiv{
+	position: absolute;
+	width: 160px;
+	height: 40px;
+	border-radius: 20px;
+	border: 1px solid #ccc;
+	line-height: 40px;
+	margin-left: 100px;
+	background-color: #fff;
+}
+#centerDIV .stepDiv{
+	position: absolute;
+	width: 180px;
+	height: 40px;
+	background-color: #96c953;
+	line-height: 40px;
+	margin-left: 90px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #fff;
+}
+#centerDIV .mileStone{
+	position: absolute;
+	width: 260px;
+	height: 40px;
+	background-color: #54a1d5;
+	line-height: 40px;
+	margin-left: 50px;
+	font-size: 14px;
+	color: #fff;
+	letter-spacing: 1px;
+}
+#centerDIV #lineDiv{
+	position: absolute;
+	width: 1px;
+	height: 520px;
+	background-color: #ccc;
+	margin-left: 180px;
+	margin-top: 43px;
+}
+#centerDIV .btn {
+	color: #fff;
+	background: #51a2d5;
+	border: 0px;
+	border-radius: 20px;
+	padding: 5px;
+	font-size: 13px;
+	font-family:itc_avant_garde;
+	width: 150px;
+	cursor: pointer;
+	font-weight: bold;
+}
 
 
 

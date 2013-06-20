@@ -123,5 +123,13 @@ class ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def preview
+    profile_con = []
+    profile_content = Profile.where(:first_name => params[:search_txt])
+    profile_content.each do |each_pro|
+    profile_con << each_pro.first_name
+    end
+    @profile  =  profile_con
+    render :partial => 'preview', :content_type => 'text/html'
+  end
 end

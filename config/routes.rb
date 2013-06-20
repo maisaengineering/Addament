@@ -12,8 +12,9 @@ Addament::Application.routes.draw do
   resources :feedback do
     collection do
       post 'send_email'
+      post 'change_priority'
     end
-    end
+  end
   resources :educations
 
 
@@ -50,7 +51,7 @@ Addament::Application.routes.draw do
   end
 
 
- # devise_for :users
+  # devise_for :users
 
   devise_for :users ,controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
@@ -66,7 +67,7 @@ Addament::Application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
   end
-   resources :users  do
+  resources :users  do
     collection do
       get 'tokenizer'
       post 'follow'
@@ -74,21 +75,22 @@ Addament::Application.routes.draw do
       post 'follow_list'
     end
   end
-    resources :profiles do
-      collection do
-         get 'path'
-        get 'about'
-        get 'code_image'
-         get 'other_user_image'
-        post 'about_update'
-      end
-    end 
-    resources :educations  , controller: 'users/educations'
-    resources :professional_industries  , controller: 'users/professional_industries'
-  
-   match "/my_account" => "users#show",as: :my_account
-   match "/public_profile" => "users#public_profile",as: :public_profile
-   match "/show_all_activity" => "users#show_all_activity",as: :show_all_activity
+  resources :profiles do
+    collection do
+      get 'path'
+      get 'about'
+      get 'code_image'
+      get 'other_user_image'
+      post 'about_update'
+      post 'preview'
+    end
+  end
+  resources :educations  , controller: 'users/educations'
+  resources :professional_industries  , controller: 'users/professional_industries'
+
+  match "/my_account" => "users#show",as: :my_account
+  match "/public_profile" => "users#public_profile",as: :public_profile
+  match "/show_all_activity" => "users#show_all_activity",as: :show_all_activity
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
