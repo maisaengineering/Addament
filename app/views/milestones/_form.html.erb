@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%=  f.hidden_field :goal_id, :value => @goal_id %>
+    <%= f.hidden_field :goal_id, :value => @goal_id %>
     <%= f.label :mile_Stone_step %><br />
-    <%= f.text_area :mile_Stone_step %>
+    <%= f.text_field :mile_Stone_step %>
   </div>
   <div class="actions">
     <%= f.submit %>

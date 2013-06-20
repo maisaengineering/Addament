@@ -1,7 +1,7 @@
 class MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
-  layout 'false'
+  layout false
   def index
     @milestones = Milestone.all
 
