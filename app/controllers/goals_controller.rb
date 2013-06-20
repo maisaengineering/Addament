@@ -3,9 +3,8 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
-
-    respond_to do |format|
+    @goals = Goal.where("user_id =?", current_user.id)
+     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goals }
     end
@@ -45,7 +44,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
+        format.html { redirect_to goals_path }
         format.json { render json: @goal, status: :created, location: @goal }
       else
         format.html { render action: "new" }

@@ -1,0 +1,27 @@
+<h1>Listing profile_comments</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Commenter</th>
+    <th>Comment description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_comments.each do |profile_comment| %>
+  <tr>
+    <td><%= profile_comment.profile_id %></td>
+    <td><%= profile_comment.commenter_id %></td>
+    <td><%= profile_comment.comment_description %></td>
+    <td><%= link_to 'Show', profile_comment %></td>
+    <td><%= link_to 'Edit', edit_profile_comment_path(profile_comment) %></td>
+    <td><%= link_to 'Destroy', profile_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile comment', new_profile_comment_path %>

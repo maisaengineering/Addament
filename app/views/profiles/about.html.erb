@@ -19,8 +19,8 @@
           <div class="profile_text" style="display: block; color:white;">
             <%= @profile.about %>
           </div>
-          <div class="profile_text2" style="display: none;">
-            <%= f.text_area :about, :style => "width:550px", :rows => 2, :cols => 220 %>
+          <div class="profile_text2" style="">
+            <%= f.text_area :about, :style => "width:350px", :rows => 2, :cols => 220 %>
           </div>
         </td>
       </tr>
@@ -82,26 +82,39 @@
           </div>
     </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>
-<script>
-    $('#profile_about').blur(function() {
-        $('#save').trigger('click');
-    });
-</script>
-<script>
-    $(document).ready(function(){
-        if("<%= @profile.about %>")
-        {
 
-            $(".profile_text").html("<%= @profile.about %>").show();
-            $(".profile_text2").hide();
-        }
-        else
-        {
-            $(".profile_text2").show();
-            $(".profile_text").hide();
-        }
+</div>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+        </script>
 
-    });
-</script>
+        <script>
+            $('.aboutbutton').click(function(){
+
+                $('.profile_text').css('display', 'none');
+                $('.profile_text2').css('display', 'block');
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                if("<%= @profile.about %>")
+                {
+
+                    $(".profile_text").html("<%= @profile.about %>").show();
+                    $(".profile_text2").hide();
+                }
+                else
+                {
+                    $(".profile_text2").show();
+                    $(".profile_text").hide();
+                }
+
+            });
+        </script>
+
+        <script>
+            $('#profile_about').blur(function() {
+                $('#save').trigger('click');
+            });
+        </script>
+
