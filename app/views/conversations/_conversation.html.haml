@@ -1,17 +1,19 @@
 .priority_form
   - i = 1
   = content_tag_for(:li, conversation) do |conversation|
-    - notification  = Notification.where("conversation_id = ? and sender_id = ?", conversation.id, current_user.id).first
-    .message_box{:style => "background-color:#{notification.priority};"}
-      = link_to conversation.subject, conversation
-      %div{:class => "commentbutton#{i} "}
-        %a{:href => "javascript:void(0)", :onclick => "open_form(#{i})"} Change Priority
-        %div{:class => "profile_text#{i}", :style => "display: none;"}
-          = form_tag('/feedback/change_priority', :remote => true) do
-            = select_tag :priority,  options_for_select([["Default Color"],["red"],["green"],["Blue"]])
-            = hidden_field_tag :conversation_id, conversation.id
-            = submit_tag 'Send', :id => "send", :style => 'visibility: hidden'
-          - i +=1
+    - notification  = Notification.where("conversation_id = ?", conversation.id).first
+    - message =  notification.receipts.where("mailbox_type = ? and receiver_id =?", 'inbox', current_user.id).first
+    -unless message.nil?
+      .message_box{:style => "background-color:#{message.priority};"}
+        = link_to conversation.subject, conversation
+        %div{:class => "commentbutton#{i} "}
+          %a{:href => "javascript:void(0)", :onclick => "open_form(#{i})"} Change Priority
+          %div{:class => "profile_text#{i}", :style => "display: none;"}
+            = form_tag('/feedback/change_priority', :remote => true) do
+              = select_tag :priority,  options_for_select([["Default Color"],["red"],["green"],["Blue"]])
+              = hidden_field_tag :conversation_id, message.id
+              = submit_tag 'Send', :id => "send", :style => 'visibility: hidden'
+
 
     -#|
     -#- if conversation.is_completely_trashed?(current_user)
@@ -23,7 +25,8 @@
   function open_form(e)
   {
 
-      $('.profile_text'+ e).css('display', 'block');
+      $('.profile_text' + e).css('display', 'block');
+
 
 
   }
@@ -32,7 +35,6 @@
      var color = $(this).val();
      $('.message_box').css('background-color', color);
      $('#send').trigger('click');
-     $(this).css('display', 'none');
-     $('.profile_text').css('display', 'none');
+    $('.profile_text').css('display', 'none');
 
   });
