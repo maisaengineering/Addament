@@ -1,9 +1,9 @@
-<%= form_for(@goal_comment, :remote => true) do |f| %>
-  <% if @goal_comment.errors.any? %>
+<%= form_for(@profile_comment, :remote => true) do |f| %>
+  <% if @profile_comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@goal_comment.errors.count, "error") %> prohibited this goal_comment from being saved:</h2>
+      <h2><%= pluralize(@profile_comment.errors.count, "error") %> prohibited this profile_comment from being saved:</h2>
       <ul>
-      <% @goal_comment.errors.full_messages.each do |msg| %>
+      <% @profile_comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -11,12 +11,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :goal_id %><br />
-    <%= f.hidden_field :goal_id, :value => id %>
+    <%= f.label :profile_id %><br />
+    <%= f.number_field :profile_id %>
   </div>
   <div class="field">
     <%= f.label :commenter_id %><br />
-    <%= f.hidden_field :commenter_id, :value => current_user.id %>
+    <%= f.number_field :commenter_id %>
   </div>
   <div class="field">
     <%= f.label :comment_description %><br />

@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :profile_comments
+
+
   resources :goal_comments
 
 
