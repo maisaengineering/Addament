@@ -918,7 +918,166 @@ td{
     margin-top: -12px;
 }
 
+/*---------------------path css--------------------*/
 
+
+
+#container{
+	width: 980px; height: 800px;
+	margin: 0 auto;margin-top: 30px;
+	background: url(../images/div-bg.png) repeat-x;
+	background-position: left bottom;
+	/*background-color: #fff;*/
+}
+#leftDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 240px;
+	padding: 20px;
+}
+#centerDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 360px;
+	margin-left: 290px;
+	padding: 20px;
+	text-align: center;
+}
+#rightDIV{
+	background-color:#fff;
+	float: left;
+	position: absolute;
+	height: 615px;
+	width: 240px;
+	padding: 20px;
+	margin-left: 700px;
+}
+/* -------------------- LEFT DIV ------------------ */
+#leftDIV li{
+	width: 240px;
+	height: 120px;
+	background-color: #54a1d5;
+	list-style: none;
+	margin-bottom: 10px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+#leftDIV li:first-child{
+	background-color: #96c953;
+}
+#leftDIV li label{
+	display: block;
+	padding-top: 55px;
+	padding-bottom: 0px;
+}
+#leftDIV li p{
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+/* -------------------- RIGHT DIV ------------------ */
+#rightDIV h2{
+	background: url(../images/activity.gif)no-repeat;
+	background-position: 20px ;
+	background-color: #54a1d5;
+	padding: 15px;
+	color: #fff;
+	font-size: 14px;
+	padding-left: 40px;
+}
+#rightDIV li{
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	clear: both;
+	font-weight: bold;
+	padding-bottom: 15px;
+	margin-top: 20px;
+}
+#rightDIV li:last-child{
+ border: none;
+}
+#rightDIV img{
+	float: left;
+	padding-right: 10px;
+}
+#rightDIV li label{
+	font-size: 11px;
+	list-style: none;
+	display: block;
+	color: #54a1d5;
+	margin-top: -4px;
+}
+
+#rightDIV li p{
+	font-size: 10px;
+	text-align: justify;
+	font-weight: bold;
+	color: #686868;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	font-family:itc_avant_garde;
+}
+/* -------------------- CENTER DIV ------------------ */
+#centerDIV label{
+	display: block;
+}
+#centerDIV .roundCornDiv{
+	position: absolute;
+	width: 160px;
+	height: 40px;
+	border-radius: 20px;
+	border: 1px solid #ccc;
+	line-height: 40px;
+	margin-left: 100px;
+	background-color: #fff;
+}
+#centerDIV .stepDiv{
+	position: absolute;
+	width: 180px;
+	height: 40px;
+	background-color: #96c953;
+	line-height: 40px;
+	margin-left: 90px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #fff;
+}
+#centerDIV .mileStone{
+	position: absolute;
+	width: 260px;
+	height: 40px;
+	background-color: #54a1d5;
+	line-height: 40px;
+	margin-left: 50px;
+	font-size: 14px;
+	color: #fff;
+	letter-spacing: 1px;
+}
+#centerDIV #lineDiv{
+	position: absolute;
+	width: 1px;
+	height: 520px;
+	background-color: #ccc;
+	margin-left: 180px;
+	margin-top: 43px;
+}
+#centerDIV .btn {
+	color: #fff;
+	background: #51a2d5;
+	border: 0px;
+	border-radius: 20px;
+	padding: 5px;
+	font-size: 13px;
+	font-family:itc_avant_garde;
+	width: 150px;
+	cursor: pointer;
+	font-weight: bold;
+}
 
 
 
