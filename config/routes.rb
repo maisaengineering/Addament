@@ -13,6 +13,7 @@ Addament::Application.routes.draw do
     collection do
       post 'send_email'
       post 'change_priority'
+      get 'filter_data'
     end
   end
   resources :educations
