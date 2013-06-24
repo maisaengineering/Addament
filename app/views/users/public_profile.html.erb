@@ -1,19 +1,20 @@
 <table>
   <tr>
-    <td>
+    <td><br>
       <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" style = "background-color:#51A2D5;width:870px;">
           <li class="active"><a href="#tab1" data-toggle="tab">Users</a></li>
           <li><a href="#tab2" data-toggle="tab" id="followee" >Followee</a></li>
           <li><a href="#tab3" data-toggle="tab">Following</a></li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content" style = "background-color:BAD996;
+                margin-top: -22;margin-left: -1;">
           <div class="tab-pane active" id="tab1">
 
-          <p>
-                      <%= render :partial => 'all_users' %>
+            <p>
+              <%= render :partial => 'all_users' %>
 
-          </p>
+            </p>
 
           </div>
           <div class="tab-pane" id="tab2">
@@ -27,11 +28,10 @@
             <p>
 
               <%= render :partial => 'following' %>
-              .</p>
+            </p>
           </div>
         </div>
       </div>
     </td>
   </tr>
 </table>
-

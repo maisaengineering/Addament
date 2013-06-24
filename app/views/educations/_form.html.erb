@@ -1,78 +1,97 @@
-<%= form_for(@education) do |f| %>
-  <% if @education.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@education.errors.count, "error") %> prohibited this education from being saved:</h2>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<div id="container">
 
-      <ul>
-      <% @education.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <div id="centerDIV" style = "margin-left:-75px;width:730px;">
+    <table align="center">
+      <%= form_for(@education) do |f| %>
+          <div id="error_explanation">
+            <ul>
+              <% @education.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+          <tr>
+            <td></td>
+            <td><h2>New Education</h2></td>
+          </tr>
+          <tr>
+            <td><label>School</label></td>
+            <td><%= f.text_field :school, :id => "school" %></td>
+          </tr>
+          <tr>
+            <td><label>Date attended</label></td>
+            <td><%= f.text_field :date_attended, :id => "datepicker" %></td>
+          </tr>
+          <tr>
+            <td><label>Degree</label></td>
+            <td><%= f.text_field :degree %></td>
+          </tr>
+          <tr>
+            <td><label>Field of study</label></td>
+            <td><%= f.text_field :field_of_study %></td>
+          </tr>
+          <tr>
+            <td><label>Grade</label></td>
+            <td><%= f.text_field :grade %></td>
+          </tr>
+          <tr>
+            <td><label>Activities and Societies</label></td>
+            <td><%= f.text_field :activities_and_societies %><br></td>
+          </tr>
+          <tr>
+            <td><label>Description</label></td>
+            <td><%= f.text_area :description, :style => "width:205px;height:50px" %></td>
+          </tr>
+          <tr>
+            <td><label>Skills</label> </td>
+            <td><%= f.text_area :skills, :style => "width:205px;height:50px" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "Save", :id=> "save" %></td>
+          </tr>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :school %><br />
-    <%= f.text_field :school %>
+    </table>
   </div>
-  <div class="field">
-    <%= f.label :date_attended %><br />
-    <%= f.date_select :date_attended %>
-  </div>
-  <div class="field">
-    <%= f.label :degree %><br />
-    <%= f.text_field :degree %>
-  </div>
-  <div class="field">
-    <%= f.label :field_of_study %><br />
-    <%= f.text_field :field_of_study %>
-  </div>
-  <div class="field">
-    <%= f.label :grade %><br />
-    <%= f.text_field :grade %>
-  </div>
-  <div class="field">
-    <%= f.label :activities_and_societies %><br />
-    <%= f.text_field :activities_and_societies %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :skills %><br />
-    <%= f.text_area :skills %>
-  </div>
-    <div class="actions">
-      <td><%= f.submit "Save", :id=> "save" %></td>
-    </div>
-<% end %>
-<div class="button2">
-  <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Add More Education</h3>
-    </div>
-    <div class="modal-body">
-      <p></p>
-    </div>
-
+  <div id="rightDIV">
+    <h2>SPONSORS</h2>
+    <ul>
+      <li>
+        <label>Ready for Google xPhone?</label>
+        <p>open.etoro.com</p>
+        <img src="images/s1.png"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+      </li>
+      <li>
+        <label>Ready for Google xPhone?</label>
+        <p>open.etoro.com</p>
+        <img src="images/s2.png"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+      </li>
+      <li>
+        <label>Ready for Google xPhone?</label>
+        <p>open.etoro.com</p>
+        <img src="images/s4.png"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+      </li>
+    </ul>
   </div>
 </div>
-<script type="text/javascript">
-    $('#education_school').click(function() {
-        $("#education_school").tokenInput("/users/tokenizer.json", {
-            theme: "facebook"
-        });
-    });
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+<link rel="stylesheet" type="text/css" href="/assets/select2.css">
+<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+<script type="text/javascript" src="/assets/select2.js"></script>
+
+
+<script>
+    $("#datepicker").datepick();
+    $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
 </script>
 <script>
-    $("#school").click(function() {
-        $("#school").select2({tags:[<% for i in 0...@school.length %>
-            '<%= @school[i].school_name %>',
-            <% end %>]});
-    });
-
+    $("#datepicker1").datepick();
+    $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
 </script>
-

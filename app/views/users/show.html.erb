@@ -1,4 +1,9 @@
-
+<% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button class="close" data-dismiss="alert" type="button"> ×</button>
+      <p class="text-info"><%= flash[:notice] %></p>
+    </div>
+<% end %>
 <!-- .................. HEADER SECTION END.............. -->
 <!-- .................. TOP DIV ........................ -->
 <div id="container">
@@ -15,7 +20,7 @@
       <div id="chatUpdatesDiv">
         <h2 class="chatUpdatesHk2">Chat Updates</h2>
         Coming Soon..
-        
+
       </div>
       <div id="messagesDiv">
         <h2 class="messagesH2">Messages</h2>
@@ -44,14 +49,14 @@
                <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image"} %>
               <%else %>
                <%= image_tag("missing.png",height: 70,width: 70) %>
-             <% end %> 
-          <% end %> 
+             <% end %>
+          <% end %>
           <label><%= user.profile.first_name %> <%= user.profile.last_name %></label>
            <% unless user.profile.nil? %>
-          
+
            <%= truncate(post.current_post, length: 1) %>
           <% end %>
-           
+
            <ul id="infoUL">
                 <li class="infoLI"><%= time_ago_in_words(post.created_at) %> ago </li>
                 <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(post) %></li>
@@ -63,8 +68,8 @@
             <%= link_to "see more", posts_path , :style => "float:right" %>
           <% end %>
           </ul>
-   
-      
+
+
     </div>
   </div>
   <!-- .................. BOTTOM DIV ..................... -->
@@ -77,7 +82,7 @@
         <div id="slideShow">
         <%= image_tag("/assets/slide_1.jpg") %>
         </div>
-        
+
         <div id="thumbs">
           <ul id="thumbs">
             <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>

@@ -22,9 +22,14 @@
       </td>
       <td>
         <% if !current_user.profile.nil? %>
-            <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
+            <% unless current_user.profile.avatar_file.nil? %>
+               <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
+            <% else %>
+                <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
+            <% end %>
         <% else %>
-            <%= image_tag("/assets/avatar.jpg", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
+            <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
+
         <% end %>
       </td>
       <td>

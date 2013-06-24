@@ -88,10 +88,11 @@ Addament::Application.routes.draw do
   end
   resources :educations  , controller: 'users/educations'
   resources :professional_industries  , controller: 'users/professional_industries'
-
+  #match "*path" => 'error#handle404'
   match "/my_account" => "users#show",as: :my_account
   match "/public_profile" => "users#public_profile",as: :public_profile
   match "/show_all_activity" => "users#show_all_activity",as: :show_all_activity
+ # match "*path" => 'users#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

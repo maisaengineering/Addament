@@ -135,20 +135,19 @@ ActiveRecord::Schema.define(:version => 20130620083803) do
   create_table "notifications", :force => true do |t|
     t.string   "type"
     t.text     "body"
-    t.string   "subject",                            :default => ""
+    t.string   "subject",              :default => ""
     t.integer  "sender_id"
     t.string   "sender_type"
     t.integer  "conversation_id"
-    t.boolean  "draft",                              :default => false
-    t.datetime "updated_at",                                            :null => false
-    t.datetime "created_at",                                            :null => false
+    t.boolean  "draft",                :default => false
+    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                              :null => false
     t.integer  "notified_object_id"
     t.string   "notified_object_type"
     t.string   "notification_code"
     t.string   "attachment"
-    t.boolean  "global",                             :default => false
+    t.boolean  "global",               :default => false
     t.datetime "expires"
-    t.string   "priority",             :limit => 50
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
@@ -179,6 +178,14 @@ ActiveRecord::Schema.define(:version => 20130620083803) do
     t.integer  "profile_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+  end
+
+  create_table "profile_comments", :force => true do |t|
+    t.integer  "profile_id"
+    t.integer  "commenter_id"
+    t.text     "comment_description"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "profiles", :force => true do |t|
