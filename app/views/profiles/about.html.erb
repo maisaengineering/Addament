@@ -2,10 +2,10 @@
     <br/>
     <table id="topDIV" style= "background-color: fff;height: 99;width:980px;margin-left:0px;">
       <tr>
-        <td>
+        <td style="width: 92px;">
 
           <% unless current_user.profile.avatar_file? %>
-              <%= image_tag("missing.png",height: 70,width: 70) %>
+              <%= image_tag("missing.png",width: 92) %>
           <% else %>
               <div id ="image" style="width:92px;">
                 <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
@@ -14,13 +14,13 @@
 
           <% end %>
         </td>
-        <td><div class="aboutbutton" style="margin-right: 320px;"><a href="javascript:void(0)">About Us</a></div></td>
+        <td style="width:100px;"><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
         <td>
           <div class="profile_text" style="display: block;align:justify;">
             <%= @profile.about %>
           </div>
           <div class="profile_text2" style="">
-            <%= f.text_area :about,  :style => "width:550px;margin-left: -234px;", :rows => 2, :cols => 220 %>
+            <%= f.text_area :about,  :style => "width:550px;", :rows => 2, :cols => 220 %>
           </div>
         </td>
       </tr>
