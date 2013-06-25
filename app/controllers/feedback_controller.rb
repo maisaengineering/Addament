@@ -14,17 +14,15 @@ class FeedbackController < ApplicationController
   def change_priority
        update_priority = Receipt.find(params[:conversation_id])
        update_priority.update_column(:priority, params[:priority])
-       raise params[:priority].inspect
+
   end
 
   def filter_data
 
     @profile_result = Profile.where("first_name like ?", "%#{params[:search_value]}%")
-
-
-    render :partial => "filter_data"
-
-
+    @professional = Professional.where("company_name like ?", "%#{params[:search_value]}%")
+    @education = Education.where("school like ?", "%#{params[:search_value]}%")
+     render :partial => "filter_data"
   end
 
 

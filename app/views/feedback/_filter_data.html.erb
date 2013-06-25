@@ -1,13 +1,34 @@
 <% @profile_result.each do |profile_result| %>
+    <% user = User.find(profile_result.user_id) %>
    <table style="background-color: white;">
      <tr>
        <td>First Name:</td>
-       <td><%=  profile_result.first_name %></td>
+       <td><%= link_to "#{profile_result.first_name}", profile_result %> <%= user.user_role %></td>
      </tr>
-     <tr>
-       <td>Last Name:</td>
-       <td><%=  profile_result.last_name %></td>
-     </tr>
+
    </table>
+
+<% end %>
+<% @professional.each do |profile_result| %>
+    <% profile = Profile.find(profile_result.profile_id) %>
+    <% user = User.find(profile.user_id) %>
+    <table style="background-color: white;">
+      <tr>
+        <td>Company Name</td>
+        <td><%= link_to "#{profile_result.company_name}", profile_result %></td>
+      </tr>
+
+    </table>
+
+<% end %>
+<% @education.each do |profile_result| %>
+    <% profile = Profile.find(profile_result.profile_id) %>
+    <% user = User.find(profile.user_id) %>
+    <table style="background-color: white;">
+
+        <td>School</td>
+        <td><%= link_to "#{profile_result.school}", profile_result %></td>
+      </tr>
+    </table>
 
 <% end %>

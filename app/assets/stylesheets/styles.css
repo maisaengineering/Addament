@@ -355,10 +355,10 @@ input[type="search"]:focus{
 }
 .profileCompTrg{
 	height: 30px;width: 350px;
-	background-color: #fff;
-	margin-top: -60px;position:absolute;
+	margin-top: -54px;
+    position:absolute;
 	margin-left: 590px;
-	line-height: 30px;
+	line-height: 27px;
 	font-size: 12px;
 	padding-left: 10px;
 	color: #51a2d5; 
