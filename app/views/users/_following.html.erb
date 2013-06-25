@@ -11,7 +11,7 @@
                         <%  unless user.profile.nil? %>
                             <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
                             </td>
-                            <td> <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "btn" %></td>
+                            <td> <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "btn" %></td>
                         <%  end %>
                   <% end %>
                 </tr>

@@ -1,7 +1,10 @@
 <table id="topDIV" style = "background-color: fff;height: 99;width:980px;margin-left:0px;">
   <tr>
-            <td><% if current_user.profile.avatar_file? %>
-                <%= image_tag(current_user.profile.image.url(:thumb)) %>
+            <td>
+              <% if@profile.avatar_file? %>
+
+
+                  <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => @profile.id ),{ :class => "thumb_image"} %>
                 <% else %>
                 <%= image_tag("missing.png",height: 70,width: 80) %>
                 <% end %>
@@ -64,3 +67,52 @@
         <label class="qtn"><%= render :partial => "profile_follow_followee" %></label><br />
       </div>
     </div>
+<div class="follfDIV">
+<div class="tabbable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
+    <li><a href="#tab2" data-toggle="tab" >present</a></li>
+    <li><a href="#tab3" data-toggle="tab">future</a></li>
+  </ul>
+</div>
+
+<div class="tab-content"  style = "background-color: white;margin-top: -20;">
+  <div class="tab-pane active" id="tab1">
+
+    <p>
+      <% @past.each do |past| %>
+
+          <% if past.end_date!=nil %>
+
+              <%= past.company_name %><br>
+              <%= past.title %><br>
+              <%= past.start_date %><br>
+              <%= past.end_date %><br>
+              <%= past.project_name %>
+
+          <% end %>
+      <% end %>
+    </p>
+  </div>
+  <div class="tab-pane" id="tab2">
+    <p>
+      <% @past.each do |present| %>
+          <% if present.end_date == nil %>
+              <%= present.company_name %><br>
+              <%= present.start_date %><br>
+              <%= present.location %><br>
+              <%= present.project_name %><br>
+
+          <% end %>
+      <% end %>
+
+    </p>
+  </div>
+
+  <div class="tab-pane" id="tab3">
+    <p>
+      <%=  render :partial => 'goalcomments' %>
+    </p>
+  </div>
+</div>
+</div>

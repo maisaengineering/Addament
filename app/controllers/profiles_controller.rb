@@ -16,8 +16,13 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+
+
+    @goal_comment = GoalComment.new
     @profile = Profile.find(params[:id])
-     @users = User.where("id != ? ", @profile.user_id)
+    @past = Professional.where("profile_id = ?", @profile.id)
+    @users = User.where("id != ? ", @profile.user_id)
+    @goal = Goal.where("user_id =? ", @users[0].id)
 
     impressionist(@profile)
     respond_to do |format|
