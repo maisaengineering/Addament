@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @post = Post.new
-    @posts = Post.order('created_at desc')
+    @posts = Post.paginate(:page => params[:page], :per_page => 5).order('created_at desc')
     @comment = Comment.new
 
     respond_to do |format|

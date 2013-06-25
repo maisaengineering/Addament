@@ -23,6 +23,7 @@ gem 'mailboxer'
 gem 'impressionist'
 gem 'acts_as_follower'
 gem 'select2-rails'
+gem 'will_paginate', '~> 3.0'
 
 #group :production do
 #  gem 'pg'

@@ -1,3 +1,4 @@
+<div id="centerDIV"style="width:980px;height:534px;margin-left:0">
 <%= form_for(@todo) do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
@@ -11,29 +12,44 @@
     </div>
 
   <% end %>
-
-  <%= f.label :Title %>:
-  <%= f.text_field :title %><br />
-
-  <%= f.label :Description %>:
-  <%= f.text_area :description, :size => "10x10" %><br />
-
-  <%= f.label :Date %>
-  <%= f.text_field :event_date, :id => "datepicker" %><br>
-
-  <%= f.label :Start_Time %>
-  <%= f.time_select :start_time %><br />
-
-  <%= f.label :End_Time %>
-  <%= f.time_select :end_time %><br />
   
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-
-  <div class="actions">
-    <%= f.submit "SAVE" %>
-  </div>
-
+  <br>
+  <table align="center">
+    <tr>
+      <td></td>
+      <td><h3 style="color:A3C953">New ToDo</h3></td>
+    </tr>  
+    <tr>
+    <td class="qtn"><%= f.label :Title %></td>
+    <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+    <td class="qtn"><%= f.label :Description %></td>
+    <td><%= f.text_area :description, :style => "width:205px;height:50px" %></td>
+    </tr>
+    <tr>
+    <td class="qtn"><%= f.label :Date %></td>
+    <td><%= f.text_field :event_date, :id => "datepicker" %></td>
+    </tr>
+    <tr>
+    <td class="qtn"><%= f.label :Start_Time %></td>
+    <td><%= f.time_select :start_time %></td>
+    </tr>
+    <tr>
+    <td class="qtn"><%= f.label :End_Time %></td>
+    <td><%= f.time_select :end_time %></td>
+    </tr>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <tr>
+    <td></td> 
+    <td><div class="actions">
+        <%= f.submit "SAVE" %>
+        </div>
+    </td>
+  </tr>
 <% end %>
+</table>
+</div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">

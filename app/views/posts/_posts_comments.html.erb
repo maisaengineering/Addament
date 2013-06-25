@@ -6,7 +6,7 @@
     <% i = 1 %>
     <% @posts.each do |post| %>
         <tr>
-          <td>
+          <td width ="50px">
 
             <% user = User.find(post.user_id) %>
             <% unless user.profile.avatar_file.nil? %>
@@ -15,8 +15,15 @@
                 <%=  image_tag("missing.png",height: 25,width: 25) %>
             <% end %>
           </td>
-          <td><%= user.profile.first_name  %><%= post.current_post %></td>
+          <td><%= user.profile.first_name  %></td>
+          <td><%= post.current_post %></td>
+          
+        </tr>
+        <tr>
+          <td></td>
           <td><div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div></td>
+        </tr>
+        <tr>
           <td>
 
             <div class="profile_text<%= i %>" style="display: none;">
@@ -27,6 +34,8 @@
             </div>
 
           </td>
+        </tr>
+        <tr>  
           <td>
             <%=render post.comments%>
           </td>

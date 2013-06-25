@@ -1,108 +1,66 @@
-<br/>
-<div id="professional_overview" style="background-color: white; width: 500px;margin-left: 250px;  padding-left: 10px;">
- <table>
-   <tr>
-     <td>
-       <% if current_user.profile.image? %>
-           <%= image_tag(current_user.profile.image.url(:thumb)) %>
-       <% else %>
-           <%= image_tag("missing.png",height: 70,width: 80) %>
-       <% end %>
-     </td>
-
-     <td valign="top">
-       <table>
-         <tr>
-           <td>
-            About Us
-           </td>
-         </tr>
-         <tr>
-           <td>
-             <%= @profile.about %>
-           </td>
-         </tr>
-       </table>
-     </td>
-     <% profile_user = User.find(@profile.user_id) %>
-    <% if current_user.following?(profile_user) %>
-         <td>
-           <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => profile_user.id}, :remote => true, :class => "btn" %>
-         </td>
-       <% else %>
-         <td>
-           <%= button_to "Follow", {:controller => :users, :action => :follow,  :id => profile_user.id},:remote => true, :class => "btn" %></td>
+<table id="topDIV" style = "background-color: fff;height: 99;width:980px;margin-left:0px;">
+  <tr>
+            <td><% if current_user.profile.avatar_file? %>
+                <%= image_tag(current_user.profile.image.url(:thumb)) %>
+                <% else %>
+                <%= image_tag("missing.png",height: 70,width: 80) %>
+                <% end %>
+            </td>
+            <td valign="top">
+                 <table>
+                     <tr>
+                      <td>
+                          About Us
+                      </td>
+                     </tr>
+                     <tr>
+                      <td>
+                        <%= @profile.about %>
+                      </td>
+                     </tr>
+                 </table>
+            </td>
+              <% profile_user = User.find(@profile.user_id) %>
+              <% if current_user.following?(profile_user) %>
+            <td>
+             <%= button_to "UnFollow", {:controller => :users, :action => :unfollow, :id => profile_user.id}, :remote => true, :class => "btn" %>
+            </td>
+            <% else %>
+            <td>
+             <%= button_to "Follow", {:controller => :users, :action => :follow,  :id => profile_user.id},:remote => true, :class => "btn" %></td>
      <% end %>
-   </tr>
- </table>
-</div>
-<p id="notice"><%= notice %></p>
-<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
-  <table style="width: 100%;">
-    <tr>
-      <td>First Name</td>
-      <td><%= @profile.first_name %></td>
-    </tr>
-    <tr>
-      <td>Last Name</td>
-      <td><%= @profile.last_name %></td>
-    </tr>
-    <tr>
-      <td>Birthday</td>
-      <td><%= @profile.birthday %></td>
-    </tr>
-    <tr>
-      <td>Location</td>
-      <td><%= @profile.location %></td>
-    </tr>
-    <tr>
-      <td>City</td>
-      <td><%= @profile.city %></td>
-    </tr>
-    <tr>
-      <td>State</td>
-      <td><%= @profile.state %></td>
-    </tr>
-    <tr>
-      <td>Interests</td>
-      <td><%= @profile.interests %></td>
-    </tr>
-  </table>
-</div>
-<br/>
-<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
-  <p>Professionals</p>
-  </div>
-<div id="professional_overview" style="background-color: white; width: 500px;margin-left: 250px;  padding-left: 10px;">
-      <% professional = profile_professional(@profile.id) %>
-  <% professional.each do |profession| %>
-  <table>
-    <tr>
-      <td>Company Name</td>
-      <td><%=  profession.company_name %></td>
-    </tr>
-    <tr>
-     <td>Location</td>
-      <td><%=  profession.location %></td>
-    </tr>
-    <tr>
-      <td>Role</td>
-      <td><%=  profession.role %></td>
-    </tr>
-    <tr>
-      <td>Project Name</td>
-      <td><%=  profession.project_name %></td>
-    </tr>
-    <tr>
-      <td>Project Description</td>
-      <td><%=  profession.project_description %></td>
-    </tr>
-  </table>
-    <% end %>
+  </tr>          
+</table>            
+      <div class="bioDIV">
+        <h2 style="background-color: #51a2d5; 
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  width: 150px;
+  margin-left: -10px;
+  margin-top: -10px;
+  padding-left: 20px;">PROFILE INFO</h2>
+        <label class="qtn">First Name</label><label class="ans"><%= @profile.first_name %></label><br />
+        <label class="qtn">Last Name</label><label class="ans"><%= @profile.last_name %></label><br />
+        <label class="qtn">Birthday</label><label class="ans"><%= @profile.birthday %></label><br />
+        <label class="qtn">Lacation</label><label class="ans"><%= @profile.location %></label><br />
+        <label class="qtn">City</label><label class="ans"><%= @profile.city %></label><br />
+        <label class="qtn">State</label><label class="ans"><%= @profile.state %></label><br />
+        <label class="qtn">Interests</label><label class="ans"><%= @profile.interests %></label><br />
+      </div>
+      <div class="profDIV">
+        <h2 style= "background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width: 150px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">PROFESSIONALS INFO</h2>
+        <% professional = profile_professional(@profile.id) %>
+        <% professional.each do |profession| %>
+        <label class="qtn">Company Name</label><label class="ans"><%=  profession.company_name %></label><br />
+        <label class="qtn">Lacation</label><label class="ans"><%=  profession.location %></label><br />
+        <label class="qtn">Role</label><label class="ans"><%=  profession.role %></label><br />
+        <label class="qtn">Project Name</label><label class="ans"><%=  profession.project_name %></label><br />
+        <label class="qtn">Project Description</label><label class="ans"><%=  profession.project_description %></label><br />
+        <% end %>
+      </div>
+      <div class="follfDIV">
+      <h2 style="background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width:150px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">FOLLOWING</h2>
+        <label class="qtn"><%= render :partial => "profile_follow_followee" %></label><br />
+      </div>
     </div>
-<br/>
-<div id="profile_overview" style="background-color: white; width: 200px;margin-left: 250px;  padding-left: 10px;">
- <%= render :partial => "profile_follow_followee" %>
-</div>
-
-<%= link_to 'Back', public_profile_path %>
