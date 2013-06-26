@@ -27,7 +27,7 @@
         <% @goals.each do |goal| %>
         <div class="mile_stone<%= milestone_id %>" style="display:none;">
           <div class="roundCornDiv">
-            <label><%= current_user.created_at.strftime("%B %d, %Y") %></label>
+            <label><%= goal.created_at.strftime("%B %d, %Y") %></label>
           </div>
           <% i = 1 %>
           <% margin_top = 70 %>
