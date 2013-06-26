@@ -1,7 +1,7 @@
 <div class="post_curcomment">
 <table>
     <tr>
-      <th>Current post</th>
+
 
     </tr>
     <% i = 1 %>
@@ -13,7 +13,7 @@
             <% unless user.profile.avatar_file.nil? %>
                 <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
             <% else %>
-                <%=  image_tag("missing.png",height: 25,width: 25) %>
+                <%=  image_tag("missing.png",height: 70,width: 70) %>
             <% end %>
           </td>
           <td><%= user.profile.first_name  %></td>
@@ -25,6 +25,7 @@
           <td><div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div></td>
         </tr>
         <tr>
+          <td></td>
           <td>
 
             <div class="profile_text<%= i %>" style="display: none;">

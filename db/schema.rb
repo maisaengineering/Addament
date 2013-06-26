@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20130620083803) do
     t.string   "attachment"
     t.boolean  "global",               :default => false
     t.datetime "expires"
+    t.integer  "priority"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"

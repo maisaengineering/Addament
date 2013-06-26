@@ -10,10 +10,8 @@
           <%=  render 'goal_comments/form', :id => goal.id %>
         </div>
 
-      </div>
-
-    <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
-    </div>
+         <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+       </div>
     <% i += 1 %>
 <% end %>
 

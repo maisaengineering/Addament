@@ -1,0 +1,1 @@
+$("#connect_<%= params[:id]%>").html("<%= escape_javascript(button_to "Dis Connect", {:controller => :users, :action => :unfollow_profile,  :id => params[:id]},:remote => true, :class => "btn") %>");

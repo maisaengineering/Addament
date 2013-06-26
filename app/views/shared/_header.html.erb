@@ -59,28 +59,31 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-$(function(){
-$('.search-query').focusout(function() {
 
-    $.ajax({
-        url: "/feedback/filter_data",
+$('.search-query').bind('keypress', function(e)  {
+    var code = (e.keyCode ? e.keyCode : e.which);
 
-        data: { search_value: $(this).val()  },
-        cache: false,
-        beforeSend: function( ) {
-            $('.bodycontainer').append("loading...");
-        },
-        success: function(html){
+    if(code == 13) {
+        $.ajax({
+            url: "/feedback/filter_data",
+
+            data: { search_value: $(this).val()  },
+            cache: false,
+            beforeSend: function( ) {
+                $('.bodycontainer').append("loading...");
+            },
+            success: function(html){
 
 
-            $('.bodycontainer').empty();
-            $('.bodycontainer').append(html);
-        },
-        error: function( ) {
-            $('.bodycontainer').append("...error loading...");
-        }
+                $('.bodycontainer').empty();
+                $('.bodycontainer').append(html);
+            },
+            error: function( ) {
+                $('.bodycontainer').append("...error loading...");
+            }
 
-    })
+        })
+    }
 });
-});
+
 </script>

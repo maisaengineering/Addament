@@ -9,6 +9,8 @@
         <%= f.hidden_field :post_id, :value => @post.id %>
         <%= f.hidden_field :commenter_id, :value => current_user.id %>
         Comment<br />
-        <%= f.text_area :description, :style=>"width:80px;",:rows => "2", :cols => "2" %>
+
+        <%= f.text_area :description, :style=>"width:300px;",:rows => "3", :cols => "2" %>
+
       <%= f.submit  %>
   <% end %>

@@ -43,7 +43,7 @@
                 <div id="activityDiv">
                   <h3>Activity</h3>
                   <ul id="activityUL" style = "margin-top: -17px;" >
-                      <% @posts.each do |post| %>
+                      <% @posts[0..2].each do |post| %>
                        <li class="activityLI">
                         <% user = User.find(post.user_id) %>
                         <% unless user.profile.nil? %>

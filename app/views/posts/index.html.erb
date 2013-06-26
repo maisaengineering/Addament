@@ -13,6 +13,7 @@
 	    <div id="ppl_m_kn_div">
 			<h2>PEOPLE YOU MAY KNOW</h2>
 			<div id="ppl_you_know_con_div">
+
 				<ul>
 					<li>
 						<%= image_tag("ppl_thumb_01.png") %>
@@ -63,6 +64,7 @@
 						<a href="#">Add to network</a>
 					</li>
 				</ul>
+
 			</div>
 			<p style="text-align:center;color:#ccc; font-size:12px;padding-top:5px; letter-spacing:1px;cursor:pointer;">See all</p>
 		</div>
@@ -78,13 +80,7 @@
        <%=  render :partial => 'form' %>
       </div>
     </div>
-    <div class="post_curcomment">
-      <div id="post_comment" style="width:730px;">
-       <%= render :partial => 'posts_comments', @posts => @posts %>
-       <center><%= will_paginate @posts %></center>
-      </div>
-    </div>
-    <div id="rightSideDiv">
+         <div id="rightSideDiv" style="margin-top:-160px">
     	            <h2>SPONSORS</h2>
 					<ul>
 					<li>
@@ -105,20 +101,21 @@
 					<%= image_tag("s4.png") %>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
 					</li>
-					<li>
-					<label>Ready for Google xPhone?</label>
-					<p>open.etoro.com</p>
-					<%= image_tag("s2.png") %>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-					</li>
+
 				    </ul>
-            </div>
+            </div> 
+    <div class="post_curcomment">
+      <div id="post_comment" style="width:730px;">
+       <%= render :partial => 'posts_comments', @posts => @posts %>
+       <center><%= will_paginate @posts %></center>
+      </div>
+    </div>
+
  </div>	
 
 
  
 </div>	
-</div>
 
 
 

@@ -14,7 +14,7 @@
 
           <% end %>
         </td>
-        <td style="width:100px;"><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
+        <td style="width:100px; vertical-align: top;"><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
         <td>
           <div class="profile_text" style="display: block;align:justify;">
             <%= @profile.about %>
@@ -34,11 +34,11 @@
 <% end %>
 
 
-<div class="tabbable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
+<div class="tabtable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
-        <li><a href="#tab2" data-toggle="tab" >present</a></li>
-        <li><a href="#tab3" data-toggle="tab">future</a></li>
+        <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
+        <li><a href="#tab2" data-toggle="tab" >Present</a></li>
+        <li><a href="#tab3" data-toggle="tab">Future</a></li>
       </ul>
 </div>
 
@@ -50,24 +50,32 @@
 
                   <% if past.end_date!=nil %>
 
-                      <%= past.company_name %><br>
-                      <%= past.title %><br>
-                      <%= past.start_date %><br>
-                      <%= past.end_date %><br>
-                      <%= past.project_name %>
+                      <label class="qtn" style="margin-left:0px;">Company name:</label><lable class="ans"><%= past.company_name %></label><br>
+
+                      <label class="qtn" style="margin-left:0px;">Title:</label><lable class="ans"><%= past.title %></label><br>
+
+                      <label class="qtn" style="margin-left:0px;">Start date:</label><%= past.start_date %><br>
+
+                      <label class="qtn" style="margin-left:0px;">End date:</label><%= past.end_date %><br>
+
+                      <label class="qtn" style="margin-left:0px;">Project name:</label><%= past.project_name %>
 
                   <% end %>
               <% end %>
             </p>
           </div>
+
           <div class="tab-pane" id="tab2">
             <p>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
-                      <%= present.company_name %><br>
-                      <%= present.start_date %><br>
-                      <%= present.location %><br>
-                      <%= present.project_name %><br>
+                      <label class="qtn" style="margin-left:0px;">company name:</label><lable class="ans"><%= present.company_name %></label><br>
+
+                      <label class="qtn" style="margin-left:0px;">Start date:</label><%= present.start_date %><br>
+
+                      <label class="qtn" style="margin-left:0px;">Location:</label><%= present.location %><br>
+
+                      <label class="qtn" style="margin-left:0px;">Project name:</label><%= present.project_name %><br>
 
                   <% end %>
               <% end %>
@@ -75,9 +83,10 @@
             </p>
           </div>
 
+
           <div class="tab-pane" id="tab3">
             <p>
-              <%=  render :partial => 'goalcomments' %>
+              <label class="qtn"><%=  render :partial => 'goalcomments' %></label>
             </p>
           </div>
     </div>
@@ -114,6 +123,7 @@
 
         <script>
             $('#profile_about').blur(function() {
+
                 $('#save').trigger('click');
             });
         </script>

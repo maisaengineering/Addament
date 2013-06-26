@@ -1,7 +1,7 @@
 <%=  @post.current_post %>
 <% comment = @post.comments %>
 <br/>
-<div style="background-color: #000000;">
+<div style="background-color: #f0f0f0;">
   <%  comment.each do |comment_id|  %>
       <% profile = Profile.where("user_id =? ",comment_id.commenter_id).first %>
       <table>
@@ -13,7 +13,7 @@
               </td>
           <% else %>
               <td>
-                <%=  image_tag("missing.png",height: 25,width: 25) %>
+                <%=  image_tag("missing.png",height: 70,width: 70) %>
               </td>
           <% end %>
           <td>
