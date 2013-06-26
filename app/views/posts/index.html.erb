@@ -1,88 +1,91 @@
-<br><div id = "centerDIV" style ="width:690px;height:400px;margin-left:0">
+<br/>
+<div>
+	<div id = "centerDIV" style ="width:690px;height:400px;margin-left:0">
+		<%= image_tag("/assets/cover.jpg")%>
+		<div id="cover_tit_div">
+			<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+			<p</p>
+			<label><a href="#">read more</a></label>
+		</div>
+    </div>
 
-	<%= image_tag("/assets/cover.jpg")%>
-	<div id="cover_tit_div">
-						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
-						<p>Dolore, alias, neque et est necessitatibus ducimus officiis repellendus praesentium doloremque eius in earum</p>
-						<label><a href="#">read more</a></label>
-					</div>
-</div>
-
-<div class="post_status" >
-<div id="post_form">
-  <%=  render :partial => 'form' %>
-</div>
-</div>
-<div class="post_curcomment">
-<div id="post_comment" style="width:730px;">
-<%= render :partial => 'posts_comments', @posts => @posts %>
-<%= will_paginate @posts %>
-</div>
-</div>
-
-<div id="h_t_r_div">
-    <div id="ppl_m_kn_div" style = "height: 418px;margin-top: -1276;">
-		<h2>PEOPLE YOU MAY KNOW</h2>
+	<div id="h_t_r_div">
+	    <div id="ppl_m_kn_div">
+			<h2>PEOPLE YOU MAY KNOW</h2>
 			<div id="ppl_you_know_con_div">
-					<ul>
-						<li>
-							<%= image_tag("ppl_thumb_01.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_02.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_03.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_04.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_05.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_06.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_05.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-						<li>
-							<%= image_tag("ppl_thumb_01.png") %>
-							<label>Name Goes Here</label>
-							<p>Dolor sit amet consectiur elit</p>
-							<a href="#">Add to network</a>
-						</li>
-					</ul>
+				<ul>
+					<li>
+						<%= image_tag("ppl_thumb_01.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_02.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_03.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_04.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_05.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_06.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_05.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+					<li>
+						<%= image_tag("ppl_thumb_01.png") %>
+						<label>Name Goes Here</label>
+						<p>Dolor sit amet consectiur elit</p>
+						<a href="#">Add to network</a>
+					</li>
+				</ul>
 			</div>
 			<p style="text-align:center;color:#ccc; font-size:12px;padding-top:5px; letter-spacing:1px;cursor:pointer;">See all</p>
+		</div>
 	</div>
 </div>
-		
-<div id="h_t_r_div">
-    <div id="ppl_m_kn_div" style ="margin-top: -785px;height: 800px;">
-		<h2>sponsers</h2>
-			<div id="ppl_you_know_con_div" style ="height: 700px;background-color: white;">
+<div id="h_sep_div">&nbsp;</div>
+
+<div>
+ <div>
+
+	<div class="post_status" >
+      <div id="post_form">
+       <%=  render :partial => 'form' %>
+      </div>
+    </div>
+    <div class="post_curcomment">
+      <div id="post_comment" style="width:730px;">
+       <%= render :partial => 'posts_comments', @posts => @posts %>
+       <center><%= will_paginate @posts %></center>
+      </div>
+    </div>
+    <div id="rightSideDiv">
+    	            <h2>SPONSORS</h2>
 					<ul>
 					<li>
 					<label>Ready for Google xPhone?</label>
@@ -110,8 +113,12 @@
 					</li>
 				    </ul>
             </div>
-	  </div>
-</div>			
+ </div>	
+
+
+ 
+</div>	
+</div>
 
 
 

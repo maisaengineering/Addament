@@ -33,7 +33,8 @@ body {
 .bodycontainer{
     width:980px;
     margin:0 auto;
-    min-height:500px;
+   position: relative;
+   height: auto;
 }
 
 .main_form{
@@ -157,7 +158,7 @@ h3{
 }
 .submit_btn:hover {
 	color: #000;
-	background: #87cbf6;
+	background: #96C3E1;
 	
 }
 .label_td{
@@ -288,6 +289,7 @@ input[type="search"]:focus{
     width: 100%;
 	background:url(footer-bg.jpg);
 	background-repeat: repeat-x;
+	margin-top:311px;
 }
 .footerContent{
     width: 980px;
@@ -349,7 +351,7 @@ input[type="search"]:focus{
 	background: url(/assets/editprofile.gif) no-repeat;background-position: 20px 26px;
 	width: 940px;height: 54px;
 	background-color:#51a2d5; 
-	margin: 18px;color: #fff;
+	margin: 18px;color: #222;
 	line-height: 65px;
 	padding-left: 60px;
 }
@@ -574,15 +576,17 @@ td{
 }
 /*	------------------------------------           BOTTOM DIV 		----------------------------------------------  */
 #bottomDIV{
-	width: 980px; height: 565px;
+	width: 980px; height: 642px;
 	background: rgba(0,0,0,.01);
 	/*border: 1px solid #9f9f9f;*/
 	margin: 0 auto; padding: 50px; padding-bottom: 0px;
 
 	background: url(/assets/div-bg.png), url(/assets/div-bg-2.png);
+
 	background-repeat: repeat-x;
 	background-position: left top, left bottom;
-	position: relative;
+	position: absolute;
+	margin-bottom: 200px;
 
 }
 #feedsDiv{
@@ -781,7 +785,7 @@ td{
 }
 #newsFeedsDiv  #slideShow{
 	margin: 0px;padding: 0px;
-	margin-left: -5px;
+	margin-left: -0px;
 	width: 490px;height: 189px;
 	overflow: hidden;
 }
@@ -1085,7 +1089,7 @@ td{
 
 /* -------------------------------------- HEADER AND FOOTER SECTION END. ---------------------------*/
 .bioDIV{
-	width: 960px; height: 300px;
+	width: 960px; height:px;
 	padding: 10px;
 	margin-top: 16px;
 	position: absolute;
@@ -1093,16 +1097,23 @@ td{
 }
 
 .profDIV{
-	width: 960px; height: 200px;
+	width: 960px; height: px;
 	padding: 10px;
 	margin-top: 350px;
 	position: absolute;
 	background-color: #fff;
 }
 .follfDIV{
-	width: 960px; height: 130px;
+	width: 960px; height: px;
 	padding: 10px;
-	margin-top: 586px;
+	margin-top: 640px;
+	position: center;
+	background-color: #fff;
+}
+.ppfDIV{
+	width: 960px; height: px;
+	padding: 10px;
+	margin-top: 64px;
 	position: absolute;
 	background-color: #fff;
 }
@@ -1126,18 +1137,63 @@ td{
 
 
 /*------------------------posts css-----------------------------*/
+#rightSideDiv{
+	width: 250px;
+	position: relative;padding: 10px;
+	margin-left: 744px;
+	margin-top:px;
+	background: white;
+	border-top: 1px solid rgba(9,9,9,.9);
+	border-left: 1px solid rgba(11,11,11,.9);
+	border-right: 1px solid rgba(15,15,15,.9);
+	border-bottom: 1px solid rgba(100,100,100,.9);
 
+}
+
+#rightSideDiv h2{
+	font-size: 12px;
+	background-color: #96c953;
+	padding: 12px; color: #fff;
+	font-weight: bold;
+}
+#rightSideDiv ul{
+	/*margin-top: -20px;*/
+	background-color: #fff;
+	padding: 15px;
+}
+#rightSideDiv li{
+	list-style: none;
+	margin-top: 15px;
+	padding-bottom: 10px;
+}
+#rightSideDiv li label{
+	font-size: 12px;
+	color: #96c953;
+	font-weight: bold;
+}
+#rightSideDiv li img{
+	float: left;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+#rightSideDiv li p{
+	font-size: 10px;
+	color: #747474;
+	font-weight: bold;
+	text-align: justify;
+}
 .post_status{
 	width:730px;
+	position: relative;
 	height:160px;
 	margin-left:0;
-	margin-top: 490;
+	margin-top:;
 	background-color:#51A2D5;
 
 }
 .post_curcomment{
 	width:730px;
-	height:625px;
+	position:relative;
 	margin-left:0;
 	margin-top: 0px;
 	background-color: ffffff;
@@ -1153,6 +1209,13 @@ td{
 	cursor: pointer;
 	font-weight: bold;
 	letter-spacing: 1px;
+}
+#h_sep_div{
+	background-color: #fff;
+	width: 1016px;height: 100px;
+	background: url(/assets/divpost-bg.png)repeat-x;
+	position: relative;
+	margin-top: 430px;
 }
 #cover_tit_div{
 	width: 690px; height: 100px;
@@ -1186,8 +1249,10 @@ td{
 	background-color: #fff;
 }
 #ppl_m_kn_div{
-	width: 250px; height: 380px;
-	position: absolute;padding: 10px;
+	width: 250px; 
+	height: 420px;
+	position: absolute;
+	padding: 10px;
 	margin-left: 743px;
 	background: rgba(0,0,0,.4);
 	border-top: 1px solid rgba(9,9,9,.9);

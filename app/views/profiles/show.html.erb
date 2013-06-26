@@ -35,14 +35,7 @@
   </tr>          
 </table>            
       <div class="bioDIV">
-        <h2 style="background-color: #51a2d5; 
-  color: #fff;
-  font-size: 14px;
-  padding: 5px;
-  width: 150px;
-  margin-left: -10px;
-  margin-top: -10px;
-  padding-left: 20px;">PROFILE INFO</h2>
+        <h2 style="background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width: 170px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">PROFILE INFO</h2>
         <label class="qtn">First Name</label><label class="ans"><%= @profile.first_name %></label><br />
         <label class="qtn">Last Name</label><label class="ans"><%= @profile.last_name %></label><br />
         <label class="qtn">Birthday</label><label class="ans"><%= @profile.birthday %></label><br />
@@ -51,8 +44,10 @@
         <label class="qtn">State</label><label class="ans"><%= @profile.state %></label><br />
         <label class="qtn">Interests</label><label class="ans"><%= @profile.interests %></label><br />
       </div>
+
+
       <div class="profDIV">
-        <h2 style= "background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width: 150px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">PROFESSIONALS INFO</h2>
+        <h2 style= "background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width: 170px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">PROFESSIONALS INFO</h2>
         <% professional = profile_professional(@profile.id) %>
         <% professional.each do |profession| %>
         <label class="qtn">Company Name</label><label class="ans"><%=  profession.company_name %></label><br />
@@ -62,57 +57,63 @@
         <label class="qtn">Project Description</label><label class="ans"><%=  profession.project_description %></label><br />
         <% end %>
       </div>
+
+
       <div class="follfDIV">
-      <h2 style="background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width:150px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">FOLLOWING</h2>
-        <label class="qtn"><%= render :partial => "profile_follow_followee" %></label><br />
+      <h2 style="background-color: #51a2d5; color: #fff;font-size: 14px;padding: 5px;width:170px;margin-left: -10px;margin-top: -10px;padding-left: 20px;">FOLLOWING</h2><label class="ans">
+        <%= render :partial => "profile_follow_followee" %>
+      </label>
       </div>
-    </div>
-<div class="follfDIV">
-<div class="tabbable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
-    <li><a href="#tab2" data-toggle="tab" >present</a></li>
-    <li><a href="#tab3" data-toggle="tab">future</a></li>
-  </ul>
-</div>
 
-<div class="tab-content"  style = "background-color: white;margin-top: -20;">
-  <div class="tab-pane active" id="tab1">
 
-    <p>
-      <% @past.each do |past| %>
+  <div class="ppfDIV" style="">
+         <div class="tabbable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
+          <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
+          <li><a href="#tab2" data-toggle="tab" >present</a></li>
+          <li><a href="#tab3" data-toggle="tab">future</a></li>
+          </ul>
+          </div>
 
-          <% if past.end_date!=nil %>
 
-              <%= past.company_name %><br>
-              <%= past.title %><br>
-              <%= past.start_date %><br>
-              <%= past.end_date %><br>
-              <%= past.project_name %>
+          <div class="tab-content"  style = "background-color: white;margin-top: -20;">
+              <div class="tab-pane active" id="tab1">
 
-          <% end %>
-      <% end %>
-    </p>
-  </div>
-  <div class="tab-pane" id="tab2">
-    <p>
-      <% @past.each do |present| %>
-          <% if present.end_date == nil %>
-              <%= present.company_name %><br>
-              <%= present.start_date %><br>
-              <%= present.location %><br>
-              <%= present.project_name %><br>
+                <p>
+                 <% @past.each do |past| %>
 
-          <% end %>
-      <% end %>
+                  <% if past.end_date!=nil %>
+                      
+                      <%= past.company_name %><br>
+                      <%= past.title %><br>
+                      <%= past.start_date %><br>
+                      <%= past.end_date %><br>
+                      <%= past.project_name %>
 
-    </p>
-  </div>
+                  <% end %>
+                 <% end %>
+                </p>
+              </div>
+              <div class="tab-pane" id="tab2">
+                <p>
+                  <% @past.each do |present| %>
+                      <% if present.end_date == nil %>
+                          <%= present.company_name %><br>
+                          <%= present.start_date %><br>
+                          <%= present.location %><br>
+                          <%= present.project_name %><br>
 
-  <div class="tab-pane" id="tab3">
-    <p>
-      <%=  render :partial => 'goalcomments' %>
-    </p>
-  </div>
-</div>
-</div>
+                      <% end %>
+                  <% end %>
+                </p>
+              </div>
+
+              <div class="tab-pane" id="tab3">
+                <p>
+                  <%=  render :partial => 'goalcomments' %>
+                </p>
+              </div>
+          </div> 
+  </div>  
+   
+ 
