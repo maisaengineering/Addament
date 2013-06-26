@@ -116,8 +116,8 @@ label{
 .sharing_icon{
 	width: 38px;
 	height: 41px;
-	margin-left: -14px;
-	margin-bottom: -2px;
+	margin-left: -2px;
+	margin-bottom: 2px;
 }
 .form_lbl{
 	display: block;
@@ -202,7 +202,7 @@ h3{
 }
 #header .userDet{
 	font-size: 11px;
-	color: #96c953;
+	color: green;
 	display:block;
 	margin-top: 0px;
     margin-left: 2px;
@@ -349,7 +349,7 @@ input[type="search"]:focus{
 	background: url(/assets/editprofile.gif) no-repeat;background-position: 20px 26px;
 	width: 940px;height: 54px;
 	background-color:#51a2d5; 
-	margin: 18px;color: #fff;
+	margin: 18px;color: #222;
 	line-height: 65px;
 	padding-left: 60px;
 }
@@ -399,7 +399,7 @@ td{
 	padding:5px;
  	vertical-align:middle;
  	text-align: right;
- 	color: #fff;
+ 	color: #222;
  	border-bottom: 2px solid #fff;
 }
 
@@ -417,7 +417,7 @@ td{
 	 height:30px;
 	 text-align: right;
 	 padding-right:7.5px;
-	 color:#9fca6b;
+	 /*color:#9fca6b;*/
 	 font-size: 11px;
 }
 #personalTbl .btns{
@@ -482,7 +482,7 @@ background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
 	padding:5px;
  	vertical-align:middle;
  	text-align: right;
- 	color: #fff;
+ 	color: #222;
  	border-bottom: 2px solid #fff;
 }
 
@@ -500,7 +500,7 @@ background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
 	 height:30px;
 	 text-align: right;
 	 padding-right:7.5px;
-	 color:#69a9d4;
+	 /*color:#69a9d4;*/
 }
 .tableHeaders{
 	height: 50px;
@@ -647,7 +647,7 @@ td{
 	padding-bottom: 20px;
 }
 #container label{
-	color: #51a2d5;
+	/*color: #51a2d5;*/
 	padding-top: 1px;
 	padding-bottom: 2px;
 	font-size: 12px;
@@ -1137,7 +1137,7 @@ td{
 }
 .post_curcomment{
 	width:730px;
-	height:625px;
+	/*height:625px;*/
 	margin-left:0;
 	margin-top: 0px;
 	background-color: ffffff;
@@ -1230,6 +1230,11 @@ td{
 	font-size: 10px; font-weight: bold;
 	color: #54a1d5;
 	letter-spacing: 1px;
+}
+
+.profile_image{
+    width: 90px;
+    height: 99px;
 }
 
 

@@ -17,13 +17,13 @@
         <div class="control-group">
           <label class="control-label" for="inputEmail">Email</label>
           <div class="controls">
-            <%= f.email_field :email, :autofocus => true %>
+            <%= f.email_field :email, :autofocus => true , required: true%>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="inputPassword">Password</label>
           <div class="controls">
-            <%= f.password_field :password, :autocomplete => "off" %>
+            <%= f.password_field :password, :autocomplete => "off" , required: true%>
           </div>
         </div>
         <div class="control-group">
