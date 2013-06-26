@@ -23,7 +23,7 @@
 				</td>
 				<td class= "form_table_Td">
 
-					<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
 					
 					<table class="form_table" style= "margin-left: -118px">
@@ -44,7 +44,7 @@
 					    	<td>
 								<label class="checkbox inline">I am a </label>
 								<% User::ROLES.each do |role| %>
-			                     <%= f.check_box :user_role, "[user_role][]",role %> <span class="sign_up_checkbox"><%= role %></span>
+			                     <%= check_box_tag "[user_role][]",role %> <span class="sign_up_checkbox"><%= role %></span>
 			                    <% end %>
                     		</td>
 					    </tr>
