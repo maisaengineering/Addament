@@ -72,7 +72,9 @@ Addament::Application.routes.draw do
     collection do
       get 'tokenizer'
       post 'follow'
+      post 'follow_profile'
       post 'unfollow'
+      post 'unfollow_profile'
       post 'follow_list'
     end
   end

@@ -16,6 +16,20 @@ class UsersController < ApplicationController
     @followee =  current_user.user_followers
   end
 
+  def follow_profile
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    current_user.follow(user)
+    @followee =  current_user.user_followers
+  end
+
+  def unfollow_profile
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    current_user.stop_following(user)
+    @followee =  current_user.user_followers
+  end
+
   def unfollow
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
