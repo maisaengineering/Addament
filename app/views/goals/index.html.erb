@@ -34,7 +34,7 @@
           <% margin_top_milestone = 111 %>
            <% milestone = goal.milestones %>
             
-            <% milestone.each do |mile_stone| %>
+            <% milestone[0..3].each do |mile_stone| %>
 
           <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
             <label>STEP <%= i %></label>
@@ -81,9 +81,9 @@
         <h2>Comments</h2>
         <ul>
           <% @goals_comment = Goal.all %> 
-          <% @goals_comment[0..5].each do |goal| %>
+          <% @goals_comment.each do |goal| %>
            <% @goal_comments = GoalComment.where("goal_id = ?", goal.id) %>
-            <% @goal_comments.each do |goal_comment| %>
+            <% @goal_comments[0..2].each do |goal_comment| %>
             <% user_name = User.find(goal_comment.commenter_id) %>
             <li>
             <% unless user_name.profile.avatar_file.nil? %>
@@ -99,7 +99,11 @@
           </li>
             
       <% end %>
+      <% if @goal_comments.length > 2 %>
+                        <%= link_to "see more",goal_comments_path , :style => "float:right" %>
+                      <% end %>
       <% end %>
+      
         </ul>
             
           </div>

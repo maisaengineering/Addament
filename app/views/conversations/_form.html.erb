@@ -1,12 +1,29 @@
-<%= form_for :conversation, url: :conversations do |f| %>
-Recipents<%= f.text_field :recipients %><br/>
-Subject<%= f.text_field :subject %><br/>
-Body<%= f.text_area :body, :rows => 5, :cols => 5 %><br/>
-<div class="form-actions">
-  <%= f.button :submit %>
-      </div>
-<% end %>
-<% @company = User.all %>
+<div>
+	<div id ="centerDIV" style ="width: 290;height: 230;background-color:#CDE9FF;margin-left: 0;">
+	<table>
+			<%= form_for :conversation, url: :conversations do |f| %>
+			<tr>
+			<td>	
+			Recipents</td>
+			<td><%= f.text_field :recipients %></td>
+			</tr>
+			<tr>
+				<td>Subject</td>
+			    <td><%= f.text_field :subject %></td>
+			</tr>
+			<tr>
+			    <td>Body</td>
+			    <td><%= f.text_area :body, :rows => 5, :cols => 5 %></td>
+			</tr>
+			<tr>
+				<td></td>
+			    <td><%= f.button :submit %></td>
+			</tr>
+			<% end %>
+			<% @company = User.all %>
+</table>
+</div>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/select2.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/select2.css">
@@ -16,4 +33,6 @@ Body<%= f.text_area :body, :rows => 5, :cols => 5 %><br/>
             '<%= @company[i].email %>',
             <% end %>]});
     });
+
 </script>
+

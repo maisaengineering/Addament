@@ -6,7 +6,7 @@
              <% user = User.find(goalcomments.commenter_id) %>
             <table>
               <tr>
-                 <td><%= user.profile.first_name %></td>
+                 <td class="qtn" style="margin-left: 0px; padding-right: 0px;"><%= user.profile.first_name %></td>
                  <td><%= user.profile.last_name %></td>
               </tr>
             </table>

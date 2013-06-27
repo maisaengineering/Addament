@@ -33,7 +33,8 @@ body {
 .bodycontainer{
     width:980px;
     margin:0 auto;
-    min-height:500px;
+   position: relative;
+   height: auto;
 }
 
 .main_form{
@@ -65,6 +66,7 @@ label{
 	font-size: 16px;
 	font-family:itc_avant_garde;
 	display: inline;
+    color: #51a2d5;
 	/*background-color: #ff6;*/
 }
 .input_fld{
@@ -126,10 +128,11 @@ label{
 	margin-bottom: 15px;
 }
 h3{
-	font-family:itc_avant_garde;
-	font-weight: 500;
-	font-size: 22px;
-	color: #222;
+    font-family: avenir_next_lt_pro_demi;
+    font-weight: 500;
+    font-size: 22px;
+    color: #96c953;
+    text-align: center;
 }
 .form_title{
 	vertical-align: middle;
@@ -157,7 +160,7 @@ h3{
 }
 .submit_btn:hover {
 	color: #000;
-	background: #87cbf6;
+	background: #96C3E1;
 	
 }
 .label_td{
@@ -288,6 +291,7 @@ input[type="search"]:focus{
     width: 100%;
 	background:url(footer-bg.jpg);
 	background-repeat: repeat-x;
+	margin-top:311px;
 }
 .footerContent{
     width: 980px;
@@ -574,15 +578,17 @@ td{
 }
 /*	------------------------------------           BOTTOM DIV 		----------------------------------------------  */
 #bottomDIV{
-	width: 980px; height: 565px;
+	width: 980px; height: 642px;
 	background: rgba(0,0,0,.01);
 	/*border: 1px solid #9f9f9f;*/
 	margin: 0 auto; padding: 50px; padding-bottom: 0px;
 
 	background: url(/assets/div-bg.png), url(/assets/div-bg-2.png);
+
 	background-repeat: repeat-x;
 	background-position: left top, left bottom;
-	position: relative;
+	position: absolute;
+	margin-bottom: 200px;
 
 }
 #feedsDiv{
@@ -781,7 +787,7 @@ td{
 }
 #newsFeedsDiv  #slideShow{
 	margin: 0px;padding: 0px;
-	margin-left: -5px;
+	margin-left: -0px;
 	width: 490px;height: 189px;
 	overflow: hidden;
 }
@@ -1085,7 +1091,7 @@ td{
 
 /* -------------------------------------- HEADER AND FOOTER SECTION END. ---------------------------*/
 .bioDIV{
-	width: 960px; height: 300px;
+	width: 960px; height:px;
 	padding: 10px;
 	margin-top: 16px;
 	position: absolute;
@@ -1093,17 +1099,24 @@ td{
 }
 
 .profDIV{
-	width: 960px; height: 200px;
+	width: 960px; height: px;
 	padding: 10px;
-	margin-top: 350px;
+	margin-top: 322px;
 	position: absolute;
 	background-color: #fff;
 }
 .follfDIV{
-	width: 960px; height: 130px;
+	width: 960px; height: ;
 	padding: 10px;
-	margin-top: 586px;
-	position: absolute;
+	margin-top: 563px;
+	position: center;
+	background-color: #fff;
+}
+.ppfDIV{
+	width: 960px; height: px;
+	padding: 10px;
+	margin-top: 17px;
+	position: center;
 	background-color: #fff;
 }
 
@@ -1126,17 +1139,63 @@ td{
 
 
 /*------------------------posts css-----------------------------*/
+#rightSideDiv{
+	width: 250px;
+	position: absolute;padding: 10px;
+	margin-left: 744px;
+	margin-top:px;
+	background: white;
+	border-top: 1px solid rgba(9,9,9,.9);
+	border-left: 1px solid rgba(11,11,11,.9);
+	border-right: 1px solid rgba(15,15,15,.9);
+	border-bottom: 1px solid rgba(100,100,100,.9);
 
+}
+
+#rightSideDiv h2{
+	font-size: 12px;
+	background-color: #96c953;
+	padding: 12px; color: #fff;
+	font-weight: bold;
+}
+#rightSideDiv ul{
+	/*margin-top: -20px;*/
+	background-color: #fff;
+	padding: 15px;
+}
+#rightSideDiv li{
+	list-style: none;
+	margin-top: 15px;
+	padding-bottom: 10px;
+}
+#rightSideDiv li label{
+	font-size: 12px;
+	color: #96c953;
+	font-weight: bold;
+}
+#rightSideDiv li img{
+	float: left;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+#rightSideDiv li p{
+	font-size: 10px;
+	color: #747474;
+	font-weight: bold;
+	text-align: justify;
+}
 .post_status{
 	width:730px;
+	position: relative;
 	height:160px;
 	margin-left:0;
-	margin-top: 490;
+	margin-top:;
 	background-color:#51A2D5;
 
 }
 .post_curcomment{
 	width:730px;
+	position:absoulet;
 	/*height:625px;*/
 	margin-left:0;
 	margin-top: 0px;
@@ -1153,6 +1212,13 @@ td{
 	cursor: pointer;
 	font-weight: bold;
 	letter-spacing: 1px;
+}
+#h_sep_div{
+	background-color: #fff;
+	width: 1016px;height: 100px;
+	background: url(/assets/divpost-bg.png)repeat-x;
+	position: relative;
+	margin-top: 430px;
 }
 #cover_tit_div{
 	width: 690px; height: 100px;
@@ -1186,8 +1252,10 @@ td{
 	background-color: #fff;
 }
 #ppl_m_kn_div{
-	width: 250px; height: 380px;
-	position: absolute;padding: 10px;
+	width: 250px; 
+	height: 420px;
+	position: absolute;
+	padding: 10px;
 	margin-left: 743px;
 	background: rgba(0,0,0,.4);
 	border-top: 1px solid rgba(9,9,9,.9);
@@ -1236,5 +1304,87 @@ td{
     width: 90px;
     height: 99px;
 }
+
+
+/*CSS for Feedback*/
+
+#feedback{
+    position: absolute;
+    background-color: #222;
+    width: 300px; height: 400px;
+    margin-top: 180px; margin-left: 50px;
+    display: none;
+    border-top-left-radius: 16px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.4)
+}
+#btn{
+    /*position: absolute;*/
+    /*background-color: #222;*/
+    /*padding: 5px;bottom: 0px;*/
+    right: 0px;cursor: pointer;
+    color: #fff;
+}
+#clsoe_btn{
+    background-color: #222;
+    width: 30px; height: 30px;
+    position: absolute;
+    margin-left: 270px;
+    margin-top: -29px;
+    text-align: center;
+    line-height: 30px;
+    font-family:monospace;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+}
+#feedback p{
+    text-align: center;
+    color: #fff;
+    padding: 6px;
+}
+#form_feedback{
+    margin-top: -43px;
+    height: 245px;
+}
+#feedback_button {
+    color: #fff;
+    background: #999;
+    border: 0px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: itc_avant_garde;
+    width: 80px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: -5px;
+    margin-left: 61px;
+}
+#form_feedback .fld_bg{
+    background-color: #333;
+    border-radius: 5px;
+    width: 240px;
+    margin-top: 2px;
+    padding: 10px; margin-left: 20px;
+}
+#form_feedback .fld_bg label{
+    padding: 0px; margin: 0px;
+    color: #fff;display: inline-block; margin-left: 5px;
+    cursor: pointer;
+    width: 220px;
+}
+#feed_text_area{
+    margin-top: 10px;
+    resize:none;
+    width: 240px;height: 90px;
+}
+hr.style-one {
+    border: 1px dotted #333;
+}
+
+/*end of CSS for Feedback*/
 
 

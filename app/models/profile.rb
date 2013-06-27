@@ -21,19 +21,6 @@ class Profile < ActiveRecord::Base
   include PublicActivity::Model
   tracked
 
-  def complete_percentage()
-
-    percentage = 0
-    percentage += 20 if  interests.present?
-    # if professional_industries.present?
-
-    #   percentage += 10 if  professional_industries.aspirations.present?
-    #   percentage += 10 if professional_industries.affiliations.present?
-    # end
-    #percentage += 30 if  user.educations.present?
-    #percentage += 30 if  professional_industries.present?
-    return percentage
-  end
 
   def check_method
     raise self.changes.inspect

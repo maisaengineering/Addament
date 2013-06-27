@@ -184,9 +184,9 @@
               clearInterval(profileCompTrg);
               $('.profileCompTrg').removeClass('active');
           } else {
-              $bar.width("<%=@profile.complete_percentage %>"* 4);
+              $bar.width("<%= complete_percentage %>"* 4);
           }
-          $bar.text("<%= @profile.complete_percentage%>" + "%");
+          $bar.text("<%= complete_percentage%>" + "%");
       }, 800);
 
   });

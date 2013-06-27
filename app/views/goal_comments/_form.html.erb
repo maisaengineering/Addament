@@ -11,16 +11,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :goal_id %><br />
+
     <%= f.hidden_field :goal_id, :value => id %>
   </div>
   <div class="field">
-    <%= f.label :commenter_id %><br />
+
     <%= f.hidden_field :commenter_id, :value => current_user.id %>
   </div>
   <div class="field">
     <%= f.label :comment_description %><br />
-    <%= f.text_area :comment_description %>
+    <%= f.text_area :comment_description, :style =>"height: 48;" %>
   </div>
   <div class="actions">
     <%= f.submit "Comment", :id => "save" %>
