@@ -66,6 +66,7 @@ label{
 	font-size: 16px;
 	font-family:itc_avant_garde;
 	display: inline;
+    color: #51a2d5;
 	/*background-color: #ff6;*/
 }
 .input_fld{
@@ -127,10 +128,11 @@ label{
 	margin-bottom: 15px;
 }
 h3{
-	font-family:itc_avant_garde;
-	font-weight: 500;
-	font-size: 22px;
-	color: #222;
+    font-family: avenir_next_lt_pro_demi;
+    font-weight: 500;
+    font-size: 22px;
+    color: #96c953;
+    text-align: center;
 }
 .form_title{
 	vertical-align: middle;
@@ -1302,5 +1304,87 @@ td{
     width: 90px;
     height: 99px;
 }
+
+
+/*CSS for Feedback*/
+
+#feedback{
+    position: absolute;
+    background-color: #222;
+    width: 300px; height: 400px;
+    margin-top: 180px; margin-left: 50px;
+    display: none;
+    border-top-left-radius: 16px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.4)
+}
+#btn{
+    /*position: absolute;*/
+    /*background-color: #222;*/
+    /*padding: 5px;bottom: 0px;*/
+    right: 0px;cursor: pointer;
+    color: #fff;
+}
+#clsoe_btn{
+    background-color: #222;
+    width: 30px; height: 30px;
+    position: absolute;
+    margin-left: 270px;
+    margin-top: -29px;
+    text-align: center;
+    line-height: 30px;
+    font-family:monospace;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+}
+#feedback p{
+    text-align: center;
+    color: #fff;
+    padding: 6px;
+}
+#form_feedback{
+    margin-top: -43px;
+    height: 245px;
+}
+#feedback_button {
+    color: #fff;
+    background: #999;
+    border: 0px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: itc_avant_garde;
+    width: 80px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: -5px;
+    margin-left: 61px;
+}
+#form_feedback .fld_bg{
+    background-color: #333;
+    border-radius: 5px;
+    width: 240px;
+    margin-top: 2px;
+    padding: 10px; margin-left: 20px;
+}
+#form_feedback .fld_bg label{
+    padding: 0px; margin: 0px;
+    color: #fff;display: inline-block; margin-left: 5px;
+    cursor: pointer;
+    width: 220px;
+}
+#feed_text_area{
+    margin-top: 10px;
+    resize:none;
+    width: 240px;height: 90px;
+}
+hr.style-one {
+    border: 1px dotted #333;
+}
+
+/*end of CSS for Feedback*/
 
 
