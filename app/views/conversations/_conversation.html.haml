@@ -1,19 +1,18 @@
 .priority_form
-  - i = 1
   = content_tag_for(:li, conversation) do |conversation|
     - notification  = Notification.where("conversation_id = ?", conversation.id).first
     - messages =  notification.receipts.where("mailbox_type = ? and receiver_id =?", "inbox", current_user.id)
     - messages.each do |message|
-      .message_box{:style => "background-color:#{message.priority};"}
+      %div{:class =>"message_box#{conversation.id}", :style => "background-color:#{message.priority};"}
         = link_to conversation.subject, conversation
-        %div{:class => "commentbutton#{i} "}
-          %a{:href => "javascript:void(0)", :onclick => "open_form(#{i})"} Change Priority
-        %div{:class => "profile_text#{i}", :style => "display: none;"}
-          - i += 1
+        %div{:class => "commentbutton#{conversation.id} "}
+          %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
+        %div{:class => "profile_text#{conversation.id}", :style => "display: none;"}
           = form_tag('/feedback/change_priority', :remote => true) do
-            = select_tag :priority,  options_for_select([["Default Color"],["red"],["green"],["blue"]])
-            = hidden_field_tag :conversation_id, message.id
+            = select_tag :priority,  options_for_select([["Default Color"],["red"],["green"],["blue"]]).html_safe, :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
+            = hidden_field_tag 'conversation_id', "#{message.id}", class: "conversation#{conversation.id}"
             = submit_tag 'Send', :id => "send", :style => 'visibility: hidden'
+    
 
 
   -#|
@@ -31,11 +30,19 @@
 
   }
 :javascript
-     $('#priority').change(function() {
-     var color = $(this).val();
-     $( ".message_box" ).css('background-color', color);
-     $('#send').trigger('click');
-     $(this).css('display', 'none');
-     $('.profile_text').css('display', 'none');
+  function change_form(m)
+  {
+    var color = $("#priority" + m).val();
+    var message = $(".conversation" + m).val();
+    $('.message_box' + m ).css('background-color', color);
+    $.ajax({
+            url: "/feedback/change_priority",
 
-  });
+            data: { color: color, message_id: message  },
+            cache: false
+           
+
+        })
+   
+     $('.profile_text' + m).css('display', 'none');
+  }

@@ -13,8 +13,9 @@ class FeedbackController < ApplicationController
 
   def change_priority
 
-       update_priority = Receipt.find(params[:conversation_id])
-       update_priority.update_column(:priority, params[:priority])
+      
+       update_priority = Receipt.find(params[:message_id])
+      update_priority.update_column(:priority, params[:color])
 
   end
 
