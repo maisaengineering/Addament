@@ -12,7 +12,7 @@ Addament::Application.routes.draw do
   resources :feedback do
     collection do
       post 'send_email'
-      post 'change_priority'
+      get 'change_priority'
       get 'filter_data'
     end
   end
