@@ -15,58 +15,15 @@
 			<div id="ppl_you_know_con_div">
 
 				<ul>
-					<li>
-						<%= image_tag("ppl_thumb_01.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_02.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_03.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_04.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_05.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_06.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_05.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-					<li>
-						<%= image_tag("ppl_thumb_01.png") %>
-						<label>Name Goes Here</label>
-						<p>Dolor sit amet consectiur elit</p>
-						<a href="#">Add to network</a>
-					</li>
-				</ul>
+                  <li>
+                    <div id="all_users">
+                    <%= render :partial => 'all_users' %>
+                    </div>
+                  </li>
+                </ul>
 
 			</div>
-			<p style="text-align:center;color:#ccc; font-size:12px;padding-top:5px; letter-spacing:1px;cursor:pointer;">See all</p>
+			<p><%= link_to "See all", public_profile_path,  :class => "see_all" %></p>
 		</div>
 	</div>
 </div>
