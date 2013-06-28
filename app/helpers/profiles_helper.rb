@@ -6,7 +6,9 @@ module ProfilesHelper
   def complete_percentage()
 
     percentage = 0
+   if  current_user.profile.present?
     percentage += 20 if  current_user.profile.interests.present?
+    end
     percentage += 10  if current_user.profile.professionals[0].company_name.present?
      if current_user.profile.education.present?
        percentage += 10 if current_user.profile.education[0].scholl_name.present?

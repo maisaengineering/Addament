@@ -1,25 +1,23 @@
-.priority_form
-  = content_tag_for(:li, conversation) do |conversation|
-    - notification  = Notification.where("conversation_id = ?", conversation.id).first
-    - messages =  notification.receipts.where("mailbox_type = ? and receiver_id =?", "inbox", current_user.id)
-    - messages.each do |message|
-      %div{:class =>"message_box#{conversation.id}", :style => "background-color:#{message.priority};"}
-        = link_to conversation.subject, conversation
-        %div{:class => "commentbutton#{conversation.id} "}
-          %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
-        %div{:class => "profile_text#{conversation.id}", :style => "display: none;"}
-          = form_tag('/feedback/change_priority', :remote => true) do
-            = select_tag :priority,  options_for_select([["Default Color"],["red"],["green"],["blue"]]).html_safe, :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
-            = hidden_field_tag 'conversation_id', "#{message.id}", class: "conversation#{conversation.id}"
-            = submit_tag 'Send', :id => "send", :style => 'visibility: hidden'
-    
+= content_tag_for(:li, conversation) do |conversation|
+  - notification  = Notification.where("conversation_id = ?", conversation.id).first
+  - messages =  notification.receipts.where("mailbox_type = ? and receiver_id =?", "inbox", current_user.id)
+  %br/
+  %br/
+  - messages.each do |message|
+    %ul
+      %li{:class =>"message_box#{conversation.id}", :id => "pin_image", :style => "background-color:#{message.priority}; background-image: url('/assets/pin.png') !important; background-repeat: no-repeat; background-position-x: 131px;background-position-y: 7px; "}
+        %img{:src => "images/message_img.png"}/
+        %label @username
+        %p
+          = link_to conversation.subject, conversation
+          %div{:class => "commentbutton#{conversation.id} "}
+            %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
+          %div{:class => "profile_text#{conversation.id}", :style => "display: none;"}
+            = form_tag('/feedback/change_priority', :remote => true) do
+              = select_tag :priority,  options_for_select([["punch"],["royal blue"],["cardinal"],["purple heart"],["fun green"]]),:style=>'width: 185px;', :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
+              = hidden_field_tag 'conversation_id', "#{message.id}", class: "conversation#{conversation.id}"
 
 
-  -#|
-    -#- if conversation.is_completely_trashed?(current_user)
-    -#  = link_to 'Untrash', [:untrash, conversation], method: :post
-    -#- else
-    -#  = link_to 'Move to trash', [:trash, conversation], method: :post
 %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
 :javascript
   function open_form(e)
@@ -33,16 +31,32 @@
   function change_form(m)
   {
     var color = $("#priority" + m).val();
+    if(color =="royal blue" )
+    {
+     var color_code = "#2a7fec";
+    }
+    else if (color =="punch" ){
+       var color_code = "#d8502a";
+    }
+    else if(color =="cardinal") {
+    var color_code = "#b31b42";
+    }
+    else if(color =="purple heart") {
+    var color_code = "#5838b3";
+        }
+    else if(color =="fun green") {
+    var color_code = "#019219";
+     }
     var message = $(".conversation" + m).val();
-    $('.message_box' + m ).css('background-color', color);
+    $('.message_box' + m ).css('background-color', color_code);
     $.ajax({
             url: "/feedback/change_priority",
 
-            data: { color: color, message_id: message  },
+            data: { color: color_code, message_id: message  },
             cache: false
-           
+
 
         })
-   
+
      $('.profile_text' + m).css('display', 'none');
   }

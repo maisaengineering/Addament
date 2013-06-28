@@ -1,17 +1,15 @@
-%h1 Conversations
-%h2 Inbox
-%table
-  %tr
-    %td
-      - unless current_user.profile.avatar_file?
-        = image_tag("missing.png",height: 70,width: 80)
-      - else
-        #image{:style => "width:20px;height:20px;"}
-          = image_tag url_for(:controller => "profiles", :action => "code_image")
-%ul= render mailbox.inbox
+#message_page_container
+  #messages_title_div
+    #message_prog
+      %p
+        MESSAGES
+        %span.messages_count #{mailbox.inbox.count}
+%ul#messages_ul
+  = render mailbox.inbox
+= link_to 'Start Conversation', :new_conversation
 -#%h2 Sentbox
 -#%ul= render mailbox.sentbox
 -#%h2 Trash
 -#%ul= render mailbox.trash
 
-= link_to 'Start Conversation', :new_conversation
+
