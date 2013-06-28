@@ -46,7 +46,7 @@
           <div class="tab-pane active" id="tab1">
 
             <p>
-              <% @past.each do |past| %>
+              <% @past[0..2].each do |past| %>
 
                   <% if past.end_date!=nil %>
 

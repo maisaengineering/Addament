@@ -1,9 +1,9 @@
 <% profile = Profile.where("user_id =? ",comment.commenter_id).first %>
-<table>
+<table style="background-color:;margin-left: 74;">
   <tr>
     <% unless profile.avatar_file.nil? %>
-        <td>
-          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image"} %>
+        <td style="padding-right:20px">
+          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image",:style =>"width:30px;height:30px"} %>
         </td>
     <% else %>
         <td>
@@ -11,18 +11,20 @@
         </td>
     <% end %>
     <td>
-      <%= comment.created_at.strftime("%d %b") %>
+      <!--<%= comment.created_at.strftime("%d %b") %><br />-->
+    
+      <%=  profile.first_name %>
+      <font style="color:red">Commented</font>
+      <%=  comment.description %>
+      <%= time_ago_in_words(comment.created_at) %>ago
     </td>
   </tr>
   <tr>
-    <td>
-      <%=  profile.first_name %></td>
-    <td>Commented</td>
-    <td><%=  comment.description %></td>
+    
   </tr>
   <tr>
     <td>
-      <%= time_ago_in_words(comment.created_at) %>ago
+      
     </td>
     </tr>
     </table>

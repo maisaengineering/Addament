@@ -1,11 +1,11 @@
-<div>
-	<div id ="centerDIV" style ="width: 290;height: 230;background-color:#CDE9FF;margin-left: 0;">
+<div id ="centerDIV" style ="width: 290;height: 230;background-color:E1E1E1;margin-left: 0;">
+		<%= form_for :conversation, url: :conversations do |f| %>
 	<table>
-			<%= form_for :conversation, url: :conversations do |f| %>
+			
 			<tr>
 			<td>	
 			Recipents</td>
-			<td><%= f.text_field :recipients %></td>
+			<td><%= f.text_field :recipients, :id => "conversation_recipients" %></td>
 			</tr>
 			<tr>
 				<td>Subject</td>
@@ -18,11 +18,12 @@
 			<tr>
 				<td></td>
 			    <td><%= f.button :submit %></td>
-			</tr>
-			<% end %>
+			    <% end %>
 			<% @company = User.all %>
-</table>
-</div>
+			</tr>
+			
+    </table>
+</div>    
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/select2.js"></script>
@@ -35,4 +36,7 @@
     });
 
 </script>
+
+
+
 

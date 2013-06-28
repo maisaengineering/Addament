@@ -128,7 +128,12 @@
 					<tr>
 						<td colspan="2" class="exmp" style="background-color:#fff; ">Examples: School, Organizations, etc,</td>
 					</tr>
-
+					<tr>
+						
+					</tr>
+					<% end %>
+				</table>
+				<table align="center"><tr><td style="background-color:;">
 							<div class="button2">
                     <%=  link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
 
@@ -142,13 +147,9 @@
                       </div>
 
                     </div>
-                    </div>
-                  <tr>
-
-                    <td style="background-color:#fff;"><%=  f.submit "Next", :class =>"btn"  %></td>
-					</tr>
-					<% end %>
-				</table>
+                    </div></td>
+                    <td></td>
+                    <td style="background-color:#fff;float:right"><%=  f.submit "Next", :class =>"btn"  %></td></tr></table>
 			</td>
 		</tr>
 		<tr>
