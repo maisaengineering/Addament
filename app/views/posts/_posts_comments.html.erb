@@ -1,5 +1,5 @@
 <div class="post_curcomment">
-<table>
+<table style="background-color:">
     <tr>
 
 
@@ -7,29 +7,27 @@
     <% i = 1 %>
     <% @posts.each do |post| %>
         <tr>
-          <td width ="50px">
+          <td style="padding-right:20px">
 
             <% user = User.find(post.user_id) %>
             <% unless user.profile.avatar_file.nil? %>
                 <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
             <% else %>
                 <%=  image_tag("missing.png",height: 70,width: 70) %>
-            <% end %>
+            <% end %></td>
+            <td><%= user.profile.first_name  %> </td><td><font style="color:51A2D5">Posted</font></td>
+           <td> <%= post.current_post %>
+            
           </td>
-          <td><%= user.profile.first_name  %></td>
-          <td><%= post.current_post %></td>
           
         </tr>
+</table>
+<table>        
         <tr>
-          <td></td>
-          <td><div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
+          <td colspan="3"><div class="commentbutton<%= i %>" style="margin-left:100px"><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
 
-            <div class="profile_text<%= i %>" style="display: none;">
-              <div class="comment_form">
+            <div class="profile_text<%= i %>" style="display: none;margin-left:100px">
+              <div class="comment_form" >
                 <%=  render 'comments/form', :id => post.id %>
               </div>
 

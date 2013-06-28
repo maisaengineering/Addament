@@ -10,87 +10,113 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <table align="center">
+    <tr>
+    <div class="field">
     <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
-    <%= f.label :company_name %>
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :role %>
-    <%= f.text_field :role %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date, :order => [:year, :month] %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date, :order => [:year, :month] %>
-  </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :professional_headline %>
-    <%= f.text_field :professional_headline %>
-  </div>
-  <div class="field">
-    <%= f.label :aspriations %>
-    <%= f.text_area :aspriations %>
-
-  </div>
-  <div class="field">
-    <%= f.label :achievements %>
-    <%= f.text_area :achievements %>
-  </div>
-  <div class="field">
-    <%= f.label :affiliations %>
-    <%= f.text_area :affiliations %>
-  </div>
-  <div class="field">
-    <%= f.label :project_name %>
-    <%= f.text_field :project_name %>
-  </div>
-  <div class="field">
-    <%= f.label :project_end_date %>
-    <%= f.date_select :project_end_date, :order => [:year, :month] %>
-  </div>
-  <div class="field">
-    <%= f.label :project_start_date %>
-    <%= f.date_select :project_start_date, :order => [:year, :month] %>
-  </div>
-  <div class="field">
-    <%= f.label :project_description %>
-    <%= f.text_area :project_description %>
-  </div>
-
-
-
-
-    <div class="button2">
-      <td><%=  f.submit "Next", :id=> "save" %></td>
-
-
-      <%=  link_to "Add More", new_professional_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
-
-      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Add More Professional</h3>
-        </div>
-        <div class="modal-body">
-          <p></p>
-        </div>
-
-      </div>
+    <td><%= f.label :company_name %></td>
+    <td><%= f.text_field :company_name %></td>
     </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :title %></td>
+      <td><%= f.text_field :title %></td>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :location %></td>
+      <td><%= f.text_field :location %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :role %></td>
+      <td><%= f.text_field :role %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :start_date %></td>
+      <td><%= f.date_select :start_date, :order => [:year, :month] %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :end_date %></td>
+      <td><%= f.date_select :end_date, :order => [:year, :month] %></td>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description, :style => "height: 62;" %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :professional_headline %></td>
+      <td><%= f.text_field :professional_headline %></td>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+      <td><%= f.label :aspriations %></td>
+      <td><%= f.text_area :aspriations, :style => "height: 62;" %></td>
+
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :achievements %></td>
+      <td><%= f.text_area :achievements, :style => "height: 62;" %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :affiliations %></td>
+      <td><%= f.text_area :affiliations, :style => "height: 62;" %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :project_name %></td>
+      <td><%= f.text_field :project_name %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :project_end_date %></td>
+      <td><%= f.date_select :project_end_date, :order => [:year, :month] %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :project_start_date %></td>
+      <td><%= f.date_select :project_start_date, :order => [:year, :month] %></td>
+    </div>
+    </tr>
+    <tr>  
+    <div class="field">
+      <td><%= f.label :project_description %></td>
+      <td><%= f.text_area :project_description, :style => "height: 62;" %></td>
+    </div>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <div class="button2"><%=  f.submit "save" , :id=> "save" %>
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Add More Professional</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p></p>
+                      </div></div></td>
+   </tr> 
+  </table> 
+
 <% end %>
+

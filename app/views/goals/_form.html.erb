@@ -1,4 +1,4 @@
-<%= form_for(@goal) do |f| %>
+|<div><%= form_for(@goal) do |f| %>
   <% if @goal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
@@ -10,17 +10,28 @@
       </ul>
     </div>
   <% end %>
+  <table style="background:white">
+    <tr>
+
 
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.label :goal_name %><br />
-    <%= f.text_field :goal_name %>
+    <td><%= f.label :goal_name %></td>
+    <td><%= f.text_field :goal_name %></td>
   </div>
+  </tr>
+    <tr>
   <div class="field">
-    <%= f.label :target_date %><br />
-    <%= f.date_select :target_date %>
+    <td><%= f.label :target_date %></td><br />
+    <td><%= f.date_select :target_date %></td>
   </div>
+   </tr>
+    <tr>
   <div class="actions">
-    <%= f.submit %>
+    <td></td>
+    <td><%= f.submit %></td>
   </div>
+    </tr>
+</table>
 <% end %>
+</div>

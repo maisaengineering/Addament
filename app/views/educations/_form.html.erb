@@ -52,8 +52,7 @@
           <tr>
             <td></td>
             <td><%= f.submit "Save", :id=> "save" %></td>
-          </tr>
-          <div class="button2">
+            <td><div class="button2">
             <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-header">
@@ -65,7 +64,9 @@
               </div>
 
             </div>
-          </div>
+          </div></td>
+          </tr>
+          
       <% end %>
     </table>
   </div>
