@@ -133,7 +133,7 @@ h3{
     font-weight: 500;
     font-size: 22px;
     color: #96c953;
-    text-align: center;
+    text-align: left;
 }
 .form_title{
 	vertical-align: middle;
@@ -949,7 +949,6 @@ td{
 	background-color:#fff;
 	float: left;
 	position: absolute;
-	height: 615px;
 	width: 360px;
 	margin-left: 290px;
 	padding: 20px;
@@ -967,7 +966,7 @@ td{
 /* -------------------- LEFT DIV ------------------ */
 #leftDIV li{
 	width: 240px;
-	height: 120px;
+	height: 136px;
 	background-color: #54a1d5;
 	list-style: none;
 	margin-bottom: 10px;
@@ -1091,12 +1090,21 @@ td{
 
 
 /* -------------------------------------- HEADER AND FOOTER SECTION END. ---------------------------*/
-.bioDIV{
+#bioDIV{
 	width: 960px; height:px;
 	padding: 10px;
 	margin-top: 16px;
 	position: absolute;
 	background-color: #fff;
+}
+#bioDIV h2{
+    background-color: #51a2d5;
+    color: #fff;font-size: 14px;
+    padding: 5px;
+    width:150px;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding-left: 20px;
 }
 
 .profDIV{
@@ -1106,17 +1114,35 @@ td{
 	position: absolute;
 	background-color: #fff;
 }
+#profDIV h2{
+    background-color: #51a2d5;
+    color: #fff;font-size: 14px;
+    padding: 5px;
+    width:150px;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding-left: 20px;
+}
 .follfDIV{
-	width: 960px; height: ;
+	width: 960px;
 	padding: 10px;
-	margin-top: 563px;
+	margin-top: 16px;
 	position: center;
 	background-color: #fff;
 }
+#follfDIV h2{
+    background-color: #51a2d5;
+    color: #fff;font-size: 14px;
+    padding: 5px;
+    width:150px;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding-left: 20px;
+}
 .ppfDIV{
-	width: 960px; height: px;
+	width: 960px;
 	padding: 10px;
-	margin-top: 17px;
+	margin-top: 300px;
 	position: center;
 	background-color: #fff;
 }
@@ -1475,3 +1501,50 @@ hr.style-one {
     width: 150px;
 }
 /*######################################  MES
+
+*/
+
+ul#pinned_message{
+    list-style-type: none;
+}
+.medium_image {
+    width:50px;
+    height: 50px;
+}
+.see_all{
+    text-align:center;
+    color:#ccc;
+    font-size:12px;
+    padding-top:5px;
+    letter-spacing:1px;
+    cursor:pointer;
+    margin-left: 102px;
+}
+.search_container{
+  background-color: #fff;
+    min-height: 100px;
+    width: 980px;
+}
+.search_user{
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    width: 220px;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding-left: 20px;
+}
+.search_details_heading{
+    margin-left:10px;
+    padding:5px 5px 2px 2px;
+    width:300px;
+    font-weight:bold;
+    text-align:center;
+    color: white;
+    background-color: #51a2d5;
+}
+
+.search_results_details{
+    margin-left:10px;
+    margin-top:10px;
+}
