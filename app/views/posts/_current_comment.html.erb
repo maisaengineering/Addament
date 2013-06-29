@@ -1,9 +1,11 @@
+
 <%=  @post.current_post %>
 <% comment = @post.comments %>
 <br/>
 <div style="background-color: #f0f0f0;">
   <%  comment.each do |comment_id|  %>
       <% profile = Profile.where("user_id =? ",comment_id.commenter_id).first %>
+      <div class="post_curcomment">
       <table>
         <tr>
           <td></td>
@@ -21,16 +23,17 @@
           </td>
         </tr>
         <tr>
-          <td align="right">
-            <%=  profile.first_name %></td>
-          <td>Commented</td>
-          <td><%=  comment_id.description %></td>
+          <td>
+            <%=  profile.first_name %>
+          Commented
+          <%=  comment_id.description %>
         </tr>
         <tr>
           <td colspan="3">
-            <%= time_ago_in_words(comment_id.created_at) %>ago
+            <%= time_ago_in_words(comment_id.created_at) %>ago<span class="clearFix">&nbsp;</span>
           </td>
   <% end %>
   </tr>
   </table>
+</div>
 </div>

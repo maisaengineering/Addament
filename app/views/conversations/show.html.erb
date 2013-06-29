@@ -6,20 +6,30 @@
       color: white;
   }
 </style>
-<ul>
+<div id="centerDIV" style="width:600px;margin-left:0px">
+  <table>
+    <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+
+    <tr>
+      <td>
+        <% message = receipt.message %>
+      </td>
+      <td>  
+        <%=  message.body %>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>
+            <%= button_tag "Reply", :id=> "reply" %>
+      </td>      
    
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+   
+  </table>      
 
-
-      <% message = receipt.message %>
-
-
-      <p><%=  message.body %></p>
-  <% end %>
-</ul>
-<%= button_tag "Reply", :id=> "reply" %>
 <div class="reply_form" style="display: none;">
 <%= render 'messages/form', conversation: conversation %>
+</div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
