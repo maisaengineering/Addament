@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @posts = Post.paginate(:page => params[:page], :per_page => 5).order('created_at desc')
     @comment = Comment.new
-
+    @all_users = User.where("id != ?", current_user.id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -35,6 +35,14 @@ class PostsController < ApplicationController
     #@post = Post.find(params[:comment][:post_id])
     #@comment = Comment.new
     #render :js=>"alert('ok')"
+  end
+
+  def follow_from_post
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    current_user.follow(user)
+    @all_users = User.where("id != ?", current_user.id)
+
   end
 
   # GET /posts/new
