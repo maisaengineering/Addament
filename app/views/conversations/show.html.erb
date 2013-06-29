@@ -5,8 +5,11 @@
   p {
       color: white;
   }
+  li.receipt{
+      list-style-type: none;
+  }
 </style>
-<div id="centerDIV" style="width:600px;margin-left:0px">
+<div class="msg_conv">
   <table>
     <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
 

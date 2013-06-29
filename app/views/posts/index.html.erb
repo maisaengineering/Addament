@@ -62,7 +62,8 @@
 				    </ul>
             </div> 
     <div class="post_curcomment">
-      <div id="post_comment" style="width:730px;">
+      <div class="post_comment">
+
        <%= render :partial => 'posts_comments', @posts => @posts %>
        <center><%= will_paginate @posts %></center>
       </div>
@@ -70,7 +71,7 @@
 
  </div>	
 
-
+ </div>
  
 </div>	
 

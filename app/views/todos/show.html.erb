@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
-<%= @todo.title %>
-<%= @todo.event_date.to_date.strftime("%B %d, %Y") %>
+<div class="show_todo" style="width:300px;background:white">
 
+<table>
+  <tr>
+
+<td><h2><%= @todo.title %></h2></td>
+<td><%= @todo.event_date.to_date.strftime("%B %d, %Y") %></td>
+   </tr>
+  </table>
 
 <%= link_to 'Back', root_url %>
+</div>

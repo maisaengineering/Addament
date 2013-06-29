@@ -1,8 +1,9 @@
-<div id="all_comment_current_post">
-  <%=  render :partial => 'current_comment' %>
+  <br />
+  <div class="comment_list_post">
 
-</div>
-<br/>
+     <%=  render :partial => 'current_comment' %>
+     <br />
+    <br />
 
   <%= form_for(:comment, url: create_comment_post_path, :method => "post", :remote => true) do |f| %>
 
@@ -10,7 +11,10 @@
         <%= f.hidden_field :commenter_id, :value => current_user.id %>
         Comment<br />
 
-        <%= f.text_area :description, :style=>"width:300px;",:rows => "3", :cols => "2" %>
+        <%= f.text_area :description,:rows => "3", :cols => "2" %> <br>
 
       <%= f.submit  %>
   <% end %>
+  </div>
+
+
