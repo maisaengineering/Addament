@@ -21,15 +21,12 @@
     <% unless current_user.profile.avatar_file.nil? %>
         <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image"}  %>
      <% else %>
-        <div id ="image" style="width:92px;">
-        <%=  image_tag("missing.png",height: 25,width: 25) %>
+        <div id ="image">
+        <%=  image_tag("missing.png",height: 70,width: 70) %>
       </div>
     <% end %>
         </td>
-     <td><%= f.text_area :current_post, :style => "width: 583px;
-height: 102px;
-margin-top: -12;
-margin-left: 64;",:rows => "2", :cols => "2" %></td>
+     <td><%= f.text_area :current_post, :style => "width: 583px; height: 102px; margin-top: -12; margin-left: 25;",:rows => "2", :cols => "2" %></td>
    </tr>
   </div>
   <tr>

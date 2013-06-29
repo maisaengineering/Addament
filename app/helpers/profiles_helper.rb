@@ -8,13 +8,13 @@ module ProfilesHelper
     percentage = 0
    if  current_user.profile.present?
     percentage += 20 if  current_user.profile.interests.present?
-    end
     percentage += 10  if current_user.profile.professionals[0].company_name.present?
-     if current_user.profile.education.present?
-       percentage += 10 if current_user.profile.education[0].scholl_name.present?
+    if current_user.profile.education.present?
+      percentage += 10 if current_user.profile.education[0].school_name.present?
 
 
-     end
+    end
+   end
 
     #percentage += 30 if  user.educations.present?
     #percentage += 30 if  professional_industries.present?

@@ -4,10 +4,15 @@
   %br/
   %br/
   - messages.each do |message|
-    %ul
+  - profile_pic = Profile.where("user_id =?", notification.sender_id).first
+    %ul#pinned_message
       %li{:class =>"message_box#{conversation.id}", :id => "pin_image", :style => "background-color:#{message.priority}; background-image: url('/assets/pin.png') !important; background-repeat: no-repeat; background-position-x: 131px;background-position-y: 7px; "}
-        %img{:src => "images/message_img.png"}/
-        %label @username
+        - if profile_pic.avatar_file.nil?
+          =image_tag("missing.png")
+        - else
+          = image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_pic.id ), {:width=>'25px', :height => '25px'}
+        %label
+          =profile_pic.first_name
         %p
           = link_to conversation.subject, conversation
           %div{:class => "commentbutton#{conversation.id} "}
