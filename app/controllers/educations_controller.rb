@@ -26,6 +26,7 @@ class EducationsController < ApplicationController
   def new
     @education = Education.new
     @school = School.all
+    @param_id = params[:id]
     if !params[:id]
       respond_to do |format|
         format.html # new.html.erb
@@ -48,7 +49,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       if @education.save
-        format.html { redirect_to @education, notice: 'Education was successfully created.' }
+        format.html { redirect_to my_account_path, notice: 'Education was successfully created.' }
         format.json { render json: @education, status: :created, location: @education }
       else
         format.html { render action: "new" }

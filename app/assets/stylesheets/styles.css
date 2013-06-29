@@ -379,7 +379,7 @@ input[type="search"]:focus{
 	vertical-align: text-top;
 }
 #profile_con_tbl .tdGradent{
-	background: url(/assets/footer-div.png);
+
 	background-repeat: repeat-x;
  	height: 145px;
 }
@@ -655,7 +655,7 @@ td{
 }
 #container label{
 	/*color: #51a2d5;*/
-	padding-top: 1px;
+	padding-top: 10px;
 	padding-bottom: 2px;
 	font-size: 12px;
 	font-weight: bold;
@@ -790,14 +790,14 @@ td{
 	margin: 0px;padding: 0px;
 	margin-left: -0px;
 	width: 490px;height: 189px;
-	overflow: hidden;
 }
 #newsFeedsDiv  #slideShow image{
 	margin-left: -10px;
 }
 #newsFeedsDiv #thumbs{
 	list-style: none;
-	margin-top: -15px;
+	margin-top: -30px;
+    margin-left: 5px;
 }
 #newsFeedsDiv .thumb{
 	float: left;
@@ -953,6 +953,7 @@ td{
 	margin-left: 290px;
 	padding: 20px;
 	text-align: center;
+    height: 615px;
 }
 #rightDIV{
 	background-color:#fff;
@@ -1123,7 +1124,7 @@ td{
     margin-top: -10px;
     padding-left: 20px;
 }
-.follfDIV{
+#follfDIV{
 	width: 960px;
 	padding: 10px;
 	margin-top: 16px;
@@ -1166,6 +1167,17 @@ td{
 
 
 /*------------------------posts css-----------------------------*/
+.post_textarea{
+    width: 630px;
+    height: 102px;
+    margin-top: -12;
+
+}
+.thumb_image_post{
+    margin-top: -23;
+    height: 99;
+    width: 210;
+}
 #rightSideDiv{
 	width: 250px;
 	position: absolute;padding: 10px;
@@ -1211,6 +1223,9 @@ td{
 	font-weight: bold;
 	text-align: justify;
 }
+.post_comment{
+    width:730px;
+}
 .post_status{
 	width:730px;
 	position: relative;
@@ -1218,7 +1233,6 @@ td{
 	margin-left:0;
 	margin-top:;
 	background-color:#51A2D5;
-
 }
 .post_curcomment{
 	width:730px;
@@ -1230,15 +1244,18 @@ td{
 }
 .postbtn {
 	color: #fff;
-	background: #51a2d5;
+	background: #96C953;
 	border: 0px;
 	padding: 2px;
 	font-size: 13px;
 	font-family:itc_avant_garde;
-	width: 200px;
 	cursor: pointer;
 	font-weight: bold;
 	letter-spacing: 1px;
+}
+.comment_list_post{
+    width:730px;
+    background:#ffffff;
 }
 #h_sep_div{
 	background-color: #fff;
@@ -1421,6 +1438,15 @@ hr.style-one {
     margin: 0 auto;margin-top: 30px; margin-bottom: 30px;
     position: relative;
 }
+.msg_conv{
+    width:600px;
+    background-color:#fff;
+    float: left;
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
 /* -------------------------------------- CONTAINER DIV SECTION END. ---------------------------*/
 #messages_title_div{
     width: 710px;height: 40px;
@@ -1547,4 +1573,12 @@ ul#pinned_message{
 .search_results_details{
     margin-left:10px;
     margin-top:10px;
+}
+.spaceunder{
+    height: 50px;
+}
+.goal_comment_container{
+    background-color: white;
+    height: auto;
+    width: 1000px;
 }

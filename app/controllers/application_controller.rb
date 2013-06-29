@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
    layout :layout_by_resource
+  helper_method :mailbox, :conversation_layout
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception,                            :with => :render_not_found
     rescue_from ActiveRecord::RecordNotFound,         :with => :render_not_found
@@ -38,5 +39,13 @@ class ApplicationController < ActionController::Base
       redirect_to new_profile_path ,notice: "#{flash[:notice]} #{t(:profile_notice)}."
     end
     
+   end
+  def mailbox
+    @mailbox ||= current_user
+  end
+
+  def conversation_layout
+    @conversation ||= mailbox.conversations.find(params[:id])
+
   end
 end

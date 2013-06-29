@@ -42,7 +42,7 @@
       </td>
       <td>
         <div id="notifi">
-          <label class="notification">11</label>
+          <label class="notification"><%= check_message %></label>
           <img src="/assets/notification.gif" alt="" style="margin-left:-45px;">
           <% if !current_user.profile.nil? %>
               <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id) %>

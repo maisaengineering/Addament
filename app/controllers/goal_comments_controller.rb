@@ -2,7 +2,8 @@ class GoalCommentsController < ApplicationController
   # GET /goal_comments
   # GET /goal_comments.json
   def index
-    @goal_comments = GoalComment.all
+
+    @goals = Goal.all
 
     respond_to do |format|
       format.html # index.html.erb
