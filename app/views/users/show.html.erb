@@ -94,6 +94,7 @@
             <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
             <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
             <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
+            <li class="thumb"><%= image_tag("/assets/thumb.jpg") %></li>
           </ul>
         </div>
       </div>
@@ -118,9 +119,9 @@
         <div id="associations">
           <label style="color:#96c953;">Associations</label>
           <ul>
-            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">3</span>Schools</li>
+            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;"><%= @all_school ? @all_school : "0" %></span>Schools</li>
             <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">5</span>Organizations</li>
-            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;">7</span>Companies</li>
+            <li style="color:#96c953;"><span class="asso_count"style="background-color:#96c953;"><%= @all_affilation ? @all_affilation : "0" %></span>Companies</li>
           </ul>
         </div>
         <div id="profile_views">

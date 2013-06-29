@@ -78,6 +78,34 @@ class User < ActiveRecord::Base
   end
  def name
     email
+ end
+  def self.get_affliation(affiliation)
+    affiliation_result = []
+    affiliation.each do |aff|
+      unless aff.affiliations.nil?
+        affl = aff.affiliations.split(',')
+        affl.each do |affliations_split|
+          affiliation_result.push(affliations_split)
+        end
+
+      end
+    end
+    return affiliation_result.count
+  end
+  def self.get_education(education)
+    education_result = []
+    education.each do |aff|
+      unless aff.school.nil?
+        affl = aff.school.split(',')
+
+        affl.each do |affliations_split|
+          education_result.push(affliations_split)
+        end
+
+      end
+
+      return education_result.count
+    end
   end
   
 end

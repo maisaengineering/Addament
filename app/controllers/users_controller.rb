@@ -43,14 +43,17 @@ class UsersController < ApplicationController
 
   def show
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
-
+    affiliation = current_user.profile.professionals
+    education = current_user.profile.education
+    @all_affilation = User.get_affliation(affiliation)
+    @all_school = User.get_education(education)
     @posts = Post.where("user_id != ?", current_user.id)
     @following =  current_user.all_following.count
     @todos = Todo.where("user_id =?", current_user.id).order('created_at desc').limit(3)
     @follow = current_user.followers_count
     @current = Impression.where("impressionable_id = ? and DATE(created_at) = ?", current_user.profile.id, Date.today).count
-    @past = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 3.months.ago).count
-    @past_seven = Impression.where("impressionable_id = ? and DATE(created_at) = ? and DATE(created_at)<= ?", current_user.profile.id, Date.today, 7.months.ago).count
+    @past = Impression.where(impressionable_id: current_user.profile.id, created_at: 3.months.ago..1.day.ago).count
+    @past_seven = Impression.where(impressionable_id: current_user.profile.id,created_at: 7.months.ago..1.day.ago).count
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
     current_user_company = User.get_current_company_name(current_user)
     unless  current_user_company.empty?

@@ -15,41 +15,43 @@
           </div>
           <tr>
             <td></td>
+            <% unless @param_id %>
             <td><h2>New Education</h2></td>
+                <% end %>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>School</label></td>
-            <td><%= f.text_field :school, :id => "school" %></td>
+            <td> <%= f.hidden_field :profile_id, :value =>  current_user.profile.id %><%= f.text_field :school, :id => "school" %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Date attended</label></td>
             <td><%= f.text_field :date_attended, :id => "datepicker" %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Degree</label></td>
             <td><%= f.text_field :degree %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Field of study</label></td>
             <td><%= f.text_field :field_of_study %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Grade</label></td>
             <td><%= f.text_field :grade %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Activities and Societies</label></td>
             <td><%= f.text_field :activities_and_societies %><br></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Description</label></td>
             <td><%= f.text_area :description, :style => "width:205px;height:50px" %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td><label>Skills</label> </td>
             <td><%= f.text_area :skills, :style => "width:205px;height:50px" %></td>
           </tr>
-          <tr>
+          <tr class="spaceunder">
             <td></td>
             <td><%= f.submit "Save", :id=> "save" %></td>
             <td><div class="button2">
@@ -57,7 +59,7 @@
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Add More Education</h3>
+                <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
               </div>
               <div class="modal-body">
                 <p></p>
@@ -70,6 +72,7 @@
       <% end %>
     </table>
   </div>
+  <% unless @param_id %>
   <div id="rightDIV">
     <h2>SPONSORS</h2>
     <ul>
@@ -93,6 +96,7 @@
       </li>
     </ul>
   </div>
+      <% end %>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
