@@ -148,7 +148,6 @@ ActiveRecord::Schema.define(:version => 20130620083803) do
     t.string   "attachment"
     t.boolean  "global",               :default => false
     t.datetime "expires"
-    t.integer  "priority"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
@@ -209,14 +208,14 @@ ActiveRecord::Schema.define(:version => 20130620083803) do
   create_table "receipts", :force => true do |t|
     t.integer  "receiver_id"
     t.string   "receiver_type"
-    t.integer  "notification_id",                                  :null => false
+    t.integer  "notification_id",                                    :null => false
     t.boolean  "is_read",                       :default => false
     t.boolean  "trashed",                       :default => false
     t.boolean  "deleted",                       :default => false
     t.string   "mailbox_type",    :limit => 25
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
-    t.string   "priority"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.string   "priority",                      :default => "white"
   end
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"

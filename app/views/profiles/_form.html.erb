@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td class="personal">
-				<%= form_for(@profile, {:multipart => true}) do |f| %>
+				<%= form_for(@profile) do |f| %>
 
                 <%= f.hidden_field :user_id, :value=> current_user.id %>
 
@@ -72,8 +72,9 @@
                   <tr>
                     <td>Roles</td>
                     <td>
+
                   <% User::ROLES.each do |role| %>
-                      <%= check_box_tag "[user_role][]",role %> <%= role %>
+                      <%= check_box_tag "[user_role][]",role,current_user.user_role.include?(role)  %> <%= role %>
                   <% end %>
                   <% end %>
                     </td>
