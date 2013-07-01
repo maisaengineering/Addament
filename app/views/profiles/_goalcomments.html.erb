@@ -1,6 +1,6 @@
 <% i =1 %>
 <% @goal.each do |goal| %>
-    <% user  = User.where(goal.id).first %>
+    <% user  = User.find(goal.user_id) %>
     <% profile = user.profile %>
     <%= profile.first_name %> <%= profile.last_name %><br>
     <%= goal.goal_name %><br>
@@ -10,8 +10,9 @@
           <%=  render 'goal_comments/form', :id => goal.id %>
         </div>
 
-         <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+
        </div>
+    <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
     <% i += 1 %>
 <% end %>
 

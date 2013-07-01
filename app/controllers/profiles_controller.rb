@@ -22,7 +22,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @past = Professional.where("profile_id = ?", @profile.id)
     @users = User.where("id != ? ", @profile.user_id)
-    @goal = Goal.where("user_id =? ", @users[0].id)
+    user = User.find(@profile.user_id)
+    @goal = Goal.where("user_id =? ", user.id)
 
     impressionist(@profile)
     respond_to do |format|
