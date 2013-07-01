@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
+  serialize :user_role,Array
   has_one :profile
   has_many :todos
   has_many :goals, :dependent => :destroy
@@ -90,6 +91,7 @@ class User < ActiveRecord::Base
 
       end
     end
+
     return affiliation_result.count
   end
   def self.get_education(education)
@@ -104,8 +106,8 @@ class User < ActiveRecord::Base
 
       end
 
-      return education_result.count
     end
+    return education_result.count
   end
   
 end
