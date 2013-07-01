@@ -21,6 +21,7 @@ class ProfilesController < ApplicationController
     @goal_comment = GoalComment.new
     @profile = Profile.find(params[:id])
     @past = Professional.where("profile_id = ?", @profile.id)
+    @education = Education.where("profile_id = ?", @profile.id)
     @users = User.where("id != ? ", @profile.user_id)
     user = User.find(@profile.user_id)
     @goal = Goal.where("user_id =? ", user.id)

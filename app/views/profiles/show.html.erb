@@ -1,7 +1,7 @@
 <div>
-      <table id="topDIV" style = "background-color: fff;height: 99;width:980px;margin-left:0px;">
+      <table id="topDIV_about">
           <tr>
-            <td style="width:90px; height: 99px; vertical-align: top;">
+            <td id="about_td">
               <% if@profile.avatar_file? %>
 
 
@@ -43,55 +43,67 @@
               <label class="qtn">First Name</label><label class="ans"><%= @profile.first_name %></label><br />
               <label class="qtn">Last Name</label><label class="ans"><%= @profile.last_name %></label><br />
               <label class="qtn">Birthday</label><label class="ans"><%= @profile.birthday %></label><br />
-              <label class="qtn">Lacation</label><label class="ans"><%= @profile.location %></label><br />
+              <label class="qtn">Location</label><label class="ans"><%= @profile.location %></label><br />
               <label class="qtn">City</label><label class="ans"><%= @profile.city %></label><br />
               <label class="qtn">State</label><label class="ans"><%= @profile.state %></label><br />
               <label class="qtn">Interests</label><label class="ans"><%= @profile.interests %></label><br />
             </div>
         </div>
-        <div class="ppfDIV">
-          <div class="tabbable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab1" data-toggle="tab">past</a></li>
-              <li><a href="#tab2" data-toggle="tab" >present</a></li>
-              <li><a href="#tab3" data-toggle="tab">future</a></li>
+        <div id="ppfDIV">
+          <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs" style="margin-left: 4;">
+              <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
+              <li><a href="#tab2" data-toggle="tab" >Present</a></li>
+              <li><a href="#tab3" data-toggle="tab">Future</a></li>
             </ul>
           </div>
         </div>
       <div>  
-      <div class="tab-content"  style = "background-color: white;">
+      <div class="tab-content" style="margin-top: -30;">
         <div class="tab-pane active" id="tab1">
 
-          <p>
-            <% @past[0..3].each do |past| %>
+
+          <p><br>
+            <label class="qtnlb">Professional:</label><br>
+            <% @past[0..2].each do |past| %>
 
                 <% if past.end_date!=nil %>
 
-                    <label class="qtn" style="margin-left:0px;">Company name:</label><label class="ans"><%= past.company_name %></label><br>
+                    <label class="qtn">Company Name:</label><label class="ans"><%= past.company_name %></label><br>
 
-                          <label class="qtn" style="margin-left:0px;">Title:</label><label class="ans"><%= past.title %></label><br>
+                          <label class="qtn">Title:</label><label class="ans"><%= past.title %></label><br>
 
-                          <label class="qtn" style="margin-left:0px;">Start date:</label><%= past.start_date %><br>
+                          <label class="qtn">Start Date:</label><%= past.start_date %><br>
 
-                          <label class="qtn" style="margin-left:0px;">End date:</label><%= past.end_date %><br>
+                          <label class="qtn">End Date:</label><%= past.end_date %><br>
 
-                          <label class="qtn" style="margin-left:0px;">Project name:</label><%= past.project_name %>
+                          <label class="qtn">Project Name:</label><%= past.project_name %><br>
 
                 <% end %>
+            <% end %>
+            <label class="qtnlb">Educations:</label><br>
+            <% @education.each do |education| %>
+                <label class="qtn" >School Name:</label><label class="ans"><%= education.school %></label><br>
+                <label class="qtn" >Date Attended:</label><%= education.date_attended %><br>
+                <label class="qtn" >Degree:</label><%= education.degree %><br>
+                <label class="qtn" >Field Of Study:</label><%= education.field_of_study %><br>
+                <label class="qtn" >Grade:</label><%= education.grade %><br>
+
             <% end %>
           </p>
         </div>
         <div class="tab-pane" id="tab2">
-          <p>
+          <p><br>
+            <label class="qtnlb">Professional:</label><br>
             <% @past.each do |present| %>
                 <% if present.end_date == nil %>
-                     <label class="qtn" style="margin-left:0px;">company name:</label><label class="ans"><%= present.company_name %></label><br/>
+                     <label class="qtn">Company Name:</label><label class="ans"><%= present.company_name %></label><br/>
 
-                          <label class="qtn" style="margin-left:0px;">Start date:</label><%= present.start_date %><br/>
+                          <label class="qtn" >Start Date:</label><%= present.start_date %><br/>
 
-                          <label class="qtn" style="margin-left:0px;">Location:</label><%= present.location %><br/>
+                          <label class="qtn">Location:</label><%= present.location %><br/>
 
-                          <label class="qtn" style="margin-left:0px;">Project name:</label><%= present.project_name %><br/>
+                          <label class="qtn">Project Name:</label><%= present.project_name %><br/>
                 <% end %>
             <% end %>
 
@@ -99,13 +111,14 @@
         </div>
 
         <div class="tab-pane" id="tab3">
-          <p>
+          <p><br>
+            <label class="qtnlb">Goals:</label><br>
             <%=  render :partial => 'goalcomments' %>
           </p>
         </div>
       </div>
       <div id="follfDIV">
-              <h2>FOLLOWING</h2>
+              <h2>CONNECTIONS</h2>
               <label class="ans"><%= render :partial => "profile_follow_followee" %></label><br />
         </div>
     </div>

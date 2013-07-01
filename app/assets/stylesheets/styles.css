@@ -1073,6 +1073,7 @@ td{
 	background-color: #ccc;
 	margin-left: 180px;
 	margin-top: 43px;
+    display: none;
 }
 #centerDIV .btn {
 	color: #fff;
@@ -1140,7 +1141,7 @@ td{
     margin-top: -10px;
     padding-left: 20px;
 }
-.ppfDIV{
+#ppfDIV {
 	width: 960px;
 	padding: 10px;
 	margin-top: 300px;
@@ -1148,7 +1149,7 @@ td{
 	background-color: #fff;
 }
 
-.qtn{
+.qtn {
 	width: 150px;
 	display: inline-block;
 	/*background-color: #ffa;*/
@@ -1458,6 +1459,17 @@ hr.style-one {
     margin-top: 10px;
 }
 /* -------------------------------------- CONTAINER DIV SECTION END. ---------------------------*/
+.new_conversation {
+    -moz-transition: background-color 0s ease 0s, color 400ms linear 0s;
+    background: none repeat scroll 0 0 #51A2D5;
+    border: 0 none;
+    border-radius: 20px 20px 20px 20px;
+    padding-left: 9px;
+    padding-top: 10px;
+    height: 26px;
+    width: 135px;
+
+}
 #messages_title_div{
     width: 710px;height: 40px;
     position: absolute;;
@@ -1505,6 +1517,7 @@ hr.style-one {
     margin-left: -10px;
     float: left;
     background-position:120px -2px;
+    margin-bottom: 20px;
 }
 #pin_image{
 
@@ -1612,6 +1625,11 @@ ul#pinned_message{
     width:980px;
     margin-left:0px
 }
+#about_td{
+    width:90px;
+    height: 99px;
+    vertical-align: top;
+}
 
 .qtntab {
     width: 150px;
@@ -1624,7 +1642,52 @@ ul#pinned_message{
     color: #51a2d5;
 }
 
+.qtnlb {
+    width: 150px;
+    display: inline-block;
+    /*background-color: #ffa;*/
+    margin-bottom: 3px;
+    height: 30px;line-height: 30px;
+    padding-right: 10px;
+    font-size: 22px; font-weight: bold;
+    color: #000000;
+}
 .anstab {
     font-size: 13px; font-weight: bold;
     color: #96c953;
 }
+
+/*-----goal comments--------------------*/
+
+.goal_comment_container{
+    background-color: white;
+    height: auto;
+    width: 1000px;
+}
+.goal_header{
+    color: #96c953;
+    margin-left:10px;
+    font-size: 18px;
+    padding-top: 40px;
+}
+.goal_commenter_image{
+    width: 50px;
+    height: 50px;
+    margin-left: 35px;
+    padding: 4px;
+}
+.goal_commenter{
+    color: #51a2d5;
+    font-size: 16px;
+}
+.goal_comment_content{
+    margin-top:-30px;
+    width:800px;
+    display: block;
+    text-align: left;
+    margin-left: 90px;
+}
+.g_commenter_photo{
+    margin-top:10px;
+}
+

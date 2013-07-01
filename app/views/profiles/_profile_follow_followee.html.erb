@@ -1,5 +1,13 @@
+
+<table style="margin-left:172;">
+<tr>
+  <th><h6>Following</h6></th>
+  <th></th>
+  <th><h6>Followee</h6></th>
+</tr>
+<tr>
+<td>
 <% profile_user = User.find(@profile.user_id) %>
-<h6>Following</h6>
 <% @users.each do |user_follow| %>
     <table>
       <tr>
@@ -14,26 +22,32 @@
       </tr>
     </table>
 <% end %>
+</td>
+<td style="width:300px"></td>
+<td>
+  <% @followee =  profile_user.user_followers %>
+  <% @followee.in_groups_of(2, false) do |lists| %>
+      <table>
+        <tr>
+          <%  for user in lists %>
+              <td>
+                <table>
+                  <tr>
+                    <td>
+                      <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+                    </td>
 
-<h6>Followee</h6>
-<% @followee =  profile_user.user_followers %>
-<% @followee.in_groups_of(2, false) do |lists| %>
-    <table>
-      <tr>
-        <%  for user in lists %>
-            <td>
-              <table>
-                <tr>
-                  <td>
-                    <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
-                  </td>
+                  </tr>
+                </table>
 
-                </tr>
-              </table>
+              </td>
+              </tr>
+          <% end %>
+          </table>
 
-            </td>
-            </tr>
-        <% end %>
-        </table>
+  <% end %>
 
-<% end %>
+</td>
+</tr>
+</table>
+

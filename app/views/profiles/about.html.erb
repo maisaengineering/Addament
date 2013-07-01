@@ -34,7 +34,7 @@
 <% end %>
 
 
-<div class="tabtable" style = "background-color:#51A2D5"> <!-- Only required for left/right tabs -->
+<div class="tabbable"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
         <li><a href="#tab2" data-toggle="tab" >Present</a></li>
@@ -42,7 +42,7 @@
       </ul>
 </div>
 
-    <div class="tab-content"  style = "background-color: white;margin-top: -20;">
+    <div class="tab-content">
           <div class="tab-pane active" id="tab1">
 
             <p>
@@ -78,13 +78,13 @@
             <p>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
-                      <label class="qtntab">company name:</label><label class="anstab"><%= present.company_name %></label><br>
+                      <label class="qtntab">Company Name:</label><label class="anstab"><%= present.company_name %></label><br>
 
-                      <label class="qtntab">Start date:</label><%= present.start_date %><br>
+                      <label class="qtntab">Start Date:</label><%= present.start_date %><br>
 
                       <label class="qtntab">Location:</label><%= present.location %><br>
 
-                      <label class="qtntab">Project name:</label><%= present.project_name %><br>
+                      <label class="qtntab">Project Name:</label><%= present.project_name %><br>
 
 
                   <% end %>

@@ -74,3 +74,15 @@ h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizelegibility;
     text-align: center;
 }
+
+.tabbable{
+    background-color: #51A2D5;
+    width: 205;
+}
+
+.tab-content{
+    background-color: white;margin-top: -20;
+}
+.nav nav-tabs{
+
+}
