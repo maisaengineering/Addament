@@ -108,6 +108,8 @@ class ProfilesController < ApplicationController
      @goal = Goal.all
      @profile = current_user.profile
      @past = Professional.where("profile_id = ?", current_user.profile.id)
+     @education = Education.where("profile_id = ?", current_user.profile.id)
+
      @goal_comment = GoalComment.new
     end
   def about_update
