@@ -1,5 +1,5 @@
 <% profile = Profile.where("user_id =? ",comment.commenter_id).first %>
-<table style="background-color:;margin-left: 74;">
+<table style="margin-left: 74;">
   <tr>
     <% unless profile.avatar_file.nil? %>
         <td style="padding-right:20px">
