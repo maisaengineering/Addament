@@ -2,6 +2,7 @@
     <% profile = user.profile %>
     <% unless current_user.following?(user) %>
     <% if profile %>
+            <li>
         <% if profile.avatar_file.nil? %>
             <%= image_tag("missing.png", :height => "50", :width => "50") %>
         <% else %>
@@ -12,5 +13,5 @@
         <%= link_to "Add to Network", follow_from_post_post_path(user.id), :remote => true %>
       <% end  %>
     <% end  %>
-
+    </li>
 <% end  %>

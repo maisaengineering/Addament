@@ -1127,7 +1127,7 @@ td{
 #follfDIV{
 	width: 960px;
 	padding: 10px;
-	margin-top: 16px;
+	margin-top: 3px;
 	position: center;
 	background-color: #fff;
 }
@@ -1167,6 +1167,15 @@ td{
 
 
 /*------------------------posts css-----------------------------*/
+.post_slide{
+    background-color:#fff;
+	float: left;
+	position: absolute;
+	width: 690px;
+	padding: 20px;
+	text-align: center;
+    height: 400px;
+}
 .post_textarea{
     width: 630px;
     height: 102px;
@@ -1176,7 +1185,7 @@ td{
 .thumb_image_post{
     margin-top: -23;
     height: 99;
-    width: 210;
+    width: 92;
 }
 #rightSideDiv{
 	width: 250px;
@@ -1312,6 +1321,7 @@ td{
 	background-color: #96c953;
 	padding: 12px; color: #fff;
 	font-weight: bold;
+    margin-top: -4;
 }
 #ppl_you_know_con_div{
 	height: 310px; overflow: hidden;
@@ -1581,4 +1591,40 @@ ul#pinned_message{
     background-color: white;
     height: auto;
     width: 1000px;
+}
+.todo_list{
+
+	float: left;
+	position: absolute;
+	padding: 20px;
+	text-align: center; 
+    background:#ffffff;
+    width:800px;
+    height: 200px;
+}
+
+#topDIV_about{
+    background: rgba(1,1,1,.01);
+    margin: 0 auto;margin-top: 25px;
+    position: relative;
+    background-color:#ffffff;
+    height: 99;
+    width:980px;
+    margin-left:0px
+}
+
+.qtntab {
+    width: 150px;
+    display: inline-block;
+    /*background-color: #ffa;*/
+    margin-bottom: 3px;
+    height: 30px;line-height: 30px;
+    padding-right: 10px;
+    font-size: 13px; font-weight: bold;
+    color: #51a2d5;
+}
+
+.anstab {
+    font-size: 13px; font-weight: bold;
+    color: #96c953;
 }
