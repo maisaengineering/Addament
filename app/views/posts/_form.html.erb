@@ -22,7 +22,7 @@
         <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image_post"}  %>
      <% else %>
         <div id ="image">
-        <%=  image_tag("missing.png",height: 70,width: 70) %>
+        <%=  image_tag("missing.png",height: 99,width: 92) %>
       </div>
     <% end %>
         </td>
@@ -31,7 +31,7 @@
   </div>
   <tr>
     <td></td>
-    <td><div class="a" ">
+    <td><div class="a">
     <%= f.submit "post", :style=> "width:100px", :class => "postbtn", :id => "save" %>
     </div></td>
   </tr>

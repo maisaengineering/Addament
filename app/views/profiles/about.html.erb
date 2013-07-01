@@ -1,6 +1,6 @@
 <%= form_for(@profile, url: about_update_profiles_path, :method => "post", :remote => true) do |f| %>
     <br/>
-    <table id="topDIV" style= "background-color: fff;height: 99;width:980px;margin-left:0px;">
+    <table id="topDIV_about">
       <tr>
         <td style="width: 92px;">
 
@@ -46,21 +46,30 @@
           <div class="tab-pane active" id="tab1">
 
             <p>
-              <% @past[0..2].each do |past| %>
+              <% @past.each do |past| %>
 
                   <% if past.end_date!=nil %>
 
-                      <label class="qtn" style="margin-left:0px;">Company name:</label><lable class="ans"><%= past.company_name %></label><br>
+                      <label class="qtntab">Company name:</label><label class="anstab"><%= past.company_name %></label><br>
 
-                      <label class="qtn" style="margin-left:0px;">Title:</label><lable class="ans"><%= past.title %></label><br>
+                      <label class="qtntab">Title:</label><label class="anstab"><%= past.title %></label><br>
 
-                      <label class="qtn" style="margin-left:0px;">Start date:</label><%= past.start_date %><br>
+                      <label class="qtntab">Start date:</label><%= past.start_date %><br>
 
-                      <label class="qtn" style="margin-left:0px;">End date:</label><%= past.end_date %><br>
+                      <label class="qtntab">End date:</label><%= past.end_date %><br>
 
-                      <label class="qtn" style="margin-left:0px;">Project name:</label><%= past.project_name %><br>
+                      <label class="qtntab">Project name:</label><%= past.project_name %><br>
 
                   <% end %>
+              <% end %>
+              Educations: <br>
+              <% @education.each do |education| %>
+                  <label class="qtntab" >School name:</label><label class="anstab"><%= education.school %></label><br>
+                  <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
+                  <label class="qtntab" >Degree:</label><%= education.degree %><br>
+                  <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
+                  <label class="qtntab" >Grade:</label><%= education.grade %><br>
+
               <% end %>
             </p>
           </div>
@@ -69,16 +78,19 @@
             <p>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
-                      <label class="qtn" style="margin-left:0px;">company name:</label><lable class="ans"><%= present.company_name %></label><br>
+                      <label class="qtntab">company name:</label><label class="anstab"><%= present.company_name %></label><br>
 
-                      <label class="qtn" style="margin-left:0px;">Start date:</label><%= present.start_date %><br>
+                      <label class="qtntab">Start date:</label><%= present.start_date %><br>
 
-                      <label class="qtn" style="margin-left:0px;">Location:</label><%= present.location %><br>
+                      <label class="qtntab">Location:</label><%= present.location %><br>
 
-                      <label class="qtn" style="margin-left:0px;">Project name:</label><%= present.project_name %><br>
+                      <label class="qtntab">Project name:</label><%= present.project_name %><br>
+
 
                   <% end %>
               <% end %>
+
+
 
             </p>
           </div>

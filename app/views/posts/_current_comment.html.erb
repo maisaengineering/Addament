@@ -8,28 +8,39 @@
       <div class="post_curcomment">
       <table>
         <tr>
-          <td></td>
-          <% unless profile.avatar_file.nil? %>
-              <td>
-                <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image" } %>
-              </td>
-          <% else %>
-              <td>
-                <%=  image_tag("missing.png",height: 70,width: 70) %>
-              </td>
-          <% end %>
-          <td>
-            <%= comment_id.created_at.strftime("%d %b") %>
+           <td>
+             <table>
+               <tr>
+                 <% unless profile.avatar_file.nil? %>
+                     <td>
+                       <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image" } %>
+                     </td>
+                 <% else %>
+                     <td>
+                       <%=  image_tag("missing.png",height: 70,width: 70) %>
+                     </td>
+                 <% end %>
+               </tr>
+             </table>
           </td>
-        </tr>
-        <tr>
+
           <td>
-            <%=  profile.first_name %>
-          Commented
-          <%=  comment_id.description %>
+            <table>
+              <tr>
+                <td><%=  profile.first_name %></td>
+              </tr>
+              <tr>
+                <td>Commented
+                  <%=  comment_id.description %></td>
+              </tr>
+             </table>
+          </td>
+
         </tr>
+
         <tr>
           <td colspan="3">
+            <%= comment_id.created_at.strftime("%d %b") %>
             <%= time_ago_in_words(comment_id.created_at) %>ago<span class="clearFix">&nbsp;</span>
           </td>
   <% end %>

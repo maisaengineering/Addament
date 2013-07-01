@@ -81,7 +81,7 @@
         <h2>Comments</h2>
         <ul>
           <% @goals_comment = Goal.limit(2) %>
-          <% goal_all_comment = Goal.all %>
+
           <% @goals_comment.each do |goal| %>
           <% @goal_comments = GoalComment.where("goal_id = ?", goal.id).limit(2) %>
           <% @goal_comments.each do |goal_comment| %>
@@ -102,9 +102,10 @@
       <% end %>
           <% end %>
         </ul>
-        <% goal_comment = GoalComment.all %>
-      <% if goal_comment.length > 2 %>
-            <%= link_to "see more",goal_comments_path , :style => "float:right" %>
+        <% unless @goal_comments.nil? %>
+        <% if @goal_comments.length > 2 %>
+         <%= link_to "see more",goal_comments_path , :style => "float:right" %>
+      <% end %>
       <% end %>
 
       

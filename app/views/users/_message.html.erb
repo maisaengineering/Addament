@@ -1,5 +1,5 @@
 
-<% @conversation.each do |message| %>
+<% @conversation[0..2].each do |message| %>
     <% user =  User.find(message.sender_id) %>
     <%=  user.profile.first_name + " " + user.profile.last_name %>
     <br/>

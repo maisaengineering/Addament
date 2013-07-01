@@ -1,12 +1,16 @@
+%br/
+%p.new_conversation
+  = link_to 'Start Conversation', :new_conversation
 #message_page_container
   #messages_title_div
     #message_prog
       %p
         MESSAGES
         %span.messages_count #{mailbox.inbox.count}
+
 %ul#messages_ul
   = render mailbox.inbox
-= link_to 'Start Conversation', :new_conversation
+
 -#%h2 Sentbox
 -#%ul= render mailbox.sentbox
 -#%h2 Trash

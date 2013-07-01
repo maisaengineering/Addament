@@ -22,7 +22,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @past = Professional.where("profile_id = ?", @profile.id)
     @users = User.where("id != ? ", @profile.user_id)
-    @goal = Goal.where("user_id =? ", @users[0].id)
+    user = User.find(@profile.user_id)
+    @goal = Goal.where("user_id =? ", user.id)
 
     impressionist(@profile)
     respond_to do |format|
@@ -62,10 +63,8 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(params[:profile])
-    if params[:user_role]
-      up_user= User.find(current_user.id)
-      up_user.update_attributes(:user_role => params[:user_role])
-    end
+    up_user= User.find(current_user.id)
+    up_user.update_attributes(:user_role => params[:user_role])
     respond_to do |format|
       if @profile.save
         format.html {redirect_to new_education_path }
@@ -92,8 +91,9 @@ class ProfilesController < ApplicationController
   # PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
-
-    respond_to do |format|
+      up_user= User.find(current_user.id)
+      up_user.update_attributes(:user_role => params[:user_role])
+      respond_to do |format|
       if @profile.update_attributes(params[:profile])
           format.html {redirect_to new_education_path }
         #format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -109,6 +109,8 @@ class ProfilesController < ApplicationController
      @goal = Goal.all
      @profile = current_user.profile
      @past = Professional.where("profile_id = ?", current_user.profile.id)
+     @education = Education.where("profile_id = ?", current_user.profile.id)
+
      @goal_comment = GoalComment.new
     end
   def about_update
