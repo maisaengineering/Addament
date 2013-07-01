@@ -15,9 +15,9 @@
           </div>
           <tr>
             <td></td>
-            <% unless @param_id %>
+
             <td><h2>New Education</h2></td>
-                <% end %>
+
           </tr>
           <tr class="spaceunder">
             <td><label>School</label></td>
@@ -54,25 +54,28 @@
           <tr class="spaceunder">
             <td></td>
             <td><%= f.submit "Save", :id=> "save" %></td>
-            <td><div class="button2">
-            <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
-            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
+      <% end %>
+            <td>
+              <div class="button2">
+                <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+                  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p></p>
+                      </div>
+                  </div>
               </div>
-              <div class="modal-body">
-                <p></p>
-              </div>
+            </td>
 
-            </div>
-          </div></td>
           </tr>
           
-      <% end %>
+
     </table>
   </div>
-  <% unless @param_id %>
+
   <div id="rightDIV">
     <h2>SPONSORS</h2>
     <ul>
@@ -96,31 +99,7 @@
       </li>
     </ul>
   </div>
-      <% end %>
+
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
-<link rel="stylesheet" type="text/css" href="/assets/select2.css">
-<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
-<script type="text/javascript" src="/assets/select2.js"></script>
 
 
-<script>
-    $("#datepicker").datepick();
-    $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
-</script>
-<script>
-    $("#datepicker1").datepick();
-    $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
-</script>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/select2.js"></script>
-<link rel="stylesheet" type="text/css" href="/assets/select2.css">
-<script>
-    $("#education_schools").click(function() {
-        $("#education_schools").select2({tags:[<% for i in 0...@school.length %>
-            '<%= @school[i].school_name %>',
-            <% end %>]});
-    });
-</script>

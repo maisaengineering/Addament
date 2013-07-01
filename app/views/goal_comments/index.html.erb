@@ -1,33 +1,20 @@
 <div class="goal_comment_container">
-    <br>
-    <h1>Goal Comments</h1>
-
-    <table>
-    <% @goals.each do |goals| %><br>
-      <tr>
-        <td>
-          <table>
-            <tr>
-                <td><%= goals.goal_name %></td>
-                <% goal_comment = goals.goal_comment %>
-                <% goal_comment.each do | goal_comm| %>
-                <% user_id = User.find(goal_comm.commenter_id) %>
-                <% prof = user_id.profile %>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <table>
-            <tr>
-              <td><%= prof.first_name%>:</td>
-              <td><%= goal_comm.comment_description %></td>
-            </tr>
-          </table>
-        </td>
-        <% end %>
-      </tr>
-      <% end %>
-    </table>
-    <br/>
-    <%= link_to 'New Goal comment', new_goal_comment_path %>
+  <br>
+  <h1>Goal Comments</h1>
+    <% @goals.each do |goals| %>
+      <div class="goal_header"><b><%= goals.goal_name %></b></div><br>
+      <% goal_comment = goals.goal_comment %>
+            <% goal_comment.each do |goal_comm| %>
+                <div class="goal_comments_container">
+                    <% user_id = User.find(goal_comm.commenter_id) %>
+                    <% prof = user_id.profile %>
+                    <% unless prof.avatar_file.nil? %>
+                        <div class="g_commenter_photo"><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id=> prof.id),{ :class => "goal_commenter_image"}  %></div>
+                    <% else %>
+                        <div><%=  image_tag("missing.png",height: 50,width: 50) %></div>
+                    <% end %>
+                        <div class="goal_comment_content"><span class="goal_commenter"><%= prof.first_name%>:</span><%= goal_comm.comment_description %></div>
+                </div>
+            <% end %>
+    <% end %>
 </div>
