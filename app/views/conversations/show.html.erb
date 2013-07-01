@@ -12,8 +12,21 @@
 <div class="msg_conv">
   <table>
     <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+        <% sender_find = receipt.notification.sender_id %>
+        <% sender_name = User.find(sender_find)%>
 
     <tr>
+      <td style="width:90px; height: 99px; vertical-align: top;">
+        <% if sender_name.profile.avatar_file? %>
+
+
+
+            <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => sender_name.profile.id ),{ :class => "profile_image"} %>
+        <% else %>
+            <%= image_tag("missing.png",height: 70,width: 80) %>
+        <% end %>
+      </td>
+      <td> <%=  sender_name.profile.first_name%></td>
       <td>
         <% message = receipt.message %>
       </td>
