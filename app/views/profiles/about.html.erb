@@ -46,7 +46,8 @@
           <div class="tab-pane active" id="tab1">
 
             <p>
-              <% @past.each do |past| %>
+              <label class="qtnlb">Professional:</label><br>
+              <% @past[0..2].each do |past| %>
 
                   <% if past.end_date!=nil %>
 
@@ -62,7 +63,7 @@
 
                   <% end %>
               <% end %>
-              Educations: <br>
+              <label class="qtnlb">Educations:</label><br>
               <% @education.each do |education| %>
                   <label class="qtntab" >School name:</label><label class="anstab"><%= education.school %></label><br>
                   <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
@@ -75,7 +76,7 @@
           </div>
 
           <div class="tab-pane" id="tab2">
-            <p>
+            <p><label class="qtnlb">Professional:</label><br>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
                       <label class="qtntab">Company Name:</label><label class="anstab"><%= present.company_name %></label><br>
@@ -97,8 +98,8 @@
 
 
           <div class="tab-pane" id="tab3">
-            <p>
-              <label class="qtn"><%=  render :partial => 'goalcomments' %></label>
+            <p><label class="qtnlb">Goals:</label><br>
+              <%=  render :partial => 'goalcomments' %>
             </p>
           </div>
     </div>

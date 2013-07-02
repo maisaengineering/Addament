@@ -2,19 +2,26 @@
 <% @goal.each do |goal| %>
     <% user  = User.find(goal.user_id) %>
     <% profile = user.profile %>
+     <div class="goal_ppf">
     <%= profile.first_name %> <%= profile.last_name %><br>
+    <div class="goal_name">
     <%= goal.goal_name %><br>
-    <div class="commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
+    </div>
+       <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
        <div class="comment_form<%= i %>" style="display: none;">
         <div class="comment_form">
           <%=  render 'goal_comments/form', :id => goal.id %>
         </div>
-
+       </div>
 
        </div>
+    <div style="margin-left: 100px;">
     <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
     <% i += 1 %>
+    </div>
+    <hr>
 <% end %>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
