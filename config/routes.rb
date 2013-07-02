@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :requesttomentors
+
+
   resources :profile_comments
 
 
@@ -77,6 +80,8 @@ Addament::Application.routes.draw do
       post 'unfollow'
       post 'unfollow_profile'
       post 'follow_list'
+      post 'accept_user'
+      post 'show_request'
     end
   end
   resources :profiles do
@@ -95,6 +100,7 @@ Addament::Application.routes.draw do
   match "/my_account" => "users#show",as: :my_account
   match "/public_profile" => "users#public_profile",as: :public_profile
   match "/show_all_activity" => "users#show_all_activity",as: :show_all_activity
+  match "/show_request" => "users#show_request",as: :show_request
  # match "*path" => 'users#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.

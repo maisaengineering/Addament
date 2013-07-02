@@ -1,17 +1,20 @@
-<% @users.in_groups_of(2, false) do |lists| %>
     <table>
-      <tr>
+      <% @users.in_groups_of(2, false) do |lists| %>
+    <tr>
         <%  for user in lists %>
             <td>
               <table>
                 <tr>
                   <% unless user.profile.nil? %>
                   <% unless current_user.following?(user) %>
+                          <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id ).first %>
+                          <% unless reqtomentor %>
                       <td>
                         <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
                       </td>
 
                       <td> <%= button_to "Connect", {:controller => :users, :action => :follow,  :id => user.id},:remote => true, :class => "btn" %></td>
+                   <% end %>
                    <% end %>
                    <% end %>
                 </tr>

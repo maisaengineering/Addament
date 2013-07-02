@@ -10,9 +10,11 @@ class UsersController < ApplicationController
    end
 
   def follow
+
+    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     @users = User.where("id != ? ", current_user.id)
-    user = User.find(params[:id])
-    current_user.follow(user)
+    #user = User.find(params[:id])
+    #current_user.follow(user)
     @followee =  current_user.user_followers
   end
 
@@ -42,6 +44,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending').count
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     affiliation = current_user.profile.professionals
     education = current_user.profile.education
@@ -72,6 +75,18 @@ class UsersController < ApplicationController
 
   def conversation
     @conversation ||= mailbox.conversations.find(params[:id])
+  end
+
+  def show_request
+    @reqtomentor = Requesttomentor.where(following_id: current_user.id)
+  end
+
+  def accept_user
+    user = User.find(params[:id])
+    user.follow(current_user)
+    reqtomentor = Requesttomentor.where(user_id: params[:id]).first
+    reqtomentor.update_column(:status, 'approved')
+    @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
 
 end

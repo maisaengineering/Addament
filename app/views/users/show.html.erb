@@ -148,24 +148,23 @@
           </li>
         </ul>
       </div>
-    <!--  <div id="requests">
+ <div id="requests">
         <label style="padding:4px 0px; font-size:16px;letter-spacing: 1px;color:#96c953;">Requests</label>
         <ul>
           <li>
             <label>Mentees</label>
-            <p>2 news, 3 viewed</p>
+            <p><%= link_to @reqtomentor ? @reqtomentor : "0", show_request_path %></p>
           </li>
-          <li>
-            <label>Peers</label>
-            <p>2 news, 3 viewed</p>
-          </li>
-          <li>
-            <label>Mentors</label>
-            <p>1 news, 0 viewed</p>
-          </li>
+          <!--<li>-->
+            <!--<label>Peers</label>-->
+            <!--<p>2 news, 3 viewed</p>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<label>Mentors</label>-->
+            <!--<p>1 news, 0 viewed</p>-->
+          <!--</li>-->
         </ul>
-      </div> -->
-</div>
+      </div>
 </div>
 </div>
 </div>

@@ -1,0 +1,27 @@
+<h1>Listing requesttomentors</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Following</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @requesttomentors.each do |requesttomentor| %>
+  <tr>
+    <td><%= requesttomentor.user_id %></td>
+    <td><%= requesttomentor.following_id %></td>
+    <td><%= requesttomentor.status %></td>
+    <td><%= link_to 'Show', requesttomentor %></td>
+    <td><%= link_to 'Edit', edit_requesttomentor_path(requesttomentor) %></td>
+    <td><%= link_to 'Destroy', requesttomentor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Requesttomentor', new_requesttomentor_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @requesttomentor.user_id %>
+</p>
+
+<p>
+  <b>Following:</b>
+  <%= @requesttomentor.following_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @requesttomentor.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_requesttomentor_path(@requesttomentor) %> |
+<%= link_to 'Back', requesttomentors_path %>

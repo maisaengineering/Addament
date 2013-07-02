@@ -1,0 +1,7 @@
+<% @reqtomentor.each do |accept| %>
+    <% user = User.find(accept.user_id) %>
+    <% if accept.status == 'pending' %>
+        <%=  user.profile.first_name %>
+        <%= button_to "Accept", {:controller => :users, :action => :accept_user,  :id => accept.user_id},:remote => true, :class => "btn" %>
+    <% end %>
+<% end %>
