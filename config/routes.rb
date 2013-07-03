@@ -81,6 +81,7 @@ Addament::Application.routes.draw do
       post 'unfollow_profile'
       post 'follow_list'
       post 'accept_user'
+      post 'reject_user'
       post 'show_request'
     end
   end

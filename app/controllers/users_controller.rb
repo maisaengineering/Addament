@@ -33,10 +33,12 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
+    reqtomentor = Requesttomentor.where(following_id: params[:id]).first
+    Requesttomentor.find(reqtomentor.id).destroy
     current_user.stop_following(user)
     @followee =  current_user.user_followers
+    @users = User.where("id != ? ", current_user.id)
   end
 
   def show_all_activity
@@ -86,6 +88,11 @@ class UsersController < ApplicationController
     user.follow(current_user)
     reqtomentor = Requesttomentor.where(user_id: params[:id]).first
     reqtomentor.update_column(:status, 'approved')
+    @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
+  end
+  def reject_user
+    reqtomentor = Requesttomentor.where(user_id: params[:id]).first
+    Requesttomentor.find(reqtomentor.id).destroy
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
 

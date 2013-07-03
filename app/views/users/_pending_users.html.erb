@@ -3,5 +3,6 @@
     <% if accept.status == 'pending' %>
         <%=  user.profile.first_name %>
         <%= button_to "Accept", {:controller => :users, :action => :accept_user,  :id => accept.user_id},:remote => true, :class => "btn" %>
+        <%= button_to "Reject", {:controller => :users, :action => :reject_user,  :id => accept.user_id},:remote => true, :class => "btn" %>
     <% end %>
 <% end %>
