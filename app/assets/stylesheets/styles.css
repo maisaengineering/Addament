@@ -1724,3 +1724,17 @@ ul#pinned_message{
     color: #000000;
 }
 
+#show_todo{
+    width:960px;
+    background:#ffffff;
+    background-image: url("/assets/pin.png") !important;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+}
+#show_todo_list {
+    width:960px;
+    background-color:#ffffff;
+    margin-left:20px;
+    margin-top: 30px;
+    
+}

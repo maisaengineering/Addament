@@ -1,13 +1,31 @@
-<p id="notice"><%= notice %></p>
-<div class="show_todo" style="width:300px;background:white">
-
+<div id="show_todo">
+       <p id="notice"><%= notice %></p><br><br>
 <table>
-  <tr>
+	<tr>
+		<td>
+<label>Title:</label></td>
+<td><%= @todo.title %><br></td>
+</tr>
+<tr>
+<td>
+<label>Description:</label></td>
+<td>
+<%= @todo.description %><br></td>
+</tr>
+<tr>
+<td>	
+<label>Event Date:</label></td>
+<td>
+<%= @todo.event_date.to_date.strftime("%B %d, %Y") %><br></td>
+</tr>
+<tr>
+<td>	
+<label>Time:</label></td>
 
-<td><h2><%= @todo.title %></h2></td>
-<td><%= @todo.event_date.to_date.strftime("%B %d, %Y") %></td>
-   </tr>
-  </table>
+<td><%= @todo.start_time.strftime("%I:%M%p") %> to
+<%= @todo.end_time.strftime("%I:%M%p") %></td>
+</tr>
+</table>
 
-<%= link_to 'Back', root_url %>
+<!--<%= link_to 'Back', root_url %>-->
 </div>

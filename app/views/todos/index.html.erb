@@ -1,28 +1,38 @@
-<br>
-<table class="todo_list">
+<div id="show_todo_list">
+  <br />
+  <h2>Todos List</h2>
 
-  <tr style="background: 51A2D5;">
-    <th>Start Time</th>
-    <th>End Time</th>
-    <th>Date</th>
-    <th>Title</th>
-    <th>Edit</th>
-  </tr>
-  <tr></tr>
+  <% @todos.each do |todo| %>
+  <table style="margin-left:20px">
+        
+        <tr>
+          <td><label>Title:</label></td>
+          <td><%=todo.title%><br></td>
+        </tr>
+        <tr>  
+          <td><label>Event Date:</label></td>
+          <td><%=todo.event_date.to_date.strftime("%B %d, %Y") %><br></td>
+        </tr>
+        <tr>  
+          <td><label>Time:</label></td>
+          <td><%=todo.start_time.strftime("%I:%M%p") %> to 
+             <%=todo.end_time.strftime("%I:%M%p") %><br>
+          </td>
+        </tr>
+        <tr> 
+          <td>
+            <%= link_to 'Show', todo %>
+            <%= link_to 'Edit', edit_todo_path(todo) %>
+            <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+          </td>
+        </tr>
 
-<% @todos.each do |todo| %>
-  <tr>
-    <td><%=todo.start_time%></td>
-    <td><%=todo.end_time%></td>
-    <td><%=todo.event_date%></td>
-    <td><%=todo.title%></td>
-    <td><%= link_to 'Show', todo %>
-    <%= link_to 'Edit', edit_todo_path(todo) %>
-    <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+      
+  </table>
+ <hr>   
+ <% end %>
 
-<br />
+
+</div>
 
 <%= link_to 'New Todo', new_todo_path %>
