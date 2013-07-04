@@ -1,30 +1,26 @@
-<div id="container" style="height:615px">
-      <div id="leftDIV">
-        <ul style = "margin-left: -2px; margin-top: -8px;">
-          <% goal_id = 1 %>
-          <% @goals[0..3].each do |goal| %>
-          <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)"><li class="<%= goal_id %>">
-            <label><%= goal.goal_name %></label>
-            <p><%= goal.target_date %></p>
-          </li></a>
+<div id="container">
+  <div id="leftDIV">
+    <ul style = "margin-left: -2px; margin-top: -8px;">
+      <% goal_id = 1 %>
+      <% @goals[0..3].each do |goal| %>
+          <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)">
+            <li class="<%= goal_id %>">
+              <label><%= goal.goal_name %></label>
+              <p><%= goal.target_date %></p>
+            </li>
+          </a>
           <% goal_id += 1 %>
-         
-          <% end %>
-           <%= link_to 'New Goal', new_goal_path %>
-          
-            
-        </ul>
-           <% if @goals.count > 1 %>
-            <%= link_to "see more goals", goals_path %>
-            <% end %>
-        
-       
-       
-      </div>
-      <div id="centerDIV" style="height:615px">
-        <div id="lineDiv"></div>
-        <% milestone_id = 1 %>
-        <% @goals.each do |goal| %>
+      <% end %>
+      <%= link_to 'New Goal', new_goal_path %>
+    </ul>
+    <% if @goals.count > 1 %>
+        <%= link_to "see more goals", goals_path %>
+    <% end %>
+  </div>
+  <div id="centerDIV">
+    <div id="lineDiv"></div>
+    <% milestone_id = 1 %>
+    <% @goals.each do |goal| %>
         <div class="mile_stone<%= milestone_id %>" style="display:none;">
           <div class="roundCornDiv">
             <label><%= goal.created_at.strftime("%B %d, %Y") %></label>
@@ -32,94 +28,72 @@
           <% i = 1 %>
           <% margin_top = 70 %>
           <% margin_top_milestone = 111 %>
-           <% milestone = goal.milestones %>
-            
-            <% milestone[0..3].each do |mile_stone| %>
-
-          <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
-            <label>STEP <%= i %></label>
-          </div>
-          <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
-            <label style="color: white;"><%=  mile_stone.mile_Stone_step %></label>
-            
-          </div>
-          
-         
-          <% i += 1 %>
-          <% margin_top = margin_top + 100 %> 
-          <% margin_top_milestone = margin_top_milestone + 100 %> 
+          <% milestone = goal.milestones %>
+          <% milestone[0..3].each do |mile_stone| %>
+              <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
+                <label>STEP <%= i %></label>
+              </div>
+              <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
+                <label style="color: white;"><%=  mile_stone.mile_Stone_step %></label>
+              </div>
+              <% i += 1 %>
+              <% margin_top = margin_top + 100 %>
+              <% margin_top_milestone = margin_top_milestone + 100 %>
           <% end %>
           <div class="roundCornDiv" style="margin-top:490px;">
             <label><%= goal.target_date.strftime("%B %d, %Y") %></label>
           </div>
-
           <div style="position:absolute; width:360px;margin-top:560px;">
-            
-             <div class="button2">
-               <a class="btn" data-toggle="modal" data-target = "#myModal<%= milestone_id %>" href="/milestones/new/?id=<%= goal.id %>">Add MileStone
-               </a>
+            <div class="button2">
+              <a class="btn" data-toggle="modal" data-target = "#myModal<%= milestone_id %>" href="/milestones/new/?id=<%= goal.id %>">Add MileStone</a>
               <div id="myModal<%= milestone_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   <h3 id="myModalLabel">Add New Mile Stone</h3>
                 </div>
-                <div class="modal-body">
-                  <p></p>
-                </div>
-
+                <div class="modal-body"></div>
               </div>
             </div>
             <% milestone_id += 1 %>
-            
           </div>
+        </div>
+    <% end %>
+  </div>
+  <div id="rightDIV">
+    <h2>Comments</h2>
+    <ul>
+      <% @goals_comment = Goal.limit(2) %>
 
-         </div> 
-         <% end %>
-      </div>
-      <div id="rightDIV">
-        
-        <h2>Comments</h2>
-        <ul>
-          <% @goals_comment = Goal.limit(2) %>
-
-          <% @goals_comment.each do |goal| %>
+      <% @goals_comment.each do |goal| %>
           <% @goal_comments = GoalComment.where("goal_id = ?", goal.id).limit(2) %>
           <% @goal_comments.each do |goal_comment| %>
-                  <% user_name = User.find(goal_comment.commenter_id) %>
-                  <li>
-            <% unless user_name.profile.avatar_file.nil? %>
-
-                <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_name.profile.id ),{ :class => "thumb_image"} %>
-            <% else %>
-            <%=  image_tag("missing.png",height: 25,width: 25) %>
-            <% end %>
-            <label><%= user_name.profile.first_name %></label>
-            <p><%= truncate(goal_comment.comment_description,:length => 20) %></p>
-            <label style="color:#96c953; font-size:10px; letter-spacing:1px;"><%= time_ago_in_words(goal_comment.created_at) %> ago</label>
-            
-          </li>
-            
-      <% end %>
+              <% user_name = User.find(goal_comment.commenter_id) %>
+              <li>
+                <% unless user_name.profile.avatar_file.nil? %>
+                    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_name.profile.id ),{ :class => "thumb_image"} %>
+                <% else %>
+                    <%=  image_tag("missing.png",height: 25,width: 25) %>
+                <% end %>
+                <label><%= user_name.profile.first_name %></label>
+                <p><%= truncate(goal_comment.comment_description,:length => 20) %></p>
+                <label style="color:#96c953; font-size:10px; letter-spacing:1px;"><%= time_ago_in_words(goal_comment.created_at) %> ago</label>
+              </li>
           <% end %>
-        </ul>
-        <% unless @goal_comments.nil? %>
+      <% end %>
+    </ul>
+    <% unless @goal_comments.nil? %>
         <% if @goal_comments.length > 2 %>
-         <%= link_to "see more",goal_comments_path , :style => "float:right" %>
-      <% end %>
-      <% end %>
-
-      
-
-            
-          </div>
-      
-      </div>
+            <%= link_to "see more",goal_comments_path , :style => "float:right" %>
+        <% end %>
+    <% end %>
+  </div>
+</div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-          $(".mile_stone1").show();
+        $(".mile_stone1").show();
 
     });
 </script>
@@ -127,17 +101,16 @@
 <script>
     function open_form(e)
     {
-        
-        
+
+
         for(i = 1; i < 10; i++)
         {
-        $('.mile_stone'+ i).css('display', 'none');
+            $('.mile_stone'+ i).css('display', 'none');
 
         }
-      
+
         $('.mile_stone'+ e).css('display', 'block');
 
 
     }
 </script>
-

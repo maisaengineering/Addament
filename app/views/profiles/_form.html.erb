@@ -1,208 +1,205 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<table id="profile_con_tbl" align="center">
-		<tr>
-			<td colspan="3" class="tabHeader">
-				<div id="editProfile">
-					Edit Profile <span style="margin-left: 271px;">Profile Completeness</span>
-                </div>
+<table id="profile_con_tbl" align="center">
+  <tr>
+    <td colspan="3" class="tabHeader">
+      <div id="editProfile">
+        Edit Profile <span style="margin-left: 271px;">Profile Completeness</span>
+      </div>
 
-              	<div class="profileCompTrg" style="width: 400px;">
+      <div class="profileCompTrg" style="width: 400px;">
 
-                  <div id="profile_complete">
-                    <div class="progress" style="width: 400px;">
-                       <div class="bar" style="width: 0%;"></div>
-                    </div>
-                  </div>
-                                  </div>
+        <div id="profile_complete">
+          <div class="progress" style="width: 400px;">
+            <div class="bar" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
 
-			</td>
-		</tr>
-		<tr height="10px">
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td class="personal">
-				<%= form_for(@profile) do |f| %>
+    </td>
+  </tr>
+  <tr height="10px">
+    <td colspan="3"></td>
+  </tr>
+  <tr>
+    <td class="personal">
+      <%= form_for(@profile) do |f| %>
 
-                <%= f.hidden_field :user_id, :value=> current_user.id %>
+          <%= f.hidden_field :user_id, :value=> current_user.id %>
 
-				<table id="personalTbl">
-					<tr class="tableHeaders">
-						<th style="color:#96c953;">Personal</th>
-					</tr>
-					<tr>
-                       <td>First Name</td>
-                       <td><%= f.text_field :first_name %></td>
-					</tr>
-					<tr>
-		                  <td>Last Name</td>
-		                  <td><%= f.text_field :last_name %></td>
-		            </tr>
-		            <tr>
-		                  <td>Phone Number</td>
-		                  <td><%= f.text_field :phone_number %></td>
-		            </tr>
-		            <tr>
-		                  <td>Birthday</td>
-		                  <td><%= f.text_field :birthday, :id => "datepicker" %></td>
-		            </tr>
+          <table id="personalTbl">
+            <tr class="tableHeaders">
+              <th style="color:#96c953;">Personal</th>
+            </tr>
+            <tr>
+              <td>First Name</td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td><%= f.text_field :last_name %></td>
+            </tr>
+            <tr>
+              <td>Phone Number</td>
+              <td><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+              <td>Birthday</td>
+              <td><%= f.text_field :birthday, :id => "datepicker" %></td>
+            </tr>
 
-		            <tr>
-		                  <td>Location</td>
-		                  <td><%= f.text_field :location %></td>
-		            </tr>
-		            <tr>
-		                  <td>City</td>
-		                  <td><%= f.text_field :city %></td>
-		            </tr>
-		            <tr>
-		                  <td>State</td>
-		                  <td><%= f.text_field :state %></td>
-		            </tr>
-					<tr>
-						<td>Interests</td>
-						<td><%= f.text_area :interests, :rows => 3, :cols => 32 %>
-					</tr>
-					<tr>
-						<td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Sports, News, Politics,world Affairs, Economics, etc,</td>
-					</tr>
-                  <% unless current_user.user_role.nil? %>
-                  <tr>
-                    <td>Roles</td>
-                    <td>
+            <tr>
+              <td>Location</td>
+              <td><%= f.text_field :location %></td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td><%= f.text_field :city %></td>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td><%= f.text_field :state %></td>
+            </tr>
+            <tr>
+              <td>Interests</td>
+              <td><%= f.text_area :interests, :rows => 3, :cols => 32 %>
+            </tr>
+            <tr>
+              <td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Sports, News, Politics,world Affairs, Economics, etc,</td>
+            </tr>
+            <% unless current_user.user_role.nil? %>
+                <tr>
+                  <td>Roles</td>
+                  <td>
 
-                  <% User::ROLES.each do |role| %>
-                      <%= check_box_tag "[user_role][]",role,current_user.user_role.include?(role)  %> <%= role %>
-                  <% end %>
-                  <% end %>
-                    </td>
+                    <% User::ROLES.each do |role| %>
+                        <%= check_box_tag "[user_role][]",role,current_user.user_role.include?(role)  %> <%= role %>
+                    <% end %>
+            <% end %>
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" style="background-color:#fff;" align="center">
+                <%=  f.submit "Update Profile", :class =>"btn"  %>
+                <%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file"  %>
+              </td>
+            </tr>
+          </table>
+          </td>
+          <td width="10px"></td>
+          <td class="professional">
+            <% @professionals = f.object.new_record? ? f.object.professionals.build : f.object.professionals.first %>
+            <%= f.fields_for :professionals,@professionals  do |professional| %>
+                <table id="professionalTbl">
+                  <tr class="tableHeaders">
+                    <th style="color:#51a2d5;">Professional</th>
                   </tr>
+                  <tr>
+                    <td>Current employer or school</td>
+                    <td><%=  professional.text_field :company_name %></td>
+                  </tr>
+                  <tr>
+                    <td>Location</td>
+                    <td><%=  professional.text_field :location %></td>
+                  </tr>
+                  <tr>
+                    <td>Role</td>
+                    <td><%=  professional.text_field :role %></td>
+                  </tr>
+                  <tr>
+                    <td>Date Started</td>
+                    <td><%=  professional.text_field :start_date, :id => "datepicker1" %></td>
+                  </tr>
+                  <tr>
+                    <td>Aspirations</td>
+                    <td><%= professional.text_area :aspriations, :rows => 3, :cols => 32 %>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Professional, Personal, etc,</td>
+                  </tr>
+                  <tr>
+                    <td>Affiliations</td>
+                    <td>
+                      <%= professional.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %>
+                    </td>
 
-					<tr>
-						<td colspan="2" style="background-color:#fff;" align="center">
-							<%=  f.submit "Update Profile", :class =>"btn"  %>
-							<%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file"  %>
-						</td>
-					</tr>
-				</table>
-			</td>
-			<td width="10px"></td>
-			<td class="professional">
-				<% @professionals = f.object.new_record? ? f.object.professionals.build : f.object.professionals.first %>
-                <%= f.fields_for :professionals,@professionals  do |professional| %>
-				<table id="professionalTbl">
-					<tr class="tableHeaders">
-						<th style="color:#51a2d5;">Professional</th>
-					</tr>
-					<tr>
-						<td>Current employer or school</td>
-						<td><%=  professional.text_field :company_name %></td>
-					</tr>
-					<tr>
-						<td>Location</td>
-						<td><%=  professional.text_field :location %></td>
-					</tr>
-					<tr>
-						<td>Role</td>
-						<td><%=  professional.text_field :role %></td>
-					</tr>
-					<tr>
-						<td>Date Started</td>
-						<td><%=  professional.text_field :start_date, :id => "datepicker1" %></td>
-					</tr>
-					<tr>
-						<td>Aspirations</td>
-						<td><%= professional.text_area :aspriations, :rows => 3, :cols => 32 %>
-					</tr>
-					<tr>
-						<td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Professional, Personal, etc,</td>
-					</tr>
-					<tr>
-						<td>Affiliations</td>
-						<td>
-							<%= professional.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %>
-						</td>
-						
-					</tr>
-					<tr>
-						<td colspan="2" class="exmp" style="background-color:#fff; ">Examples: School, Organizations, etc,</td>
-					</tr>
-					<tr>
-						
-					</tr>
-					<% end %>
-				</table>
-				<table align="center"><tr><td style="background-color:;">
-							<div class="button2">
-                    <%= link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="exmp" style="background-color:#fff; ">Examples: School, Organizations, etc,</td>
+                  </tr>
+                  <tr>
 
-                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">Add More Professional</h3>
-                      </div>
-                      <div class="modal-body">
-                        <p></p>
-                      </div>
+                  </tr>
+            <% end %>
+            </table>
+            <table align="center"><tr><td style="background-color:;">
+              <div class="button2">
+                <%= link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
 
-                    </div>
-                    </div></td>
-                    <td></td>
-                    <td style="background-color:#fff;float:right"><%=  f.submit "Next", :class =>"btn"  %></td></tr></table>
-			</td>
-		</tr>
-		<tr>
-			<td class="tdGradent">&nbsp;</td>
-			<td width="10px"></td>
-			<td class="tdGradent">&nbsp;</td>
-		</tr>
-	</table>
-	<% end %>
+                <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Add More Professional</h3>
+                  </div>
+                  <div class="modal-body">
+                    <p></p>
+                  </div>
 
+                </div>
+              </div></td>
+              <td></td>
+              <td style="background-color:#fff;float:right"><%=  f.submit "Next", :class =>"btn"  %></td></tr></table>
+          </td>
+          </tr>
+          <tr>
+            <td class="tdGradent">&nbsp;</td>
+            <td width="10px"></td>
+            <td class="tdGradent">&nbsp;</td>
+          </tr>
+          </table>
+      <% end %>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
-<link rel="stylesheet" type="text/css" href="/assets/select2.css">
-<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
-<script type="text/javascript" src="/assets/select2.js"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+      <link rel="stylesheet" type="text/css" href="/assets/select2.css">
+      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+      <script type="text/javascript" src="/assets/select2.js"></script>
 
-<script>
-    $("#datepicker").datepick();
-    $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
-</script>
-<script>
-    $("#datepicker1").datepick();
-    $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
-</script>
-<script>
-    $(window).load(function(){
+      <script>
+          $("#datepicker").datepick();
+          $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
+      </script>
+      <script>
+          $("#datepicker1").datepick();
+          $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
+      </script>
+      <script>
+          $(window).load(function(){
 
-      var profileCompTrg = setInterval(function() {
-          var $bar = $('.bar');
+              var profileCompTrg = setInterval(function() {
+                  var $bar = $('.bar');
 
-          if ($bar.width()==400) {
+                  if ($bar.width()==400) {
 
-              clearInterval(profileCompTrg);
-              $('.profileCompTrg').removeClass('active');
-          } else {
-              $bar.width("<%= complete_percentage %>"* 4);
-          }
-          $bar.text("<%= complete_percentage%>" + "%");
-      }, 800);
+                      clearInterval(profileCompTrg);
+                      $('.profileCompTrg').removeClass('active');
+                  } else {
+                      $bar.width("<%= complete_percentage %>"* 4);
+                  }
+                  $bar.text("<%= complete_percentage%>" + "%");
+              }, 800);
 
-  });
+          });
 
-</script>
+      </script>
 
- <script>
-    $('#affiliation').click(function() {
-        $('#affiliation').select2({tags:[<% for i in 0...@company.length %>
-            '<%= @company[i].company_name %>',
-            <% end %>]});
-    });
+      <script>
+          $('#affiliation').click(function() {
+              $('#affiliation').select2({tags:[<% for i in 0...@company.length %>
+                  '<%= @company[i].company_name %>',
+                  <% end %>]});
+          });
 
-</script>
-
-
+      </script>

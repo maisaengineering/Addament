@@ -1,89 +1,70 @@
-
 <div id="header">
-  <div class="header_content">
-    <div class="header_logo"><a href="/posts"><img src="/assets/logo.png"></a></div>
-    <table class="header_search_box">
-      <td>
-        <ul id="menu">
-          <li class="menuItem "><%= link_to "DASHBOARD", my_account_path %></li>
-          <li class="menuItem menuItemSelected"><%= link_to "PROFILE", about_profiles_path %></li>
-
-          <li class="menuItem"><%= link_to "MESSAGES", conversations_path %></li>
-          <li class="menuItem"><%= link_to "NETWORK", public_profile_path %></li>
-          <li class="menuItem"><%= link_to "PATH", goals_path %></li>
-        </ul>
-      </td>
-      <td>
-        <div class="header_search">
-          <div class="navbar-search">
-            <input type="search" class="search-query" placeholder="Search">
-            <div class="icon-search"></div>
-          </div>
-        </div>
-      </td>
-      <td>
-        <% if !current_user.profile.nil? %>
-            <% unless current_user.profile.avatar_file.nil? %>
-               <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
-            <% else %>
-                <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
-            <% end %>
-        <% else %>
-            <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
-
-        <% end %>
-      </td>
-      <td>
-        <label class="userDet">
-          <% unless current_user.profile.nil? %>
-              <%=  current_user.profile.first_name %>
-          <% end %>
-        </label>
-      </td>
-      <td>
-        <div id="notifi">
-          <label class="notification"><%= check_message %></label>
-          <img src="/assets/notification.gif" alt="" style="margin-left:-45px;">
-          <% if !current_user.profile.nil? %>
-              <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id) %>
+  <div class="cen">
+    <a href="/posts" id ="logo_link"><img src="/assets/logo.png" alt="logo"></a>
+    <ul id="menu">
+      <li class="menuItem "><%= link_to "DASHBOARD", my_account_path %></li>
+      <li class="menuItem menuItemSelected"><%= link_to "PROFILE", about_profiles_path %></li>
+      <li class="menuItem"><%= link_to "MESSAGES", conversations_path %></li>
+      <li class="menuItem"><%= link_to "NETWORK", public_profile_path %></li>
+      <li class="menuItem"><%= link_to "PATH", goals_path %></li>
+    </ul>
+    <input type="search" class="srch"/>
+    <div class="userDet">
+      <% if !current_user.profile.nil? %>
+          <% unless current_user.profile.avatar_file.nil? %>
+              <%= image_tag url_for(:controller => "profiles", :action => "code_image"), {:class=>'profile_img'} %>
           <% else %>
-              <%= link_to image_tag("/assets/settings.png") %>
+              <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
           <% end %>
-          <%= link_to image_tag("/assets/signout.png"), destroy_user_session_path, :method => 'delete' %>
-        </div>
-      </td>
-    </table>
+      <% else %>
+          <%= image_tag("missing.png", height: 25, width: 25, :style => "display: list-item; margin-top:-6px; margin-left:0px;") %>
+      <% end %>
+      <label style="display:inline-block; float:left">
+        <% unless current_user.profile.nil? %>
+            <%=  current_user.profile.first_name %>
+        <% end %>
+      </label>
+    </div>
+    <div id="notifi">
+      <label class="notification"><%= check_message %></label>
+      <img src="/assets/notification.gif" alt="nofti" style="margin-left:-45px;">
+      <% if !current_user.profile.nil? %>
+          <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id) %>
+      <% else %>
+          <%= link_to image_tag("/assets/settings.png") %>
+      <% end %>
+      <%= link_to image_tag("/assets/signout.png"), destroy_user_session_path, :method => 'delete' %>
+    </div>
   </div>
 </div>
-
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 
-$('.search-query').bind('keypress', function(e)  {
-    var code = (e.keyCode ? e.keyCode : e.which);
+    $('.search-query').bind('keypress', function(e)  {
+        var code = (e.keyCode ? e.keyCode : e.which);
 
-    if(code == 13) {
-        $.ajax({
-            url: "/feedback/filter_data",
+        if(code == 13) {
+            $.ajax({
+                url: "/feedback/filter_data",
 
-            data: { search_value: $(this).val()  },
-            cache: false,
-            beforeSend: function( ) {
-                $('.bodycontainer').append("loading...");
-            },
-            success: function(html){
+                data: { search_value: $(this).val()  },
+                cache: false,
+                beforeSend: function( ) {
+                    $('.bodycontainer').append("loading...");
+                },
+                success: function(html){
 
 
-                $('.bodycontainer').empty();
-                $('.bodycontainer').append(html);
-            },
-            error: function( ) {
-                $('.bodycontainer').append("...error loading...");
-            }
+                    $('.bodycontainer').empty();
+                    $('.bodycontainer').append(html);
+                },
+                error: function( ) {
+                    $('.bodycontainer').append("...error loading...");
+                }
 
-        })
-    }
-});
+            })
+        }
+    });
 
 </script>
