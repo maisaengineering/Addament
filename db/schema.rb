@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(:version => 20130702101210) do
   end
 
   create_table "professionals", :force => true do |t|
-    t.string   "company_name"
+    t.integer  "company_id"
     t.string   "title"
     t.string   "location"
     t.string   "role"

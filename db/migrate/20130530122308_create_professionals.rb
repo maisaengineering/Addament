@@ -1,7 +1,7 @@
 class CreateProfessionals < ActiveRecord::Migration
   def change
     create_table :professionals do |t|
-      t.string :company_name
+      t.integer :company_id
       t.string :title
       t.string :location
       t.string :role

@@ -98,7 +98,7 @@
                   </tr>
                   <tr>
                     <td>Current employer or school</td>
-                    <td><%=  professional.text_field :company_name %></td>
+                    <td><%=  professional.text_field :companyname, :id=> "company_name" %></td>
                   </tr>
                   <tr>
                     <td>Location</td>
@@ -134,7 +134,7 @@
                   </tr>
             <% end %>
             </table>
-            <table align="center"><tr><td style="background-color:;">
+            <table align="center"><tr><td>
               <div class="button2">
                 <%= link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
 
@@ -161,20 +161,14 @@
           </table>
       <% end %>
 
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
-      <link rel="stylesheet" type="text/css" href="/assets/select2.css">
-      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
-      <script type="text/javascript" src="/assets/select2.js"></script>
 
-      <script>
-          $("#datepicker").datepick();
-          $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
-      </script>
-      <script>
-          $("#datepicker1").datepick();
-          $("#datepicker1").datepick({dateFormat: 'yyyy-mm-dd'});
-      </script>
+
+
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
       <script>
           $(window).load(function(){
 
@@ -192,14 +186,26 @@
               }, 800);
 
           });
-
+      </script>
+      <script>
+          var availableTags = [
+              "Athens",
+              "Sydney",
+              "New York",
+              "London",
+              "Zurich",
+              "Singapore"
+          ];
+          $("#company_name").autocomplete({source: availableTags
+          });
       </script>
 
       <script>
-          $('#affiliation').click(function() {
-              $('#affiliation').select2({tags:[<% for i in 0...@company.length %>
-                  '<%= @company[i].company_name %>',
-                  <% end %>]});
+
+          $("#affiliation").autocomplete([
+              "Aberdeen", "Ada"], {
+              multiple: true,
+              autoFill: true
           });
 
       </script>

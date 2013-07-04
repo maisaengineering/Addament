@@ -61,9 +61,9 @@ class UsersController < ApplicationController
     @past_seven = Impression.where(impressionable_id: current_user.profile.id,created_at: 7.months.ago..1.day.ago).count
     reciver  = Receipt.where("receiver_id = ? and mailbox_type = ?", current_user.id, "inbox")
     current_user_company = User.get_current_company_name(current_user)
-    unless  current_user_company.empty?
+    unless  current_user_company.nil?
 
-      @peer = Professional.where("company_name = ? and profile_id != ?",current_user_company, current_user.profile.id).count
+      @peer = Professional.where("company_id = ? and profile_id != ?",current_user_company, current_user.profile.id).count
     end
     @conversation = []
     if reciver

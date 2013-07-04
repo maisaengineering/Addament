@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     company = user_id.profile.professionals
     company.each do |get_company|
       if get_company.end_date==nil
-         @current_company =  get_company.company_name
+         @current_company =  get_company.company_id
       end
     end
     return @current_company
