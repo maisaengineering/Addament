@@ -3,7 +3,7 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <div id="container">
 
-  <div id="centerDIV" style = "margin-left:-75px;width:730px;">
+  <div id="centerDIV" style = "margin-left:-75px;width:700px;">
     <table align="center">
       <%= form_for(@education) do |f| %>
           <div id="error_explanation">
@@ -25,7 +25,7 @@
           </tr>
           <tr class="spaceunder">
             <td><label>Date attended</label></td>
-            <td><%= f.text_field :date_attended, :id => "datepicker" %></td>
+            <td><%= f.text_field :date_attended, :id => "date_picker" %></td>
           </tr>
           <tr class="spaceunder">
             <td><label>Degree</label></td>
@@ -101,5 +101,14 @@
   </div>
 
 </div>
+
+
+   <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+<script>
+    $('#date_picker').datepick({
+        format: 'mm-dd-yyyy'
+    });
+</script>
 
 

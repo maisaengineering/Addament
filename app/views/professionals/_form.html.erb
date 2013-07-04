@@ -15,7 +15,7 @@
     <div class="field">
     <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
     <td><%= f.label :company_name %></td>
-    <td><%= f.text_field :company_name %></td>
+    <td><%=  f.text_field :companyname, :id=> "company_name" %></td>
     </div>
     </tr>
     <tr>
@@ -114,3 +114,21 @@
 
 <% end %>
 
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+ <script>
+          var availableTags = [
+              "Athens",
+              "Sydney",
+              "New York",
+              "London",
+              "Zurich",
+              "Singapore"
+          ];
+          $("#company_name").autocomplete({source: availableTags
+          });
+      </script>

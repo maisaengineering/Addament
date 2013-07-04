@@ -1,20 +1,13 @@
 <% @followee.in_groups_of(2, false) do |lists| %>
-    <table>
-      <tr>
-        <%  for user in lists %>
-            <td>
-              <table>
-                <tr>
-                  <td>
-                    <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
-                  </td>
 
-                </tr>
-              </table>
-
-            </td>
-            </tr>
-        <% end %>
-        </table>
+    <%  for user in lists %>
+    <div id ="network_connect">
+       
+        <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+        
+    </div>    
+             
+    <% end %>
+  
 
 <% end %>

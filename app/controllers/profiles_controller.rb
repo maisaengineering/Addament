@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
-
+    @company = Company.all
     if session[:social_login_data]
       data = session[:social_login_data]
       @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),

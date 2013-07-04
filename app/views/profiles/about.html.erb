@@ -34,7 +34,7 @@
 <% end %>
 
 
-<div class="tabbable" style="width: 980px;"> <!-- Only required for left/right tabs -->
+<div class="tabbable" style="width: 980px;margin-top: -36px;"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
         <li><a href="#tab2" data-toggle="tab" >Present</a></li>
@@ -51,7 +51,11 @@
 
                   <% if past.end_date!=nil %>
 
-                      <label class="qtntab">Company name:</label><label class="anstab"><%= past.company_name %></label><br>
+                      <label class="qtntab">Company name:</label><label class="anstab">
+                      <% companyname = Company.find(past.company_id) %>
+
+                      <%= companyname.company_name %></label><br>
+
 
                       <label class="qtntab">Title:</label><label class="anstab"><%= past.title %></label><br>
 
@@ -79,7 +83,9 @@
             <p><label class="qtnlb">Professional:</label><br>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
-                      <label class="qtntab">Company Name:</label><label class="anstab"><%= present.company_name %></label><br>
+                      <label class="qtntab">Company Name:</label><label class="anstab">
+                      <% companyname = Company.find(present.company_id) %>
+                      <%= companyname.company_name %></label><br>
 
                       <label class="qtntab">Start Date:</label><%= present.start_date %><br>
 

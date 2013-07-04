@@ -46,7 +46,7 @@
             </tr>
             <tr>
               <td>Birthday</td>
-              <td><%= f.text_field :birthday, :id => "datepicker" %></td>
+              <td><%= f.text_field :birthday, :id => "date_picker" %></td>
             </tr>
 
             <tr>
@@ -110,7 +110,7 @@
                   </tr>
                   <tr>
                     <td>Date Started</td>
-                    <td><%=  professional.text_field :start_date, :id => "datepicker1" %></td>
+                    <td><%=  professional.text_field :start_date, :id => "date_picker1" %></td>
                   </tr>
                   <tr>
                     <td>Aspirations</td>
@@ -188,13 +188,9 @@
           });
       </script>
       <script>
-          var availableTags = [
-              "Athens",
-              "Sydney",
-              "New York",
-              "London",
-              "Zurich",
-              "Singapore"
+          var availableTags = [<% for i in 0...@company.length %>
+              '<%= @company[i].company_name %>',
+              <% end %>
           ];
           $("#company_name").autocomplete({source: availableTags
           });
@@ -209,3 +205,17 @@
           });
 
       </script>
+
+
+   <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+<script>
+    $('#date_picker').datepick({
+        format: 'mm-dd-yyyy'
+    });
+</script>
+<script>
+    $('#date_picker1').datepick({
+        format: 'mm-dd-yyyy'
+    });
+</script>

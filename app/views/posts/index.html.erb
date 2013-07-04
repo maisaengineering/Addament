@@ -1,92 +1,73 @@
-<br/>
-<div>
-	<div class="post_slide">
-		<%= image_tag("/assets/cover.jpg")%>
-		<div id="cover_tit_div">
-			<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
-			<p</p>
-			<label><a href="#">read more</a></label>
-		</div>
+ <div id="container">
+ <div id="h_top_div">
+  <div class="post_slide">
+   <%= image_tag("/assets/cover.jpg")%>
+   <div id="cover_tit_div">
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+    <p</p>
+    <label><a href="#">read more</a></label>
+   </div>
+     </div>
+
+  <div id="h_t_r_div">
+      <div id="ppl_m_kn_div">
+    <h2>PEOPLE YOU MAY KNOW</h2>
+    <div id="ppl_you_know_con_div">
+     <ul>
+                     <div id="all_users">
+                     <%= render :partial => 'all_users' %>
+                     fdsfsdf
+                     </div>
+                 </ul>
     </div>
-
-	<div id="h_t_r_div">
-	    <div id="ppl_m_kn_div">
-			<h2>PEOPLE YOU MAY KNOW</h2>
-			<div id="ppl_you_know_con_div">
-
-				<ul>
-
-
-                    <div id="all_users">
-                    <%= render :partial => 'all_users' %>
-                    </div>
-
-
-                </ul>
-
-			</div>
-			<p><%= link_to "See all", public_profile_path,  :class => "see_all" %></p>
-		</div>
-	</div>
-</div>
-<div id="h_sep_div">&nbsp;</div>
-
-<div>
- <div>
-
-	<div class="post_status" >
-      <div id="post_form">
-       <%=  render :partial => 'form' %>
-      </div>
-    </div>
-         <div id="rightSideDiv" style="margin-top:-160px">
-    	            <h2>SPONSORS</h2>
-					<ul>
-					<li>
-					<label>Ready for Google xPhone?</label>
-					<p>open.etoro.com</p>
-					<%= image_tag("s1.png") %>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-					</li>
-					<li>
-					<label>Ready for Google xPhone?</label>
-					<p>open.etoro.com</p>
-					<%= image_tag("s2.png") %>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-					</li>
-					<li>
-					<label>Ready for Google xPhone?</label>
-					<p>open.etoro.com</p>
-					<%= image_tag("s4.png") %>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-					</li>
-
-				    </ul>
-            </div> 
-    <div class="post_curcomment">
-      <div class="post_comment">
-
-       <%= render :partial => 'posts_comments', @posts => @posts %>
-       <center><%= will_paginate @posts %></center>
-      </div>
-    </div>
-
- </div>	
-
+    <p><%= link_to "See all", public_profile_path,  :class => "see_all" %></p>
+   </div>
+  </div>
  </div>
- 
-</div>	
+ <!-- ............................................................................................ -->
+ <!-- <div id="h_sep_div">&nbsp;</div> -->
+ <!-- ............................................................................................ -->
+ <div id="h_bottom_div">
+  <div id="users_posts">
 
+  <div class="post_status" >
+       <div id="post_form">
+        <%=  render :partial => 'form' %>
+       </div>
+     </div>
+     <div class="post_curcomment">
+       <div class="post_comment">
 
+        <%= render :partial => 'posts_comments', @posts => @posts %>
+        <center><%= will_paginate @posts %></center>
+       </div>
+     </div>
+
+  </div> 
+ <div id="rightSideDiv">
+                  <h2>SPONSORS</h2>
+      <ul>
+      <li>
+      <label>Ready for Google xPhone?</label>
+      <p>open.etoro.com</p>
+      <%= image_tag("s1.png") %>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+      </li>
+
+         </ul>
+             </div> 
+  </div>
+ <!-- ..................................................................................... -->
+</div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script src="/assets/jquery.mCustomScrollbar.js"></script>
-		<script>
-			(function($){
-				$(window).load(function(){
-					// console.log('dfsdf');
-					$('#ppl_you_know_con_div').mCustomScrollbar();
-				});
-			})(jQuery);
-		</script>
+  <script>
+   (function($){
+    $(window).load(function(){
+     // console.log('dfsdf');
+     $('#ppl_you_know_con_div').mCustomScrollbar();
+    });
+   })(jQuery);
+  </script>

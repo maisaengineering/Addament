@@ -34,7 +34,7 @@ body {
     width:980px;
     margin:0 auto;
     position: relative;
-    min-height: 410px;
+    min-height: 500px;
     height: auto;
 }
 
@@ -162,7 +162,7 @@ h3{
 .submit_btn:hover {
     color: #000;
     background: #96C3E1;
-
+    
 }
 .label_td{
     margin-right: -60px;
@@ -233,10 +233,10 @@ h3{
 #header .srch{
     background: url(/assets/search.gif) no-repeat transparent;
     background-position:right;
-    margin-left:20px;
+    margin-left:20px; 
     height:20px;
-    display: list-item;
-    float:left;
+    display: list-item; 
+    float:left; 
     color: #444444;
     margin-top:-3px;
     width: 140px;
@@ -353,6 +353,7 @@ input[type="search"]:focus{
     float:right;
     margin-right: 0px;
     margin-top: -25px;
+    margin-left: 90px;
 }
 
 /* Footer CSS End*/
@@ -371,7 +372,7 @@ input[type="search"]:focus{
 #profile_con_tbl #editProfile{
     background: url(/assets/editprofile.gif) no-repeat;background-position: 20px 26px;
     width: 940px;height: 54px;
-    background-color:#51a2d5;
+    background-color:#51a2d5; 
     margin: 18px;color: #222;
     line-height: 65px;
     padding-left: 60px;
@@ -384,7 +385,7 @@ input[type="search"]:focus{
     line-height: 27px;
     font-size: 12px;
     padding-left: 10px;
-    color: #51a2d5;
+    color: #51a2d5; 
     font-weight: bold;
 }
 #profile_con_tbl .personal{
@@ -434,12 +435,12 @@ td{
     margin-left: 5px;
 }
 #personalTbl .exmp{
-    background-color:#fff;
-    height:30px;
-    text-align: right;
-    padding-right:7.5px;
-    /*color:#9fca6b;*/
-    font-size: 11px;
+     background-color:#fff; 
+     height:30px;
+     text-align: right;
+     padding-right:7.5px;
+     /*color:#9fca6b;*/
+     font-size: 11px;
 }
 #personalTbl .btns{
     height: 30px;
@@ -471,7 +472,7 @@ td{
     cursor: pointer;
 }
 #personalTbl .chooseFile{
-    background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
+background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
     width:140px;height:30px;
     color: #fff;background-color: #96c953;
     border: 0px;border-radius: 20px;
@@ -517,11 +518,11 @@ td{
     margin-left: 5px;
 }
 #professionalTbl .exmp{
-    background-color:#fff;
-    height:30px;
-    text-align: right;
-    padding-right:7.5px;
-    /*color:#69a9d4;*/
+     background-color:#fff; 
+     height:30px;
+     text-align: right;
+     padding-right:7.5px;
+     /*color:#69a9d4;*/
 }
 .tableHeaders{
     height: 50px;
@@ -562,23 +563,23 @@ input[type="file"]::-webkit-file-upload-button{
     cursor: pointer;
 }​
 .btn3{
-     color: #fff;
-     background: #9ECA6B;
-     border: 0px;
-     border-radius: 20px;
-     padding: 2px;
-     padding-left: 16px;
-     padding-right: 16px;
-     font-size: 16px;
-     font-family: itc_avant_garde;
-     cursor: pointer;
-     -webkit-transition: background-color,color 400ms linear;
-     -moz-transition: background-color,color 400ms linear;
-     -o-transition: background-color,color 400ms linear;
-     -ms-transition: background-color,color 400ms linear;
-     transition: background-color,color 400ms linear;
+    color: #fff;
+    background: #9ECA6B;
+    border: 0px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    -webkit-transition: background-color,color 400ms linear;
+    -moz-transition: background-color,color 400ms linear;
+    -o-transition: background-color,color 400ms linear;
+    -ms-transition: background-color,color 400ms linear;
+    transition: background-color,color 400ms linear;
 
- }
+}
 
 
 /*------------------------------------------------dashboard css---------------------------------------------------------------  */
@@ -586,14 +587,14 @@ input[type="file"]::-webkit-file-upload-button{
 td{
     /*border: 1px solid #bbb;*/
 }
-/*	------------------------------------           TOP DIV 			-----------------------------------------------  */
+/*  ------------------------------------           TOP DIV          -----------------------------------------------  */
 #topDIV{
     width: 980px; height: 440px;
     background: rgba(1,1,1,.01);
     margin: 0 auto;margin-top: 25px;
     position: relative;
 }
-/*	------------------------------------           BOTTOM DIV 		----------------------------------------------  */
+/*  ------------------------------------           BOTTOM DIV       ----------------------------------------------  */
 #bottomDIV{
     width: 980px; height: 642px;
     background: rgba(0,0,0,.01);
@@ -945,7 +946,7 @@ td{
 
 
 #container{
-    width: 980px;
+    width: 980px; 
     margin: 0 auto;margin-top: 30px;
     background: url(../images/div-bg.png) repeat-x;
     background-position: left bottom;
@@ -1032,7 +1033,7 @@ td{
     margin-top: 20px;
 }
 #rightDIV li:last-child{
-    border: none;
+ border: none;
 }
 #rightDIV img{
     float: left;
@@ -1196,17 +1197,16 @@ td{
 .post_slide{
     background-color:#fff;
     float: left;
-    position: absolute;
-    width: 690px;
+    position: relative;
+    width: 600px;
     padding: 20px;
     text-align: center;
-    height: 400px;
+    height: 360px;
 }
 .post_textarea{
-    width: 630px;
+    width: 520px!important;
     height: 102px;
-    margin-top: -12;
-
+    margin: 5px;
 }
 .thumb_image_post{
     margin-top: -23;
@@ -1215,8 +1215,8 @@ td{
 }
 #rightSideDiv{
     width: 250px;
-    position: absolute;padding: 10px;
-    margin-left: 744px;
+    position: relative;padding: 10px;
+    float: left; margin-left: 10px;
     background: white;
     border-top: 1px solid rgba(9,9,9,.9);
     border-left: 1px solid rgba(11,11,11,.9);
@@ -1258,10 +1258,10 @@ td{
     text-align: justify;
 }
 .post_comment{
-    width:730px;
+    width:640px!important;
 }
 .post_status{
-    width:730px;
+    width:640px;
     position: relative;
     height:160px;
     margin-left:0;
@@ -1269,7 +1269,7 @@ td{
     background-color:#51A2D5;
 }
 .post_curcomment{
-    width:730px;
+    width:640px;
     position:absoulet;
     /*height:625px;*/
     margin-left:0;
@@ -1329,18 +1329,6 @@ td{
     width: 690px; height: 400px;
     background-color: #fff;
 }
-#ppl_m_kn_div{
-    width: 250px;
-    height: 420px;
-    position: absolute;
-    padding: 10px;
-    margin-left: 743px;
-    background: rgba(0,0,0,.4);
-    border-top: 1px solid rgba(9,9,9,.9);
-    border-left: 1px solid rgba(11,11,11,.9);
-    border-right: 1px solid rgba(15,15,15,.9);
-    border-bottom: 1px solid rgba(100,100,100,.9);
-}
 #ppl_m_kn_div h2{
     font-size: 12px;
     background-color: #96c953;
@@ -1361,7 +1349,7 @@ td{
     border-bottom: 1px solid #464646;
 }
 #ppl_you_know_con_div li img{
-    float: left;
+    float: left; 
     padding-right: 10px;padding-top: 5px;
 }
 #ppl_you_know_con_div li label{
@@ -1594,7 +1582,7 @@ ul#pinned_message{
     margin-left: 102px;
 }
 .search_container{
-    background-color: #fff;
+  background-color: #fff;
     min-height: 100px;
     width: 980px;
 }
@@ -1634,7 +1622,7 @@ ul#pinned_message{
     float: left;
     position: absolute;
     padding: 20px;
-    text-align: center;
+    text-align: center; 
     background:#ffffff;
     width:800px;
     height: 200px;
@@ -1723,7 +1711,215 @@ ul#pinned_message{
     font-size: 25px;
     color: #000000;
 }
+/*-----------------------------------------------------------------------------------------*/
 
+
+#h_sep_div{
+    background-color: #fff;
+    width: 100%;height: 100px;
+    background: url(../images/div-bg.png)repeat-x;
+    position: relative;
+    margin-top: 430px;
+}
+
+#h_top_div{
+    /*background-color: #fff;*/
+    position: relative;
+
+}
+#h_top_div:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#h_t_r_div{
+    position: relative;
+    float: left;
+}
+#h_bottom_div{
+    position: relative;
+    margin-top: 40px;
+}
+#posts_div{
+    position: relative;
+}
+#h_t_l_div{
+    position: relative;
+    width: 600px; height: 400px;
+    background-color: #fff;
+}
+#ppl_m_kn_div{
+    width: 250px; height: 380px;
+    position: relative;padding: 10px;
+    float: left;
+    background: rgba(0,0,0,.4);
+    border-top: 1px solid rgba(9,9,9,.9);
+    border-left: 1px solid rgba(11,11,11,.9);
+    border-right: 1px solid rgba(15,15,15,.9);
+    border-bottom: 1px solid rgba(100,100,100,.9);
+    margin-left: 10px;
+}
+#ppl_m_kn_div h2{
+    font-size: 12px;
+    background-color: #96c953;
+    padding: 12px; color: #fff;
+    font-weight: bold;
+    width: 230px !important;
+}
+#ppl_you_know_con_div{
+    height: 310px; overflow: hidden;
+    width: 230px; margin-top: 10px;
+}
+#ppl_you_know_con_div ul{
+    list-style: none;
+}
+#ppl_you_know_con_div li{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #464646;
+}
+#ppl_you_know_con_div li img{
+    float: left; 
+    padding-right: 10px;padding-top: 5px;
+}
+#ppl_you_know_con_div li label{
+    font-size: 11px; font-weight: bold;
+    color: #96c953;letter-spacing: 1px;
+}
+#ppl_you_know_con_div li p{
+    font-size: 10px; font-weight: bold;
+    color: #ccc;
+    /*letter-spacing: 1px;*/
+}
+#ppl_you_know_con_div li a{
+    font-size: 10px; font-weight: bold;
+    color: #54a1d5;
+    letter-spacing: 1px;
+}
+#cover_tit_div{
+    width: 600px; height: 100px;
+    background-color: rgba(255,255,255,.5);
+    position: relative;margin-top: -100px;
+}
+#cover_tit_div h1{
+    font-size: 18px;
+    padding: 20px;
+    padding-bottom: 5px;
+    color: #54a1d5
+}
+#cover_tit_div p{
+    font-size: 12px;
+    color: #222; font-weight: bold;
+    padding: 0px 20px;
+}
+#cover_tit_div label a{
+    font-size: 12px;
+    color: #96c953; font-weight: bold;
+    padding: 0px 20px; letter-spacing: 1px;
+    float: left; position: absolute;
+    bottom: 10px;
+}
+#h_bottom_div #new_post_div{
+    width: 690px; height: 150px; float: left;
+    background-color: #fff; position: absolute;
+}
+#post_items_div{
+    width: 690px; height: 800px;
+    position: absolute; float: left;
+    margin-top: 160px;
+    background: rgba(0,0,0,.4);
+    border-top: 1px solid rgba(9,9,9,.9);
+    border-left: 1px solid rgba(11,11,11,.9);
+    border-right: 1px solid rgba(15,15,15,.9);
+    border-bottom: 1px solid rgba(100,100,100,.9);
+}
+#post_items_div #posts_ul{
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+#post_items_div #posts_ul .post_list_item{
+    border-bottom: 1px solid #ccc;
+    width: 690px;height: 100px;
+    padding-bottom: 10px; padding-top: 20px;
+}
+#post_items_div #posts_ul .post_list_item img{
+    float: left;
+    padding: 0px 10px;
+}
+#post_items_div #posts_ul .post_list_item label{
+    padding-top: 10px;
+    font-size: 12px;color: #54a1d5;
+    font-weight: bold;
+}
+#post_items_div #posts_ul .post_list_item p{
+    font-size: 11px; font-weight: bold;
+    padding: 7px 0px; color: #828282;
+}
+#post_items_div #posts_ul .post_list_item:last-child{
+    height: 30px;
+}
+#posts_ul .share_info{
+    list-style: none;
+}
+#posts_ul .share_info li{
+    float: left;
+}
+/*---------------------------------------------*/
+#posts_ul .post_list_item .share_info{
+    list-style: none;
+    font-weight: bold;
+    
+
+}
+#posts_ul .post_list_item .share_info li{
+    float: left;
+    color: #96c953;
+    /*padding-left: 8px;*/
+    padding-right: 8px;
+    list-style:url(../images/dot.png);
+    margin-left: 10px;
+    font-size: 10px;
+}
+#posts_ul .post_list_item .share_info  li:first-child{
+    list-style:none;margin-left: -3px;
+}
+#post_items_div #activitiesH2{
+    color: #fff;padding: 10px 0px 10px 30px;
+    background-color: #54a1d5;
+    font-size: 13px;letter-spacing: 1px;
+}
+#new_post_avt_img{
+    float: left;
+    margin-left: 20px;
+}
+#new_post_text_area{
+    width: 470px; height: 85px;
+    margin-left: 30px;margin-top: 20px;
+}
+#newpost_btns_con {
+    /*background-color: #ffa;*/
+    width: 210px; height: 35px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 470px;
+}
+#newpost_btns_con .btn {
+    color: #fff;
+    background: #51a2d5;
+    border: 0px;
+    padding: 2px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#users_posts{
+    float: left;
+}
+/*-----------------------------------------------------------------------------------------*/
 #show_todo{
     width:960px;
     background:#ffffff;
@@ -1737,4 +1933,9 @@ ul#pinned_message{
     margin-left:20px;
     margin-top: 30px;
     
+}
+
+#network_connect{
+    margin-left:10px;
+    margin-top: 23px;
 }

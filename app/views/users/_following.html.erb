@@ -1,33 +1,27 @@
 <% @users.in_groups_of(2, false) do |lists| %>
-    <table>
-      <tr>
+
         <%  for user in lists %>
-            <td>
-              <table>
-                <tr>
+          
+          <div id="network_connect">
+           <% if current_user.following?(user) %>
+           
+                    <%  unless user.profile.nil? %>
+                        <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+                        <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "btn", 
+                          :style => "margin-top: -25px;margin-left: 150px;" %>
+                    <%  end %>
+              <% end %>
+              <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id, status: 'pending' ).first %>
+              <% if reqtomentor %>
+             
+              <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+              <%= button_to "Pending", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :disable => true, :class => "btn", 
+              :style => "margin-top: -25px;margin-left: 150px;" %>
 
-                  <% if current_user.following?(user) %>
-                      <td>
-                        <%  unless user.profile.nil? %>
-                            <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
-                            </td>
-                            <td> <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "btn" %></td>
-                        <%  end %>
-                  <% end %>
-                  <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id, status: 'pending' ).first %>
-                  <% if reqtomentor %>
-                  <td>
-                    <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
-                    <%= button_to "Pending", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :disable => true, :class => "btn" %>
-
-                  </td>
-                  <% end %>
-                </tr>
-              </table>
-
-            </td>
-            </tr>
+             
+              <% end %>
+           </div>
+           
         <% end %>
-        </table>
-
+        
 <% end %>
