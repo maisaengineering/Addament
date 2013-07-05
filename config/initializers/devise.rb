@@ -20,7 +20,7 @@ Devise.setup do |config|
   require 'openid/store/filesystem'
 
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
-  config.omniauth :facebook, "432319306864384", "25e5b9f947f19a2c9e175f6b5ffa7456", {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
+  config.omniauth :facebook, "376018912499299", "dc7b246664eab1ac18e283f6628a764c", {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
   config.omniauth :twitter, "F9MvIhjRGs0PMiBPS70w", "Zx2uGZtkEhBFKujxso2b0ZlHONXr181My8RBHGqaQ",  {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
   config.omniauth :linkedin, "6e4lz34dftbp", "fjPA6POIBrPc5YEw",
                   client_options: {request_token_path: '/uas/oauth/requestToken?scope=r_emailaddress+r_contactinfo'},

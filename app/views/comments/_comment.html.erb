@@ -6,7 +6,7 @@
           <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image",:style =>"width:30px;height:30px"} %>
         </td>
     <% else %>
-        <td>
+        <td style="vertical-align: top;">
           <%=  image_tag("missing.png",height: 25,width: 25) %>
         </td>
     <% end %>
@@ -15,8 +15,8 @@
     
       <%=  profile.first_name %>
       <font style="color:red">Commented</font>
-      <%=  comment.description %>
-      <%= time_ago_in_words(comment.created_at) %>ago
+      <%=  comment.description %> <br/>
+      <%= time_ago_in_words(comment.created_at) %> ago
     </td>
   </tr>
   <tr>

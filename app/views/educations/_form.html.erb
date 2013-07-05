@@ -15,8 +15,9 @@
           </div>
           <tr>
             <td></td>
-
+           <% unless @param_id %>
             <td><h2>New Education</h2></td>
+                <% end %>
 
           </tr>
           <tr class="spaceunder">
@@ -55,7 +56,9 @@
             <td></td>
             <td><%= f.submit "Save", :id=> "save" %></td>
       <% end %>
+      <% unless @param_id %>
             <td>
+
               <div class="button2">
                 <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
                   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -69,14 +72,14 @@
                   </div>
               </div>
             </td>
-
+           <% end %>
           </tr>
           
 
     </table>
   </div>
 
-  <div id="rightDIV">
+  <div id="rightSideDIV">
     <h2>SPONSORS</h2>
     <ul>
       <li>
@@ -101,14 +104,4 @@
   </div>
 
 </div>
-
-
-   <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
-      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
-<script>
-    $('#date_picker').datepick({
-        format: 'mm-dd-yyyy'
-    });
-</script>
-
 

@@ -9,11 +9,12 @@
       <% else %>
           <%=  image_tag("missing.png",height: 70,width: 70) %>
       <% end %>
-      <%= user.profile.first_name  %> <font style="color:51A2D5">Posted</font>
-      <%= post.current_post %>
-    </div> 
+      <%= post.current_post %>  <br/>
+      <font style="color:51A2D5">posted</font> by <%= user.profile.first_name  %>
+    </div>
     <div class="commentbutton<%= i %>" style="margin-left:100px">
-      <a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a>
+
+      <a href="javascript:void(0)" onclick ="open_form(<%= i%>)"><%= comments_count(post.id) %> Comment</a>
       <div class="profile_text<%= i %>" style="display: none;">
         <div class="comment_form" >
           <%=  render 'comments/form', :id => post.id %>

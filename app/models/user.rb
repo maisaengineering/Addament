@@ -36,8 +36,11 @@ class User < ActiveRecord::Base
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       user = User.new( :provider => auth.provider, :uid => auth.uid, :email => auth.info.email, :password => Devise.friendly_token[0,20])
+      check_email = User.where(:email =>  user.email).first
+      unless check_email
       user.skip_confirmation!
       user.save
+        end
     end
     user
   end
@@ -54,19 +57,25 @@ class User < ActiveRecord::Base
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       user = User.new( :provider => auth.provider, :uid => auth.uid, :email => auth.info.email, :password => Devise.friendly_token[0,20])
+      check_email = User.where(:email =>  user.email).first
+      unless check_email
       user.skip_confirmation!
       user.save
+        end
     end
 
     user
   end
 
   def self.find_for_google_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(:provider => auth.provider, :uid => auth.uid, :email => auth.info.email).first
     unless user
       user = User.new(:provider => auth.provider, :uid => auth.uid, :email => auth.info.email, :password => Devise.friendly_token[0,20])
+      check_email = User.where(:email =>  user.email).first
+      unless check_email
       user.skip_confirmation!
       user.save
+      end
     end
     user
   end
@@ -109,5 +118,5 @@ class User < ActiveRecord::Base
     end
     return education_result.count
   end
-  
+
 end

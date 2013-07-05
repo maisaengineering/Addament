@@ -47,10 +47,10 @@
 
             <p>
               <label class="qtnlb">Professional:</label><br>
-              <% @past[0..2].each do |past| %>
+              <% @past.each do |past| %>
 
                   <% if past.end_date!=nil %>
-
+                      <% unless past.company_id.nil? %>
                       <label class="qtntab">Company name:</label><label class="anstab">
                       <% companyname = Company.find(past.company_id) %>
 
@@ -65,6 +65,7 @@
 
                       <label class="qtntab">Project name:</label><%= past.project_name %><br>
 
+                  <% end %>
                   <% end %>
               <% end %>
               <label class="qtnlb">Educations:</label><br>
@@ -83,7 +84,9 @@
             <p><label class="qtnlb">Professional:</label><br>
               <% @past.each do |present| %>
                   <% if present.end_date == nil %>
+                     <% unless present.company_id.nil? %>
                       <label class="qtntab">Company Name:</label><label class="anstab">
+
                       <% companyname = Company.find(present.company_id) %>
                       <%= companyname.company_name %></label><br>
 
@@ -94,6 +97,7 @@
                       <label class="qtntab">Project Name:</label><%= present.project_name %><br>
 
 
+                  <% end %>
                   <% end %>
               <% end %>
 
