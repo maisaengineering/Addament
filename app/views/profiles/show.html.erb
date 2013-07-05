@@ -97,7 +97,7 @@
             <label class="qtnlb">Professional:</label><br>
             <% @past.each do |present| %>
                 <% if present.end_date == nil %>
-                     <label class="qtn">Company Name:</label><label class="ans"><%= present.company_name %></label><br/>
+                     <label class="qtn">Company Name:</label><label class="ans"><%= present.company_id %></label><br/>
 
                           <label class="qtn" >Start Date:</label><%= present.start_date %><br/>
 
