@@ -10,7 +10,7 @@
        <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
        <div class="comment_form<%= i %>" style="display: none;">
         <div class="comment_form">
-          <%=  render 'goal_comments/form', :id => goal.id %>
+          <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
         </div>
        </div>
 

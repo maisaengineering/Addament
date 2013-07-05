@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
     @education = Education.where("profile_id = ?", @profile.id)
     @users = User.where("id != ? ", @profile.user_id)
     user = User.find(@profile.user_id)
-    @goal = Goal.where("user_id =? ", user.id)
+    @goal = Goal.where("user_id =? ", user.id).order('created_at desc')
 
     impressionist(@profile)
     respond_to do |format|
@@ -107,7 +107,7 @@ class ProfilesController < ApplicationController
   end
 
    def about
-     @goal = Goal.all
+     @goal = Goal.where("user_id =? ", current_user.id)
      @profile = current_user.profile
      @past = Professional.where("profile_id = ?", current_user.profile.id)
      @education = Education.where("profile_id = ?", current_user.profile.id)

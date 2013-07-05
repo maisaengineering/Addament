@@ -17,9 +17,11 @@
   <div class="field">
 
     <%= f.hidden_field :commenter_id, :value => current_user.id %>
+
   </div>
   <div class="field">
     <%= f.label :comment_description %><br />
+    <%= text_field_tag :profile_id, :value => profile_id %>
     <%= f.text_area :comment_description, :style =>"height: 30px;" %>
   </div>
   <div class="actions">
