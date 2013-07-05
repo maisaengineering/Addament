@@ -27,10 +27,10 @@
       </div>
       <div id="todoListDiv">
         <h2 class="todoListH2">To Do List</h2>
-        <%= link_to("Add Todo", new_todo_path)
+        <%= link_to("Add Todo", new_todo_path, :style => "color:#51A2D5", :title => "click here to add Todo")
             @todos.each do |todo| %><br>
             <%= todo.event_date.to_date.strftime("%B %d, %Y") %><br>
-            <%= link_to("#{todo.start_time.strftime("%I:%M%p")}   #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id)) %><br>
+            <%= link_to("#{todo.start_time.strftime("%I:%M%p")} -  #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id), :style => "color:#51A2D5",:title => "click here to show Todo")  %><br>
             <%= todo.title %><br>
             <%= truncate todo.description, length: 100 %>
         <% end %>

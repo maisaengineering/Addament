@@ -82,7 +82,7 @@
 
             <tr>
               <td colspan="2" style="background-color:#fff;" align="center">
-                <%=  f.submit "Update Profile", :class =>"btn"  %>
+                <%=  f.submit "Update Profile", :class =>"update_prf_btn"  %>
                 <%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file"  %>
               </td>
             </tr>
@@ -110,7 +110,8 @@
                   </tr>
                   <tr>
                     <td>Date Started</td>
-                    <td><%=  professional.text_field :start_date, :id => "date_picker1" %></td>
+                    <td><%=  professional.text_field :start_date, :id => "date_picker1" %>
+                      <%=  professional.hidden_field :end_date, :value => Date.today %></td>
                   </tr>
                   <tr>
                     <td>Aspirations</td>
@@ -134,9 +135,8 @@
                   </tr>
             <% end %>
             </table>
-            <table align="center"><tr><td>
-              <div class="button2">
-                <%= link_to "Add More", new_professional_path, {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+              <div class="button2" style ="margin-top: 22px;">
+                <%= link_to "Add More", new_professional_path, {:class=>"add_more_btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
 
                 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-header">
@@ -148,11 +148,8 @@
                   </div>
 
                 </div>
-              </div></td>
-              <td></td>
-              <td style="background-color:#fff;float:right"><%=  f.submit "Next", :class =>"btn"  %></td></tr></table>
-          </td>
-          </tr>
+              </div><%=  f.submit "Next", :class =>"next_btn",:style => "width:66px"  %>
+          
           <tr>
             <td class="tdGradent">&nbsp;</td>
             <td width="10px"></td>

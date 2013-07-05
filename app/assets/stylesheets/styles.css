@@ -722,6 +722,9 @@ td{
     overflow: hidden;
     margin-top: -20px;
 }
+#messagesDiv a{
+    color:#51A2D5;
+}
 #todoListDiv{
     width: 190px;height: 160px;
     /*background-color: #ff6;*/
@@ -1209,9 +1212,9 @@ td{
     margin: 5px;
 }
 .thumb_image_post{
-    margin-top: -23;
-    height: 99;
-    width: 92;
+    height: 99px;
+    width: 92px;
+    margin-left: 9px;
 }
 #rightSideDiv{
     width: 250px;
@@ -1230,6 +1233,8 @@ td{
     background-color: #96c953;
     padding: 12px; color: #fff;
     font-weight: bold;
+    text-align: center !important;
+    margin-left: 23px;
 }
 #rightSideDiv ul{
     /*margin-top: -20px;*/
@@ -1286,6 +1291,7 @@ td{
     cursor: pointer;
     font-weight: bold;
     letter-spacing: 1px;
+    margin-left: 6px;
 }
 .comment_list_post{
     width:730px;
@@ -1922,10 +1928,21 @@ ul#pinned_message{
 /*-----------------------------------------------------------------------------------------*/
 #show_todo{
     width:960px;
+    height:400px;
     background:#ffffff;
-    background-image: url("/assets/pin.png") !important;
-    background-repeat: no-repeat;
     margin-top: 30px;
+}
+#show_todo table{
+    position: center;
+    width:500px;
+    margin-left:360px;
+}
+#show_todo tr{
+    line-height: 66px;
+}
+#show_todo h2{
+    font-family: bold;
+    color:A5CC5A;
 }
 #show_todo_list {
     width:960px;
@@ -1935,7 +1952,112 @@ ul#pinned_message{
     
 }
 
+
 #network_connect{
+
     margin-left:10px;
     margin-top: 23px;
+}
+
+.add_more_btn{
+    margin-left: 43px;
+    color: white;
+    background: #51A2D5;
+    border: 0px;
+    height: 23px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+
+}
+.next_btn{
+    margin-top: -25px;
+    margin-left: 397px;
+    color: white;
+    background: #51A2D5;
+    border: 0px;
+    height: 25px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+
+}
+
+#forgot_psw{
+    width: 550px;
+    height: 300px;
+    background-color:#fff;
+    float: left;
+    padding: 20px;
+    margin-left: 300px;
+    margin-top: 80px;
+    position: center;
+}
+#forgot_psw p{
+    font-size: 22px;
+    float:left;
+    color:#000000;
+    
+}
+.psw_btn{
+    color: white;
+    background: #51A2D5;
+    border: 0px;
+    height: 25px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+
+}
+
+#goals_new{
+    width:960px;
+    height:400px;
+    background:#ffffff;
+    margin-top: 16px;
+}
+.goal_btn{
+    color: white;
+    background: #51A2D5;
+    border: 0px;
+    height: 25px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+
+}
+.update_prf_btn{
+    color: white;
+    background: #51A2D5;
+    border: 0px;
+    height: 30px !important;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+
 }
