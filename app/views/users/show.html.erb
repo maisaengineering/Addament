@@ -40,7 +40,7 @@
     <!-- .............. ACTIVITY DIV.......... -->
     <div id="activityDiv">
       <h3>Activity</h3>
-      <ul id="activityUL"  style = "margin-top: -17px;" >
+      <ul id="activityUL"  style = "margin-top: -20px;" >
         <% @posts[0..2].each do |post| %>
             <li class="activityLI">
               <% user = User.find(post.user_id) %>
@@ -102,10 +102,10 @@
         <% end %>
         <label  style="font-size:10px;color:#96c953;">Latest Activity:</label>
         <p  style="font-size:10px;"><%= current_user.profile.updated_at.strftime("%B %d, %Y") %></p>
-        <label  style="font-size:10px;color:#96c953;">Date Joined:</label>
+        <label  style="font-size:10px;color:#96c953;margin-top:-22px;">Date Joined:</label>
         <p  style="font-size:10px;padding-bottom:30px;"><%= current_user.created_at.strftime("%B %d, %Y") %></p>
         <label  style="font-size:10px; margin-top: -36px;">About:</label>
-        <p  style="font-size:10px;text-align: justify;"><%= current_user.profile.about %></p>
+        <p  style="font-size:10px;text-align: justify;"><%= truncate(current_user.profile.about, :length => 15) %></p>
       </div>
       <div id="assoAndPV">
         <div id="associations">
@@ -147,7 +147,11 @@
         <ul>
           <li>
             <label>Mentees</label>
-            <p><%= link_to @reqtomentor ? @reqtomentor : "0", show_request_path %></p>
+            <% if @reqtomentor > 0 %>
+            <p><%= link_to @reqtomentor, show_request_path %></p>
+            <% else %>
+            <p>no requests</p>
+            <%  end %>
           </li>
         </ul>
       </div>

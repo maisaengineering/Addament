@@ -10,7 +10,8 @@
           <%=  image_tag("missing.png",height: 70,width: 70) %>
       <% end %>
       <%= post.current_post %>  <br/>
-      <font style="color:51A2D5">posted</font> by <%= user.profile.first_name  %>
+      <div class="post_time">
+      posted by <%= user.profile.first_name  %></div>
     </div>
     <div class="commentbutton<%= i %>" style="margin-left:100px">
 
