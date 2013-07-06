@@ -4,12 +4,18 @@ class Professional < ActiveRecord::Base
   belongs_to :company
   include PublicActivity::Model
 
- # validate :start_must_be_before_end_date
+ # validates_presence_of :companyname, :presence => true
+  validate :start_must_be_before_end_date
 
 
    def start_must_be_before_end_date
-     errors.add(:end_date, " end date must be greater than start date")unless
-         self.start_date < self.end_date
+     if  self.end_date.present?
+
+       unless self.start_date < self.end_date
+
+        errors.add(:end_date, " end date must be greater than start date")
+       end
+     end
    end
   #tracked
   def companyname=(input_data)

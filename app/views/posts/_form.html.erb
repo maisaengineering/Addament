@@ -39,3 +39,12 @@
 
 <% end %>
 
+<script>
+    $('#new_post').submit(function() {
+        if($("#post_current_post").val()=="")
+        {
+        alert('Post cant be empty');
+        return false;
+        }
+    });
+</script>

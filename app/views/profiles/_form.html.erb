@@ -111,7 +111,7 @@
                   <tr>
                     <td>Date Started</td>
                     <td><%=  professional.text_field :start_date, :id => "date_picker1" %>
-                      <%=  professional.hidden_field :end_date, :value => Date.today %></td>
+                      </td>
                   </tr>
                   <tr>
                     <td>Aspirations</td>
@@ -135,7 +135,7 @@
                   </tr>
             <% end %>
             </table>
-              <div class="button2" style ="margin-top: 22px;">
+
                 <%= link_to "Add More", new_professional_path, {:class=>"add_more_btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
 
                 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -148,7 +148,7 @@
                   </div>
 
                 </div>
-              </div><%=  f.submit "Next", :class =>"next_btn",:style => "width:66px"  %>
+              <%=  f.submit "Next", :class =>"next_btn",:style => "width:66px"  %>
           
           <tr>
             <td class="tdGradent">&nbsp;</td>
@@ -160,12 +160,6 @@
 
 
 
-
-      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
-
-      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
       <script>
           $(window).load(function(){
 
@@ -194,12 +188,48 @@
       </script>
 
       <script>
-
           $("#affiliation").autocomplete([
               "Aberdeen", "Ada"], {
               multiple: true,
+              mustMatch: true,
               autoFill: true
           });
+
+
+      </script>
+
+
+      <script type='text/javascript'>//<![CDATA[
+      $(window).load(function(){
+          var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+          ];
+          $( "#company_name" ).autocomplete({
+              source: availableTags
+          });
+          $('#myModal').modal('show');
+      });//]]>
 
       </script>
 
