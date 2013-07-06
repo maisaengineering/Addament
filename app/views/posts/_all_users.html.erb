@@ -9,7 +9,6 @@
             <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "medium_image"} %>
         <% end %>
         <label><%= profile.first_name %></label>
-        <p><%= truncate(profile.about, :length => 10) %></p>
         <%= link_to "Add to Network", follow_from_post_post_path(user.id), :remote => true %>
       <% end  %>
     <% end  %>

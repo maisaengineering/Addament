@@ -199,6 +199,7 @@ h3{
     list-style-type: none;
     display: inline-block;
     float: left; margin-top: 40px;
+    font-size: 50px;
 }
 
 #menu .menuItem{
@@ -229,6 +230,7 @@ h3{
 #header .userDet img{
     float: left;
     padding-right: 5px;
+    margin-top: -5px;
 }
 #header .srch{
     background: url(/assets/search.gif) no-repeat transparent;
@@ -1275,7 +1277,6 @@ td{
 }
 .post_curcomment{
     width:640px;
-    position:absoulet;
     /*height:625px;*/
     margin-left:0;
     margin-top: 0px;
@@ -1596,7 +1597,7 @@ ul#pinned_message{
     color: #fff;
     font-size: 14px;
     padding: 5px;
-    width: 220px;
+    width: 270px;
     margin-left: -10px;
     margin-top: -10px;
     padding-left: 20px;
@@ -2059,5 +2060,72 @@ ul#pinned_message{
     font-family: itc_avant_garde;
     cursor: pointer;
     padding-top: 5px;
+    margin-left:-6px;
+}
+.feedback_fbtn{
+    position: fixed;
+    bottom: 2px; right: 0px;color: white;
+    background: #000000;
+    border: 0px;
+    height: 20px !important;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+}
 
+.profile_text{
+    display: block;
+    align:justify;
+    color:#51A2D5;
+}
+.post_time{
+    margin-left: 75px;
+    margin-top: -18px;
+    color:51A2D5;
+}
+.commentsbtn {
+    color: #fff;
+    background: #51A2D5;
+    border: 0px;
+    padding: 2px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 6px;
+}
+#request{
+    width:530px;
+    background-color:#ffffff;
+}
+#request h6{
+    color:#000000;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    float:left;
+    margin-left: 10px;
+}
+#request td{
+    width:100px;
+    text-align: justify;
+}
+.requestbtn {
+    color: #fff;
+    background: #51A2D5;
+    border: 0px;
+    border-radius: 20px;
+    padding: 7px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 60px;
+    margin-top: 12px;
+    height:25px;
 }

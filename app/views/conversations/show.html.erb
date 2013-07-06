@@ -1,3 +1,4 @@
+
 <style type="text/css">
   .posted_text, .subject {
       padding-left: 6px;
@@ -11,37 +12,32 @@
 </style>
 <div class="msg_conv">
   <table>
-    <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+        <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
         <% sender_find = receipt.notification.sender_id %>
         <% sender_name = User.find(sender_find)%>
-
-    <tr>
-      <td style="width:90px; height: 99px; vertical-align: top;">
-        <% unless sender_name.profile.avatar_file.nil? %>
-
-
-
+      <tr>
+          <td style="width:90px; height: 99px; vertical-align: top;">
+            <% unless sender_name.profile.avatar_file.nil? %>
             <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => sender_name.profile.id ),{ :class => "profile_image"} %>
-        <% else %>
-            <%= image_tag("missing.png",height: 70,width: 80) %>
-        <% end %>
-      </td>
-      <td> <%=  sender_name.profile.first_name%></td>
-      <td>
-        <% change_is_read(receipt) %>
-        <% message = receipt.message %>
-      </td>
-      <td>  
-        <%=  message.body %>
-      </td>
+            <% else %>
+                <%= image_tag("missing.png",height: 70,width: 70) %>
+            <% end %>
+          </td>
+          <td> <%=  sender_name.profile.first_name%></td>
+          <td>
+            <% change_is_read(receipt) %>
+            <% message = receipt.message %>
+          </td>
+          <td>  
+            <%=  message.body %>
+          </td>
     </tr>
     <% end %>
     <tr>
       <td>
             <%= button_tag "Reply", :id=> "reply" %>
       </td>      
-   
-   
+    </tr>
   </table>      
 
 <div class="reply_form" style="display: none;">

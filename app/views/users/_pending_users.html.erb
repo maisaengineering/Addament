@@ -1,8 +1,23 @@
-<% @reqtomentor.each do |accept| %>
+<br /><% @reqtomentor.each do |accept| %>
     <% user = User.find(accept.user_id) %>
     <% if accept.status == 'pending' %>
-        <%=  user.profile.first_name %>
-        <%= button_to "Accept", {:controller => :users, :action => :accept_user,  :id => accept.user_id},:remote => true, :class => "btn" %>
-        <%= button_to "Reject", {:controller => :users, :action => :reject_user,  :id => accept.user_id},:remote => true, :class => "btn" %>
+    <div id="request">
+    	<h6>Requests Pending</h6><br><hr>
+    	<table>
+    		<tr>
+		    	<td>
+		        <% unless user.profile.avatar_file.nil? %>
+		          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+		          <% else %>
+		          <%=  image_tag("missing.png",height: 70,width: 70) %>
+		        <% end %>
+		        </td>
+			     <td> <label><%=  user.profile.first_name %></label></td>
+			     <td> <%= button_to "Accept", {:controller => :users, :action => :accept_user,  :id => accept.user_id},:remote => true, :class => "requestbtn" %></td>
+			     <td> <%= button_to "Reject", {:controller => :users, :action => :reject_user,  :id => accept.user_id},:remote => true, :class => "requestbtn" %></td>
+            </tr>
+     	
+        </table>
+    </div>
     <% end %>
 <% end %>
