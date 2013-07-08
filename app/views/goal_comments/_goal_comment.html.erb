@@ -1,4 +1,4 @@
-<% goal_comment = GoalComment.where("goal_id = ?", id) %>
+<% goal_comment = GoalComment.where(goal_id: id) %>
 <table>
 <% goal_comment.each do |goalcomments| %>
       <tr>

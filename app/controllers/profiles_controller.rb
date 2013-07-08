@@ -17,15 +17,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
 
-
     @goal_comment = GoalComment.new
     @profile = Profile.find(params[:id])
-    @past = Professional.where("profile_id = ?", @profile.id)
-    @education = Education.where("profile_id = ?", @profile.id)
     @users = User.where("id != ? ", @profile.user_id)
-    user = User.find(@profile.user_id)
-    @goal = Goal.where("user_id =? ", user.id).order('created_at desc')
-
+    @goal = Goal.where(user_id: @profile.user_id).order('created_at desc')
     impressionist(@profile)
     respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +40,6 @@ class ProfilesController < ApplicationController
                                  phone_number: data.try(:phone))
 
     end
-    @company = Company.all
     @professional = @profile.professionals.build
     respond_to do |format|
       format.html # new.html.erb
@@ -109,13 +103,9 @@ class ProfilesController < ApplicationController
    def about
      @goal = Goal.where("user_id =? ", current_user.id)
      @profile = current_user.profile
-     @past = Professional.where("profile_id = ?", current_user.profile.id)
-     @education = Education.where("profile_id = ?", current_user.profile.id)
-
      @goal_comment = GoalComment.new
     end
   def about_update
-
    @profile = current_user.profile
    @profile.update_column(:about, params[:profile][:about])
   end
@@ -125,7 +115,6 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
-
     respond_to do |format|
       format.html { redirect_to profiles_url }
       format.json { head :no_content }
@@ -133,7 +122,7 @@ class ProfilesController < ApplicationController
   end
   def preview
     profile_con = []
-    profile_content = Profile.where(:first_name => params[:search_txt])
+    profile_content = Profile.where(first_name: params[:search_txt])
     profile_content.each do |each_pro|
     profile_con << each_pro.first_name
     end

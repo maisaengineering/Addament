@@ -17,7 +17,7 @@
         <td style="width:100px; vertical-align: top;"><div class="aboutbutton"><a href="javascript:void(0)">About Us</a></div></td>
         <td>
           <div class="profile_text">
-            <%= @profile.about %>
+            <%= current_user.profile.about %>
           </div>
           <div class="profile_text2" style="display:none">
             <%= f.text_area :about,  :style => "width:550px;", :rows => 2, :cols => 220 %>
@@ -47,9 +47,10 @@
 
             <p>
               <label class="qtnlb">Professional:</label><br>
-              <% @past.each do |past| %>
-                  <% if !past.nil? %>
-                  <% if !past.end_date.nil? %>
+              <% @profile.professionals.each do |past| %>
+
+                  <% if past.end_date!=nil %>
+
                       <% unless past.company_id.nil? %>
                       <label class="qtntab">Company name:</label><label class="anstab">
                       <% companyname = Company.find(past.company_id) %>
@@ -72,26 +73,22 @@
                  <% end %>
               <% end %>
               <label class="qtnlb">Educations:</label><br>
-              <% @education.each do |education| %>
-                  <% if !education.nil? %>
-                  <% unless education.school_id.nil? %>
-                      <% schoolname = School.find(education.school_id) %>
-                      <label class="qtntab" >School name:</label><label class="anstab"><%= schoolname.school_name %></label><br>
-                      <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
-                      <label class="qtntab" >Degree:</label><%= education.degree %><br>
-                      <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
-                      <label class="qtntab" >Grade:</label><%= education.grade %><br>
-                      <% end %>
-                  <% else %>
-                      <p>There is No Educational information</p>
-                  <% end %>
+
+              <% @profile.education.each do |education| %>
+                  <label class="qtntab" >School name:</label><label class="anstab"><%= education.school %></label><br>
+                  <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
+                  <label class="qtntab" >Degree:</label><%= education.degree %><br>
+                  <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
+                  <label class="qtntab" >Grade:</label><%= education.grade %><br>
+
+
               <% end %>
             </p>
           </div>
 
           <div class="tab-pane" id="tab2">
             <p><label class="qtnlb">Professional:</label><br>
-              <% @past.each do |present| %>
+              <% @profile.professionals.each do |present| %>
                   <% if present.end_date == nil %>
                      <% unless present.company_id.nil? %>
                       <label class="qtntab">Company Name:</label><label class="anstab">
@@ -135,10 +132,10 @@
 
         <script>
             $(document).ready(function(){
-                if("<%= @profile.about %>")
+                if("<%= current_user.profile.about %>")
                 {
 
-                    $(".profile_text").html("<%= @profile.about %>").show();
+                    $(".profile_text").html("<%= current_user.profile.about %>").show();
                     $(".profile_text2").hide();
                 }
                 else

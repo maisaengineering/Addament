@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
         end
   end
    def check_user_profile
-    profile = Profile.where(:user_id=> current_user.id).first
+    profile = Profile.where(user_id: current_user.id).first
      unless profile
       redirect_to new_profile_path ,notice: "#{flash[:notice]} #{t(:profile_notice)}."
     end
