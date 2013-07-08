@@ -1,25 +1,29 @@
 <% i =1 %>
 <% @goal.each do |goal| %>
-    <% user  = User.find(goal.user_id) %>
-    <% profile = user.profile %>
-     <div class="goal_ppf">
-    <%= profile.first_name %> <%= profile.last_name %><br>
-    <div class="goal_name">
-    <%= goal.goal_name %><br>
-    </div>
-       <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
-       <div class="comment_form<%= i %>" style="display: none;">
-        <div class="comment_form">
-          <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
+    <% unless goal.goal_name.nil? %>
+        <% user  = User.find(goal.user_id) %>
+        <% profile = user.profile %>
+         <div class="goal_ppf">
+        <%= profile.first_name %> <%= profile.last_name %><br>
+        <div class="goal_name">
+        <%= goal.goal_name %><br>
         </div>
-       </div>
+           <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
+           <div class="comment_form<%= i %>" style="display: none;">
+            <div class="comment_form">
+              <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
+            </div>
+           </div>
 
-       </div>
-    <div style="margin-left: 100px;">
-    <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
-    <% i += 1 %>
-    </div>
-    <hr>
+           </div>
+        <div style="margin-left: 100px;">
+        <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+        <% i += 1 %>
+        </div>
+        <br/>
+    <% else %>
+        <p>There is No Goals Added</p>
+    <% end %>
 <% end %>
 
 

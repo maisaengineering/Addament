@@ -5,15 +5,15 @@
 			<tr>
 			<td>	
 			Recipents</td>
-			<td><%= f.text_field :recipients, :id => "conversation_recipients" %></td>
+			<td><%= f.text_field :recipients, :id => "conversation_recipients", :required => true %></td>
 			</tr>
 			<tr>
 				<td>Subject</td>
-			    <td><%= f.text_field :subject %></td>
+			    <td><%= f.text_field :subject, :required => true %></td>
 			</tr>
 			<tr>
 			    <td>Body</td>
-			    <td><%= f.text_area :body, :rows => 5, :cols => 5 %></td>
+			    <td><%= f.text_area :body, :rows => 5, :cols => 5, :required => true %></td>
 			</tr>
 			<tr>
 				<td></td>

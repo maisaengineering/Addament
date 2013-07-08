@@ -87,12 +87,15 @@
             <% end %>
             <label class="qtnlb">Educations:</label><br>
             <% @education.each do |education| %>
-                <label class="qtn" >School Name:</label><label class="ans"><%= education.school %></label><br>
+                <% unless education.school_id.nil? %>
+                    <% schoolname = School.find(education.school_id) %>
+                <label class="qtn" >School Name:</label><label class="ans"><%= schoolname.school_name %></label><br>
                 <label class="qtn" >Date Attended:</label><%= education.date_attended %><br>
                 <label class="qtn" >Degree:</label><%= education.degree %><br>
                 <label class="qtn" >Field Of Study:</label><%= education.field_of_study %><br>
                 <label class="qtn" >Grade:</label><%= education.grade %><br>
 
+            <% end %>
             <% end %>
           </p>
         </div>

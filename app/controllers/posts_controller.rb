@@ -38,9 +38,17 @@ class PostsController < ApplicationController
   end
 
   def follow_from_post
+
+    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     @users = User.where("id != ? ", current_user.id)
-    user = User.find(params[:id])
-    current_user.follow(user)
+    #user = User.find(params[:id])
+    #current_user.follow(user)
+    #@followee =  current_user.user_followers
+    #
+    #
+    #@users = User.where("id != ? ", current_user.id)
+    #user = User.find(params[:id])
+    #current_user.follow(user)
     @all_users = User.where("id != ?", current_user.id)
 
   end

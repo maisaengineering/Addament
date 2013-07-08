@@ -48,8 +48,8 @@
             <p>
               <label class="qtnlb">Professional:</label><br>
               <% @past.each do |past| %>
-
-                  <% if past.end_date!=nil %>
+                  <% if !past.nil? %>
+                  <% if !past.end_date.nil? %>
                       <% unless past.company_id.nil? %>
                       <label class="qtntab">Company name:</label><label class="anstab">
                       <% companyname = Company.find(past.company_id) %>
@@ -65,17 +65,26 @@
 
                       <label class="qtntab">Project name:</label><%= past.project_name %><br>
 
+                      <% end %>
+                  <% else %>
+                      <p>There is No past professional information</p>
                   <% end %>
-                  <% end %>
+                 <% end %>
               <% end %>
               <label class="qtnlb">Educations:</label><br>
               <% @education.each do |education| %>
-                  <label class="qtntab" >School name:</label><label class="anstab"><%= education.school %></label><br>
-                  <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
-                  <label class="qtntab" >Degree:</label><%= education.degree %><br>
-                  <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
-                  <label class="qtntab" >Grade:</label><%= education.grade %><br>
-
+                  <% if !education.nil? %>
+                  <% unless education.school_id.nil? %>
+                      <% schoolname = School.find(education.school_id) %>
+                      <label class="qtntab" >School name:</label><label class="anstab"><%= schoolname.school_name %></label><br>
+                      <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
+                      <label class="qtntab" >Degree:</label><%= education.degree %><br>
+                      <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
+                      <label class="qtntab" >Grade:</label><%= education.grade %><br>
+                      <% end %>
+                  <% else %>
+                      <p>There is No Educational information</p>
+                  <% end %>
               <% end %>
             </p>
           </div>
@@ -89,15 +98,12 @@
 
                       <% companyname = Company.find(present.company_id) %>
                       <%= companyname.company_name %></label><br>
-
                       <label class="qtntab">Start Date:</label><%= present.start_date %><br>
-
                       <label class="qtntab">Location:</label><%= present.location %><br>
-
                       <label class="qtntab">Project Name:</label><%= present.project_name %><br>
-
-
-                  <% end %>
+                      <% else %>
+                          <p>There is No past professional information</p>
+                      <% end %>
                   <% end %>
               <% end %>
 
