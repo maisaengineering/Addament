@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
    layout :layout_by_resource
   helper_method :mailbox, :conversation_layout
   unless Rails.application.config.consider_all_requests_local
@@ -36,7 +37,8 @@ class ApplicationController < ActionController::Base
    def check_user_profile
     profile = Profile.where(user_id: current_user.id).first
      unless profile
-      redirect_to new_profile_path ,notice: "#{flash[:notice]} #{t(:profile_notice)}."
+       flash[:notice] = "please enter basic profile information"
+       redirect_to new_profile_path
     end
     
    end

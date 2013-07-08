@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  before_filter :check_user_profile
   # GET /todos
   # GET /todos.json
   def index

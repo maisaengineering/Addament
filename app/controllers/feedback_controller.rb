@@ -1,4 +1,5 @@
 class FeedbackController < ApplicationController
+  before_filter :check_user_profile
   helper_method :mailbox, :conversation
 
   def new
