@@ -51,10 +51,10 @@ class ProfessionalsController < ApplicationController
 
     respond_to do |format|
        if @professional.save
-        format.html{redirect_to  edit_profile_path(current_user.profile.id), notice: 'Professional Industry was successfully.'}
         format.js
-      else
-        format.html{render action: "new"}
+        #format.html{redirect_to  edit_profile_path(current_user.profile.id), notice: 'Professional Industry was successfully.'}
+       else
+        #format.html{render action: "new"}
         format.js
       end
     end  

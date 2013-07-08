@@ -18,13 +18,13 @@
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <td><%= f.label :goal_name %></td>
-    <td><%= f.text_field :goal_name %></td>
+    <td><%= f.text_field :goal_name , :required => true %></td>
   </div>
   </tr>
     <tr>
   <div class="field">
     <td><%= f.label :target_date %></td><br />
-    <td><%= f.text_field :target_date, :id => "date_picker" %></td>
+    <td><%= f.text_field :target_date, :id => "date_picker", :required => true %></td>
   </div>
    </tr>
     <tr>
