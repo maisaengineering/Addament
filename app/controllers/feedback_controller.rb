@@ -6,7 +6,20 @@ class FeedbackController < ApplicationController
 
   end
   def send_email
-    NotificationMailer.feedback_email(params[:email],params[:title], params[:category], params[:message], params[:current_form]).deliver
+
+    if params[:current_form] == "users"  && params[:current_action] == "show"
+      form_name = "Dashboard"
+    elsif  params[:current_form] == "profiles"
+      form_name = "profiles"
+    elsif params[:current_form] == "conversations"
+      form_name = "Messages"
+    elsif params[:current_form] == "users" && params[:current_action] == "public_profile"
+      form_name = "Public Profile"
+    else
+      form_name = "Path"
+    end
+
+    NotificationMailer.feedback_email(params[:email],params[:title], params[:category], params[:message], form_name).deliver
     #NotificationMailer.customer_email(params[:email]).deliver
     redirect_to my_account_path
   end
