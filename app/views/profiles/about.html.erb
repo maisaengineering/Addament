@@ -14,7 +14,7 @@
 
           <% end %>
         </td>
-        <td style="width:100px; vertical-align: top;"><div class="aboutbutton" ><a href="javascript:void(0)" style="color:#7EC044">About Us</a></div></td>
+        <td style="width:100px; vertical-align: top;"><div class="aboutbutton" ><a href="javascript:void(0)" style="color:#7EC044"><b>About Me<b/></a></div></td>
         <td>
           <div class="profile_text">
             <%= current_user.profile.about %>
@@ -70,8 +70,8 @@
                   <% else %>
                       <p>There is No past professional information</p>
                   <% end %>
-                 <% end %>
-              <% end %>
+                 <% end %><hr>
+
               <label class="qtnlb">Educations:</label><br>
 
               <% @profile.education.each do |education| %>
@@ -103,9 +103,6 @@
                       <% end %>
                   <% end %>
               <% end %>
-
-
-
             </p>
           </div>
 

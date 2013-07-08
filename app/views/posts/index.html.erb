@@ -19,6 +19,12 @@
 
                      </div>
                  </ul>
+      <p>
+
+        <% if @all_users.count > 4 %>
+            <%= link_to "See all", public_profile_path,  :class => "see_all" %>
+        <% end %>
+      </p>
     </div>
 
    </div>
@@ -61,6 +67,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/assets/jquery.mCustomScrollbar.js"></script>
+
   <script>
    (function($){
     $(window).load(function(){
