@@ -84,3 +84,12 @@ h1, h2, h3, h4, h5, h6 {
     background-color: white;
     margin-top: -20;
 }
+.btn-danger{
+    border-radius: 10px;
+    height: 26px;
+    padding-top: 3px;
+}
+.btn-primary {
+    border-radius: 10px;
+    height: 26px;
+}

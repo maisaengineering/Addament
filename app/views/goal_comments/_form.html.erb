@@ -21,10 +21,10 @@
   </div>
   <div class="field">
     <%= f.label :comment_description %><br />
-    <%= text_field_tag :profile_id, :value => profile_id %>
+    <%= f.hidden_field :profile_id, :value => profile_id %>
     <%= f.text_area :comment_description, :style =>"height: 30px;" %>
   </div>
   <div class="actions">
-    <%= f.submit "Comment", :id => "save" %>
+    <%= f.submit "Comment", :id => "save", :class => "commentsbtn" %>
   </div>
 <% end %>

@@ -3,7 +3,7 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <div id="container">
 
-  <div id="centerDIV" style = "margin-left:-75px;width:700px;">
+  <div id="centerDIV" style = "width:630px;">
     <table align="center">
       <%= form_for(@education) do |f| %>
           <div id="error_explanation">
@@ -54,7 +54,7 @@
           </tr>
           <tr class="spaceunder">
             <td></td>
-            <td><%= f.submit "Save", :id=> "save", :class => "postbtn" %></td>
+            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:70px" %></td>
       <% end %>
       <% unless @param_id %>
             <td>

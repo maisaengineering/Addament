@@ -1,47 +1,35 @@
-
-<style type="text/css">
-  .posted_text, .subject {
-      padding-left: 6px;
-  }
-  p {
-      color: white;
-  }
-  li.receipt{
-      list-style-type: none;
-  }
-</style>
-<div class="msg_conv">
+<div id="container">
+<div id="msg_conv">
+  <h4>Conversation</h4><br>
+  <hr>
   <table>
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
         <% sender_find = receipt.notification.sender_id %>
         <% sender_name = User.find(sender_find)%>
       <tr>
-          <td style="width:90px; height: 99px; vertical-align: top;">
+          <td style="vertical-align: top;">
             <% unless sender_name.profile.avatar_file.nil? %>
-            <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => sender_name.profile.id ),{ :class => "profile_image"} %>
+            <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => sender_name.profile.id ),{ :class => "profile_image", :style => "width:30;height:30"} %>
             <% else %>
-                <%= image_tag("missing.png",height: 70,width: 70) %>
-            <% end %>
-          </td>
-          <td> <%=  sender_name.profile.first_name%></td>
-          <td>
-            <% change_is_read(receipt) %>
-            <% message = receipt.message %>
-          </td>
-          <td>  
-            <%=  message.body %>
+                <%= image_tag("missing.png",height: 30,width: 30) %>
+            <% end %><br>
+            <label><%=  sender_name.profile.first_name%></label><br>
+                      <% change_is_read(receipt) %>
+                      <% message = receipt.message %><br>
+                     <label style="margin-top:-59px;color:#000000"> <%=  message.body %><label><br>
+           
           </td>
     </tr>
     <% end %>
     <tr>
       <td>
-            <%= button_tag "Reply", :id=> "reply" %>
+            <%= button_tag "Reply", :id=> "reply", :class => "replybtn" %>
       </td>      
     </tr>
   </table>      
-
-<div class="reply_form" style="display: none;">
-<%= render 'messages/form', conversation: conversation %>
+    <div class="reply_form" style="display: none;float:left;margin-top:10px;margin-left:50px">
+    <%= render 'messages/form', conversation: conversation %>
+</div>
 </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">

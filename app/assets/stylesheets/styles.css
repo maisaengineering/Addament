@@ -919,7 +919,7 @@ td{
 }
 #requests li{
     margin: 0px; padding: 0px;
-    margin-left: -20px;
+    margin-left: -26px;
     list-style: none;
     float: left;
     width: 135px;
@@ -939,6 +939,7 @@ td{
     color: #54a1d5;
     font-size: 11px;
     letter-spacing: 1px;
+    margin-left: 6px;
 }
 .profile_img {
     width: 25px;
@@ -1286,6 +1287,7 @@ td{
     color: #fff;
     background: #96C953;
     border: 0px;
+    border-radius:20px;
     padding: 2px;
     font-size: 13px;
     font-family:itc_avant_garde;
@@ -1468,15 +1470,38 @@ hr.style-one {
     margin: 0 auto;margin-top: 30px; margin-bottom: 30px;
     position: relative;
 }
-.msg_conv{
-    width:600px;
-    background-color:#fff;
+#msg_conv{
+    width:980px;
+    background-color:#ffffff;
     float: left;
-    position: absolute;
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
+    color:red;
+ 
+    dsiplay: block;
 }
+#msg_conv h4{
+    color:#000000;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    float:left;
+}
+#msg_conv label{
+    font-size: 16px;
+    font-family:itc_avant_garde;
+    color: #51a2d5;
+    float:left;
+    margin-left: 35px;
+    margin-top: -40px;
+    /*background-color: #ff6;*/
+}
+#msg_conv .posted_text, .subject {
+      padding-left: 6px;
+  }
+#msg_conv p {
+      color: red;
+  }
+  li.receipt{
+      list-style-type: none;
+  }
 /* -------------------------------------- CONTAINER DIV SECTION END. ---------------------------*/
 .new_conversation {
     -moz-transition: background-color 0s ease 0s, color 400ms linear 0s;
@@ -1533,7 +1558,7 @@ hr.style-one {
 }
 #messages_ul li{
     height: 185px;
-    margin-left: -10px;
+    margin-left: -17px;
     float: left;
     background-position:120px -2px;
     margin-bottom: 20px;
@@ -2064,9 +2089,10 @@ ul#pinned_message{
 }
 .feedback_fbtn{
     position: fixed;
-    bottom: 2px; right: 0px;color: white;
-    background: #000000;
+    bottom: 300px; right: 0px;color: white;
+    background: #51A2D5;
     border: 0px;
+    border-radius: 10px 0px 0px 10px;
     height: 20px !important;
     padding: 2px;
     padding-left: 10px;
@@ -2080,7 +2106,7 @@ ul#pinned_message{
 .profile_text{
     display: block;
     align:justify;
-    color:#51A2D5;
+    /*color:#51A2D5;*/
 }
 .post_time{
     margin-left: 75px;
@@ -2091,6 +2117,7 @@ ul#pinned_message{
     color: #fff;
     background: #51A2D5;
     border: 0px;
+    border-radius: 20px;
     padding: 2px;
     font-size: 13px;
     font-family:itc_avant_garde;
@@ -2129,3 +2156,21 @@ ul#pinned_message{
     margin-top: 12px;
     height:25px;
 }
+
+.replybtn {
+    color: #fff;
+    background: #7DBF40;
+    border: 0px;
+    border-radius: 20px;
+    padding: 7px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 33px;
+    margin-top: 12px;
+    height:25px;
+    width:74px;
+}
+
