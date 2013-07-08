@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   serialize :user_role,Array
   has_one :profile
   has_many :todos
+  has_many :posts
   has_many :goals, :dependent => :destroy
   has_many :my_activity
 
@@ -106,7 +107,7 @@ class User < ActiveRecord::Base
   def self.get_education(education)
     education_result = []
     education.each do |aff|
-      unless aff.school.nil?
+      unless aff.school_id.nil?
         affl = aff.school.split(',')
 
         affl.each do |affliations_split|
