@@ -50,8 +50,9 @@ class UsersController < ApplicationController
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     affiliation = current_user.profile.professionals
     education = current_user.profile.education
-    @all_affilation = User.get_affliation(affiliation)
-    @all_school = User.get_education(education)
+    @all_affilation = Professional.where(company_id: affiliation[0].company_id).count
+    @all_school = education.count
+    @users = User.all
     @posts = Post.where("user_id != ?", current_user.id)
     @following =  current_user.all_following.count
     @todos = Todo.where("user_id =?", current_user.id).order('created_at desc').limit(3)
