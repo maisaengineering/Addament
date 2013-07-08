@@ -41,37 +41,40 @@
     <div id="activityDiv">
       <h3>Activity</h3>
       <ul id="activityUL"  style = "margin-top: -20px;" >
-        <% @users[0..2].each do |user| %>
-          <% if current_user.following?(user) || current_user.followed_by?(user) %>
-              <% other_posts = user.posts %>
-                <% other_posts.each do |post| %>
-                  <li class="activityLI">
-                     <% unless user.profile.nil? %>
-                        <% unless user.profile.avatar_file.nil? %>
-                            <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image"} %>
-                        <%else %>
-                           <%= image_tag("missing.png",height: 70,width: 70) %>
+        <% if current_user.follow_count > 0 || current_user.followers_count > 0 %>
+            <% @users[0..2].each do |user| %>
+
+                <% if current_user.following?(user) || current_user.followed_by?(user) %>
+
+                    <% other_posts = user.posts %>
+
+                    <% if other_posts.count < 0 %>
+                        <% other_posts.each do |post| %>
+                            <li class="activityLI">
+                              <% unless user.profile.nil? %>
+                                  <% unless user.profile.avatar_file.nil? %>
+                                      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image"} %>
+                                  <%else %>
+                                      <%= image_tag("missing.png",height: 70,width: 70) %>
+                                  <% end %>
+                              <% end %>
+                              <label><%= user.profile.first_name %> <%= user.profile.last_name %></label>
+                              <% unless user.profile.nil? %>
+                                  <%= truncate(post.current_post, length: 1) %>
+                              <% end %>
+                              <ul id="infoUL">
+                                <li class="infoLI"><%= time_ago_in_words(post.created_at) %> ago </li>
+                                <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(post) %></li>
+                              </ul>
                         <% end %>
-                     <% end %>
-                     <label><%= user.profile.first_name %> <%= user.profile.last_name %></label>
-                     <% unless user.profile.nil? %>
-                       <%= truncate(post.current_post, length: 1) %>
-                     <% end %>
-                     <ul id="infoUL">
-                        <li class="infoLI"><%= time_ago_in_words(post.created_at) %> ago </li>
-                        <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(post) %></li>
-                     </ul>
+                       <% else %>
+                            <p> No Activity found</p>
+                       <% end %>
+                      </li>
+
                 <% end %>
-            </li>
-         <% else %>
-           <li>
-            <p> No Activity found</p>
-           </li>
-         <% end %>
-      <% end %>
-        <% if @posts.length > 2 %>
-            <%= link_to "see more", posts_path , :style => "float:right" %>
-        <% end %>
+
+            <% end %>
       </ul>
     </div>
   </div>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  before_filter :check_user_profile
   def index
     @post = Post.new
     @posts = Post.paginate(page: params[:page], per_page: 5).order('created_at desc')
@@ -38,9 +39,8 @@ class PostsController < ApplicationController
   end
 
   def follow_from_post
+    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     @users = User.where("id != ? ", current_user.id)
-    user = User.find(params[:id])
-    current_user.follow(user)
     @all_users = User.where("id != ?", current_user.id)
 
   end
