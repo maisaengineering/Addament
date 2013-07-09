@@ -65,7 +65,7 @@
 
           <p><br>
             <label class="qtnlb">Professional:</label><br>
-            <% @past[0..2].each do |past| %>
+            <% @profile.professionals.each do |past| %>
 
                 <% if past.end_date!=nil %>
                     <% unless past.company_id.nil? %>
@@ -86,7 +86,7 @@
                 <% end %>
             <% end %>
             <label class="qtnlb">Educations:</label><br>
-            <% @education.each do |education| %>
+            <% @profile.education.each do |education| %>
                 <% unless education.school_id.nil? %>
                     <% schoolname = School.find(education.school_id) %>
                 <label class="qtn" >School Name:</label><label class="ans"><%= schoolname.school_name %></label><br>
@@ -102,7 +102,7 @@
         <div class="tab-pane" id="tab2">
           <p><br>
             <label class="qtnlb">Professional:</label><br>
-            <% @past.each do |present| %>
+            <% @profile.professionals.each do |present| %>
                 <% if present.end_date == nil %>
                     <% unless present.company_id.nil? %>
                     <% companyname = Company.find(present.company_id) %>

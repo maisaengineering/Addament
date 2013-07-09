@@ -67,15 +67,15 @@
                       <label class="qtntab">Project name:</label><%= past.project_name %><br>
 
                       <% end %>
-                  <% else %>
-                      <p>There is No past professional information</p>
+
                   <% end %>
                  <% end %><hr>
 
               <label class="qtnlb">Educations:</label><br>
 
               <% @profile.education.each do |education| %>
-                  <label class="qtntab" >School name:</label><label class="anstab"><%= education.school %></label><br>
+                  <% school = School.find(education.school_id) %>
+                  <label class="qtntab" >School name:</label><label class="anstab"><%= school.school_name %></label><br>
                   <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
                   <label class="qtntab" >Degree:</label><%= education.degree %><br>
                   <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
