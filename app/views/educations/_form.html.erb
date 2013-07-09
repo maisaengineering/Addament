@@ -55,13 +55,13 @@
           </tr>
           <tr class="spaceunder">
             <td></td>
-            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:70px" %></td>
+            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;" %></td>
       <% end %>
       <% unless @param_id %>
             <td>
 
               <div class="button2">
-                <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn", "data-toggle" => "modal","data-target" => "#myModal"} %>
+                <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn",:style => "width:91px;margin-left:-106px;" ,"data-toggle" => "modal","data-target" => "#myModal"} %>
                   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                      <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -105,4 +105,12 @@
   </div>
 
 </div>
+
+ <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+      <script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+<script>
+    $('#date_picker').datepick({
+        format: 'mm-dd-yyyy'
+    });
+</script>
 
