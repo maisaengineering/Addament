@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :check_user_profile
   # GET /goals
   # GET /goals.json
   def index
@@ -41,7 +42,6 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(params[:goal])
-
     respond_to do |format|
       if @goal.save
         format.html { redirect_to goals_path }

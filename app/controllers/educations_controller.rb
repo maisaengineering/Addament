@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+  before_filter :check_user_profile
   # GET /educations
   # GET /educations.json
   def index

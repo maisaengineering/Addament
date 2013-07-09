@@ -1,6 +1,7 @@
 class ProfessionalsController < ApplicationController
   # GET /professionals
   # GET /professionals.json
+  before_filter :check_user_profile
   layout false
   def index
     @professionals = Professional.all

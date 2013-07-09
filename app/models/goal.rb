@@ -3,4 +3,5 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   has_many :milestones, :dependent => :destroy
   has_many :goal_comment, :dependent => :destroy
+
 end

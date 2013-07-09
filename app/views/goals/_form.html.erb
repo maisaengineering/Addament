@@ -24,7 +24,8 @@
     <tr>
   <div class="field">
     <td><%= f.label :target_date %></td><br />
-    <td><%= f.text_field :target_date, :id => "date_picker", :required => true %></td>
+    <td><%= f.text_field :target_date, :id => "date_picker", :required => true %>
+      <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %></td>
   </div>
    </tr>
     <tr>
@@ -42,5 +43,17 @@
 <script>
     $('#date_picker').datepick({
         format: 'mm-dd-yyyy'
+    });
+</script>
+
+<script>
+    $('#new_goal').submit(function() {
+       var startDate = $('#current_date').val();
+        var endDate = $('#date_picker').val();
+
+        if (startDate > endDate){
+            alert("Target date value should be greater than today date");
+           return false;
+        }
     });
 </script>

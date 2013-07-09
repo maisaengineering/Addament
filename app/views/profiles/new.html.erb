@@ -1,4 +1,9 @@
-
+<% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button class="close" data-dismiss="alert" type="button"> ×</button>
+      <p class="text-info"><%= flash[:notice] %></p>
+    </div>
+<% end %>
 
 <%= render 'form' %>
 

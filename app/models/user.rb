@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable
- acts_as_messageable
+  validates :email, :presence => true, :uniqueness => true
+  acts_as_messageable
   acts_as_followable
   acts_as_follower
  ROLES = %w(Mentor Mentee)
@@ -90,34 +91,6 @@ class User < ActiveRecord::Base
  def name
     email
  end
-  def self.get_affliation(affiliation)
-    affiliation_result = []
-    affiliation.each do |aff|
-      unless aff.affiliations.nil?
-        affl = aff.affiliations.split(',')
-        affl.each do |affliations_split|
-          affiliation_result.push(affliations_split)
-        end
 
-      end
-    end
-
-    return affiliation_result.count
-  end
-  def self.get_education(education)
-    education_result = []
-    education.each do |aff|
-      unless aff.school_id.nil?
-        affl = aff.school.split(',')
-
-        affl.each do |affliations_split|
-          education_result.push(affliations_split)
-        end
-
-      end
-
-    end
-    return education_result.count
-  end
 
 end
