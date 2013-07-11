@@ -40,3 +40,12 @@
 
     }
 </script>
+<script src="/assets/lazyload.js"></script>
+  <script>
+   (function($){
+    $(window).load(function(){
+     // console.log('dfsdf');
+     $("div.post_curcomment").lazyload();
+    });
+   })(jQuery);
+  </script>
