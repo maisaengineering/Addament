@@ -41,41 +41,31 @@
     <div id="activityDiv">
       <h3>Activity</h3>
       <ul id="activityUL"  style = "margin-top: -20px;" >
-        <% if current_user.follow_count > 0 || current_user.followers_count > 0 %>
-            <% @users[0..2].each do |user| %>
+        <% check_for_post %>
 
-                <% if current_user.following?(user) || current_user.followed_by?(user) %>
-
-                    <% other_posts = user.posts %>
-
-                    <% if other_posts.count < 0 %>
-                        <% other_posts.each do |post| %>
-                            <li class="activityLI">
-                              <% unless user.profile.nil? %>
-                                  <% unless user.profile.avatar_file.nil? %>
-                                      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image"} %>
-                                  <%else %>
-                                      <%= image_tag("missing.png",height: 70,width: 70) %>
-                                  <% end %>
-                              <% end %>
-                              <label><%= user.profile.first_name %> <%= user.profile.last_name %></label>
-                              <% unless user.profile.nil? %>
-                                  <%= truncate(post.current_post, length: 1) %>
-                              <% end %>
-                              <ul id="infoUL">
-                                <li class="infoLI"><%= time_ago_in_words(post.created_at) %> ago </li>
-                                <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(post) %></li>
-                              </ul>
-                        <% end %>
-                       <% else %>
-                            <p> No Activity found</p>
-                       <% end %>
-                      </li>
-
+        <% unless check_for_post.nil? || check_for_post == 0  %>
+            <% @posts[0..2].each do |user| %>
+                <% follow_user = User.find(user.user_id)  %>
+                <% if current_user.following?(follow_user) %>
+                    <li class="activityLI">
+                      <% unless follow_user.profile.avatar_file.nil? %>
+                          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => follow_user.profile.id),{ :class => "thumb_image"} %>
+                      <%else %>
+                          <%= image_tag("missing.png",height: 70,width: 70) %>
+                      <% end %>
+                      <label><%= follow_user.profile.first_name %> <%= follow_user.profile.last_name %></label>
+                      <%= truncate(user.current_post, length: 10) %>
+                      <ul id="infoUL">
+                        <li class="infoLI"><%= time_ago_in_words(user.created_at) %> ago </li>
+                        <li class="infoLI"><%= link_to "Comment", comment_current_post_post_path(user) %></li>
+                      </ul>
                 <% end %>
-
             <% end %>
-           <% end %>
+        <% else %>
+            <br/>
+            <br/>
+            <h2>No Activity found </h2>
+        <% end %>
       </ul>
     </div>
   </div>
