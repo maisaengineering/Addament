@@ -47,6 +47,7 @@
             <tr>
               <td>Birthday</td>
               <td><%= f.text_field :birthday, :id => "date_picker" %></td>
+              <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %></td>
             </tr>
 
             <tr>
@@ -111,6 +112,7 @@
                   <tr>
                     <td>Date Started</td>
                     <td><%=  professional.text_field :start_date, :id => "date_picker1" %>
+                      <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %></td>
                       </td>
                   </tr>
                   <tr>
@@ -245,4 +247,21 @@
     $('#date_picker1').datepick({
         format: 'mm-dd-yyyy'
     });
+</script>
+
+<script>
+  $('.edit_profile').submit(function() {
+      var endDate = $('#current_date').val();
+      var startDate = $('#date_picker1').val();
+      var birthdate = $('#date_picker').val();
+
+      if (startDate > endDate){
+          alert("Start date value should be less than today date");
+          return false;
+      }
+      if (birthdate > endDate){
+          alert("Birthdate should be less than today date");
+          return false;
+      }
+  });
 </script>
