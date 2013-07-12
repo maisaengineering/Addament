@@ -31,8 +31,6 @@ body {
 }
 
 .bodycontainer{
-    width:980px;
-    margin:0 auto;
     position: relative;
     min-height: 500px;
     height: auto;
@@ -280,6 +278,7 @@ input[type="search"]:focus{
 }
 #notifi{
     margin-top: 40px;
+    float: right;
 }
 #notifi img{
     padding-left: 10px;
@@ -638,6 +637,7 @@ td{
 }
 /**/
 #activityDiv h3{
+    margin-top: 0px; /* naveen code */
     background: url(/assets/activity.gif)no-repeat;
     padding: 20px; padding-left: 50px;
     background-color:#51a2d5;
@@ -655,6 +655,7 @@ td{
     padding-bottom: 30px;
     padding-left: 20px;
     border-bottom: 1px solid #ccc;
+    margin-left:-45px; /* naveen code */
 }
 #activityUL .activityLI:last-child{
     border: none;
@@ -668,14 +669,6 @@ td{
     float: left;
     padding-right: 10px;
     padding-bottom: 20px;
-}
-#container label{
-    /*color: #51a2d5;*/
-    padding-top: 10px;
-    padding-bottom: 2px;
-    font-size: 12px;
-    font-weight: bold;
-    display: block;
 }
 #feedsDiv label, p{
     margin-left: 5px;
@@ -748,13 +741,14 @@ td{
     text-align: left!important;
 }
 #feedsDiv .network_li{
-    width: 180px; height: 30px;
+    width: 170px; height: 30px;
     background-color: #fff;
     list-style: none;
     margin-top: 2px;padding-left: 10px;
     line-height: 30px; color: #51a2d5;
     font-weight: bold;
     font-size: 12px;
+    margin-left: -26px;
 }
 #feedsDiv .net_count{
     float: right;
@@ -856,6 +850,7 @@ td{
     display: block;
     float: left;
     margin-top: 10px;
+    margin-left: 0px; /*naveen code*/
 }
 #assoAndPV li{
     font-size: 11px;
@@ -919,7 +914,7 @@ td{
 }
 #requests li{
     margin: 0px; padding: 0px;
-    margin-left: -26px;
+    margin-left: -20px;
     list-style: none;
     float: left;
     width: 135px;
@@ -939,7 +934,6 @@ td{
     color: #54a1d5;
     font-size: 11px;
     letter-spacing: 1px;
-    margin-left: 6px;
 }
 .profile_img {
     width: 25px;
@@ -1022,13 +1016,15 @@ td{
 }
 /* -------------------- RIGHT DIV ------------------ */
 #rightDIV h2{
-    background: url(../images/activity.gif)no-repeat;
+    background: url('assets/activity.gif')no-repeat;
     background-position: 20px ;
     background-color: #54a1d5;
     padding: 15px;
     color: #fff;
     font-size: 14px;
-    padding-left: 40px;
+    padding-left: 48px;
+    margin-top: -8px;
+    /*naveen code*/
 }
 #rightDIV li{
     list-style: none;
@@ -1037,6 +1033,7 @@ td{
     font-weight: bold;
     padding-bottom: 15px;
     margin-top: 20px;
+    margin-left: -24px; /*naveen code*/
 }
 #rightDIV li:last-child{
  border: none;
@@ -1127,7 +1124,7 @@ td{
 #bioDIV{
     width: 960px;
     padding: 10px;
-    margin-top: 16px;
+    margin-top: 10px;
     position: absolute;
     background-color: #fff;
 }
@@ -1160,7 +1157,7 @@ td{
 #follfDIV{
     width: 960px;
     padding: 10px;
-    margin-top: 3px;
+    margin-top: 10px;
     position: center;
     background-color: #fff;
 }
@@ -1204,13 +1201,13 @@ td{
     background-color:#fff;
     float: left;
     position: relative;
-    width: 600px;
+    width: 650px;
     padding: 20px;
     text-align: center;
     height: 360px;
 }
 .post_textarea{
-    width: 520px!important;
+    width: 560px!important;
     height: 102px;
     margin: 5px;
 }
@@ -1222,7 +1219,7 @@ td{
 #rightSideDiv{
     width: 250px;
     position: relative;padding: 10px;
-    float: left; margin-left: 10px;
+    float: right; margin-left: 10px;
     background: white;
     border-top: 1px solid rgba(9,9,9,.9);
     border-left: 1px solid rgba(11,11,11,.9);
@@ -1269,7 +1266,7 @@ td{
     width:640px!important;
 }
 .post_status{
-    width:640px;
+    width:690px;
     position: relative;
     height:160px;
     margin-left:0;
@@ -1287,7 +1284,6 @@ td{
     color: #fff;
     background: #96C953;
     border: 0px;
-    border-radius:20px;
     padding: 2px;
     font-size: 13px;
     font-family:itc_avant_garde;
@@ -1299,13 +1295,6 @@ td{
 .comment_list_post{
     width:730px;
     background:#ffffff;
-}
-#h_sep_div{
-    background-color: #fff;
-    width: 1016px;height: 100px;
-    background: url(/assets/divpost-bg.png)repeat-x;
-    position: relative;
-    margin-top: 430px;
 }
 #cover_tit_div{
     width: 690px; height: 100px;
@@ -1470,38 +1459,15 @@ hr.style-one {
     margin: 0 auto;margin-top: 30px; margin-bottom: 30px;
     position: relative;
 }
-#msg_conv{
-    width:980px;
-    background-color:#ffffff;
+.msg_conv{
+    width:600px;
+    background-color:#fff;
     float: left;
-    color:red;
- 
-    dsiplay: block;
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
 }
-#msg_conv h4{
-    color:#000000;
-    font-size: 16px;
-    font-family: itc_avant_garde;
-    float:left;
-}
-#msg_conv label{
-    font-size: 16px;
-    font-family:itc_avant_garde;
-    color: #51a2d5;
-    float:left;
-    margin-left: 35px;
-    margin-top: -40px;
-    /*background-color: #ff6;*/
-}
-#msg_conv .posted_text, .subject {
-      padding-left: 6px;
-  }
-#msg_conv p {
-      color: red;
-  }
-  li.receipt{
-      list-style-type: none;
-  }
 /* -------------------------------------- CONTAINER DIV SECTION END. ---------------------------*/
 .new_conversation {
     -moz-transition: background-color 0s ease 0s, color 400ms linear 0s;
@@ -1558,7 +1524,7 @@ hr.style-one {
 }
 #messages_ul li{
     height: 185px;
-    margin-left: -17px;
+    margin-left: -10px;
     float: left;
     background-position:120px -2px;
     margin-bottom: 20px;
@@ -1619,7 +1585,6 @@ ul#pinned_message{
     width: 980px;
 }
 .search_user{
-    color: #fff;
     font-size: 14px;
     padding: 5px;
     width: 270px;
@@ -1749,9 +1714,9 @@ ul#pinned_message{
 #h_sep_div{
     background-color: #fff;
     width: 100%;height: 100px;
-    background: url(../images/div-bg.png)repeat-x;
-    position: relative;
-    margin-top: 430px;
+    background: url(div-bg.png)repeat-x;
+    position: absolute;
+    margin-top: 400px;
 }
 
 #h_top_div{
@@ -1766,7 +1731,7 @@ ul#pinned_message{
 }
 #h_t_r_div{
     position: relative;
-    float: left;
+    float: right;
 }
 #h_bottom_div{
     position: relative;
@@ -1829,9 +1794,9 @@ ul#pinned_message{
     letter-spacing: 1px;
 }
 #cover_tit_div{
-    width: 600px; height: 100px;
+    width: 650px; height: 100px;
     background-color: rgba(255,255,255,.5);
-    position: relative;margin-top: -100px;
+    position: relative;margin-top: -109px;
 }
 #cover_tit_div h1{
     font-size: 18px;
@@ -1851,43 +1816,7 @@ ul#pinned_message{
     float: left; position: absolute;
     bottom: 10px;
 }
-#h_bottom_div #new_post_div{
-    width: 690px; height: 150px; float: left;
-    background-color: #fff; position: absolute;
-}
-#post_items_div{
-    width: 690px; height: 800px;
-    position: absolute; float: left;
-    margin-top: 160px;
-    background: rgba(0,0,0,.4);
-    border-top: 1px solid rgba(9,9,9,.9);
-    border-left: 1px solid rgba(11,11,11,.9);
-    border-right: 1px solid rgba(15,15,15,.9);
-    border-bottom: 1px solid rgba(100,100,100,.9);
-}
-#post_items_div #posts_ul{
-    list-style: none;
-    background-color: #fff;
-    border: 1px solid #fff;
-}
-#post_items_div #posts_ul .post_list_item{
-    border-bottom: 1px solid #ccc;
-    width: 690px;height: 100px;
-    padding-bottom: 10px; padding-top: 20px;
-}
-#post_items_div #posts_ul .post_list_item img{
-    float: left;
-    padding: 0px 10px;
-}
-#post_items_div #posts_ul .post_list_item label{
-    padding-top: 10px;
-    font-size: 12px;color: #54a1d5;
-    font-weight: bold;
-}
-#post_items_div #posts_ul .post_list_item p{
-    font-size: 11px; font-weight: bold;
-    padding: 7px 0px; color: #828282;
-}
+
 #post_items_div #posts_ul .post_list_item:last-child{
     height: 30px;
 }
@@ -1915,11 +1844,6 @@ ul#pinned_message{
 }
 #posts_ul .post_list_item .share_info  li:first-child{
     list-style:none;margin-left: -3px;
-}
-#post_items_div #activitiesH2{
-    color: #fff;padding: 10px 0px 10px 30px;
-    background-color: #54a1d5;
-    font-size: 13px;letter-spacing: 1px;
 }
 #new_post_avt_img{
     float: left;
@@ -1977,8 +1901,6 @@ ul#pinned_message{
     margin-top: 30px;
     
 }
-
-
 #network_connect{
 
     margin-left:10px;
@@ -2089,10 +2011,9 @@ ul#pinned_message{
 }
 .feedback_fbtn{
     position: fixed;
-    bottom: 300px; right: 0px;color: white;
-    background: #51A2D5;
+    bottom: 2px; right: 0px;color: white;
+    background: #000000;
     border: 0px;
-    border-radius: 10px 0px 0px 10px;
     height: 20px !important;
     padding: 2px;
     padding-left: 10px;
@@ -2106,7 +2027,7 @@ ul#pinned_message{
 .profile_text{
     display: block;
     align:justify;
-    /*color:#51A2D5;*/
+    color:#51A2D5;
 }
 .post_time{
     margin-left: 75px;
@@ -2117,7 +2038,6 @@ ul#pinned_message{
     color: #fff;
     background: #51A2D5;
     border: 0px;
-    border-radius: 20px;
     padding: 2px;
     font-size: 13px;
     font-family:itc_avant_garde;
@@ -2156,21 +2076,237 @@ ul#pinned_message{
     margin-top: 12px;
     height:25px;
 }
-
-.replybtn {
+/*-----------------------------------------*/
+#post_items_div{
+    margin-top: 10px;
+    width: 690px; padding-bottom: 10px;
+    position: relative; float: left;
+}
+#post_items_div #load_more{
+    text-align: center; color: #aaa;
+    height: 40px; font-size: 12px; font-weight: bold; letter-spacing: 1px;
+    line-height: 40px;margin-bottom: 1px;
+    background: rgba(0,0,0,.4);
+    border-top: 1px solid rgba(9,9,9,.9);
+    border-left: 1px solid rgba(30,30,30,.9);
+    border-right: 1px solid rgba(40,40,40,.9);
+    border-bottom: 1px solid rgba(150,150,150,.9);
+    cursor: pointer;
+}
+#post_items_div #posts_ul{
+    list-style: none;
+    background-color: #fff;
+    margin: 0px!important; padding: 0px!important;
+    border: 1px solid #fff;
+}
+#post_items_div #posts_ul .post_list_item{
+    border-bottom: 1px solid #ccc;
+    height: auto;padding: 10px;margin: 0px;
+    min-height: 70px;
+}
+#post_items_div #posts_ul .post_list_item_last{
+    border-bottom: none;
+    height: auto;padding: 10px;margin: 0px;
+    height: 30px!important;
+}
+#post_items_div #posts_ul .post_list_item img{
+    padding: 0px;
+}
+#post_items_div #posts_ul .post_list_item label{
+    font-size: 12px;color: #54a1d5;
+    font-weight: bold;padding: 0px;
+    margin-left: 0px!important;
+}
+#post_items_div #posts_ul .post_list_item .cmt{
+    margin: 0px; padding: 0px;
+    font-size: 12px;
+    padding: 0px;color: #000!important;
+    width: 588px!important;
+    display: block;
+    margin-top: -10px; margin-bottom: 0px;
+    font-family: itc_avant_garde!important;
+    margin-left: 0px!important;
+    word-wrap:break-word;
+}
+#post_items_div #posts_ul:last-child{
+    border: none !important;
+}
+#post_items_div #posts_ul .post_list_item:last-child{
+    height: 30px;
+}
+#posts_ul .comments_cnt{
+    color: #96c953;
+    font-size: 10px; font-weight: bold;
+    margin-left: -10px;
+    margin: 0px; padding: 0px;
+}
+#posts_ul .comments_cnt:hover{
+    color: #96c953;
+    font-size: 10px;
+    color: #aaa;
+}
+#post_items_div #activitiesH2{
+    color: #fff;padding: 10px 0px 10px 30px;
+    background-color: #54a1d5;
+    font-size: 13px;letter-spacing: 1px;
+    margin: 0px; 
+    width: 660px !important;
+}
+#new_post_avt_img{
+    float: left;
+    margin-left: 20px;
+}
+#new_post_text_area{
+    width: 470px; height: 85px;
+    margin-left: 30px;margin-top: 20px;
+}
+#newpost_btns_con {
+    /*background-color: #ffa;*/
+    width: 210px; height: 35px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 470px;
+}
+#newpost_btns_con .btn {
     color: #fff;
-    background: #7DBF40;
+    background: #51a2d5;
     border: 0px;
-    border-radius: 20px;
-    padding: 7px;
+    padding: 2px;
     font-size: 13px;
     font-family:itc_avant_garde;
+    width: 100px;
     cursor: pointer;
     font-weight: bold;
     letter-spacing: 1px;
-    margin-left: 33px;
-    margin-top: 12px;
-    height:25px;
-    width:74px;
+}
+/*000000000000000000000000000000000000000000000000000000000000*/
+#singleCMT{
+    width:100%; background:rgba(84, 161, 213,.1); 
+    border-bottom:1px dotted rgba(170,170,170,1);
+    margin-bottom:0px; padding-top:5px;padding-bottom:5px;
+}
+#cmtImgDiv{
+    width:40px; display:inline-block; float:left;
+}
+#actlCmt{
+    width:545px; margin-left:5px;display:inline-block;
+}
+#cmt_first_name{
+    color:rgba(84, 161, 213,1);font-weight:bold;font-size:12px; letter-spacing:1px;
+}
+#cmtPostedAgo{
+    display:block;color:#AAA; letter-spacing:1px; font-size:10px;
+}
+.about_meLft_col{
+    display: inline-block;
+    width: 200px;
+    margin-left: 50px;
+    cursor: default;
+    text-align: left;
+    color:#51a2d5;
+}
+.about_meRht_col{
+    display: inline-block;
+    width: 200px;
+    margin-left: 50px;
+    cursor: default;
+    text-align: left;
+    color: #96c953;
+}
+.comp_sep{
+    border: 0; border-bottom: 1px dashed #ccc; 
+    width: 90%;
+    margin: 0px auto;
+    padding-bottom:10px;
+    clear: both;
+}
+#fom{
+    width: 400px; 
+    margin: 0px auto; 
+    padding: 5px; 
+    margin-bottom: 10px; 
+    border: 1px solid #f4f4f4;
+    background-color: #F4F4F4;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+}
+#fom .txt_inp{
+    width: 262px !important;
+  float: none:  !important;
+}
+#fom .input_fld_div{
+  position: relative;
+  height: auto;
+
+  margin-bottom: 5px;
+}
+#fom .input_fld_div:after{
+    content:'';height: 0;
+    line-height: 0;
+    clear: both;visibility: hidden;
+}
+#fom .input_fld_div label{
+    width: 80px;
+    display: list-item;
+    float: left;
+    cursor: default;
+    font-size: 12px;
+    list-style: none;
+    margin: 0;padding: 0;
+    margin-right: 50px;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#fom .input_fld_div:after{
+   content:'';height: 0;
+   line-height: 0;
+   clear: both;visibility: hidden;
 }
 
+/*naveen code*/
+
+.profile_image_thumb {
+    width: 120px;
+    height: 120px;
+}
+.profile_about_n{
+    background-color:#ffffff;
+    height:130px;
+}
+
+.profile_about_text{
+    margin-top: -120px;
+    margin-left: 148px;
+}
+.profile_about_btnn{
+    color:#25A1D8;
+    font-family:bold;
+    font-size:16px
+}
+#profile_about_list{
+    color:#99C853;
+    font-family:bold;
+    margin-left: 148;
+    margin-top: 0px;
+    bottom: 3px;
+}
+#profile_about_list label{
+    color:#333;
+    font-family:bold;
+    font-size:13px
+}
+.company_v {
+    background-color: rgb(81, 162, 213);
+    color: white;
+    height: 50px;
+    font-size: 42px;
+    width: 970px;
+    text-align: center;
+    padding-top: 32px;
+}
+
+.company_user_v{
+    width: 490px;
+    height: 100px;
+}

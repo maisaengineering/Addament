@@ -5,25 +5,25 @@
     <div class="field">
     <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
     <td><%= f.label :company_name %></td>
-    <td><%=  f.text_field :companyname, :id=> "company_name", :required => true %></td>
+    <td><%=  f.text_field :companyname, :id=> "company_name", :required => true,:class=>"kxtbnoperzcv" %></td>
     </div>
     </tr>
     <tr>
     <div class="field">
       <td><%= f.label :title %></td>
-      <td><%= f.text_field :title %></td>
+      <td><%= f.text_field :title,:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>
     <div class="field">
       <td><%= f.label :location %></td>
-      <td><%= f.text_field :location %></td>
+      <td><%= f.text_field :location,:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
     <div class="field">
       <td><%= f.label :role %></td>
-      <td><%= f.text_field :role %></td>
+      <td><%= f.text_field :role,:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
@@ -41,38 +41,38 @@
     <tr>
     <div class="field">
       <td><%= f.label :description %></td>
-      <td><%= f.text_area :description, :style => "height: 62;" %></td>
+      <td><%= f.text_area :description, :style => "height: 62;",:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
     <div class="field">
       <td><%= f.label :professional_headline %></td>
-      <td><%= f.text_field :professional_headline %></td>
+      <td><%= f.text_field :professional_headline,:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>
     <div class="field">
       <td><%= f.label :aspriations %></td>
-      <td><%= f.text_area :aspriations, :style => "height: 62;" %></td>
+      <td><%= f.text_area :aspriations, :style => "height: 62;",:class=>"kxtbnoperzcv"  %></td>
 
     </div>
     </tr>
     <tr>  
     <div class="field">
       <td><%= f.label :achievements %></td>
-      <td><%= f.text_area :achievements, :style => "height: 62;" %></td>
+      <td><%= f.text_area :achievements, :style => "height: 62;",:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
     <div class="field">
       <td><%= f.label :affiliations %></td>
-      <td><%= f.text_area :affiliations, :style => "height: 62;" %></td>
+      <td><%= f.text_area :affiliations, :style => "height: 62;",:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
     <div class="field">
       <td><%= f.label :project_name %></td>
-      <td><%= f.text_field :project_name %></td>
+      <td><%= f.text_field :project_name,:class=>"kxtbnoperzcv"  %></td>
     </div>
     </tr>
     <tr>  
@@ -90,7 +90,7 @@
     <tr>  
     <div class="field">
       <td><%= f.label :project_description %></td>
-      <td><%= f.text_area :project_description, :style => "height: 62;" %></td>
+      <td><%= f.text_area :project_description, :style => "height: 62;",:class=>"kxtbnoperzcv"  %></td>
     </div>
   </tr>
   <tr>
@@ -107,8 +107,6 @@
       <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
 
-      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
  <script>
           var availableTags = [
@@ -121,4 +119,7 @@
           ];
           $("#company_name").autocomplete({source: availableTags
           });
-      </script>
+$('#save').on("click", function{
+  console.log('sdfsfsfsdfsfsfsdfsdfdpfpppppppppppppppppppppppppppppppppppppppppppppppp');
+});
+ </script>

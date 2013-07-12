@@ -1,42 +1,64 @@
-<div class="post_curcomment">
 
-<% i = 1 %>
-<% @posts.each do |post| %>
-    <% user = User.find(post.user_id) %>
-    <div class="user_posts_box">
-      <% unless user.profile.avatar_file.nil? %>
-          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
-      <% else %>
-          <%=  image_tag("missing.png",height: 70,width: 70) %>
-      <% end %>
-      <%= post.current_post %>  <br/>
-      <div class="post_time">
-      posted by <%= user.profile.first_name  %></div>
-    </div>
-    <div class="commentbutton<%= i %>" style="margin-left:100px">
+  <% i = 1 %>
+  <% @posts.each do |post| %>
+  <% user = User.find(post.user_id) %>
+  <li class ="post_list_item">
 
-      <a href="javascript:void(0)" onclick ="open_form(<%= i%>)"><%= comments_count(post.id) %> Comment</a>
-      <div class="profile_text<%= i %>" style="display: none;">
+    <% unless user.profile.avatar_file.nil? %>
+    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+    <% else %>
+    <%=  image_tag("missing.png",height: 70,width: 70) %>
+    <% end %>
+    <div id="cmt_section" style="float:right; margin:0px;padding:0px; background:rgba(99,99,99,.001);width:590px!important;">
+      <label>
+        <%= user.profile.first_name  %><span style="float:right;cursor:default;font-weight:100;">
+        <%= post.created_at.strftime("%d %b") %>
+      </span>
+      </label>
+      <p class="cmt">
+        <%= post.current_post %>
+      </p>
+      <p>
+        <span class="comments_cnt"style="display:inline-block;margin-left: -5px!important; padding-right:20px;">
+          <!-- fssdfsdf -->
+
+
+          <%= time_ago_in_words(post.created_at) %> ago
+          <!-- dsadasdasdasd -->
+        </span>
+        <a href="javascript:void(0)" onclick ="open_form(<%= i%>)">
+          <span class="comments_cnt" style="display:inline-block;"><%= comments_count(post.id) %>&nbsp;Comments</span>
+        </a>
+      </p>
+    
+    <div id="allCMTS" class="profile_text<%= i %>" style="display: none;">
+      <div><%=render post.comments%></div>
+      <div class="commentbutton<%= i %>" style="margin-left:0px">
+      <div>
         <div class="comment_form" >
           <%=  render 'comments/form', :id => post.id %>
         </div>
       </div>
     </div>
-    <div><%=render post.comments%></div>
+    </div>
 
-   <% i +=1 %>
-<% end %>
+    </div>
+    <br style="clear:both;"/>
+  </li>
+  <% i +=1 %>
+  <% end %>
 
-</div>
 
-  <br />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 </script>
 <script>
+    var oldCmts;
+
     function open_form(e)
     {
-
-        $('.profile_text'+ e).css('display', 'block');
-
+        if (oldCmts) {
+          oldCmts.slideToggle();
+        }
+        $('.profile_text'+ e).slideToggle();
+        oldCmts = $('.profile_text'+ e);
     }
 </script>
