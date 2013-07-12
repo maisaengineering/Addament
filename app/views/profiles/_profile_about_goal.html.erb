@@ -1,0 +1,48 @@
+
+<% i =1 %>
+<% if @goal.count >0 %>
+    <% @goal.each do |goal| %>
+        <% user  = User.find(goal.user_id) %>
+        <div>
+          <% profile = user.profile %>
+
+          <% if profile.avatar_file? %>
+              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image"} %>
+          <% else %>
+              <%= image_tag("missing.png",height: 70,width: 80) %>
+          <% end %>
+          <div class="goal_ppf">
+            <label><%= profile.first_name %> <%= profile.last_name %></label><br>
+            <div class="goal_name">
+              <%= goal.goal_name %>
+            </div>
+
+                <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
+
+            <div class="comment_form<%= i %>" style="display: none;">
+              <div class="comment_form">
+                <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
+              </div>
+            </div>
+
+          </div>
+          <div>
+            <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+            <% i += 1 %>
+          </div>
+          <br/>
+
+    <% end %>
+<% else %>
+    <p>No Goals Added</p>
+<% end %>
+</div>
+
+<script>
+function open_form(e)
+{
+
+$('.comment_form'+ e).css('display', 'block');
+
+}
+</script>

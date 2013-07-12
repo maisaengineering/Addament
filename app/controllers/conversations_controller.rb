@@ -5,7 +5,19 @@ class ConversationsController < ApplicationController
 
   def create
     recipient_emails = conversation_params(:recipients).split(',')
-    recipients = User.where(email: recipient_emails).all
+    usermail = []
+    recipient_emails.each do |firstname|
+
+      prof = Profile.where("first_name = ?", firstname).first
+
+      if prof
+        user = User.find(prof.user_id)
+        usermail.push(user.email)
+      end
+
+
+    end
+    recipients = User.where(email: usermail).all
 
     conversation = current_user.
       send_message(recipients, *conversation_params(:body, :subject)).conversation

@@ -23,7 +23,9 @@
 
 <script>
      $(document).ready(function(){
-            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+            var sampleTags = [<% for i in 0...@company.length %>
+                '<%= @company[i].first_name %>',
+                <% end %>];
 
             //-------------------------------
             // Tag events
