@@ -1696,17 +1696,23 @@ ul#pinned_message{
     text-align: left;
     margin-left: 90px;
 }
+.goal_body{
+    margin-left: 80px;
+    margin-top: 12px;
+}
 .g_commenter_photo{
     margin-top:10px;
 }
 .goal_ppf{
-    margin-left: 60px;
+    margin-left: 80px;
+    margin-top: -80px;
     color: #31A5DB;
 
 }
 .goal_name{
     font-size: 25px;
     color: #000000;
+    margin-top:10px;
 }
 /*-----------------------------------------------------------------------------------------*/
 
@@ -1978,6 +1984,11 @@ ul#pinned_message{
     height:400px;
     background:#ffffff;
     margin-top: 16px;
+}
+
+.goal_comment_ls{
+    margin-left: 36px;
+    margin-top: -29px;
 }
 .goal_btn{
     color: white;

@@ -49,7 +49,7 @@ class GoalCommentsController < ApplicationController
         #format.html { redirect_to @post, notice: 'Post was successfully created.' }
         #format.json { render json: @post, status: :created, location: @post }
         @goal_comment = Goal.new
-        @goal = Goal.order('created_at desc')
+        @goal = Goal.where(user_id: current_user.id).order('created_at desc')
         @goal_comment = GoalComment.new
         format.js
       else
