@@ -3,8 +3,11 @@ $(".modal-body").html("<%= escape_javascript(render 'form',button_name: 'Save') 
 
 <% else %>
 
-$('#myModal').modal('hide')
+var fflds = document.getElementsByClassName('kxtbnoperzcv');
 
+for(var i =0; i<fflds.length; i++){
+	fflds[i].value = "";
+}
 
-
+$('#forceClose').trigger('click');
 <% end %>

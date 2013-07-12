@@ -21,4 +21,15 @@ module ProfilesHelper
     return percentage
   end
 
+  def check_for_professional
+    proff = current_user.profile.professionals
+    proff.each do |endtime|
+      if endtime.end_date!=""
+        @proff_conut = 0
+      end
+    end
+    return @proff_conut
+
+  end
+
 end

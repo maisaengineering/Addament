@@ -1,5 +1,5 @@
+<div id="container">
 <%= form_for(@profile, url: about_update_profiles_path, :method => "post", :remote => true) do |f| %>
-    <br/>
     <table id="topDIV_about">
       <tr>
         <td style="width: 92px;">
@@ -14,7 +14,7 @@
 
           <% end %>
         </td>
-        <td style="width:100px; vertical-align: top;"><div class="aboutbutton" ><a href="javascript:void(0)" style="color:#7EC044"><b>About Me<b/></a></div></td>
+        <td style="width:100px; vertical-align: top;"><div class="aboutbutton" ><a href="javascript:void(0)" style="color:#7EC044; margin-left:20px;padding-top: 10px;"><b>About Me<b/></a></div></td>
         <td>
           <div class="profile_text">
             <%= current_user.profile.about %>
@@ -44,77 +44,57 @@
 
     <div class="tab-content">
           <div class="tab-pane active" id="tab1">
-
-            <p>
-              <label class="qtnlb">Professional:</label><br>
+              <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Professional:</label><br>
               <% @profile.professionals.each do |past| %>
-
                   <% if past.end_date!=nil %>
-
                       <% unless past.company_id.nil? %>
-                      <label class="qtntab">Company name:</label><label class="anstab">
-                      <% companyname = Company.find(past.company_id) %>
-
-                      <%= companyname.company_name %></label><br>
-
-
-                      <label class="qtntab">Title:</label><label class="anstab"><%= past.title %></label><br>
-
-                      <label class="qtntab">Start date:</label><%= past.start_date %><br>
-
-                      <label class="qtntab">End date:</label><%= past.end_date %><br>
-
-                      <label class="qtntab">Project name:</label><%= past.project_name %><br>
-
+                      <br style="clear: both;"/>
+                      <label class="about_meLft_col">Company name:</label><label class="about_meRht_col"><% companyname = Company.find(past.company_id) %><%= companyname.company_name %></label><br />
+                      <label class="about_meLft_col">Title:</label><label class="about_meRht_col"><%= past.title %></label><br />
+                      <label class="about_meLft_col">Start date:</label><label class="about_meRht_col"><%= past.start_date %></label><br />
+                      <label class="about_meLft_col">End date:</label><label class="about_meRht_col"><%= past.end_date %></label><br />
+                      <label class="about_meLft_col">Project name:</label><label class="about_meRht_col"><%= past.project_name %></label>
+                      <hr class="comp_sep"/>
                       <% end %>
-
                   <% end %>
-                 <% end %><hr>
+                 <% end %>
 
-              <label class="qtnlb">Educations:</label><br>
-
+              <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Educations:</label>
               <% @profile.education.each do |education| %>
                   <% school = School.find(education.school_id) %>
-                  <label class="qtntab" >School name:</label><label class="anstab"><%= school.school_name %></label><br>
-                  <label class="qtntab" >Date attended:</label><%= education.date_attended %><br>
-                  <label class="qtntab" >Degree:</label><%= education.degree %><br>
-                  <label class="qtntab" >Field of Study:</label><%= education.field_of_study %><br>
-                  <label class="qtntab" >Grade:</label><%= education.grade %><br>
-
-
+                  <label class="about_meLft_col">School name:</label><label class="about_meRht_col"><%= school.school_name %></label><br />
+                  <label class="about_meLft_col">Date attended:</label><label class="about_meRht_col"><%= education.date_attended %></label><br />
+                  <label class="about_meLft_col">Degree:</label><label class="about_meRht_col"><%= education.degree %></label><br />
+                  <label class="about_meLft_col">Field of Study:</label><label class="about_meRht_col"><%= education.field_of_study %></label><br />
+                  <label class="about_meLft_col">Grade:</label><label class="about_meRht_col"><%= education.grade %></label><br />
               <% end %>
-            </p>
           </div>
 
           <div class="tab-pane" id="tab2">
-            <p><label class="qtnlb">Professional:</label><br>
+            <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Professional:</label>
               <% @profile.professionals.each do |present| %>
                   <% if present.end_date == nil %>
                      <% unless present.company_id.nil? %>
-                      <label class="qtntab">Company Name:</label><label class="anstab">
-
-                      <% companyname = Company.find(present.company_id) %>
-                      <%= companyname.company_name %></label><br>
-                      <label class="qtntab">Start Date:</label><%= present.start_date %><br>
-                      <label class="qtntab">Location:</label><%= present.location %><br>
-                      <label class="qtntab">Project Name:</label><%= present.project_name %><br>
+                      <label class="about_meLft_col">Company Name:</label><label class="about_meRht_col"><% companyname = Company.find(present.company_id) %><%= companyname.company_name %></label><br>
+                      <label class="about_meLft_col">Start Date:</label><label class="about_meRht_col"><%= present.start_date %></label><br>
+                      <label class="about_meLft_col">Location:</label><label class="about_meRht_col"><%= present.location %></label><br>
+                      <label class="about_meLft_col">Project Name:</label><label class="about_meRht_col"><%= present.project_name %></label><br>
                       <% else %>
                           <p>There is No past professional information</p>
                       <% end %>
                   <% end %>
               <% end %>
-            </p>
           </div>
 
 
           <div class="tab-pane" id="tab3">
-            <p><label class="qtnlb">Goals:</label><br>
+            <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Goals:</label>
               <%=  render :partial => 'goalcomments' %>
-            </p>
           </div>
     </div>
 
 
+</div>
 </div>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
         </script>

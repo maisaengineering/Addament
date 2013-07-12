@@ -6,7 +6,7 @@
             <% unless user.profile.avatar_file.nil? %>
               <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image",:style => "width:30px;height:30px"} %>
              <%else %>
-             <%= image_tag("missing.png",height: 70,width: 70) %>
+             <%= image_tag("missing.png",height: 30,width: 30) %>
              <% end %>
           <div class = "goal_comment_ls">
           <label> <%= user.profile.first_name %></label><br>

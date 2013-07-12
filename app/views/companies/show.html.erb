@@ -1,10 +1,37 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="search_container">
+  <div class="company_search_user">
+    <p class="company_v"><%= @company.company_name %></p>
+    <% proff = Professional.where(company_id: @company.id) %>
+    <% unless proff.empty? %>
+    <table>
+      <% proff.in_groups_of(2, false) do |lists| %>
+        <tr>
+          <%  for user in lists %>
+          <% profile_show = user.profile %>
+            <div id="network_connect">
+              <td class="company_user_v">
+                <table>
+                  <tr>
+                <% unless profile_show.avatar_file? %>
+                  <td><%= image_tag("missing.png",width: 90, height: 99) %></td>
+                <% else %>
 
-<p>
-  <b>Company name:</b>
-  <%= @company.company_name %>
-</p>
+                     <td><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_show.id ),{ :class => "profile_image"} %></td>
 
+                <% end %>
+                  <td vertical-align= "top"><b><%= link_to "#{profile_show.first_name}", profile_path%></b></td>
+                  </tr>
+                </table>
+              </td>
+            </div>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+        <% else %>
+    <p>No Employees Found</p>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
