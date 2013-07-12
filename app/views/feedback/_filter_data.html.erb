@@ -2,11 +2,10 @@
 <div class="search_container">
   <div class="search_user">
     <h2>Search Results</h2>
-  
+
   <% unless @profile_result.empty? and @company_name.empty? %>
   <div class="search_results_details">
-
-      <% @profile_result.each do |profile_result| %>
+      <b><% @profile_result.each do |profile_result| %></b>
           <% user = User.find(profile_result.user_id) %>
           <table style="color: #51a2d5;">
             <tr>
@@ -18,22 +17,15 @@
             </tr>
           </table>
       <% end %>
-
       <br/>
   </div>
 
 
   <div class="search_results_details">
-
     <% @company_name.each do |profile_result| %>
         <td><%= link_to "#{profile_result.company_name}", profile_result %>
-              <% @professional2 = Professional.where("company_id = ?", profile_result.id) %>
-              <% @professional2.each do |proff| %>
-              <% profile = Profile.find(proff.profile_id) %>
-              <%= profile.first_name %><%= profile.last_name %>
             </td>
   <% end %>
-    <% end %>
   </div>
     <% else %>
         <p><b>No Results Found</b></p>

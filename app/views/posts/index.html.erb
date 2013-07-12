@@ -1,3 +1,4 @@
+<div id="h_sep_div">&nbsp;</div>
  <div id="container">
  <div id="h_top_div">
   <div class="post_slide">
@@ -16,15 +17,8 @@
      <ul>
                      <div id="all_users">
                      <%= render :partial => 'all_users' %>
-
                      </div>
                  </ul>
-      <p>
-
-        <% if @all_users.count > 4 %>
-            <%= link_to "See all", public_profile_path,  :class => "see_all" %>
-        <% end %>
-      </p>
     </div>
 
    </div>
@@ -36,18 +30,19 @@
  <div id="h_bottom_div">
   <div id="users_posts">
 
-  <div class="post_status" >
-       <div id="post_form">
-        <%=  render :partial => 'form' %>
-       </div>
-     </div>
-     <div class="post_curcomment">
-       <div class="post_comment">
+    <div class="post_status" >
+      <div id="post_form">
+      <%=  render :partial => 'form' %>
+      </div>
+    </div>
 
+    <div id="post_items_div">
+      <h2 id="activitiesH2">ACTIVITIES</h2>
+      <ul id="posts_ul">
         <%= render :partial => 'posts_comments', @posts => @posts %>
-       </div>
-     </div>
-
+      </ul>
+      <div id="load_more">load more</div>
+    </div>
   </div> 
  <div id="rightSideDiv">
                   <h2>SPONSORS</h2>
@@ -65,14 +60,43 @@
  <!-- ..................................................................................... -->
 </div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/assets/jquery.mCustomScrollbar.js"></script>
-
   <script>
    (function($){
     $(window).load(function(){
      // console.log('dfsdf');
      $('#ppl_you_know_con_div').mCustomScrollbar();
     });
+    // --------------LOAD MORE FUNCTIONS...
+
+    var posts_con_UL = document.getElementById('posts_ul');
+    var all_comments = $('#posts_ul > li');
+    var posts_len = all_comments.length;
+    $('#posts_ul').html("");
+    var i = 0;
+    var run_time= 1;
+    var list_last_item = document.createElement("li");
+    list_last_item.setAttribute("class","post_list_item_last");
+    posts_con_UL.appendChild(list_last_item);
+
+    $('#load_more').on("click", loadMoreItems);
+    function loadMoreItems(){
+      for(i=$('#posts_ul > li').length-1; i<posts_len; i++){
+        console.log($('#posts_ul > li').length);
+        // --------------------------------
+        $('#posts_ul li:last').before(all_comments[i]);
+
+       // posts_con_UL.appendChild(all_comments[i]);
+        // --------------------------------
+        run_time++;
+        if (run_time>5) {
+          run_time =1;
+          break;
+        };
+      }// FOR LOOP END...
+      if ($('#posts_ul > li').length-1 >= posts_len) {$("#load_more").html("No more posts..!")};
+    }loadMoreItems();
+    // --------------LOAD MORE FUNCTIONS END.....
+    
    })(jQuery);
-  </script>
+
+  </script>  

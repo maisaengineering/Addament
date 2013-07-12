@@ -1,43 +1,69 @@
-<div id ="centerDIV" style ="width: 290;height: 230;background-color:E1E1E1;margin-left: 0;">
-		<%= form_for :conversation, url: :conversations do |f| %>
-	<table>
-			
-			<tr>
-			<td>	
-			Recipents</td>
+<%= form_for :conversation, url: :conversations do |f| %>
+<div id="fom">
+	<div class="input_fld_div" >
+		<label>Recipents</label>
+		<%= f.text_field :recipients, :id => "conversation_recipients", :required => true,:class=>"txt_inp" %>
+	</div>
 
-			<td><%= f.text_field :recipients, :id => "conversation_recipients", :required => true %></td>
-			</tr>
-			<tr>
-				<td>Subject</td>
-			    <td><%= f.text_field :subject, :required => true %></td>
-			</tr>
-			<tr>
-			    <td>Body</td>
-			    <td><%= f.text_area :body, :rows => 5, :cols => 5, :required => true %></td>
-			</tr>
-			<tr>
-				<td></td>
-			    <td><%= f.submit "send" %></td>
-			    <% end %>
-			<% @company = Profile.all %>
-			</tr>
-			
-    </table>
+	<div class="input_fld_div">
+		<label>Subject</label>
+		<%= f.text_field :subject, :required => true,:class=>"txt_inp" %>
+	</div>
+	<div  class="input_fld_div">
+		<label>Body</label>
+		<%= f.text_area :body, :rows => 5, :cols => 5, :required => true,:class=>"txt_inp" %>
+	</div>
+
+	<div class="input_fld_div" style="padding-left: 350px;">
+	<%= f.submit "send" %></td>
+	<% end %>
+	<% @company = Profile.all %>
+	</div>
 </div>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 <script>
-    var availableTags = [<% for i in 0...@company.length %>
-        '<%= @company[i].first_name %>',
-        <% end %>
-    ];
-    $("#conversation_recipients").autocomplete({source: availableTags
-    });
-</script>
+     $(document).ready(function(){
+            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+
+            //-------------------------------
+            // Tag events
+            //-------------------------------
+
+            var eventTags = $('#conversation_recipients');
+
+            var addEvent = function(text) {
+                $('#events_container').append(text + '<br>');
+            };
+
+            eventTags.tagit({
+                availableTags: sampleTags,
+                beforeTagAdded: function(evt, ui) {
+                    if (!ui.duringInitialization) {
+
+                        addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+
+                    }
+                },
+                afterTagAdded: function(evt, ui) {
+                    if (!ui.duringInitialization) {
+                        addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+                    }
+                },
+                beforeTagRemoved: function(evt, ui) {
+                    addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                afterTagRemoved: function(evt, ui) {
+                    addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                onTagClicked: function(evt, ui) {
+                    addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                onTagExists: function(evt, ui) {
+                    addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
+                }
+            });
+        });
+    </script>
 
 
 
