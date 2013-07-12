@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.where("user_id =?", current_user.id)
+    @goals = current_user.goals.order('created_at desc')
      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goals }

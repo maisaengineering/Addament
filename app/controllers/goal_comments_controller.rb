@@ -33,6 +33,13 @@ class GoalCommentsController < ApplicationController
     end
   end
 
+  def add_goalcomment
+    profile = Profile.find(params[:profile_id])
+    GoalComment.create(:goal_id => params[:goal_comment][:goal_id], :commenter_id =>params[:goal_comment][:commenter_id], :comment_description => params[:goal_comment][:comment_description] )
+    @goal = Goal.where(user_id: profile.user_id).order('created_at desc')
+    @goal_comment = GoalComment.new
+  end
+
   # GET /goal_comments/1/edit
   def edit
     @goal_comment = GoalComment.find(params[:id])

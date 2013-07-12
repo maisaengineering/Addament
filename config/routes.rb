@@ -6,7 +6,11 @@ Addament::Application.routes.draw do
   resources :profile_comments
 
 
-  resources :goal_comments
+  resources :goal_comments do
+    collection do
+      post 'add_goalcomment'
+    end
+  end
 
 
   resources :schools

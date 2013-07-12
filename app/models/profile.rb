@@ -7,13 +7,8 @@ class Profile < ActiveRecord::Base
   #                  :url => '/:class/:id/:attachment?style=:style'
 
    #after_save :check_method
-  def avatar_file1=(input_data)
 
-    self.avatar_file = input_data.read
-  end
    is_impressionable
-
-  mount_uploader :image, ImageUploader
   has_many :professionals
   has_many :education
   accepts_nested_attributes_for :professionals
@@ -21,7 +16,10 @@ class Profile < ActiveRecord::Base
   include PublicActivity::Model
   tracked
 
+  def avatar_file1=(input_data)
 
+    self.avatar_file = input_data.read
+  end
   def check_method
     raise self.changes.inspect
   end

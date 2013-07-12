@@ -9,12 +9,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
  ROLES = %w(Mentor Mentee)
-
-  def email_required?
-    super && provider.blank?
-  end
-
-  # Setup accessible (or protected) attributes for your model
+ # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider, :user_role
   serialize :user_role,Array
   has_one :profile

@@ -72,8 +72,7 @@ class ProfilesController < ApplicationController
     end
   end
   def code_image
-    profile = Profile.find(current_user.profile.id)
-    @image = profile.avatar_file
+    @image = current_user.profile.avatar_file
     send_data(@image,:disposition => 'inline')
   end
 
@@ -86,8 +85,7 @@ class ProfilesController < ApplicationController
   # PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
-      up_user= User.find(current_user.id)
-      up_user.update_attributes(:user_role => params[:user_role])
+     current_user.update_attributes(:user_role => params[:user_role])
       respond_to do |format|
       if @profile.update_attributes(params[:profile])
           format.html {redirect_to new_education_path }
@@ -101,7 +99,7 @@ class ProfilesController < ApplicationController
   end
 
    def about
-     @goal = Goal.where("user_id =? ", current_user.id)
+     @goal = current_user.goals.order('created_at desc')
      @profile = current_user.profile
      @goal_comment = GoalComment.new
     end

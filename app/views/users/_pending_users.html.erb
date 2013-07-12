@@ -1,6 +1,7 @@
 <br />
     <div id="request">
       <h6>Requests Pending</h6><br><hr>
+
       <% @reqtomentor.each do |accept| %>
           <% user = User.find(accept.user_id) %>
           <% if accept.status == 'pending' %>
