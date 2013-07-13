@@ -201,29 +201,10 @@
 
       <script type='text/javascript'>//<![CDATA[
       $(window).load(function(){
-          var availableTags = [
-              "ActionScript",
-              "AppleScript",
-              "Asp",
-              "BASIC",
-              "C",
-              "C++",
-              "Clojure",
-              "COBOL",
-              "ColdFusion",
-              "Erlang",
-              "Fortran",
-              "Groovy",
-              "Haskell",
-              "Java",
-              "JavaScript",
-              "Lisp",
-              "Perl",
-              "PHP",
-              "Python",
-              "Ruby",
-              "Scala",
-              "Scheme"
+          var availableTags = [<% for i in 0...@company.length %>
+              '<%= @company[i].company_name %>',
+                  <% end %>
+
           ];
           $( "#company_name" ).autocomplete({
               source: availableTags

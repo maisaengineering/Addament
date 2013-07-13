@@ -205,7 +205,7 @@ h3{
     font-size: 12px;
     font-weight: bold;
     color: #51a2d5;
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-left: 10px;
     padding-left: 5px;
 }
@@ -597,7 +597,7 @@ td{
 }
 /*  ------------------------------------           BOTTOM DIV       ----------------------------------------------  */
 #bottomDIV{
-    width: 980px; height: 642px;
+    width: 980px; height: 565px;
     background: rgba(0,0,0,.01);
     /*border: 1px solid #9f9f9f;*/
     margin: 0 auto; padding: 50px; padding-bottom: 0px;
@@ -661,8 +661,8 @@ td{
     border: none;
 }
 .thumb_image {
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
 }
 
 .activityLI img{
@@ -824,7 +824,7 @@ td{
     float: left;
 }
 #dashboardDiv #assoAndPV{
-    width: 250px; height:160px;
+    width: 250px; height:150px;
     position: absolute;
     float: left;
     /*background-color: #fcf;*/
@@ -876,12 +876,12 @@ td{
 #meeting{
     float: left;
     position: absolute;
-    margin-top: 160px;
+    margin-top: 150px;
     margin-left: 128px;
 }
 #meeting li{
     list-style: none;
-    width:250px;height: 54px;
+    width:250px;height: 45px;
     background-color: #fff;
     border-bottom: 1px solid #f2f2f2;
     cursor: pointer;
@@ -910,7 +910,7 @@ td{
     margin-top: 320px;
 }
 #requests ul{
-    margin-top: -10px;
+    /*margin-top: -10px;*/
 }
 #requests li{
     margin: 0px; padding: 0px;
@@ -1350,19 +1350,22 @@ td{
     float: left; 
     padding-right: 10px;padding-top: 5px;
 }
-#ppl_you_know_con_div li label{
+#ppl_you_know_con_div .pp_sug_name{
     font-size: 11px; font-weight: bold;
     color: #96c953;letter-spacing: 1px;
+    display: block;
+    margin: 5px;
 }
 #ppl_you_know_con_div li p{
     font-size: 10px; font-weight: bold;
     color: #ccc;
     /*letter-spacing: 1px;*/
 }
-#ppl_you_know_con_div li a{
+#ppl_you_know_con_div .addToNetworkLabel{
     font-size: 10px; font-weight: bold;
     color: #54a1d5;
     letter-spacing: 1px;
+    display:block;
 }
 
 .profile_image{
@@ -1776,14 +1779,18 @@ ul#pinned_message{
 #ppl_you_know_con_div ul{
     list-style: none;
 }
-#ppl_you_know_con_div li{
+#ppl_you_know_con_div .post_list_item{
     padding-top: 5px;
     padding-bottom: 15px;
     border-bottom: 1px solid #464646;
+    float: none;
+    min-height: 50px;
 }
-#ppl_you_know_con_div li img{
-    float: left; 
-    padding-right: 10px;padding-top: 5px;
+#ppl_you_know_con_div .post_list_item:after{
+    content:'';
+  /*  clear: both;
+    height: 0;
+    visibility: hidden;*/
 }
 #ppl_you_know_con_div li label{
     font-size: 11px; font-weight: bold;
@@ -2191,6 +2198,11 @@ ul#pinned_message{
     letter-spacing: 1px;
 }
 /*000000000000000000000000000000000000000000000000000000000000*/
+#userCMT{
+    background-color:rgba(81,162,213,.2);
+    border-bottom: 1px dotted #aaa;
+    mar
+}
 #singleCMT{
     width:100%; background:rgba(84, 161, 213,.1); 
     border-bottom:1px dotted rgba(170,170,170,1);
@@ -2321,3 +2333,78 @@ ul#pinned_message{
     width: 490px;
     height: 100px;
 }
+/* NAVEN--------------------------------*/
+#msg_conv{
+    width:980px;
+    background-color:#ffffff;
+    float: left;
+    color:red;
+ 
+    dsiplay: block;
+}
+#msg_conv h4{
+    color:#96c953;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+}
+#msg_conv label{
+    font-size: 16px;
+    font-family:itc_avant_garde;
+    color: #51a2d5;
+    float:left;
+    margin-left: 35px;
+    margin-top: -40px;
+    /*background-color: #ff6;*/
+}
+#msg_conv .posted_text, .subject {
+      padding-left: 6px;
+  }
+#msg_conv p {
+      color: red;
+  }
+  li.receipt{
+      list-style-type: none;
+      display: block;
+      border-bottom: 1px dotted #aaa;
+      min-height: 50px;
+      margin-bottom: 10px;
+  }
+li.receipt{
+      list-style-type: none;
+      display: block;
+      border-bottom: 1px dotted #aaa;
+      min-height: 50px;
+      margin-bottom: 10px;
+  }
+  .feedback_fbtn{
+    position: fixed;
+    bottom: 300px; right: 0px;color: white;
+    background: #51A2D5;
+    border: 0px;
+    border-radius: 10px 0px 0px 10px;
+    height: 20px !important;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    font-family: itc_avant_garde;
+    cursor: pointer;
+    padding-top: 5px;
+}
+/*------------------------------------------000000000000000000000000000 ----------------------------------*/
+#reply{
+    color: #fff;
+    background: #96c953;
+    border: 0px;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 12px;
+    font-family: itc_avant_garde;
+    width: 90px;
+    cursor: pointer;
+    font-weight: 100;
+    margin-left: 61px;
+}
+/* -------------------- MAIN COLORS -------------------------*/
+/*     96c953 >> GREEN     */
+/*     51a2d5 >> BLUE     */

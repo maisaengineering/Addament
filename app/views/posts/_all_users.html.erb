@@ -1,6 +1,8 @@
 <% @all_users.each do |user| %>
     <% profile = user.profile %>
     <% unless current_user.following?(user) %>
+          <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id ).first %>
+        <% unless reqtomentor %>
     <% if profile %>
             <li class="post_list_item">
         <% if profile.avatar_file.nil? %>
@@ -10,6 +12,7 @@
         <% end %>
         <label class="pp_sug_name"><%= profile.first_name %></label>
         <%= link_to "Add to Network", follow_from_post_post_path(user.id), :remote => true,:class => "addToNetworkLabel" %>
+      <% end  %>
       <% end  %>
     <% end  %>
     </li>
