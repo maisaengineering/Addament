@@ -1,4 +1,4 @@
-<% @posts = Post.order('created_at desc') %>
+<% @posts = current_user.posts.order('created_at desc') %>
   <% i = 1 %>
   <% @posts.each do |post| %>
   <% user = User.find(post.user_id) %>

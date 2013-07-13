@@ -25,16 +25,7 @@
                 </tr>
               </table>
             </td>
-            <% profile_user = User.find(@profile.user_id) %>
-            <% if current_user.following?(profile_user) %>
-                <td id="disconnect_<%=profile_user.id%>">
-                  <%= button_to "Dis Connect", {:controller => :users, :action => :unfollow_profile, :id => profile_user.id}, :remote => true, :class => "btn" %>
-                </td>
-            <% else %>
-                <td id="connect_<%=profile_user.id%>">
-                  <%= button_to "Connect", {:controller => :users, :action => :follow_profile,  :id => profile_user.id},:remote => true, :class => "btn"%>
-                </td>
-            <% end %>
+
           </tr>
       </table>
         <div>
