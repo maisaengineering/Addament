@@ -6,16 +6,14 @@
     font-family: avenir_next_lt_pro_demi;
     src:url(/assets/avenir_next_lt_pro_demi.woff);
 }
-ul{
-     font-family: itc_avant_garde;
-     width: 250px;
-     display: inline-block;
-}
 ul.tagit {
     padding: 1px 5px;
     overflow: auto;
     margin-left: 1px; /* usually we don't want the regular ul margins. */
     margin-right: 1px;
+    font-family: itc_avant_garde;
+     width: 250px;
+     display: inline-block;
 }
 ul.tagit li {
     display: block;
