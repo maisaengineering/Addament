@@ -26,6 +26,7 @@
           <tr class="spaceunder">
             <td><label>Date attended</label></td>
             <td><%= f.text_field :date_attended, :id => "date_picker" %></td>
+            <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
           </tr>
           <tr class="spaceunder">
             <td><label>Degree</label></td>
@@ -108,6 +109,17 @@
 <script>
     $('#date_picker').datepick({
         format: 'mm-dd-yyyy'
+    });
+</script>
+
+<script>
+    $('.new_education').submit(function() {
+        var endDate = $('#current_date').val();
+        var startDate = $('#date_picker').val();
+        if (startDate > endDate){
+            alert("Start date value should be less than today date");
+            return false;
+        }
     });
 </script>
 
