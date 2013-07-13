@@ -40,7 +40,7 @@
     <!-- .............. ACTIVITY DIV.......... -->
     <div id="activityDiv">
       <h3>Activity</h3>
-      <ul id="activityUL"  style = "margin-top: -20px;" >
+      <ul id="activityUL">
         <% check_for_post %>
 
         <% unless check_for_post.nil? || check_for_post == 0  %>
@@ -72,7 +72,7 @@
 
   <!-- .................. BOTTOM DIV ..................... -->
   <div id="bottomDIV"  style ="margin-left:-47px">
-    <div id="newsFeedsDiv"  style="margin-top:80px">
+    <div id="newsFeedsDiv">
       <h2 class="newsfeedsH2">News Feeds</h2>
       <label>Lorem ipsum dolor sit ametendis et.</label>
       <p>Lorem ipsum dolor sit amet, t rerum qui atque doloribus quasi minima eligendi dolore dolorem! Beatae, consectetur.</p>
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div id="dashboardDiv"  style="margin-top:80px">
+    <div id="dashboardDiv">
 
       <div id="user_info">
         <% if current_user.profile.avatar_file %>
@@ -142,7 +142,7 @@
         </ul>
       </div>
       <div id="requests">
-        <label  style="padding:4px 0px; font-size:16px;letter-spacing: 1px;color:#96c953;">Requests</label>
+        <label  style="padding:4px 0px; font-size:16px;letter-spacing: 1px;color:#96c953;display:block;">Requests</label>
         <ul>
           <li>
             <label>Mentees</label>

@@ -8,8 +8,8 @@
         <% else %>
             <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "medium_image"} %>
         <% end %>
-        <label><%= profile.first_name %></label>
-        <%= link_to "Add to Network", follow_from_post_post_path(user.id), :remote => true %>
+        <label class="pp_sug_name"><%= profile.first_name %></label>
+        <%= link_to "Add to Network", follow_from_post_post_path(user.id), :remote => true,:class => "addToNetworkLabel" %>
       <% end  %>
     <% end  %>
     </li>
