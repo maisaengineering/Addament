@@ -1,4 +1,4 @@
 $(".post_status").html("<%= escape_javascript(render(:partial => "form"))%>");
-$(".post_curcomment").html("<%= escape_javascript(render(:partial => "posts_comments", @posts => @posts))%>");
+$("#posts_ul").html("<%= escape_javascript(render(:partial => "posts_comments", @posts => @posts))%>");
 
 
