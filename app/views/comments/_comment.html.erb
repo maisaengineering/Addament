@@ -1,19 +1,15 @@
-<div id="userCMT" style="">
+<div id="userCMT">
   <% profile = Profile.where("user_id =? ",comment.commenter_id).first %>
   <% unless profile.avatar_file.nil? %>
-  <div id="singleCMT">
-    <div id="cmtImgDiv">
-      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image",:style =>"width:40px;height:40px; margin:0px;padding:0px;"} %>
+
+
+      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image",:style =>"width:40px;height:40px; margin:5px;padding:0px; float:left; display:inline-block"} %>
       <% else %>
       <% end %>
-    </div>
-    <div id="actlCmt">
-      <div id="cmtOfCmt" style="display:inline-block">
-        <span id="cmt_first_name"><%=  profile.first_name %>: </span>
-        <%=  comment.description %>
-      </div>
-      <div id="cmtPostedAgo"><%= time_ago_in_words(comment.created_at) %> ago
-      </div>
-    </div>
-  </div>
+
+      <p id="cmtOfCmt" style="display:inline-block;float:left; width:530px;">
+        <span id="cmt_first_name"><%=  profile.first_name %>: </span><%=  comment.description %>
+         <span id="cmtPostedAgo"><%= time_ago_in_words(comment.created_at) %> ago</span>
+      </p>
+      <br style="clear:both;" />
 </div>

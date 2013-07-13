@@ -1,4 +1,4 @@
-
+<% @posts = Post.order('created_at desc') %>
   <% i = 1 %>
   <% @posts.each do |post| %>
   <% user = User.find(post.user_id) %>
@@ -35,8 +35,8 @@
       <div><%=render post.comments%></div>
       <div class="commentbutton<%= i %>" style="margin-left:0px">
       <div>
-        <div class="comment_form" >
-          <%=  render 'comments/form', :id => post.id %>
+        <div class="comment_form" style="margin-top:5px;">
+          <%=  render 'comments/form', :id => post.id,:style=>"width:590px;" %>
         </div>
       </div>
     </div>
