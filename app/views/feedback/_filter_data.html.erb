@@ -10,6 +10,11 @@
           <% user = User.find(profile_result.user_id) %>
           <table style="color: #51a2d5;">
             <tr>
+              <% unless profile_result.avatar_file? %>
+                  <td><%= image_tag("missing.png", width: 90, height: 99) %></td>
+              <% else %>
+                  <td><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_result.id), {:class => "profile_image"} %></td>
+              <% end %>
               <td>
                 <%= link_to "#{profile_result.first_name}", profile_result %>
                 <%= link_to "#{profile_result.last_name}", profile_result %>
