@@ -68,7 +68,7 @@ Addament::Application.routes.draw do
     # match "/login" => "devise/sessions#new"
     # delete "/logout" => "devise/sessions#destroy"
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
-    post 'users/auth/register'=>'users/omniauth_callbacks#create'
+    get 'users/auth/register'=>'users/omniauth_callbacks#create'
   end
   authenticated :user do
     root :to => 'users#show'
