@@ -14,9 +14,9 @@
   <div class="field">
     <%= f.hidden_field :post_id, :value => id %>
     <%= f.hidden_field :commenter_id, :value => current_user.id %>
-    <%= f.text_area :description, :rows => "2", :cols => "2" %>
+    <%= f.text_area :description, :rows => "2", :cols => "2",:style=>"width:590px;" %>
   </div>
   <div class="actions">
-    <%= f.submit :class => "commentsbtn" %>
+    <%= f.submit "comment", :class => "commentsbtn" %>
   </div>
 <% end %>

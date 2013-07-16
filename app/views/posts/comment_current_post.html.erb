@@ -1,20 +1,19 @@
-<div id="container" style="background-color:#fff;">
-  <div class="comment_list_post">
-     <%=  render :partial => 'current_comment' %>
-    </div>
-    <div style = "margin-left:10px;">
-  <%= form_for(:comment, url: create_comment_post_path, :method => "post", :remote => true) do |f| %>
-
+<div id="container" style="background-color:#fff;padding:10px;">
+  <div class="comment_list_post"><%=  render :partial => 'current_comment' %></div>
+    <div class = "post_fld_input_div" style="margin-left:80px;">
+        <%= form_for(:comment, url: create_comment_post_path, :method => "post", :remote => true) do |f| %>
         <%= f.hidden_field :post_id, :value => @post.id %>
         <%= f.hidden_field :commenter_id, :value => current_user.id %>
-        Comment<br />
-
-        <%= f.text_area :description, :style => "height:30px;width:200px;" %> <br>
-
-        <%= f.submit "Post Comment", :class => "commentsbtn" %>
-    </div>    
+        <%= f.text_area :description, :style => "height:40px;width:900px;margin-top:5px;" %> <br>
+        <%= f.submit "comment", :class => "commentsbtn", :onClick=>"fooo()" %>
+    </div>  
   <% end %>
 </div>
+<script>
+  function fooo(){
+    window.location.reload();
+  }
+</script>
 
 
 

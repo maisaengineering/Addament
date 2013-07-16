@@ -1,40 +1,38 @@
 <div id="container">
 <%= form_for(@profile, url: about_update_profiles_path, :method => "post", :remote => true) do |f| %>
-    <table id="topDIV_about">
-      <tr>
-        <td style="width: 92px;">
-
-          <% unless current_user.profile.avatar_file? %>
-              <%= image_tag("missing.png",width: 92) %>
-          <% else %>
-              <div id ="image" style="width:92px;">
-                <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
+         <br>
+         <div class="profile_about_n">
+            <% unless current_user.profile.avatar_file? %>
+            <%= image_tag("missing.png",width:120,height:120) %>
+            <% else %>
+            <div class ="profile_image_thumb">
+              <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
+            </div>
+            <% end %>
+            <div class="profile_about_text">
+              <div class="aboutbutton" ><a href="javascript:void(0)" class="profile_about_btnn"><strong>ABOUT</strong></a></div>
+            </div>
+            <div style ="margin-left:148px;">
+              <div class="profile_text">
+                <%= truncate(current_user.profile.about, :length => 15) %>
               </div>
-
-
-          <% end %>
-        </td>
-        <td style="width:100px; vertical-align: top;"><div class="aboutbutton" ><a href="javascript:void(0)" style="color:#7EC044; margin-left:20px;padding-top: 10px;"><b>About Me<b/></a></div></td>
-        <td>
-          <div class="profile_text">
-            <%= current_user.profile.about %>
-          </div>
-          <div class="profile_text2" style="display:none">
-            <%= f.text_area :about,  :style => "width:550px;", :rows => 2, :cols => 220 %>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <br/>
-    <div style="display: none;">
-      <%=  f.submit "update Profile", :id=> "save" %>
-    </div>
-
-
+              <div class="profile_text2" style="display:none">
+                <%= f.text_area :about,  :style => "width:810px;height:65;", :rows => 2, :cols => 220 %>
+              </div>
+            </div>
+            <div id ="profile_about_list">
+              Latest Activity:<label><%= current_user.profile.updated_at.strftime("%B %d, %Y") %></label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Date Joined:<label><%= current_user.created_at.strftime("%B %d, %Y") %></label> 
+            </div>   
+            <div style="display: none;">
+              <%=  f.submit "update Profile", :id=> "save" %>
+            </div>
+        </div>
 <% end %>
 
 
-<div class="tabbable" style="width: 980px;margin-top: -36px;"> <!-- Only required for left/right tabs -->
+<div class="tabbable" style="width: 100%;"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Past</a></li>
         <li><a href="#tab2" data-toggle="tab" >Present</a></li>
@@ -44,7 +42,7 @@
 
     <div class="tab-content">
           <div class="tab-pane active" id="tab1">
-              <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Professional:</label><br>
+              <label class="goals_tab_title">Professional:</label><br>
               <% @profile.professionals.each do |past| %>
                   <% if past.end_date!=nil %>
                       <% unless past.company_id.nil? %>
@@ -59,7 +57,7 @@
                   <% end %>
                  <% end %>
 
-              <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Educations:</label>
+              <label class="goals_tab_title">Educations:</label>
               <% @profile.education.each do |education| %>
                   <% school = School.find(education.school_id) %>
                   <label class="about_meLft_col">School name:</label><label class="about_meRht_col"><%= school.school_name %></label><br />
@@ -71,7 +69,7 @@
           </div>
 
           <div class="tab-pane" id="tab2">
-            <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Professional:</label>
+            <label class="goals_tab_title">Professional:</label>
               <% @profile.professionals.each do |present| %>
                   <% if present.end_date == nil %>
                      <% unless present.company_id.nil? %>
@@ -86,48 +84,46 @@
               <% end %>
           </div>
 
-
           <div class="tab-pane" id="tab3">
-            <label style="display: block;width:460px;text-align:center;font-weight: bold;padding: 20px;color: #000;font-size: 16px;letter-spacing: 1px;">Goals:</label>
+            <div id="goal_cmts">
+            <label class="goals_tab_title">Goals:</label>
               <%=  render :partial => 'profile_about_goal' %>
+            </div>
           </div>
     </div>
 
 </div>
 </div>
 </div>
- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-        </script>
+<script>
+    $('.aboutbutton').click(function(){
 
-        <script>
-            $('.aboutbutton').click(function(){
+        $('.profile_text').css('display', 'none');
+        $('.profile_text2').css('display', 'block');
+    });
+</script>
 
-                $('.profile_text').css('display', 'none');
-                $('.profile_text2').css('display', 'block');
-            });
-        </script>
+<script>
+    $(document).ready(function(){
+        if("<%= current_user.profile.about %>")
+        {
 
-        <script>
-            $(document).ready(function(){
-                if("<%= current_user.profile.about %>")
-                {
+            $(".profile_text").html("<%= current_user.profile.about %>").show();
+            $(".profile_text2").hide();
+        }
+        else
+        {
+            $(".profile_text2").show();
+            $(".profile_text").hide();
+        }
 
-                    $(".profile_text").html("<%= current_user.profile.about %>").show();
-                    $(".profile_text2").hide();
-                }
-                else
-                {
-                    $(".profile_text2").show();
-                    $(".profile_text").hide();
-                }
+    });
+</script>
 
-            });
-        </script>
+<script>
+    $('#profile_about').blur(function() {
 
-        <script>
-            $('#profile_about').blur(function() {
-
-                $('#save').trigger('click');
-            });
-        </script>
+        $('#save').trigger('click');
+    });
+</script>
 

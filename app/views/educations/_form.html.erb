@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <div id="container">
 
-  <div id="centerDIV" style = "width:630px;">
+  <div id="centerDIV" style = "width:980px;">
     <table align="center">
       <%= form_for(@education) do |f| %>
           <div id="error_explanation">
@@ -54,7 +54,7 @@
           </tr>
           <tr class="spaceunder">
             <td></td>
-            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;" %></td>
+            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;border-radius:10px;" %></td>
       <% end %>
       <% unless @param_id %>
             <td>
@@ -79,7 +79,7 @@
     </table>
   </div>
 
-  <div id="rightSideDIV">
+ <!--  <div id="rightSideDIV">
     <h2>SPONSORS</h2>
     <ul>
       <li>
@@ -101,7 +101,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
       </li>
     </ul>
-  </div>
+  </div> -->
 
 </div>
 

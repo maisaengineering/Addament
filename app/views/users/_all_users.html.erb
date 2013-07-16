@@ -6,7 +6,7 @@
             <% unless current_user.following?(user) %>
                     <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id ).first %>
                     <% unless reqtomentor %>
-                <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+                <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"  %>
                 <%= button_to "Connect", {:controller => :users, :action => :follow,  :id => user.id},:remote => true, :class => "btn", 
                 :style => "margin-top: -25px;margin-left: 150px;" %>
             

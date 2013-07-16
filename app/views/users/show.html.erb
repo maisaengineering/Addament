@@ -27,7 +27,7 @@
       </div>
       <div id="todoListDiv">
         <h2 class="todoListH2">To Do List</h2>
-        <%= link_to("Add Todo", new_todo_path, :style => "color:#51A2D5", :title => "click here to add Todo")
+        <%= link_to("Add Todo", new_todo_path, :style => "color:#51A2D5;margin-left:30px; font-weight:bold;", :title => "click here to add Todo")
             @todos.each do |todo| %><br>
             <%= todo.event_date.to_date.strftime("%B %d, %Y") %><br>
             <%= link_to("#{todo.start_time.strftime("%I:%M%p")} -  #{todo.end_time.strftime("%I:%M%p")}", todo_path(todo.id), :style => "color:#51A2D5",:title => "click here to show Todo")  %><br>
@@ -53,7 +53,7 @@
                       <%else %>
                           <%= image_tag("missing.png",height: 70,width: 70) %>
                       <% end %>
-                      <label><%= follow_user.profile.first_name %> <%= follow_user.profile.last_name %></label>
+                      <label><%= follow_user.profile.first_name %> <%= follow_user.profile.last_name %></label><br />
                       <%= truncate(user.current_post, length: 10) %>
                       <ul id="infoUL">
                         <li class="infoLI"><%= time_ago_in_words(user.created_at) %> ago </li>
@@ -62,8 +62,7 @@
                 <% end %>
             <% end %>
         <% else %>
-            <br/>
-            <br/>
+
             <h2>No Activity found </h2>
         <% end %>
       </ul>
@@ -149,7 +148,7 @@
             <% if @reqtomentor > 0 %>
             <p><%= link_to @reqtomentor, show_request_path %></p>
             <% else %>
-            <p>no requests</p>
+            <p>No Requests</p>
             <%  end %>
           </li>
         </ul>

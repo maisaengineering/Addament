@@ -3,18 +3,21 @@
 <% if @goal.count >0 %>
     <% @goal.each do |goal| %>
         <% user  = User.find(goal.user_id) %>
-           <div>
+          <div id="goal_cmts">
+          <label class="goals_tab_title">Goals:</label>
             <% profile = user.profile %>
-            
-            <% if profile.avatar_file? %>
-                  <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image"} %>
-            <% else %>
-                  <%= image_tag("missing.png",height: 70,width: 80) %>
-            <% end %>
-            <div class="goal_ppf"> 
-                   <label><%= profile.first_name %> <%= profile.last_name %></label><br>
-            <div class="goal_name">
-            <%= goal.goal_name %>
+            <div id="user_goal">
+              <div id="my_gole">
+              <% if profile.avatar_file? %>
+                    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image",:style => "float:left;margin-right:10px;"} %>
+              <% else %>
+                    <%= image_tag("missing.png",height: 70,width: 80) %>
+              <% end %>
+                <div id="goal_det">
+                  <label><%= profile.first_name %> <%= profile.last_name %></label>
+                  <p class="gole" style="color:#555;"><%= goal.goal_name %></p>
+                  </div>
+              </div>
             </div>
                <% if current_user.following?(user) || current_user.followed_by?(user) %>
                <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
@@ -26,18 +29,16 @@
                </div>
 
                </div>
-            <div>
             <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
             <% i += 1 %>
-            </div>
-            <br/>
+
 
     <% end %>
 <% else %>
     <p>No Goals Added</p>
 <% end %>
-</div>
 
+</div>
 
 <script>
     function open_form(e)

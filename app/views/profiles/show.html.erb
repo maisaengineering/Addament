@@ -1,21 +1,18 @@
 <div id="container">
       <table id="topDIV_about">
           <tr>
-            <td id="about_td">
+            <td id="about_td" style="padding:5px;">
               <% if@profile.avatar_file? %>
-
-
-
                   <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => @profile.id ),{ :class => "profile_image"} %>
               <% else %>
                   <%= image_tag("missing.png",height: 70,width: 80) %>
               <% end %>
             </td>
-            <td valign="top">
+            <td>
               <table>
                 <tr>
-                  <td>
-                    About Us
+                  <td style="color:#96c953;">
+                    About
                   </td>
                 </tr>
                 <tr>
@@ -111,12 +108,9 @@
           </p>
         </div>
 
-        <div class="tab-pane" id="tab3"> <br>
-          <label class="qtnlb">Goals:</label><br>
-          <p>
-
+        <div class="tab-pane" id="tab3">
+          <label>Goals:</label>
             <%=  render :partial => 'goalcomments' %>
-          </p>
         </div>
       </div>
       <div id="follfDIV">

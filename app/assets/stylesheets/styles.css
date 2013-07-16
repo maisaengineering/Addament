@@ -68,6 +68,9 @@ label{
     color: #51a2d5;
     /*background-color: #ff6;*/
 }
+#centerDIV label{
+    line-height: 40px;
+}
 .input_fld{
     height: 30px;
     width: 275px;
@@ -364,6 +367,7 @@ input[type="search"]:focus{
     margin: 0 auto; margin-top: 30px;
     border-collapse: collapse;
     align:center;
+
 }
 
 #profile_con_tbl .tabHeader{
@@ -372,7 +376,7 @@ input[type="search"]:focus{
 }
 #profile_con_tbl #editProfile{
     background: url(/assets/editprofile.gif) no-repeat;background-position: 20px 26px;
-    width: 940px;height: 54px;
+    height: 54px;
     background-color:#51a2d5; 
     margin: 18px;color: #222;
     line-height: 65px;
@@ -391,7 +395,6 @@ input[type="search"]:focus{
 }
 #profile_con_tbl .personal{
     background-color: #fff;
-    width: 485px;height: 550px;
     vertical-align: text-top;
 }
 #profile_con_tbl .professional{
@@ -656,13 +659,18 @@ td{
     padding-left: 20px;
     border-bottom: 1px solid #ccc;
     margin-left:-45px; /* naveen code */
+    min-height: 50px;
+}
+#activityUL .activityLI:after{
+    content: "";
+    clear: both;
 }
 #activityUL .activityLI:last-child{
     border: none;
 }
 .thumb_image {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
 }
 
 .activityLI img{
@@ -689,7 +697,7 @@ td{
     /*padding-left: 8px;*/
     padding-right: 8px;
     list-style:url(/assets/dot.png);
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 .activityLI li:first-child{
     list-style:none;
@@ -777,7 +785,7 @@ td{
 }
 #newsFeedsDiv .newsfeedsH2{
     margin: 0px; padding: 0px;
-    padding: 20px;
+    /*padding: 20px;*/
     background: url(/assets/newsfeeds.gif)no-repeat;
     background-position: 20px, 20px;
     padding-left: 50px;
@@ -810,8 +818,8 @@ td{
 }
 #newsFeedsDiv .thumbs{
     list-style: none;
-    margin-top: -30px;
-    margin-left: 5px;
+    margin-top: -20px;
+    margin-left: 0px;
 }
 #newsFeedsDiv .thumb{
     float: left;
@@ -910,7 +918,8 @@ td{
     margin-top: 320px;
 }
 #requests ul{
-    /*margin-top: -10px;*/
+    margin-top: -5px;
+    margin-left: 20px;
 }
 #requests li{
     margin: 0px; padding: 0px;
@@ -923,10 +932,11 @@ td{
 }
 #requests li label{
     margin: 0px; padding: 0px;
-    padding-left: 5px;
     color:#96c953;
     padding-top: 0px;
     padding-bottom: 0px;
+    display: block;
+    text-align: center!important;
 }
 #requests li p{
     margin: 0px; padding: 0px;
@@ -934,6 +944,7 @@ td{
     color: #54a1d5;
     font-size: 11px;
     letter-spacing: 1px;
+    text-align: center;
 }
 .profile_img {
     width: 25px;
@@ -1016,7 +1027,7 @@ td{
 }
 /* -------------------- RIGHT DIV ------------------ */
 #rightDIV h2{
-    background: url('assets/activity.gif')no-repeat;
+    background: url('/assets/activity.gif')no-repeat;
     background-position: 20px ;
     background-color: #54a1d5;
     padding: 15px;
@@ -1115,6 +1126,7 @@ td{
     width: 150px;
     cursor: pointer;
     font-weight: bold;
+    letter-spacing: 2px;
 }
 
 
@@ -1216,6 +1228,32 @@ td{
     width: 92px;
     margin-left: 9px;
 }
+.thumb_image_f_post{
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+#actl_cmt_user_click{
+    position: relative;
+}
+#actl_cmt_user_click img{
+    position: absolute;
+    display: inline-block;
+    margin: 5px;
+}
+#actl_cmt_user_click label{
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;margin-left: 80px;
+}
+#actl_cmt_user_click p{
+    display: inline-block;
+    width: 890px;
+    position: relative;
+    margin-left: 80px;
+    color: #000;
+}
+
 #rightSideDiv{
     width: 250px;
     position: relative;padding: 10px;
@@ -1290,11 +1328,7 @@ td{
     cursor: pointer;
     font-weight: bold;
     letter-spacing: 1px;
-    margin-left: 6px;
-}
-.comment_list_post{
-    width:730px;
-    background:#ffffff;
+    border-radius: 10px;
 }
 #cover_tit_div{
     width: 690px; height: 100px;
@@ -1477,10 +1511,9 @@ hr.style-one {
     background: none repeat scroll 0 0 #51A2D5;
     border: 0 none;
     border-radius: 20px 20px 20px 20px;
-    padding-left: 9px;
-    padding-top: 10px;
-    height: 26px;
     width: 135px;
+    text-align: center;
+    line-height: 26px;
 
 }
 #messages_title_div{
@@ -1531,6 +1564,7 @@ hr.style-one {
     float: left;
     background-position:120px -2px;
     margin-bottom: 20px;
+    width: 201px;
 }
 #pin_image{
 
@@ -1708,13 +1742,13 @@ ul#pinned_message{
 }
 .goal_ppf{
     margin-left: 80px;
-    margin-top: -80px;
+    /*margin-top: -80px;*/
     color: #31A5DB;
 
 }
 .goal_name{
-    font-size: 25px;
-    color: #000000;
+    font-size: 14px;
+    color: #96c953;
     margin-top:10px;
 }
 /*-----------------------------------------------------------------------------------------*/
@@ -1905,7 +1939,10 @@ ul#pinned_message{
 }
 #show_todo h2{
     font-family: bold;
-    color:A5CC5A;
+    color:#A5CC5A;
+    width: 100%!important;
+    text-align: center!important;
+    font-size: 22px!important;
 }
 #show_todo_list {
     width:960px;
@@ -1913,6 +1950,11 @@ ul#pinned_message{
     margin-left:20px;
     margin-top: 30px;
     
+}
+#show_todo_list h2{
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 22px;
 }
 #network_connect{
 
@@ -2044,13 +2086,13 @@ ul#pinned_message{
 
 .profile_text{
     display: block;
-    align:justify;
-    color:#51A2D5;
+    text-align:justify;
+    color:#000;
 }
 .post_time{
     margin-left: 75px;
     margin-top: -18px;
-    color:51A2D5;
+    color:#51A2D5;
 }
 .commentsbtn {
     color: #fff;
@@ -2063,6 +2105,12 @@ ul#pinned_message{
     font-weight: bold;
     letter-spacing: 1px;
     margin-left: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
 }
 #request{
     width:530px;
@@ -2145,6 +2193,7 @@ ul#pinned_message{
     font-family: itc_avant_garde!important;
     margin-left: 0px!important;
     word-wrap:break-word;
+    margin-top: 5px;
 }
 #post_items_div #posts_ul:last-child{
     border: none !important;
@@ -2201,7 +2250,22 @@ ul#pinned_message{
 #userCMT{
     background-color:rgba(81,162,213,.2);
     border-bottom: 1px dotted #aaa;
-    mar
+    /*width: 590px;*/
+}
+#userCMT img{
+    width: 40px;height: 40px;
+    margin: 5px;
+    float: left;
+    display: inline-block;
+}
+#userCMT p{
+    display: inline-block;
+    float: left;
+    width: 530px;
+    color: #000;
+}
+.post_fld_input_div{
+    width: 900px;
 }
 #singleCMT{
     width:100%; background:rgba(84, 161, 213,.1); 
@@ -2215,7 +2279,7 @@ ul#pinned_message{
     width:545px; margin-left:5px;display:inline-block;
 }
 #cmt_first_name{
-    color:rgba(84, 161, 213,1);font-weight:bold;font-size:12px; letter-spacing:1px;
+    color:rgba(84, 161, 213,1);font-weight:bold;font-size:12px;
 }
 #cmtPostedAgo{
     display:block;color:#AAA; letter-spacing:1px; font-size:10px;
@@ -2292,10 +2356,13 @@ ul#pinned_message{
 .profile_image_thumb {
     width: 120px;
     height: 120px;
+    padding: 5px;
+    padding-top: 8px;
 }
 .profile_about_n{
     background-color:#ffffff;
     height:130px;
+    position: relative;
 }
 
 .profile_about_text{
@@ -2313,6 +2380,8 @@ ul#pinned_message{
     margin-left: 148;
     margin-top: 0px;
     bottom: 3px;
+    position: absolute;
+    bottom: 10px;
 }
 #profile_about_list label{
     color:#333;
@@ -2321,12 +2390,13 @@ ul#pinned_message{
 }
 .company_v {
     background-color: rgb(81, 162, 213);
-    color: white;
+    color: white!important;
     height: 50px;
     font-size: 42px;
     width: 970px;
     text-align: center;
     padding-top: 32px;
+    font-size: 22px!important;
 }
 
 .company_user_v{
@@ -2404,6 +2474,45 @@ li.receipt{
     cursor: pointer;
     font-weight: 100;
     margin-left: 61px;
+}
+.goals_tab_title{
+    display: block; width:460px;
+    text-align:center; font-weight: bold;
+    padding: 20px; color: #000;
+    font-size: 16px; letter-spacing: 1px;
+}
+#about_goal_item{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 30px;
+}
+#goals_new h2{
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 22px!important;
+}
+.backgroundShadeForContainer{
+    background: url('/assets/div-bg.png')!important;
+    background-repeat: repeat-x!important;
+    background-position: left bottom !important;
+    padding-bottom:145px !important;
+}
+#goal_cmts{
+    padding: 10px;
+    display: block;
+    /*background-color: #f00;*/
+    /*border-bottom: 1px dotted #aaa;*/
+}
+#goal_cmts2{
+    padding: 10px;
+    display: block;
+    /*background-color: #f00;*/
+    /*border-bottom: 2px solid #000;*/
+}
+.gole{
+    color: #000!important;
+    font-size: 16px!important;
+    font-weight: bold!important;
 }
 /* -------------------- MAIN COLORS -------------------------*/
 /*     96c953 >> GREEN     */

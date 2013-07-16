@@ -3,7 +3,7 @@
     <%  for user in lists %>
     <div id ="network_connect">
        
-        <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id)  %>
+        <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
         
     </div>    
              

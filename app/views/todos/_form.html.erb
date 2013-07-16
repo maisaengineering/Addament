@@ -34,7 +34,7 @@
     </tr>
     <tr>
     <td class="qtn"><%= f.label :Start_Time %></td>
-    <td><%= f.time_select :start_time %></td>
+    <td><%= f.time_select :start_time, :style => "width:50px!important; color:#f00;"  %></td>
     </tr>
     <tr>
     <td class="qtn"><%= f.label :End_Time %></td>
@@ -44,7 +44,7 @@
     <tr>
     <td></td> 
     <td><div class="actions">
-        <%= f.submit "SAVE", :class => "postbtn",:style => "width:70px" %>
+        <%= f.submit "SAVE", :class => "postbtn",:style => "width:70px; border-radius:10px;" %>
         </div>
     </td>
   </tr>

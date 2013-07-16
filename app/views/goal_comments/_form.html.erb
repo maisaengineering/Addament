@@ -22,9 +22,14 @@
   <div class="field">
     <!--<%= f.label :comment_description %>-->
     
-    <%= f.text_area :comment_description, :style =>"height: 30px;" %>
+    <%= f.text_area :comment_description, :style =>"height: 50px;width:860px;" %>
   </div>
   <div class="actions">
-    <%= f.submit "Comment", :id => "save", :class => "commentsbtn" %>
+    <%= f.submit "Comment", :id => "save", :class => "commentsbtn",:onClick=>"autoRefresh();" %>
   </div>
 <% end %>
+<script>
+  function autoRefresh(){
+    // window.location.reload(); 
+  }
+</script>

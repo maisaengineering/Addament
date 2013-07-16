@@ -1,48 +1,52 @@
-
 <% i =1 %>
 <% if @goal.count >0 %>
-    <% @goal.each do |goal| %>
-        <% user  = User.find(goal.user_id) %>
-        <div>
-          <% profile = user.profile %>
+<% @goal.each do |goal| %>
+<% user  = User.find(goal.user_id) %>
 
-          <% if profile.avatar_file? %>
-              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image"} %>
-          <% else %>
-              <%= image_tag("missing.png",height: 70,width: 80) %>
-          <% end %>
-          <div class="goal_ppf">
-            <label><%= profile.first_name %> <%= profile.last_name %></label><br>
-            <div class="goal_name">
-              <%= goal.goal_name %>
-            </div>
 
-                <div class= "commentbutton<%= i %> "><a href="javascript:void(0)" onclick ="open_form(<%= i%>)">Comment</a></div>
 
-            <div class="comment_form<%= i %>" style="display: none;">
-              <div class="comment_form">
-                <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
-              </div>
-            </div>
-
-          </div>
-          <div>
-            <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
-            <% i += 1 %>
-          </div>
-          <br/>
-
-    <% end %>
-<% else %>
-    <p>No Goals Added</p>
-<% end %>
+<% profile = user.profile %>
+<div id="user_goal">
+  <% if profile.avatar_file? %>
+  <div id="my_gole">
+  <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image", :style=>"margin:5px;"} %>
+  <% else %>
+  <%= image_tag("missing.png",height: 80,width: 80) %>
+  <% end %>
+  <div id="goal_det" style="display:inline-block;width:870px;">
+    <label><%= profile.first_name %> <%= profile.last_name %></label>
+    <p class="gole"><%= goal.goal_name %></p>
+  </div>
 </div>
+<div id="make_comment_on_gole" style="margin-left:80px;">
+  <a href="javascript:void(0)" onclick ="open_form(<%= i%>)"><span style="color:#96c953">Comment</span></a>
+    <div class="comment_form<%= i %>" style="display: none;">
+      <div class="comment_form">
+        <%=  render 'goal_comments/form', :id => goal.id, :profile_id => profile.id %>
+      </div>
+    </div>
+  </div>
+</div>
+  <%=render :partial => 'goal_comments/goal_comment', :locals => { :id => goal.id }  %>
+<% i += 1 %>
+<% end %>
+<% else %>
+No Goals Added
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
-function open_form(e)
-{
-
-$('.comment_form'+ e).css('display', 'block');
-
-}
+  function open_form(e){
+    $('.comment_form'+ e).css('display', 'block');
+  }
 </script>

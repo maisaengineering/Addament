@@ -1,59 +1,35 @@
 
 <% profile = Profile.find_by_user_id(@post.user_id) %>
 <% unless profile.avatar_file.nil? %>
-<%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image"} %>
+<div id="actl_cmt_user_click">
+<%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image",:style=>"display:inline-block;"} %>
  <% else %>
  <%= image_tag("missing.png",height: 70,width: 70) %>
 <% end %>
-<%=  @post.current_post %><br>
-<div class="post_time">
-      posted by <%= profile.first_name %>
-</div>
-<% comment = @post.comments %>
-<hr width="980px">
-<div>
+  <label><span style="color:#666;cursor:default;">posted by</span> <%= profile.first_name %></label>
+  <p><%=  @post.current_post %></p>
+  </div>
+  <% comment = @post.comments %>
+<div  style="margin-top:25px; margin-left:80px;">
+
   <%  comment.each do |comment_id|  %>
-      <% profile = Profile.where("user_id =? ",comment_id.commenter_id).first %>
-      <div class="post_curcomment">
-      <table>
-        <tr>
-           <td>
-             <table>
-               <tr>
-                 <% unless profile.avatar_file.nil? %>
-                     <td>
-                       <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image" } %>
-                     </td>
-                 <% else %>
-                     <td>
-                       <%=  image_tag("missing.png",height: 70,width: 70) %>
-                     </td>
-                 <% end %>
-               </tr>
-             </table>
-          </td>
-
-          <td>
-            <table>
-              <tr>
-                <td><%=  profile.first_name %></td>
-              </tr>
-              <tr>
-                <td>Commented
-                  <%=  comment_id.description %></td>
-              </tr>
-
-             </table>
-          </td>
-
-        </tr>
-
-        <tr>
-          <td></td>
-          <td><%= comment_id.created_at.strftime("%d %b") %>
-                  <%= time_ago_in_words(comment_id.created_at) %>ago<span class="clearFix">&nbsp;</span></td>
+  <div id="userCMT" style="width:900px!important;">
+    <% profile = Profile.where("user_id =? ",comment_id.commenter_id).first %>
+    <% unless profile.avatar_file.nil? %>
+    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image_f_post" } %>
+    <% else %>
+    <%=  image_tag("missing.png") %>
+    <% end %>
+    <p style="width:840px;">
+      <span id="cmt_first_name"><%=  profile.first_name %> commented : </span>
+      <%=  comment_id.description %>
+      <span id="cmtPostedAgo">
+        <%= comment_id.created_at.strftime("%d %b") %>
+        <%= time_ago_in_words(comment_id.created_at) %>ago
+      </span>
+    </p>
+    <br style="clear:both;">
+  </div>
   <% end %>
-  </tr>
-  </table>
-</div>
+
 </div>
