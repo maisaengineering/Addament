@@ -12,9 +12,7 @@
 .datepick-rtl {
 	direction: rtl;
 }
-.datepick-popup {
-	z-index: 1000;
-}
+
 .datepick-disable {
 	position: absolute;
 	z-index: 100;
