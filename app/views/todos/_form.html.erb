@@ -22,15 +22,16 @@
     </tr>  
     <tr>
     <td class="qtn"><%= f.label :Title %></td>
-    <td><%= f.text_field :title %></td>
+    <td><%= f.text_field :title, :required => true %></td>
     </tr>
     <tr>
     <td class="qtn"><%= f.label :Description %></td>
-    <td><%= f.text_area :description, :style => "width:205px;height:50px" %></td>
+    <td><%= f.text_area :description, :style => "width:205px;height:50px", :required => true %></td>
     </tr>
     <tr>
     <td class="qtn"><%= f.label :Date %></td>
     <td><%= f.text_field :event_date, :id => "datepicker" %></td>
+        <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
     </tr>
     <tr>
     <td class="qtn"><%= f.label :Start_Time %></td>
@@ -60,4 +61,17 @@
 <script>
     $("#datepicker").datepick();
     $("#datepicker").datepick({dateFormat: 'yyyy-mm-dd'});
+</script>
+
+
+<script>
+    $('.new_todo').submit(function() {
+        var startDate = $('#current_date').val();
+        var endDate = $('#datepicker').val();
+        if (startDate > endDate){
+            alert("ToDo date value should be greater than today date");
+            return false;
+        }
+
+    });
 </script>
