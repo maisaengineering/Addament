@@ -29,7 +29,7 @@ class ProfessionalsController < ApplicationController
   def new
     @profile = current_user.profile
     @professional = Professional.new
-
+    @company = Company.all
     if !params[:id]
     respond_to do |format|
       format.html # new.html.erb

@@ -158,6 +158,7 @@
       <script>
           $(window).load(function(){
 
+
               var profileCompTrg = setInterval(function() {
                   var $bar = $('.bar');
 
@@ -173,14 +174,7 @@
 
           });
       </script>
-      <script>
-          var availableTags = [<% for i in 0...@company.length %>
-              '<%= @company[i].company_name %>',
-              <% end %>
-          ];
-          $("#company_name").autocomplete({source: availableTags
-          });
-      </script>
+
 
       <script>
           $("#affiliation").autocomplete([
