@@ -10,11 +10,12 @@
                 <%= image_tag("missing.png",height: 30,width: 30) %>
             <% end %>
 
-            <label style="float:left;margin-left:10px;line-height:40px;">
+            <label>
               <%=  sender_name.profile.first_name%>
             </label><br  style="clear:both;"/>
             <% change_is_read(receipt) %>
             <% message = receipt.message %>
+            <p style="margin-left:50px;"> <%=  message.subject %><p>
             <p style="margin-left:50px;"> <%=  message.body %><p>
     <% end %>
 
@@ -24,7 +25,7 @@
     <%= render 'messages/form', conversation: conversation %>
 </div>
 </div>
-</script>
+
 <script>
   $('#reply').click(function(){
   $('.reply_form').show();
