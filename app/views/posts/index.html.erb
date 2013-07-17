@@ -18,6 +18,12 @@
         <%= render :partial => 'all_users' %>
       </ul>
     </div>
+        <p>
+
+          <% if check_users_count > 4 %>
+              <%= link_to "See all", public_profile_path,  :class => "see_all" %>
+          <% end %>
+        </p>
 
    </div>
   </div>
