@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <div id="container">
 
-  <div id="centerDIV" style = "width:640px;">
+  <div id="centerDIV" style = "width:630px;">
     <table align="center">
       <%= form_for(@education) do |f| %>
           <div id="error_explanation">
@@ -13,19 +13,19 @@
           </div>
           <tr>
             <td></td>
-           <% unless @param_id %>
-            <td><h2>New Education</h2></td>
-                <% end %>
+            <% unless @param_id %>
+                <td><h2>New Education</h2></td>
+            <% end %>
 
           </tr>
           <tr class="spaceunder">
             <td><label>School</label></td>
             <td> <%= f.hidden_field :profile_id, :value =>  current_user.profile.id %>
-              <%= f.text_field :schoolname, :id => "school", :required => true %></td>
+              <%= f.text_field :schoolname, :class => "school", :required => true %></td>
           </tr>
           <tr class="spaceunder">
             <td><label>Date attended</label></td>
-            <td><%= f.text_field :date_attended, :id => "date_picker" %></td>
+            <td><%= f.text_field :date_attended, :class => "date_picker" %></td>
             <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
           </tr>
           <tr class="spaceunder">
@@ -54,63 +54,65 @@
           </tr>
           <tr class="spaceunder">
             <td></td>
-            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;border-radius:10px;" %></td>
+            <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;border-radius:20px;" %></td>
       <% end %>
       <% unless @param_id %>
-            <td>
+          <td>
 
-              <div class="button2">
-                <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn",:style => "width:91px;margin-left:-106px;" ,"data-toggle" => "modal","data-target" => "#myModal"} %>
-                  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
-                      </div>
-                      <div class="modal-body">
-                        <p></p>
-                      </div>
-                  </div>
+            <div class="button2">
+              <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn",:style => "width:91px;margin-left:-106px;" ,"data-toggle" => "modal","data-target" => "#myModal"} %>
+              <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
+                </div>
+                <div class="modal-body">
+                  <p></p>
+                </div>
               </div>
-            </td>
-           <% end %>
-          </tr>
+            </div>
+          </td>
+      <% end %>
+      </tr>
 
 
     </table>
   </div>
   <% unless @param_id %>
-  <div id="rightSideDIV">
-    <h2>SPONSORS</h2>
-    <ul>
-      <li>
-        <label>Ready for Google xPhone?</label>
-        <p>open.etoro.com</p>
-        <img src="images/s1.png"/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-      </li>
-      <li>
-        <label>Ready for Google xPhone?</label>
-        <p>open.etoro.com</p>
-        <img src="images/s2.png"/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-      </li>
-      <li>
-        <label>Ready for Google xPhone?</label>
-        <p>open.etoro.com</p>
-        <img src="images/s4.png"/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-      </li>
-    </ul>
-
-  </div>
-      <% end %>
-
+      <div id="rightSideDIV" height="634px">
+        <h2>SPONSORS</h2>
+        <ul>
+          <li>
+            <label>Ready for Google xPhone?</label>
+            <p>open.etoro.com</p>
+            <img src="images/s1.png"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+          </li>
+          <li>
+            <label>Ready for Google xPhone?</label>
+            <p>open.etoro.com</p>
+            <img src="images/s2.png"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+          </li>
+          <li>
+            <label>Ready for Google xPhone?</label>
+            <p>open.etoro.com</p>
+            <img src="images/s4.png"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+          </li>
+        </ul>
+      </div>
+  <% end %>
 
 </div>
 
- <link rel="stylesheet" type="text/css" href="/assets/jquery.datepick.css">
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'jquery-ui' %>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+
 <script>
-    $('#date_picker').datepick({
+    $('.date_picker').datepick({
         format: 'mm-dd-yyyy'
     });
 </script>
@@ -125,4 +127,35 @@
         }
     });
 </script>
+
+
+
+
+
+
+<script>//<![CDATA[
+
+var availableTags = [<% for i in 0...@school.length %>
+    '<%= @school[i].school_name %>',
+    <% end %>
+];
+$( ".school" ).autocomplete({
+    source: availableTags
+});
+
+
+
+</script>
+<style type="text/css">
+
+
+    .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
+        z-index: 1500;
+
+    }
+    .datepick-popup{
+        z-index: 1500;!important
+    }
+
+</style>
 

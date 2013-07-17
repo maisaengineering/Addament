@@ -943,7 +943,6 @@ td{
     padding-left: 0px;
     color: #54a1d5;
     font-size: 11px;
-    letter-spacing: 1px;
     text-align: center;
 }
 .profile_img {
@@ -2186,7 +2185,7 @@ ul#pinned_message{
 #post_items_div #posts_ul .post_list_item .cmt{
     margin: 0px; padding: 0px;
     font-size: 12px;
-    padding: 0px;color: #000!important;
+    padding: 0px;color: #0D0D0D!important;
     width: 588px!important;
     display: block;
     margin-top: -10px; margin-bottom: 0px;
@@ -2262,7 +2261,6 @@ ul#pinned_message{
     display: inline-block;
     float: left;
     width: 530px;
-    color: #000;
 }
 .post_fld_input_div{
     width: 900px;
@@ -2339,7 +2337,7 @@ ul#pinned_message{
     cursor: default;
     font-size: 12px;
     list-style: none;
-    margin: 0;padding: 0;
+    margin: 0px;padding: 0px;
     margin-right: 50px;
     color: #000;
     font-weight: bold;
