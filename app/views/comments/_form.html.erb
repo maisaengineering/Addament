@@ -20,3 +20,13 @@
     <%= f.submit "comment", :class => "commentsbtn" %>
   </div>
 <% end %>
+
+<script>
+    $('#new_comment').submit(function() {
+        if($("#comment_description").val()=="")
+        {
+            alert('Comment cant be empty');
+            return false;
+        }
+    });
+</script>

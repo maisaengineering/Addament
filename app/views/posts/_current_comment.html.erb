@@ -2,13 +2,14 @@
 <% profile = Profile.find_by_user_id(@post.user_id) %>
 <% unless profile.avatar_file.nil? %>
 <div id="actl_cmt_user_click">
-<%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image",:style=>"display:inline-block;"} %>
- <% else %>
- <%= image_tag("missing.png",height: 70,width: 70) %>
-<% end %>
-  <label><span style="color:#666;cursor:default;">posted by</span> <%= profile.first_name %></label>
-  <p><%=  @post.current_post %></p>
-  </div>
+   <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image",:style=>"display:inline-block;"} %>
+   <% else %>
+   <%= image_tag("missing.png", :class => "thumb_image", :style=>"display:inline-block" ) %>
+   <% end %>
+<p style="display:inline-block!important;margin-top:0px!important;">
+<label><span style="color:#666;cursor:default;">posted by</span> <%= profile.first_name %></label>  <br />
+  <%=  @post.current_post %></p>
+</div>
   <% comment = @post.comments %>
 <div  style="margin-top:25px; margin-left:80px;">
 

@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @all_affilation = Professional.where(company_id: affiliation[0].company_id).count
     @all_school = education.count
     @users = User.all
-    @posts = Post.where("user_id != ?", current_user.id)
+    @posts = User.check_post_count(current_user)
     @following =  current_user.all_following.count
     @todos = Todo.where("user_id =?", current_user.id).order('created_at desc').limit(3)
     @follow = current_user.followers_count

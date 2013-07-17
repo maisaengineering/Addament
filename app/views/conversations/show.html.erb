@@ -1,5 +1,5 @@
 <div id="container" style="background-color:#fff;padding:20px;">
-  <h4 style="border-bottom:1px solid #000;">Conversation</h4>
+  <h4 style="border-bottom:1px solid #000;">Conversations</h4>
   <div>
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
         <% sender_find = receipt.notification.sender_id %>

@@ -62,17 +62,17 @@
   <div id="rightDIV" style="height:615px;">
     <h2>Comments</h2>
     <ul>
-      <% @goals_comment = Goal.limit(2) %>
+      <% @goals_comment = Goal.all %>
 
-      <% @goals_comment.each do |goal| %>
-          <% @goal_comments = GoalComment.where("goal_id = ?", goal.id).limit(2) %>
-          <% @goal_comments.each do |goal_comment| %>
+      <% @goals_comment[0..2].each do |goal| %>
+          <% @goal_comments = goal.goal_comment.limit(1) %>
+          <% @goal_comments[0..2].each do |goal_comment| %>
               <% user_name = User.find(goal_comment.commenter_id) %>
               <li>
                 <% unless user_name.profile.avatar_file.nil? %>
                     <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_name.profile.id ),{ :class => "thumb_image"} %>
                 <% else %>
-                    <%=  image_tag("missing.png",height: 25,width: 25) %>
+                    <%=  image_tag("missing.png",height: 70,width: 70) %>
                 <% end %>
                 <label><%= user_name.profile.first_name %></label>
                 <p><%= truncate(goal_comment.comment_description,:length => 20) %></p>
@@ -81,11 +81,11 @@
           <% end %>
       <% end %>
     </ul>
-    <% unless @goal_comments.nil? %>
-        <% if @goal_comments.length > 3 %>
+
+        <% if @goals_comment.length > 2 %>
             <%= link_to "see more",about_profiles_path , :style => "float:right" %>
         <% end %>
-    <% end %>
+
   </div>
 </div>
 

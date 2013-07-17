@@ -1,2 +1,3 @@
-$('.comment_list_post').append("<%= escape_javascript(render @comment  )%>");
+$('.current_comment_append').append("<%= escape_javascript(render @comment  )%>");
+$('.current_comment_append').css("padding-left", "79px");
 $('#comment_description').val("");

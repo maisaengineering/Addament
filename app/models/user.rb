@@ -87,5 +87,22 @@ class User < ActiveRecord::Base
     email
  end
 
+  def self.check_post_count(user)
+    all_users = User.where("id != ?", user.id)
+    @user_post = Array.new
+    all_users.each do |follow_user|
+     if user.following?(follow_user)
+       follow_user.posts.each do |post_message|
+
+         @user_post.push(post_message)
+       end
+      end
+    end
+
+
+    return @user_post
+
+  end
+
 
 end
