@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.hidden_field :post_id, :value => id %>
     <%= f.hidden_field :commenter_id, :value => current_user.id %>
-    <%= f.text_area :description, :rows => "2", :cols => "2",:style=>"width:590px;" %>
+    <%= f.text_area :description, :class => "description", :rows => "2", :cols => "2",:style=>"width:590px;" %>
   </div>
   <div class="actions">
     <%= f.submit "comment", :class => "commentsbtn" %>
@@ -22,11 +22,13 @@
 <% end %>
 
 <script>
-    $('#new_comment').submit(function() {
-        if($("#comment_description").val()=="")
+    $('.new_comment').submit(function() {
+        if($(".description").val()=="")
         {
             alert('Comment cant be empty');
+
             return false;
+
         }
     });
 </script>

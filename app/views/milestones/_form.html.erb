@@ -14,9 +14,9 @@
   <div class="field">
     <%= f.hidden_field :goal_id, :value => @goal_id %>
     <%= f.label :mile_Stone_step %><br />
-    <%= f.text_field :mile_Stone_step %>
+    <%= f.text_field :mile_Stone_step, :required => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  :class => "postbtn" %>
   </div>
 <% end %>
