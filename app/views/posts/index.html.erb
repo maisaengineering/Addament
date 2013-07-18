@@ -1,71 +1,64 @@
 <div id="h_sep_div">&nbsp;</div>
- <div id="container">
- <div id="h_top_div">
-  <div class="post_slide">
-   <%= image_tag("/assets/cover.jpg")%>
-   <div id="cover_tit_div">
-    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
-    <p></p>
-    <label><a href="#">read more</a></label>
-   </div>
-     </div>
+  <div id="container">
+    <div id="h_top_div">
+      <div class="post_slide">
+        <%= image_tag("/assets/cover.jpg")%>
+          <div id="cover_tit_div">
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+            <p></p>
+            <label><a href="#">read more</a></label>
+          </div>
+      </div>
 
-  <div id="h_t_r_div">
-      <div id="ppl_m_kn_div">
-    <h2>PEOPLE YOU MAY KNOW</h2>
-    <div id="ppl_you_know_con_div">
-     <ul>
-        <%= render :partial => 'all_users' %>
-      </ul>
+      <div id="h_t_r_div">
+        <div id="ppl_m_kn_div">
+          <h2>PEOPLE YOU MAY KNOW</h2>
+            <div id="ppl_you_know_con_div">
+              <ul>
+              <%= render :partial => 'all_users' %>
+              </ul>
+            </div>
+            <p>
+              <% if check_users_count > 4 %>
+                  <%= link_to "See all", public_profile_path,  :class => "see_all" %>
+              <% end %>
+            </p>
+        </div>
+      </div>
     </div>
-        <p>
-
-          <% if check_users_count > 4 %>
-              <%= link_to "See all", public_profile_path,  :class => "see_all" %>
-          <% end %>
-        </p>
-
-   </div>
-  </div>
- </div>
  <!-- ............................................................................................ -->
  <!-- <div id="h_sep_div">&nbsp;</div> -->
  <!-- ............................................................................................ -->
- <div id="h_bottom_div">
-  <div id="users_posts">
-
-    <div class="post_status" >
-      <div id="post_form">
-      <%=  render :partial => 'form' %>
+    <div id="h_bottom_div">
+      <div id="users_posts">
+        <div class="post_status" >
+          <div id="post_form">
+          <%=  render :partial => 'form' %>
+          </div>
+        </div>
+        <div id="post_items_div">
+          <h2 id="activitiesH2">ACTIVITIES</h2>
+          <ul id="posts_ul">
+            <%= render :partial => 'posts_comments' %>
+          </ul>
+            <div id="load_more">load more</div>
+        </div>
       </div>
-    </div>
-
-    <div id="post_items_div">
-      <h2 id="activitiesH2">ACTIVITIES</h2>
-      <ul id="posts_ul">
-        <%= render :partial => 'posts_comments' %>
-      </ul>
-      <div id="load_more">load more</div>
-    </div>
-  </div> 
-  <div id="rightSideDiv">
-
+      <div id="rightSideDiv">
                   <h2>SPONSORS</h2>
-      <ul>
-      <li>
-      <label>Ready for Google xPhone?</label>
-      <p>open.etoro.com</p>
-      <%= image_tag("s1.png") %>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-      </li>
+          <ul>
+            <li>
+              <label>Ready for Google xPhone?</label>
+              <p>open.etoro.com</p>
+              <%= image_tag("s1.png") %>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
+            </li>
+          </ul>
+      </div>
 
-         </ul>
-
-             </div>
-
-  </div>
+    </div>
  <!-- ..................................................................................... -->
-</div>
+ </div>
 
   <script>
    (function($){
