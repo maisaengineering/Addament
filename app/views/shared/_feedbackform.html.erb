@@ -9,7 +9,7 @@
           <label for="love" id="love_it">Subject</label>
           <%= hidden_field_tag :current_form, '', :value => "#{controller.controller_name}" %>
           <%= hidden_field_tag :current_action, '', :value => "#{controller.action_name}" %>
-          <%= text_field_tag :title %>
+          <%= text_field_tag :title  %>
 
           <label for="bug">Category</label>
           <%= select_tag :category,  options_for_select([["suggest new feautres"],["Improve this page"],["I like this page"]]) %>
@@ -17,7 +17,7 @@
           <label for="idea">Description</label>
           <%= text_area_tag :message %>
           <br/>
-          <div id="save"> <%= submit_tag 'Send', :id=>"feedback_button" %></div>
+          <div id="save"> <%= submit_tag 'Send', :id=>"feedback_button", :onclick => " return check_form()" %></div>
         </div>
     <% end %>
   </div>
@@ -58,4 +58,20 @@
         });
 
     });
+</script>
+
+<script>
+  function check_form(){
+
+    if($('#title').val()!="" && $('#message').val()!="")
+    {
+      return true;
+    }
+    else
+    {
+
+    }
+      alert("Please enter subject and description");
+      return false;
+  }
 </script>
