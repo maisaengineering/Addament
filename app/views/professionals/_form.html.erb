@@ -31,7 +31,7 @@
     <div class="field">
       <td><%= f.label :start_date %></td>
 
-      <td><%= f.text_field :start_date, :id => "date_picker_modal" %></td>
+      <td><%= f.date_select :start_date, :order => [:year, :month] %></td>
     </div>
     </tr>
     <tr>
@@ -131,6 +131,9 @@
 <script>
 
     $('#date_picker_modal').datepick({
+        format: 'mm-dd-yyyy'
+    });
+    $('#end_date_modal').datepick({
         format: 'mm-dd-yyyy'
     });
 </script>

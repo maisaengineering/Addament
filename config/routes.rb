@@ -16,6 +16,8 @@ Addament::Application.routes.draw do
   resources :schools
 
 
+
+
   resources :feedback do
     collection do
       post 'send_email'
@@ -23,7 +25,12 @@ Addament::Application.routes.draw do
       get 'filter_data'
     end
   end
-  resources :educations
+  resources :educations do
+    collection do
+      get 'add_more_school'
+      post 'create_education'
+    end
+  end
 
 
   resources :comments

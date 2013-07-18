@@ -2,8 +2,9 @@
 <div id="container">
 
   <div id="centerDIV" style = "width:630px;">
-    <table align="center">
+
       <%= form_for(@education) do |f| %>
+        <table align="center">
           <div id="error_explanation">
             <ul>
               <% @education.errors.full_messages.each do |msg| %>
@@ -25,7 +26,7 @@
           </tr>
           <tr class="spaceunder">
             <td><label>Date attended</label></td>
-            <td><%= f.text_field :date_attended, :class => "date_picker" %></td>
+            <td><%= f.text_field :date_attended, :class => "date_picker", :required => true %></td>
             <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
           </tr>
           <tr class="spaceunder">
@@ -55,15 +56,19 @@
           <tr class="spaceunder">
             <td></td>
             <td><%= f.submit "Save", :id=> "save", :class => "postbtn", :style => "width:71px;height:30px;border-radius:20px;" %></td>
+          </tr>
+
+
+          </table>
       <% end %>
       <% unless @param_id %>
-          <td>
+
 
             <div class="button2">
-              <%=  link_to "Add More", new_education_path(id: current_user.profile.id), {:class=>"btn",:style => "width:91px;margin-left:-106px;" ,"data-toggle" => "modal","data-target" => "#myModal"} %>
+              <%=  link_to "Add More", add_more_school_educations_path, {:class=>"btn",:style => "width:91px;margin-left:-106px;" ,"data-toggle" => "modal","data-target" => "#myModal"} %>
               <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="forceClose">×</button>
                   <h3 id="myModalLabel" style="text-align: center;">Add More Education</h3>
                 </div>
                 <div class="modal-body">
@@ -71,12 +76,9 @@
                 </div>
               </div>
             </div>
-          </td>
+
       <% end %>
-      </tr>
 
-
-    </table>
   </div>
   <% unless @param_id %>
       <div id="rightSideDIV" height="634px">

@@ -1,15 +1,18 @@
 <% goal_comment = GoalComment.where(goal_id: id) %>
-<% goal_comment.each do |goalcomments| %>
-<% user = User.find(goalcomments.commenter_id) %>
-<% unless user.profile.avatar_file.nil? %>
-<div id="goal_cmts">
-<%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image",:style => "width:40px;height:40px;float:left;margin-left:70px;margin-right:10px;"} %>
-<%else %>
-  <%= image_tag("missing.png",height: 40,width: 40) %>
-  <% end %>
-  <p style="margin-left:120px; color:#555;">
-    <span id="cmt_first_name"><%= user.profile.first_name %> : </span><br />
-    <%=  goalcomments.comment_description %>
-  </p>
-</div>   
+    <% goal_comment.each do |goalcomments| %>
+        <% user = User.find(goalcomments.commenter_id) %>
+        <% unless user.profile.avatar_file.nil? %>
+            <div id="goal_cmts">
+              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image",:style => "width:40px;height:40px;float:left;margin-left:70px;margin-right:10px;"} %>
+            </div>
+        <%else %>
+            <div id="goal_cmts">
+              <%= image_tag("missing.png",height: 40,width: 40) %>
+            </div>
+        <% end %>
+        <p style="margin-left:120px; color:#555;">
+            <span id="cmt_first_name"><%= user.profile.first_name %> : </span><br />
+            <%=  goalcomments.comment_description %>
+        </p>
+
 <% end %>

@@ -1,0 +1,8 @@
+<% if @education.errors.any? %>
+$(".modal-body").html("<%= escape_javascript(render 'form',button_name: 'Save')  %>");
+
+<% else %>
+
+
+$('#forceClose').trigger('click');
+<% end %>
