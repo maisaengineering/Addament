@@ -18,7 +18,13 @@
 		<td><label style="font-family:bold">Time:</label></td>
 		<td><%= @todo.start_time.strftime("%I:%M%p") %> to <%= @todo.end_time.strftime("%I:%M%p") %></td>
 	</tr>
+    <tr>
+      <td class="v_todo"><%= link_to 'Edit', edit_todo_path %></td>
+    </tr>
+
 </table>
+
+
   
 
 <!--<%= link_to 'Back', root_url %>-->
