@@ -22,6 +22,27 @@ class EducationsController < ApplicationController
     end
   end
 
+  def add_more_school
+    @school = School.all
+    @education = Education.new
+    render :layout => false
+  end
+
+  def create_education
+    @education = Education.new(params[:education])
+
+    respond_to do |format|
+      if @education.save
+        format.js
+        #format.html{redirect_to  edit_profile_path(current_user.profile.id), notice: 'Professional Industry was successfully.'}
+      else
+        #format.html{render action: "new"}
+        format.js
+      end
+    end
+
+  end
+
   # GET /educations/new
   # GET /educations/new.json
   def new

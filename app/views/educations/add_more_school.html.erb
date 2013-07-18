@@ -1,0 +1,103 @@
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'jquery-ui' %>
+
+    <%= form_for(@education, url: create_education_educations_path, :remote => true) do |f| %>
+        <div id="error_explanation">
+          <ul>
+            <% @education.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <table align="center">
+
+    <tr class="spaceunder">
+          <td><label>School</label></td>
+          <td> <%= f.hidden_field :profile_id, :value =>  current_user.profile.id %>
+            <%= f.text_field :schoolname, :class => "school", :required => true %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Date attended</label></td>
+          <td><%= f.text_field :date_attended, :class => "date_picker" %></td>
+          <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Degree</label></td>
+          <td><%= f.text_field :degree %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Field of study</label></td>
+          <td><%= f.text_field :field_of_study %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Grade</label></td>
+          <td><%= f.text_field :grade %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Activities and Societies</label></td>
+          <td><%= f.text_field :activities_and_societies %><br></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Description</label></td>
+          <td><%= f.text_area :description, :style => "width:205px;height:50px" %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td><label>Skills</label> </td>
+          <td><%= f.text_area :skills, :style => "width:205px;height:50px" %></td>
+        </tr>
+        <tr class="spaceunder">
+          <td></td>
+          <td><%= f.submit "Save" %></td>
+        </tr>
+    </table>
+<% end %>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="/assets/jquery.datepick.js"></script>
+
+<script>
+    $('.date_picker').datepick({
+        format: 'mm-dd-yyyy'
+    });
+</script>
+
+<script>
+    $('.new_education').submit(function() {
+        var endDate = $('#current_date').val();
+        var startDate = $('#date_picker').val();
+        if (startDate > endDate){
+            alert("Start date value should be less than today date");
+            return false;
+        }
+    });
+</script>
+
+
+
+
+
+
+<script>//<![CDATA[
+
+var availableTags = [<% for i in 0...@school.length %>
+    '<%= @school[i].school_name %>',
+    <% end %>
+];
+$( ".school" ).autocomplete({
+    source: availableTags
+});
+
+
+
+</script>
+<style type="text/css">
+
+
+    .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all{
+        z-index: 1500;
+
+    }
+    .datepick-popup{
+        z-index: 1500;!important
+    }
+
+</style>
