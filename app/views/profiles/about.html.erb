@@ -6,7 +6,7 @@
             <%= image_tag("missing.png",width:120,height:120) %>
             <% else %>
             <div class ="profile_image_thumb">
-              <%= image_tag url_for(:controller => "profiles", :action => "code_image") %>
+              <%= image_tag url_for(:controller => "profiles", :action => "code_image"), :style => "height:100%;" %>
             </div>
             <% end %>
             <div class="profile_about_text">

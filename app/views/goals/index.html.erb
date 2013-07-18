@@ -2,16 +2,20 @@
   <div id="leftDIV">
     <ul style = "margin-left: -2px; margin-top: -8px;">
       <% goal_id = 1 %>
-      <% @goals[0..3].each do |goal| %>
-          <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)">
-            <li class="<%= goal_id %>">
-              <label><%= goal.goal_name %></label>
-              <p><%= goal.target_date %></p>
-            </li>
-          </a>
-          <% goal_id += 1 %>
-      <% end %>
-      <%= link_to 'New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
+      <% unless @goals.empty? %>
+          <% @goals[0..3].each do |goal| %>
+              <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)">
+                <li class="<%= goal_id %>">
+                  <label><%= goal.goal_name %></label>
+                  <p><%= goal.target_date %></p>
+                </li>
+              </a>
+              <% goal_id += 1 %>
+          <% end %>
+       <% else %>
+      <h2> No goals are added</h2>
+       <% end %>
+      <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
     </ul>
     <% if @goals.count > 3 %>
         <%= link_to "see more goals", about_profiles_path %>
@@ -29,6 +33,7 @@
           <% margin_top = 70 %>
           <% margin_top_milestone = 111 %>
           <% milestone = goal.milestones %>
+          <% unless milestone.empty? %>
           <% milestone[0..3].each do |mile_stone| %>
               <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
                 <label>STEP <%= i %></label>
@@ -39,6 +44,11 @@
               <% i += 1 %>
               <% margin_top = margin_top + 100 %>
               <% margin_top_milestone = margin_top_milestone + 100 %>
+          <% end %>
+          <% else %>
+              <!--<br/>-->
+              <!--<br/>-->
+              <!--<h2> No milestones are added</h2>-->
           <% end %>
           <div class="roundCornDiv" style="margin-top:490px;">
             <label><%= goal.target_date.strftime("%B %d, %Y") %></label>
