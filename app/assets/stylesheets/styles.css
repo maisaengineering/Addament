@@ -1243,7 +1243,8 @@ td{
 #actl_cmt_user_click label{
     display: inline-block;
     position: relative;
-    margin-top: 5px;margin-left: 80px;
+    margin-top: 5px;
+    /*margin-left: 80px;*/
 }
 #actl_cmt_user_click p{
     display: inline-block;
@@ -1410,13 +1411,17 @@ td{
 /*CSS for Feedback*/
 
 #feedback{
-    position: absolute;
     background-color: #222;
     width: 300px; height: 400px;
-    margin-top: 180px; margin-left: 50px;
     display: none;
     border-top-left-radius: 16px;
     box-shadow: 0px 0px 20px rgba(0,0,0,.4)
+}
+.feedback_popup{
+    display: block;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
 }
 #btn{
     /*position: absolute;*/
@@ -1924,7 +1929,7 @@ ul#pinned_message{
 /*-----------------------------------------------------------------------------------------*/
 #show_todo{
     width:960px;
-    height:400px;
+    height:450px;
     background:#ffffff;
     margin-top: 30px;
 }
@@ -1954,6 +1959,11 @@ ul#pinned_message{
   width: 100% !important;
   text-align: center !important;
   font-size: 22px;
+}
+.v_todo{
+    text-align: center;
+    padding-left: 60px;
+
 }
 #network_connect{
 
@@ -2446,7 +2456,7 @@ li.receipt{
   }
   .feedback_fbtn{
     position: fixed;
-    bottom: 300px; right: 0px;color: white;
+    bottom: 0px; right: 0px;color: white;
     background: #51A2D5;
     border: 0px;
     border-radius: 10px 0px 0px 10px;

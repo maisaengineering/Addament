@@ -1,4 +1,4 @@
-<div id="feedback">
+<div id="feedback" class="feedback_popup">
   <div id="clsoe_btn">-</div>
   <p>We Want Your Feedback!</p>
   <hr class="style-one">
@@ -56,19 +56,6 @@
             // ADD TEXT AREA..
 
         });
-        // CENTER FORM..
 
-        $(window).on('resize',function(){
-            $('#feedback').css({
-                'position': 'fixed',
-                'left': '50%',
-                'top': '50%'
-            });
-            $('#feedback').css({
-                'margin-left': -$('#feedback').outerWidth() / 2 + 'px',
-                'margin-top': -$('#feedback').outerHeight() / 2 + 'px'
-            });
-        });
-        $(window).resize();
     });
 </script>
