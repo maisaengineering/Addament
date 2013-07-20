@@ -2324,7 +2324,7 @@ ul#pinned_message{
 }
 #fom .txt_inp{
     width: 262px !important;
-  float: none:  !important;
+  float: none;
 }
 #fom .input_fld_div{
   position: relative;
