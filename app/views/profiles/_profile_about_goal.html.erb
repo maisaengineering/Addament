@@ -7,20 +7,21 @@
 
 <% profile = user.profile %>
 <div id="user_goal">
-  <% if profile.avatar_file? %>
   <div id="my_gole">
+  <% if profile.avatar_file? %>
+
   <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image", :style=>"margin:5px;"} %>
-  </div>
+
   <% else %>
-      <div id="my_gole">
+
   <%= image_tag("missing.png",height: 80,width: 80) %>
-      </div>
+
   <% end %>
   <div id="goal_det" style="display:inline-block;width:870px;">
     <label><%= profile.first_name %> <%= profile.last_name %></label>
     <p class="gole"><%= goal.goal_name %></p>
   </div>
-
+  </div>
 <div id="make_comment_on_gole" style="margin-left:80px;">
   <a href="javascript:void(0)" onclick ="open_form(<%= i%>)"><span style="color:#96c953">Comment</span></a>
     <div class="comment_form<%= i %>" style="display: none;">
