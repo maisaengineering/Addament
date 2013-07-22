@@ -605,7 +605,7 @@ td{
     /*border: 1px solid #9f9f9f;*/
     margin: 0 auto; padding: 50px; padding-bottom: 0px;
 
-    background: url(/assets/div-bg.png), url(/assets/div-bg-2.png);
+    /*background: url(/assets/div-bg.png), url(/assets/div-bg-2.png);*/
     background-repeat: repeat-x;
     background-position: left top, left bottom;
     position: relative;
@@ -733,7 +733,7 @@ td{
     /*background-color: #ff6;*/
     position: absolute;
     margin-left: 200px;
-    margin-top: 170px;
+    margin-top: 180px;
     overflow: hidden;
 }
 
@@ -790,7 +790,7 @@ td{
     background-position: 20px, 20px;
     padding-left: 50px;
     padding-bottom: 0px;
-    margin-top: 0px;
+    margin-top: 5px;
 }
 #messagesDiv p{
     padding-bottom: 5px;
@@ -1757,9 +1757,9 @@ ul#pinned_message{
 
 
 #h_sep_div{
-    background-color: #fff;
+    /*background-color: #fff;*/
     width: 100%;height: 100px;
-    background: url(div-bg.png)repeat-x;
+    /*background: url(div-bg.png)repeat-x;*/
     position: absolute;
     margin-top: 400px;
 }
@@ -2498,7 +2498,7 @@ li.receipt{
     font-size: 22px!important;
 }
 .backgroundShadeForContainer{
-    background: url('/assets/div-bg.png')!important;
+    /*background: url('/assets/div-bg.png')!important;*/
     background-repeat: repeat-x!important;
     background-position: left bottom !important;
     padding-bottom:145px !important;
@@ -2520,6 +2520,36 @@ li.receipt{
     font-size: 16px!important;
     font-weight: bold!important;
 }
+.connectbtn {
+    color: #000;
+    background: #51a2d5;
+    border: 0px;
+    padding: 2px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    margin-top: -25px;
+    margin-left: 264px;
+}
+.disconnectbtn {
+    color: #000;
+    background: #96c953;
+    border: 0px;
+    padding: 2px;
+    font-size: 13px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    margin-top: -25px;
+    margin-left: 264px;
+}
+
+
 /* -------------------- MAIN COLORS -------------------------*/
 /*     96c953 >> GREEN     */
 /*     51a2d5 >> BLUE     */
