@@ -17,7 +17,7 @@
                  <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"  %><br>
                       <% if user.profile.professionals[0].company_id %>
                           <% comapanyname = Company.find(user.profile.professionals[0].company_id)  %>
-                          <%= link_to "#{comapanyname.company_name}", company_path(comapanyname.company_name)  %>
+                          <%= link_to "#{comapanyname.company_name}", company_path(comapanyname.id)  %>
                       <% end %>
                  </td>
               </tr>
