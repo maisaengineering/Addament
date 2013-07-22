@@ -2,9 +2,17 @@
 
     <%  for user in lists %>
     <div id ="network_connect">
-       
-        <%= link_to "#{user.profile.first_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
-        
+      <table>
+        <tr>
+          <td>
+      <% unless user.profile.avatar_file.nil? %>
+          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+      <% else %>
+          <%=  image_tag("missing.png",height: 70,width: 70) %>
+      <% end %></td>
+        <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
+        </tr>
+      </table>
     </div>    
              
     <% end %>
