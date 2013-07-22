@@ -1,6 +1,6 @@
 <% @users.in_groups_of(2, false) do |lists| %>
     <%  for user in lists %>
-        <div id="network_connect">
+
           <table>
             <tr>
                <% unless user.profile.nil? %>
@@ -27,7 +27,7 @@
 
                 <% end %>
             <% end %>
-        </div>
+
         <% end %>
     <% end %>
 <% end %>

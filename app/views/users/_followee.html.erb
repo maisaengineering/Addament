@@ -1,7 +1,7 @@
 <% @followee.in_groups_of(2, false) do |lists| %>
 
     <%  for user in lists %>
-    <div id ="network_connect">
+
       <table>
         <tr>
           <td>
@@ -13,7 +13,7 @@
         <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
         </tr>
       </table>
-    </div>    
+
              
     <% end %>
   
