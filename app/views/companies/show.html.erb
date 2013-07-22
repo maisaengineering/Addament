@@ -2,8 +2,9 @@
 <br>
 <div class="search_container">
   <div class="company_search_user">
-    <p class="company_v"><%= @company.company_name %></p>
     <% proff = Professional.where(company_id: @company.id) %>
+    <p class="company_v"><%= @company.company_name %> (<%= proff.length %>)</p>
+
     <% unless proff.empty? %>
     <table>
       <% proff.in_groups_of(2, false) do |lists| %>

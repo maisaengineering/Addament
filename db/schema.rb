@@ -216,7 +216,7 @@ ActiveRecord::Schema.define(:version => 20130707053807) do
     t.string   "mailbox_type",    :limit => 25
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "priority",                      :default => "#2a7fec"
+    t.string   "priority",                      :default => "#FFFF00"
   end
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
