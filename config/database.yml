@@ -37,4 +37,4 @@ production:
   reconnect: true
   database: addament_production
   pool: 5
-  #socket: /var/run/mysqld/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
