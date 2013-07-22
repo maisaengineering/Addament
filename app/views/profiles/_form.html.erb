@@ -82,7 +82,7 @@
             <tr>
               <td colspan="2" style="background-color:#fff;" align="center">
                 <%=  f.submit "Update Profile", :class =>"update_prf_btn"  %>
-                <%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file",:title=>"bar"  %>
+                <%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file", :onchange =>"check_extn()" ,:title=>"bar"  %>
               </td>
             </tr>
           </table>
@@ -233,3 +233,13 @@
       }
   });
 </script>
+      <script>
+          function check_extn()
+          {
+              var ext = $('.fileUploadButtonContainer').val().split('.').pop().toLowerCase();
+              if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+              $('#profile_avatar_file1').val('');
+              alert('Invalid file');
+              }
+          }
+      </script>
