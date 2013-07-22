@@ -125,7 +125,7 @@
 <script>
     $('.new_education').submit(function() {
         var endDate = $('#current_date').val();
-        var startDate = $('#date_picker').val();
+        var startDate = $('.date_picker').val();
         if (startDate > endDate){
             alert("Start date value should be less than today date");
             return false;

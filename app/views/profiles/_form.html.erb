@@ -234,6 +234,22 @@
   });
 </script>
       <script>
+          $('.new_profile').submit(function() {
+              var endDate = $('#current_date').val();
+              var startDate = $('#date_picker1').val();
+              var birthdate = $('#date_picker').val();
+
+              if (startDate > endDate){
+                  alert("Start date value should be less than today date");
+                  return false;
+              }
+              if (birthdate > endDate){
+                  alert("Birthdate should be less than today date");
+                  return false;
+              }
+          });
+      </script>
+      <script>
           function check_extn()
           {
               var ext = $('.fileUploadButtonContainer').val().split('.').pop().toLowerCase();
