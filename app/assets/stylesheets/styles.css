@@ -1306,7 +1306,6 @@ td{
     position: relative;
     height:160px;
     margin-left:0;
-    margin-top:;
     background-color:#51A2D5;
 }
 .post_curcomment{
@@ -2325,7 +2324,7 @@ ul#pinned_message{
 }
 #fom .txt_inp{
     width: 262px !important;
-  float: none:  !important;
+  float: none;
 }
 #fom .input_fld_div{
   position: relative;
