@@ -219,6 +219,26 @@
 
 <script>
   $('.edit_profile').submit(function() {
+      var values = $("input[id='_user_role_']")
+              .map(function(){return $(this).val();}).get();
+          count_checkbox = 0;
+      for (i=0; i!=values.length;i++) {
+
+                   var checkbox = $("input[type='checkbox'][value='"+values[i]+"']");
+          if(checkbox.is(':checked') )
+          {
+              count_checkbox = 1;
+          }
+
+      }
+      if(count_checkbox == 0)
+      {
+          alert("select atleast one role");
+          return false;
+      }
+
+//      document.getElementById(custId).checked == true
+
       var endDate = $('#current_date').val();
       var startDate = $('#date_picker1').val();
       var birthdate = $('#date_picker').val();
@@ -235,6 +255,23 @@
 </script>
       <script>
           $('.new_profile').submit(function() {
+              var values = $("input[id='_user_role_']")
+                      .map(function(){return $(this).val();}).get();
+              count_checkbox = 0;
+              for (i=0; i!=values.length;i++) {
+
+                  var checkbox = $("input[type='checkbox'][value='"+values[i]+"']");
+                  if(checkbox.is(':checked') )
+                  {
+                      count_checkbox = 1;
+                  }
+
+              }
+              if(count_checkbox == 0)
+              {
+                  alert("select atleast one role");
+                  return false;
+              }
               var endDate = $('#current_date').val();
               var startDate = $('#date_picker1').val();
               var birthdate = $('#date_picker').val();

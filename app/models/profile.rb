@@ -20,7 +20,5 @@ class Profile < ActiveRecord::Base
 
     self.avatar_file = input_data.read
   end
-  def check_method
-    raise self.changes.inspect
-  end
+
 end

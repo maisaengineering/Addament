@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :email, :presence => true, :uniqueness => true
+  #validates :email, :presence => true, :uniqueness => true
   acts_as_messageable
   acts_as_followable
   acts_as_follower
