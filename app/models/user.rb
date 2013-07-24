@@ -44,9 +44,20 @@ class User < ActiveRecord::Base
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      user = User.new(:provider => auth.provider, :uid => auth.uid, :password => Devise.friendly_token[0,20])
-      user.skip_confirmation!
-      user.save
+      add_email_id = ""
+      last_user = User.last
+      if last_user
+       add_email_id = "addament#{last_user.id.next}@gmail.com"
+      else
+        add_email_id = "addament1@gmail.com"
+      end
+      user = User.new(:provider => auth.provider, :uid => auth.uid, :email => add_email_id, :password => Devise.friendly_token[0,20])
+      check_email = User.where(:email =>  user.email).first
+      unless check_email
+        user.skip_confirmation!
+        user.save
+      end
+
     end
      user
   end
