@@ -89,7 +89,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.follow(current_user)
     reqtomentor = Requesttomentor.where(user_id: params[:id]).first
-    Requesttomentor.find(reqtomentor.id).destroy
+    reqtomentor.update_column(:status, 'approved')
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
   def reject_user
