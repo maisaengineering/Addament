@@ -33,7 +33,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
-    @company = Company.all
     if session[:social_login_data]
       data = session[:social_login_data]
       @profile.assign_attributes(first_name: data.try(:first_name),last_name: data.try(:last_name),
@@ -50,9 +49,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @company = Company.all
    @profile = Profile.find(params[:id])
-   
   end
 
   # POST /profiles

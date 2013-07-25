@@ -1,5 +1,18 @@
-= simple_form_for :message, url: [:reply, conversation] do |f|
-  = f.input :subject
-  = f.input :body
-  = f.button :submit, class: 'btn-primary'
-  = submit_tag 'Cancel', type: :reset, class: 'btn btn-danger'
+= form_for :message, url: [:reply, conversation] do |f|
+  %table
+    %tr
+      %td
+        Subject
+      %td
+        = f.text_field :subject
+    %tr
+      %td
+        Body
+      %td
+        = f.text_field :body
+  %table{:style => "margin-left: 66px;"}
+    %tr
+      %td
+        = f.submit :submit, class: 'conv_send_btn'
+      %td
+        = submit_tag 'Cancel', type: :reset, class: 'conv_send_btn'

@@ -7,6 +7,7 @@ class Profile < ActiveRecord::Base
   #                  :url => '/:class/:id/:attachment?style=:style'
 
    #after_save :check_method
+  validates :first_name,  :uniqueness => {:message => "Name already exists"}
 
    is_impressionable
   has_many :professionals
