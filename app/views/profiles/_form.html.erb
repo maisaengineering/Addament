@@ -75,9 +75,21 @@
                     <% User::ROLES.each do |role| %>
                         <%= check_box_tag "[user_role][]",role,current_user.user_role.include?(role)  %> <%= role %>
                     <% end %>
-            <% end %>
+
             </td>
             </tr>
+            <% end %>
+
+            <% if current_user.email == "addament#{current_user.id}@gmail.com" %>
+                <tr>
+                  <td>Email</td>
+                  <td>
+
+                    <%= text_field_tag :current_email %>
+
+                  </td>
+                </tr>
+            <% end %>
 
             <tr>
               <td colspan="2" style="background-color:#fff;" align="center">
@@ -219,6 +231,29 @@
 
 <script>
   $('.edit_profile').submit(function() {
+      if ($('#current_email').val()!="")
+      {
+
+      var values = $("input[id='_user_role_']")
+              .map(function(){return $(this).val();}).get();
+          count_checkbox = 0;
+      for (i=0; i!=values.length;i++) {
+
+                   var checkbox = $("input[type='checkbox'][value='"+values[i]+"']");
+          if(checkbox.is(':checked') )
+          {
+              count_checkbox = 1;
+          }
+
+      }
+      if(count_checkbox == 0)
+      {
+          alert("select atleast one role");
+          return false;
+      }
+
+//      document.getElementById(custId).checked == true
+
       var endDate = $('#current_date').val();
       var startDate = $('#date_picker1').val();
       var birthdate = $('#date_picker').val();
@@ -231,10 +266,36 @@
           alert("Birthdate should be less than today date");
           return false;
       }
+      }
+      else
+      {
+          alert("please enter Email")
+          return false;
+      }
   });
 </script>
       <script>
           $('.new_profile').submit(function() {
+              if ($('#current_email').val()!="")
+              {
+
+                  var values = $("input[id='_user_role_']")
+                      .map(function(){return $(this).val();}).get();
+              count_checkbox = 0;
+              for (i=0; i!=values.length;i++) {
+
+                  var checkbox = $("input[type='checkbox'][value='"+values[i]+"']");
+                  if(checkbox.is(':checked') )
+                  {
+                      count_checkbox = 1;
+                  }
+
+              }
+              if(count_checkbox == 0)
+              {
+                  alert("select atleast one role");
+                  return false;
+              }
               var endDate = $('#current_date').val();
               var startDate = $('#date_picker1').val();
               var birthdate = $('#date_picker').val();
@@ -245,6 +306,12 @@
               }
               if (birthdate > endDate){
                   alert("Birthdate should be less than today date");
+                  return false;
+              }
+              }
+              else
+              {
+                  alert("please enter Email")
                   return false;
               }
           });

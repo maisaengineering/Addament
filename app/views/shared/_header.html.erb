@@ -41,9 +41,7 @@
 <script>
 
     $('.srch').bind('keypress', function(e)  {
-        var code = (e.keyCode ? e.keyCode : e.which);
 
-        if(code == 13) {
             $.ajax({
                 url: "/feedback/filter_data",
 
@@ -64,7 +62,7 @@
                 }
 
             })
-        }
+
     });
 
 </script>

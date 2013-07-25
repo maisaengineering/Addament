@@ -37,8 +37,14 @@ class ApplicationController < ActionController::Base
    def check_user_profile
     profile = Profile.where(user_id: current_user.id).first
      unless profile
+       if current_user.email == "addament#{current_user.id}@gmail.com"
+         flash[:notice] = "please enter basic profile information and enter valid email to confirm your account"
+         redirect_to new_profile_path
+
+       else
        flash[:notice] = "please enter basic profile information"
        redirect_to new_profile_path
+       end
     end
     
    end
