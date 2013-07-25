@@ -29,13 +29,14 @@
 
   <div class="search_results_details">
     <% @company_name.each do |profile_result| %>
-        <td><%= link_to "#{profile_result.company_name}", profile_result %>
-            </td>
+        <%= link_to "#{profile_result.company_name}", profile_result %><br/>
+
   <% end %>
   </div>
     <% else %>
         <p><b>No Results Found</b></p>
     <% end %>
+</div>
 </div>
 </div>
 
