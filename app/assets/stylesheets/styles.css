@@ -1560,12 +1560,13 @@ hr.style-one {
     margin-left: 10px;
 }
 #messages_ul li{
-    height: 185px;
+    height: 192px;
     margin-left: -10px;
     float: left;
     background-position:120px -2px;
     margin-bottom: 20px;
-    width: 201px;
+    width: 200px;
+    margin-left: 10px;
 }
 #pin_image{
 
@@ -1643,6 +1644,7 @@ ul#pinned_message{
 .search_results_details{
     margin-left:10px;
     margin-top:10px;
+    width:450px;
 }
 .spaceunder{
     height: 50px;

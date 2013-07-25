@@ -3,36 +3,29 @@
 
            <% if current_user.following?(user) %>
                <%  unless user.profile.nil? %>
-               <table>
-                 <tr>
-                    <td>
+
                         <% unless user.profile.avatar_file.nil? %>
                         <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
                         <% else %>
                         <%=  image_tag("missing.png",height: 70,width: 70) %>
                         <% end %>
-                    </td>
-                    <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
-                 </tr>
-               </table>
+
+                    <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
+
                <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "disconnectbtn",
                           :style => "width:90px" %>
               <% end %>
               <% end %>
               <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id, status: 'pending' ).first %>
               <% if reqtomentor %>
-                <table>
-                  <tr>
-                  <td>
+
                      <% unless user.profile.avatar_file.nil? %>
                      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
                      <% else %>
                      <%=  image_tag("missing.png",height: 70,width: 70) %>
                      <% end %>
-                  </td>
-                  <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
-                  </tr>
-                </table>
+                  <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
+
               <%= button_to "Pending", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :disable => true, :class => "disconnectbtn",
               :style => "width:90px" %>
               <% end %>

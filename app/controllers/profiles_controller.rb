@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  include Devise
   # GET /profiles
   # GET /profiles.json
   before_filter :check_user_profile, only: [:about]
@@ -60,6 +61,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(params[:profile])
     up_user= User.find(current_user.id)
     up_user.update_attributes(:user_role => params[:user_role])
+
+    if params[:current_email]
+      up_user.update_attributes(:email => params[:current_email])
+    end
+
     respond_to do |format|
       if @profile.save
         format.html {redirect_to new_education_path }
@@ -86,7 +92,10 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
      current_user.update_attributes(:user_role => params[:user_role])
-      respond_to do |format|
+    if params[:current_email]
+      current_user.update_attributes(:email => params[:current_email])
+    end
+     respond_to do |format|
       if @profile.update_attributes(params[:profile])
           format.html {redirect_to new_education_path }
         #format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }

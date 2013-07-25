@@ -6,11 +6,11 @@
   - messages.each do |message|
   - profile_pic = Profile.where("user_id =?", notification.sender_id).first
     %ul#pinned_message
-      %li{:class =>"message_box#{conversation.id}", :id => "pin_image", :style => "background-color:#{message.priority}; background-image: url('/assets/pin.png') !important; background-repeat: no-repeat; background-position-x: 131px;background-position-y: 7px; "}
+      %li{:class =>"message_box#{conversation.id} conversation_boxes", :id => "pin_image", :style => "background-color:#{message.priority}; background-image: url('/assets/pin.png') !important; background-repeat: no-repeat; background-position-x: 131px;background-position-y: 7px; "}
         - if profile_pic.avatar_file.nil?
           =image_tag("missing.png")
         - else
-          = image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_pic.id ), {:width=>'25px', :height => '25px'}
+          = image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_pic.id ), {:width=>'60px', :height => '60px'}
         %label
           =profile_pic.first_name
         %p
@@ -19,7 +19,7 @@
             %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
           %div{:class => "profile_text#{conversation.id}", :style => "display: none;"}
             = form_tag('/feedback/change_priority', :remote => true) do
-              = select_tag :priority,  options_for_select([["punch"],["royal blue"],["cardinal"],["purple heart"],["fun green"]]),:style=>'width: 185px;', :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
+              = select_tag :priority,  options_for_select([["yellow"],["DeepSkyBlue"],["MediumPurple"],["SandyBrown"],["LightSteelBlue"]]),:style=>'width: 185px;', :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
               = hidden_field_tag 'conversation_id', "#{message.id}", class: "conversation#{conversation.id}"
 
 
@@ -35,21 +35,21 @@
   function change_form(m)
   {
     var color = $("#priority" + m).val();
-    if(color =="royal blue" )
+    if(color =="yellow" )
     {
-     var color_code = "#2a7fec";
+     var color_code = "#FEFF75";
     }
-    else if (color =="punch" ){
-       var color_code = "#d8502a";
+    else if (color =="DeepSkyBlue" ){
+       var color_code = "#00BFFF";
     }
-    else if(color =="cardinal") {
-    var color_code = "#b31b42";
+    else if(color =="MediumPurple") {
+    var color_code = "#9370DB";
     }
-    else if(color =="purple heart") {
-    var color_code = "#5838b3";
+    else if(color =="SandyBrown") {
+    var color_code = "#F4A460";
         }
-    else if(color =="fun green") {
-    var color_code = "#019219";
+    else if(color =="LightSteelBlue") {
+    var color_code = "#B0C4DE";
      }
     var message = $(".conversation" + m).val();
     $('.message_box' + m ).css('background-color', color_code);
