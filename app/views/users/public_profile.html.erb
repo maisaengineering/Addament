@@ -5,7 +5,7 @@
             <div class="tabbable"> <!-- Only required for left/right tabs -->
               <ul class="nav nav-tabs" style = "background-color:#51A2D5;width:980px;">
                 <li class="active"><a href="#tab1" data-toggle="tab">Users</a></li>
-                <li><a href="#tab2" data-toggle="tab" id="followee" >Mentee</a></li>
+                <li><a href="#tab2" data-toggle="tab" id="followee" >Mentees</a></li>
                 <li><a href="#tab3" data-toggle="tab">Mentors</a></li>
               </ul>
               <div class="tab-content" style = "width:980px">
@@ -13,7 +13,7 @@
                   <%= render :partial => 'all_users' %>
                 </div>
                 <div class="tab-pane" id="tab2">
-                  <%= render :partial => 'followees' %>
+                  <%= render :partial => 'followee' %>
                 </div>
                 <div class="tab-pane" id="tab3">
                   <%= render :partial => 'following' %>
