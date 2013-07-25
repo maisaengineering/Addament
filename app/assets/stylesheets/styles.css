@@ -1525,6 +1525,8 @@ hr.style-one {
     border-left: 1px solid rgba(11,11,11,.9);
     border-right: 1px solid rgba(40,40,40,.9);
     border-bottom: 1px solid rgba(100,100,100,.9);
+    margin-top: -20px;
+    margin-left: 55px;
 }
 #message_prog{
     width: 280px;
@@ -1573,13 +1575,13 @@ hr.style-one {
 }
 
 #messages_ul li label{
-    font-size: 12px;
+    font-size: 16px;
     display: block;
-    color: #fff;
-    font-weight: bold;
+    color: #00008b;
+    font-family: bold;
     letter-spacing: 1px;
     padding-left: 15px;
-    margin-top: 20px;
+    margin-top: 14px;
     text-decoration: underline;
 }
 
@@ -1590,7 +1592,7 @@ hr.style-one {
 
 #messages_ul li p{
     font-size: 10px;
-    color: #fff;
+    color: #000;
     letter-spacing: 1px;
     text-align: justify;
     margin-top: 10px;

@@ -4,7 +4,7 @@
                <% unless user.profile.nil? %>
                   <% unless current_user.following?(user) %>
                   <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id ).first %>
-                  <% unless reqtomentor %>
+                  <% unless reqtomentor %><br>
 
                       <% unless user.profile.avatar_file.nil? %>
                           <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
@@ -12,10 +12,12 @@
                           <%=  image_tag("missing.png",height: 70,width: 70) %>
                       <% end %>
 
-                      <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"  %><br>
+                      <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5;" %><br>
                       <% if user.profile.professionals[0].company_id %>
+                        <div style ="margin-left:73px;margin-top:-20;font-size: 12px;">
                           <% comapanyname = Company.find(user.profile.professionals[0].company_id)  %>
                           <%= link_to "#{comapanyname.company_name}", company_path(comapanyname.id)  %>
+                        </div>
                       <% end %>
 
                   <%= button_to "Connect", {:controller => :users, :action => :follow,  :id => user.id},:remote => true, :class => "connectbtn",

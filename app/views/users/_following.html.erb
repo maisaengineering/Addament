@@ -1,5 +1,5 @@
 <% @users.in_groups_of(2, false) do |lists| %>
-   <%  for user in lists %>
+   <%  for user in lists %>  <br>
 
            <% if current_user.following?(user) %>
                <%  unless user.profile.nil? %>
@@ -13,7 +13,7 @@
                     <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
 
                <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "disconnectbtn",
-                          :style => "width:90px" %>
+                          :style => "width:108px" %>
               <% end %>
               <% end %>
               <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id, status: 'pending' ).first %>

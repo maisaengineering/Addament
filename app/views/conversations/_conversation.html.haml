@@ -8,12 +8,13 @@
     %ul#pinned_message
       %li{:class =>"message_box#{conversation.id} conversation_boxes", :id => "pin_image", :style => "background-color:#{message.priority}; background-image: url('/assets/pin.png') !important; background-repeat: no-repeat; background-position-x: 131px;background-position-y: 7px; "}
         - if profile_pic.avatar_file.nil?
-          =image_tag("missing.png")
+          =image_tag("missing.png", :style => "width:60px;height:75px" )
         - else
           = image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_pic.id ), {:width=>'60px', :height => '60px'}
         %label
           =profile_pic.first_name
         %p
+          sub:
           = link_to conversation.subject, conversation
           %div{:class => "commentbutton#{conversation.id} "}
             %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
