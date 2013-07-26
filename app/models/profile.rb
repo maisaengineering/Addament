@@ -16,7 +16,7 @@ class Profile < ActiveRecord::Base
   belongs_to :users
   include PublicActivity::Model
   tracked
-
+  validates_presence_of :first_name,:last_name, :presence => true
   def avatar_file1=(input_data)
 
     self.avatar_file = input_data.read

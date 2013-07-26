@@ -70,7 +70,7 @@
 
                           <label class="qtn">Project Name:</label><%= past.project_name %><br>
 
-                  <% end %>
+                  <% end %><br/>
                 <% end %>
             <% end %>
             <label class="qtnlb">Educations:</label><br>
@@ -83,7 +83,7 @@
                 <label class="qtn" >Field Of Study:</label><%= education.field_of_study %><br>
                 <label class="qtn" >Grade:</label><%= education.grade %><br>
 
-            <% end %>
+            <% end %><br/>
             <% end %>
           </p>
         </div>
@@ -101,7 +101,7 @@
                           <label class="qtn">Location:</label><%= present.location %><br/>
 
                           <label class="qtn">Project Name:</label><%= present.project_name %><br/>
-                <% end %>
+                <% end %><br/>
                 <% end %>
             <% end %>
 
@@ -111,6 +111,7 @@
         <div class="tab-pane" id="tab3"><br>
           <label class="qtnlb">Goals:</label>
             <%=  render :partial => 'goalcomments' %>
+
         </div>
       </div>
       <div id="follfDIV">

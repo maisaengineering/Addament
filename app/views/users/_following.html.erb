@@ -1,6 +1,5 @@
 <% @users.in_groups_of(2, false) do |lists| %>
-   <%  for user in lists %>  <br>
-
+   <%  for user in lists %>
            <% if current_user.following?(user) %>
                <%  unless user.profile.nil? %>
 

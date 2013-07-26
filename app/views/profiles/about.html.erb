@@ -64,7 +64,7 @@
                   <label class="about_meLft_col">Date attended:</label><label class="about_meRht_col"><%= education.date_attended %></label><br />
                   <label class="about_meLft_col">Degree:</label><label class="about_meRht_col"><%= education.degree %></label><br />
                   <label class="about_meLft_col">Field of Study:</label><label class="about_meRht_col"><%= education.field_of_study %></label><br />
-                  <label class="about_meLft_col">Grade:</label><label class="about_meRht_col"><%= education.grade %></label><br />
+                  <label class="about_meLft_col">Grade:</label><label class="about_meRht_col"><%= education.grade %></label><br /><hr class="comp_sep"/>
               <% end %>
           </div>
 
@@ -86,8 +86,8 @@
           </div>
 
           <div class="tab-pane" id="tab3">
-            <div id="goal_cmts">
             <label class="goals_tab_title">Goals:</label>
+            <div id="goal_cmts">
               <%=  render :partial => 'profile_about_goal' %>
             </div>
           </div>

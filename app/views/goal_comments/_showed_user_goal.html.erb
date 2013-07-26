@@ -22,9 +22,9 @@
     <div class="field">
       <!--<%= f.label :comment_description %>-->
       <%= hidden_field_tag :profile_id,'', :value => profile_id  %>
-      <%= f.text_area :comment_description, :style =>"height: 30px;" %>
+      <%= f.text_area :comment_description, :style =>"height: 30px;margin-left: 85px;" %>
     </div>
     <div class="actions">
-      <%= f.submit "Comment", :id => "save", :class => "commentsbtn" %>
+      <%= f.submit "Comment", :id => "save", :class => "commentsbtn", :style =>"margin-left: 85px;" %>
     </div>
 <% end %>

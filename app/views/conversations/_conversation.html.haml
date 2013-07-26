@@ -17,7 +17,7 @@
           sub:
           = link_to conversation.subject, conversation
           %div{:class => "commentbutton#{conversation.id} "}
-            %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})"} Change Priority
+            %a{:href => "javascript:void(0)", :onclick => "open_form(#{conversation.id})", :style => "margin-left:20px"} Change Priority
           %div{:class => "profile_text#{conversation.id}", :style => "display: none;"}
             = form_tag('/feedback/change_priority', :remote => true) do
               = select_tag :priority,  options_for_select([["yellow"],["DeepSkyBlue"],["MediumPurple"],["SandyBrown"],["LightSteelBlue"]]),:style=>'width: 185px;', :id => "priority#{conversation.id}", :onchange => "change_form(#{conversation.id})"
