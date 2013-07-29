@@ -769,7 +769,7 @@ td{
     padding-left: 25px;
 }
 #feedsDiv .chatUpdatesHk2{
-    background: url(/assets/chat-updates.gif)no-repeat;
+    background: url(/assets/chat-updates.gif) no-repeat;
     background-position: 0px, 20px;
     padding-left: 25px;
 }
@@ -2534,6 +2534,11 @@ li.receipt{
     border-radius: 10px;
     margin-top: -25px;
     margin-left: 264px;
+}
+.commentbutton1{
+    margin-top: -12px;
+    margin-left: -8px;
+}
 }
 
 
