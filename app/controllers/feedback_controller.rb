@@ -5,6 +5,10 @@ class FeedbackController < ApplicationController
   def new
 
   end
+
+  def privacy_policy
+
+  end
   def send_email
 
     if params[:current_form] == "users"  && params[:current_action] == "show"

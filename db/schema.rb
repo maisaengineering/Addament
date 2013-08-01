@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707053807) do
+ActiveRecord::Schema.define(:version => 20130801111347) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -153,6 +153,15 @@ ActiveRecord::Schema.define(:version => 20130707053807) do
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
 
+  create_table "organizations", :force => true do |t|
+    t.string   "org_name"
+    t.string   "org_url"
+    t.string   "org_admin_email"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.text     "current_post"
@@ -216,7 +225,7 @@ ActiveRecord::Schema.define(:version => 20130707053807) do
     t.string   "mailbox_type",    :limit => 25
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "priority",                      :default => "#FEFF75"
+    t.string   "priority",                      :default => "#FFFF00"
   end
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
