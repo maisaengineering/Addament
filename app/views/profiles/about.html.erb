@@ -10,7 +10,7 @@
             </div>
             <% end %>
             <div class="profile_about_text">
-              <div class="aboutbutton" ><a href="javascript:void(0)" class="profile_about_btnn"><strong>ABOUT</strong></a></div>
+              <div class="aboutbutton" ><a href="javascript:void(0)" class="profile_about_btnn"><strong>My Story</strong></a></div>
             </div>
             <div style ="margin-left:148px;">
               <div class="profile_text">
@@ -56,8 +56,8 @@
                       <% end %>
                   <% end %>
                  <% end %>
-
-              <label class="goals_tab_title">Educations:</label>
+              <hr style="background-color: #99C853;height: 8px;"/>
+              <label class="goals_tab_title">Education:</label>
               <% @profile.education.each do |education| %>
                   <% school = School.find(education.school_id) %>
                   <label class="about_meLft_col">School name:</label><label class="about_meRht_col"><%= school.school_name %></label><br />
@@ -77,7 +77,8 @@
                       <label class="about_meLft_col">Start Date:</label><label class="about_meRht_col"><%= present.start_date %></label><br>
                       <label class="about_meLft_col">Location:</label><label class="about_meRht_col"><%= present.location %></label><br>
                       <label class="about_meLft_col">Project Name:</label><label class="about_meRht_col"><%= present.project_name %></label><br>
-                      <label class="about_meLft_col">Affiliations:</label><label class="about_meRht_col"><%= present.affiliations %></label><br>
+                        <% orgname = Organization.find(present.organization_id) %>
+                      <label class="about_meLft_col">Affiliations:</label><label class="about_meRht_col"><%= orgname.org_name %></label><br>
                       <% else %>
                           <p>There is No past professional information</p>
                       <% end %>
