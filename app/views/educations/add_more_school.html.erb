@@ -12,12 +12,12 @@
     <table align="center">
 
     <tr class="spaceunder">
-          <td><label>School</label></td>
+          <td><label>School<sup>*</sup></label></td>
           <td> <%= f.hidden_field :profile_id, :value =>  current_user.profile.id %>
             <%= f.text_field :schoolname, :class => "school", :required => true %></td>
         </tr>
         <tr class="spaceunder">
-          <td><label>Date attended</label></td>
+          <td><label>Date attended<sup>*</sup></label></td>
           <td><%= f.text_field :date_attended, :class => "date_picker" %></td>
           <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
         </tr>

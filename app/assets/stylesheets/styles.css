@@ -57,6 +57,10 @@ a{
     text-decoration: none;
     color: #4a4a4a;
 }
+sup{
+    font-weight: bold;
+    color: #ff0000;
+}
 a:hover{
     text-decoration: none;
     color: #000;
@@ -202,12 +206,17 @@ h3{
     float: left; margin-top: 40px;
     font-size: 50px;
 }
+#menu a{
+    text-decoration: none;
+    color: #51a2d5;
+    font-family: inconsolata;
+}
 
 #menu .menuItem{
     float: left;
+    font-family: inconsolata;
     font-size: 12px;
-    font-weight: bold;
-    color: #51a2d5;
+    color: #96c953;
     /*cursor: pointer;*/
     margin-left: 10px;
     padding-left: 5px;
@@ -335,6 +344,10 @@ input[type="search"]:focus{
     padding-right: 20px;
     cursor: pointer;
 }
+#footer_menu a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
 #footer_menu li:after{
     padding-left: 10px;
     content: " | "
@@ -358,6 +371,10 @@ input[type="search"]:focus{
     margin-right: 0px;
     margin-top: -25px;
     margin-left: 90px;
+}
+.footer_privacy_policy a:hover {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 /* Footer CSS End*/
@@ -494,7 +511,6 @@ background: url(/assets/choosefile.gif) no-repeat;background-position: 15px;
     font-size: 12px;
     margin-top: 30px;
 }
-
 #professionalTbl tr:nth-child(odd) td{
     background-color: #fff;
     background: rgba(105,169,212,.85);
@@ -2539,9 +2555,59 @@ li.receipt{
     margin-top: -12px;
     margin-left: -8px;
 }
-}
+
+
 
 
 /* -------------------- MAIN COLORS -------------------------*/
 /*     96c953 >> GREEN     */
 /*     51a2d5 >> BLUE     */
+
+
+
+
+
+
+#srch .has-sub {
+    z-index: 1;
+}
+#srch .has-sub:hover > ul {
+    display: block;
+}
+#srch .has-sub ul {
+    display: none;
+    position: absolute;
+    width: 200px;
+    top: 100%;
+    left: 0;
+}
+#srch .has-sub ul li {
+    *margin-bottom: -1px;
+}
+#srch .has-sub ul li a {
+    background: #0fa1e0;
+    border-bottom: 1px dotted #6fc7ec;
+    filter: none;
+    font-size: 11px;
+    display: block;
+    line-height: 120%;
+    padding: 10px;
+}
+#srch .has-sub ul li:hover a {
+    background: #0c7fb0;
+}
+#srch .has-sub .has-sub:hover > ul {
+    display: block;
+}
+#srch .has-sub .has-sub ul {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+#srch .has-sub .has-sub ul li a {
+    background: #0c7fb0;
+    border-bottom: 1px dotted #6db2d0;
+}
+#srch .has-sub .has-sub ul li a:hover {
+    background: #095c80;

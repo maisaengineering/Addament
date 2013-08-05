@@ -5,7 +5,7 @@
     <tr>
     <div class="field">
     <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
-    <td><%= f.label :company_name %></td>
+    <td><%= f.label :company_name %><sup>*</sup></td>
     <td><%=  f.text_field :companyname, :id=> "company_name_id", :required => true,:class=>"kxtbnoperzcv" %></td>
     </div>
     </tr>
@@ -29,14 +29,14 @@
     </tr>
     <tr>
     <div class="field">
-      <td><%= f.label :start_date %></td>
+      <td><%= f.label :start_date %><sup>*</sup></td>
 
       <td><%= f.date_select :start_date, :order => [:year, :month] %></td>
     </div>
     </tr>
     <tr>
     <div class="field">
-      <td><%= f.label :end_date %></td>
+      <td><%= f.label :end_date %><sup>*</sup></td>
       <td><%= f.date_select :end_date, :order => [:year, :month] %></td>
     </div>
     </tr>

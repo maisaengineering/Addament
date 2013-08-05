@@ -20,12 +20,12 @@
 
           </tr>
           <tr class="spaceunder">
-            <td><label>School</label></td>
+            <td><label>School<sup>*</sup></label></td>
             <td> <%= f.hidden_field :profile_id, :value =>  current_user.profile.id %>
               <%= f.text_field :schoolname, :class => "school", :required => true %></td>
           </tr>
           <tr class="spaceunder">
-            <td><label>Date attended</label></td>
+            <td><label>Date attended<sup>*</sup></label></td>
             <td><%= f.text_field :date_attended, :class => "date_picker", :required => true %></td>
             <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %>
           </tr>
@@ -90,21 +90,16 @@
           <li>
             <label>Ready for Google xPhone?</label>
             <p>open.etoro.com</p>
-            <img src="images/s1.png"/>
+            <%= image_tag("s1.png") %>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
           </li>
           <li>
             <label>Ready for Google xPhone?</label>
             <p>open.etoro.com</p>
-            <img src="images/s2.png"/>
+            <%= image_tag("s2.png") %>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
           </li>
-          <li>
-            <label>Ready for Google xPhone?</label>
-            <p>open.etoro.com</p>
-            <img src="images/s4.png"/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, molestias, similique,</p>
-          </li>
+
         </ul>
       </div>
 
