@@ -1,8 +1,10 @@
 class OrganizationsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :check_user_profile
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organization
 
     respond_to do |format|
       format.html # index.html.erb

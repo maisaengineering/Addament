@@ -1,7 +1,8 @@
 class Professional < ActiveRecord::Base
-  attr_accessible :achievements, :affiliations, :aspriations, :company_id, :companyname, :description, :end_date, :location, :professional_headline, :project_description, :project_end_date, :project_name, :project_start_date, :role, :start_date, :title, :profile_id
+  attr_accessible :achievements,:organization_id, :affiliations_array, :aspriations, :company_id, :companyname, :description, :end_date, :location, :professional_headline, :project_description, :project_end_date, :project_name, :project_start_date, :role, :start_date, :title, :profile_id
   belongs_to :profile
   belongs_to :company
+  belongs_to :organization
   include PublicActivity::Model
 
  # validates_presence_of :companyname, :presence => true
@@ -26,6 +27,21 @@ class Professional < ActiveRecord::Base
   def companyname
 
     self.company.company_name if company
+  end
+
+  def affiliations_array=(input_data)
+
+     orgname = input_data.split(',')
+    orgg_name = orgname.first orgname.size - 1
+     orgname.each do |orgnames|
+
+       self.organization = Organization.find_or_create_by_org_name(orgnames) unless orgnames.blank?
+     end
+
+  end
+  def affiliations_array
+
+    self.organization.org_name if organization
   end
 
 end
