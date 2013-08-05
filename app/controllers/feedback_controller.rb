@@ -35,7 +35,7 @@ class FeedbackController < ApplicationController
 
   def filter_data
 
-    @profile_result = Profile.where("first_name like ? and user_id != ?", "%#{params[:search_value]}%", current_user.id)
+    @profile_result = User.where("user_role like ? and id != ?", "%#{params[:search_value]}%", current_user.id)
     @company_name = Company.where("company_name like ?", "%#{params[:search_value]}%")
 
     @education = Education.where("school like ?", "%#{params[:search_value]}%")

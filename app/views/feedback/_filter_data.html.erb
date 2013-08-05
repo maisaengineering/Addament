@@ -7,18 +7,18 @@
   <% unless @profile_result.empty? and @company_name.empty? %>
   <div class="search_results_details">
       <b><% @profile_result.each do |profile_result| %></b>
-          <% user = User.find(profile_result.user_id) %>
+          <% user = Profile.find_by_user_id(profile_result.id) %>
           <table style="color: #51a2d5;">
             <tr>
-              <% unless profile_result.avatar_file? %>
+              <% unless user.avatar_file? %>
                   <td><%= image_tag("missing.png", width: 90, height: 99) %></td>
               <% else %>
-                  <td><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_result.id), {:class => "profile_image"} %></td>
+                  <td><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.id), {:class => "profile_image"} %></td>
               <% end %>
               <td>
-                <%= link_to "#{profile_result.first_name}", profile_result %>
-                <%= link_to "#{profile_result.last_name}", profile_result %>
-                <%=  user.user_role.to_sentence %>
+                <%= link_to "#{user.first_name}", user %>
+                <%= link_to "#{user.last_name}", user %>
+                <%=  profile_result.user_role.to_sentence %>
               </td>
             </tr>
           </table>
@@ -27,12 +27,7 @@
   </div>
 
 
-  <div class="search_results_details">
-    <% @company_name.each do |profile_result| %>
-        <%= link_to "#{profile_result.company_name}", profile_result %><br/>
 
-  <% end %>
-  </div>
     <% else %>
         <p><b>No Results Found</b></p>
     <% end %>

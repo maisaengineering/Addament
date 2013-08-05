@@ -31,11 +31,11 @@
               <th style="color:#96c953;">Personal</th>
             </tr>
             <tr>
-              <td>First Name</td>
+              <td>First Name<sup>*</sup></td>
               <td><%= f.text_field :first_name  %></td>
             </tr>
             <tr>
-              <td>Last Name</td>
+              <td>Last Name<sup>*</sup></td>
               <td><%= f.text_field :last_name %></td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
               <td><%= f.text_field :phone_number %></td>
             </tr>
             <tr>
-              <td>Birthday</td>
+              <td>Birthday<sup>*</sup></td>
               <td><%= f.text_field :birthday, :id => "date_picker" %></td>
               <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %></td>
             </tr>
@@ -69,7 +69,7 @@
             </tr>
             <% unless current_user.user_role.nil? %>
                 <tr>
-                  <td>Roles</td>
+                  <td>Roles<sup>*</sup></td>
                   <td>
 
                     <% User::ROLES.each do |role| %>
@@ -108,7 +108,7 @@
                     <th style="color:#51a2d5;">Professional</th>
                   </tr>
                   <tr>
-                    <td>Current employer or school</td>
+                    <td>Current employer or school<sup>*</sup></td>
                     <td><%=  professional.text_field :companyname, :id=> "company_name", :required => true %></td>
                   </tr>
                   <tr>
@@ -120,7 +120,7 @@
                     <td><%=  professional.text_field :role %></td>
                   </tr>
                   <tr>
-                    <td>Date Started</td>
+                    <td>Date Started<sup>*</sup></td>
                     <td><%=  professional.text_field :start_date, :id => "date_picker1" %>
                       <%= hidden_field_tag :current_date, '', :value => Date.today.strftime("%Y-%m-%d") %></td>
                       </td>
@@ -135,7 +135,7 @@
                   <tr>
                     <td>Affiliations</td>
                     <td>
-                      <%= professional.text_area :affiliations, :rows => 3, :cols => 32, :id=> "affiliation" %>
+                      <%= professional.text_area :affiliations_array, :rows => 3, :cols => 32, :id=> "affiliation" %>
                     </td>
 
                   </tr>
@@ -163,8 +163,7 @@
               <%=  f.submit "Next", :class =>"next_btn",:style => "width:66px"  %>
           </table>
 </div>
-          <% @company = Company.all %>
-      <% end %>
+       <% end %>
 
 
 
@@ -189,22 +188,13 @@
       </script>
 
 
-      <script>
-          $("#affiliation").autocomplete([
-              "Aberdeen", "Ada"], {
-              multiple: true,
-              mustMatch: true,
-              autoFill: true
-          });
 
-
-      </script>
 
 
       <script type='text/javascript'>//<![CDATA[
       $(window).load(function(){
-          var availableTags = [<% for i in 0...@company.length %>
-              '<%= @company[i].company_name %>',
+          var availableTags = [<% for i in 0...company_list.length %>
+              '<%= company_list[i].company_name %>',
                   <% end %>
 
           ];
@@ -326,4 +316,50 @@
               alert('Invalid file');
               }
           }
+      </script>
+      <script>
+          $(function() {
+              var availableTags = [<% for i in 0...org_list.length %>
+                  '<%= org_list[i].org_name %>',
+                  <% end %>
+              ];
+              function split( val ) {
+                  return val.split( /,\s*/ );
+              }
+              function extractLast( term ) {
+                  return split( term ).pop();
+              }
+
+              $( "#affiliation" )
+                  // don't navigate away from the field on tab when selecting an item
+                      .bind( "keydown", function( event ) {
+                          if ( event.keyCode === $.ui.keyCode.TAB &&
+                                  $( this ).data( "ui-autocomplete" ).menu.active ) {
+                              event.preventDefault();
+                          }
+                      })
+                      .autocomplete({
+                          minLength: 0,
+                          source: function( request, response ) {
+                              // delegate back to autocomplete, but extract the last term
+                              response( $.ui.autocomplete.filter(
+                                      availableTags, extractLast( request.term ) ) );
+                          },
+                          focus: function() {
+                              // prevent value inserted on focus
+                              return false;
+                          },
+                          select: function( event, ui ) {
+                              var terms = split( this.value );
+                              // remove the current input
+                              terms.pop();
+                              // add the selected item
+                              terms.push( ui.item.value );
+                              // add placeholder to get the comma-and-space at the end
+                              terms.push( "" );
+                              this.value = terms.join( ", " );
+                              return false;
+                          }
+                      });
+          });
       </script>

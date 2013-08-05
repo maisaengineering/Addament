@@ -32,4 +32,12 @@ module ProfilesHelper
 
   end
 
+  def company_list
+     comp = Company.all
+  end
+
+  def org_list
+    org = Organization.all
+  end
+
 end

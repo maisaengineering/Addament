@@ -7,6 +7,7 @@
       <li class="menuItem"><%= link_to_unless_current "MESSAGES", conversations_path %></li>
       <li class="menuItem"><%= link_to_unless_current "NETWORK", public_profile_path %></li>
       <li class="menuItem"><%= link_to_unless_current "PATH", goals_path %></li>
+      <li class="menuItem"><%= link_to_unless_current "Affliations", organizations_path %></li>
     </ul>
     <input type="search" class="srch"/>
     <div class="userDet">
@@ -29,11 +30,12 @@
       <label class="notification"><%= check_message %></label>
       <img src="/assets/notification.gif" alt="nofti" style="margin-left:-45px;">
       <% if !current_user.profile.nil? %>
-          <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id) %>
+          <%= link_to image_tag("/assets/settings.png"), edit_profile_path(current_user.profile.id),{:class => "edit_prof", "data-toggle"=>"tooltip", "title"=>"Edit Profile"} %>
       <% else %>
           <%= link_to image_tag("/assets/settings.png") %>
       <% end %>
-      <%= link_to image_tag("/assets/signout.png"), destroy_user_session_path, :method => 'delete' %>
+
+      <%= link_to image_tag("/assets/signout.png"), destroy_user_session_path,:class => "signoutt","data-toggle"=>"tooltip", "data-placement"=>"top",  "title"=>"Sign out", :method => 'delete' %>
     </div>
   </div>
 </div>

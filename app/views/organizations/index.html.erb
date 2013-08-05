@@ -1,29 +1,19 @@
-<h1>Listing organizations</h1>
-
-<table>
-  <tr>
-    <th>Org name</th>
-    <th>Org url</th>
-    <th>Org admin email</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div id="container" style="background-color: #ffffff">
+  <br/>
 <% @organizations.each do |organization| %>
-  <tr>
-    <td><%= organization.org_name %></td>
-    <td><%= organization.org_url %></td>
-    <td><%= organization.org_admin_email %></td>
-    <td><%= organization.user_id %></td>
-    <td><%= link_to 'Show', organization %></td>
-    <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-    <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
+      <label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= organization.org_name %></label><br />
+      <label class="about_meLft_col">Organization Url:</label><label class="about_meRht_col"><%= organization.org_url %></label><br />
+      <label class="about_meLft_col">Organization Email:</label><label class="about_meRht_col"><%= organization.org_admin_email %></label><br />
+
+
+
+<% end %>
+  <% if @organizations.length == 0 %>
+      <h2 style="width:275px;margin-left: 270px;">No Organizations created </h2>
+      <% end %>
+ <hr/>
 <br />
 
 <%= link_to 'New Organization', new_organization_path %>
+</div>
