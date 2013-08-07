@@ -1,6 +1,9 @@
 class MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:update]
+  #respond_to :html, :json
   layout false
   def index
     @milestones = Milestone.all
@@ -49,10 +52,10 @@ class MilestonesController < ApplicationController
     respond_to do |format|
       if @milestone.save
         format.html { redirect_to goals_path, notice: 'Milestone was successfully created.' }
-        #format.json { render json: @milestone, status: :created, location: @milestone }
+        format.json { respond_with_bip(@milestone) }
       else
         format.html { render action: "new" }
-        format.json { render json: @milestone.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@milestone) }
       end
     end
   end
@@ -61,14 +64,14 @@ class MilestonesController < ApplicationController
   # PUT /milestones/1.json
   def update
     @milestone = Milestone.find(params[:id])
-
+    @milestone.update_attributes(params[:milestone])
     respond_to do |format|
-      if @milestone.update_attributes(params[:milestone])
-        format.html { redirect_to @milestone, notice: 'Milestone was successfully updated.' }
-        format.json { head :no_content }
+      if @milestone.save
+        format.html { redirect_to goals_path, notice: 'Milestone was successfully created.' }
+        format.json { respond_with_bip(@milestone) }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @milestone.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { respond_with_bip(@milestone) }
       end
     end
   end

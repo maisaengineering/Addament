@@ -10,21 +10,16 @@
             </div>
             <% end %>
             <div class="profile_about_text">
-              <div class="aboutbutton" ><a href="javascript:void(0)" class="profile_about_btnn"><strong>My Story</strong></a></div>
+              <div class="profile_about_btnn"><strong>My Story</strong></div>
             </div>
             <div style ="margin-left:148px;">
-              <div class="profile_text">
-                <%= truncate(current_user.profile.about, :length => 15) %>
-              </div>
-              <div class="profile_text2" style="display:none">
-                <%= f.text_area :about,  :style => "width:810px;height:65;", :rows => 2, :cols => 220 %>
-              </div>
+                <%= best_in_place @profile, :about,:type => :textarea %>
             </div>
             <div id ="profile_about_list">
               Latest Activity:<label><%= current_user.profile.updated_at.strftime("%B %d, %Y") %></label>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Date Joined:<label><%= current_user.created_at.strftime("%B %d, %Y") %></label> 
-            </div>   
+            </div>
             <div style="display: none;">
               <%=  f.submit "update Profile", :id=> "save" %>
             </div>
@@ -37,7 +32,9 @@
         <li class="active"><a href="#tab1" data-toggle="tab"><b>Past</b></a></li>
         <li><a href="#tab2" data-toggle="tab" ><b>Present</b></a></li>
         <li><a href="#tab3" data-toggle="tab"><b>Future</b></a></li>
+        <li id="editbtn"><%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) %> </li>
       </ul>
+
 </div>
 
     <div class="tab-content">
@@ -97,35 +94,8 @@
 </div>
 </div>
 </div>
-<script>
-    $('.aboutbutton').click(function(){
 
-        $('.profile_text').css('display', 'none');
-        $('.profile_text2').css('display', 'block');
-    });
-</script>
 
 <script>
-    $(document).ready(function(){
-        if("<%= current_user.profile.about %>")
-        {
-
-            $(".profile_text").html("<%= current_user.profile.about %>").show();
-            $(".profile_text2").hide();
-        }
-        else
-        {
-            $(".profile_text2").show();
-            $(".profile_text").hide();
-        }
-
-    });
+    $('.best_in_place').best_in_place()
 </script>
-
-<script>
-    $('#profile_about').blur(function() {
-
-        $('#save').trigger('click');
-    });
-</script>
-

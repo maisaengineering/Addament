@@ -70,9 +70,10 @@
 
                           <label class="qtn">Project Name:</label><%= past.project_name %><br>
 
-                  <% end %><br/>
+                  <% end %>
                 <% end %>
             <% end %>
+            <hr style="background-color: #99C853;height: 8px;"/>
             <label class="qtnlb">Educations:</label><br>
             <% @profile.education.each do |education| %>
                 <% unless education.school_id.nil? %>
