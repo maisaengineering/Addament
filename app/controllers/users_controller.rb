@@ -6,14 +6,22 @@ class UsersController < ApplicationController
   end
 
   def public_profile
-    @users = User.where("id != ? ", current_user.id)
+    current_user_company = User.get_current_company_name(current_user)
+    unless  current_user_company.nil?
+      @users = User.check_peers(current_user_company, current_user.profile.id)
+    end
+    # @users = User.where("id != ? ", current_user.id)
     @followee =  current_user.user_followers
    end
 
   def follow
 
     Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
-    @users = User.where("id != ? ", current_user.id)
+    current_user_company = User.get_current_company_name(current_user)
+    unless  current_user_company.nil?
+
+      @users = User.check_peers(current_user_company, current_user.profile.id)
+    end
     #user = User.find(params[:id])
     #current_user.follow(user)
     @followee =  current_user.user_followers
@@ -39,7 +47,11 @@ class UsersController < ApplicationController
     Requesttomentor.find(reqtomentor.id).destroy
     current_user.stop_following(user)
     @followee =  current_user.user_followers
-    @users = User.where("id != ? ", current_user.id)
+    current_user_company = User.get_current_company_name(current_user)
+    unless  current_user_company.nil?
+
+      @users = User.check_peers(current_user_company, current_user.profile.id)
+    end
   end
 
   def show_all_activity

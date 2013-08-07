@@ -290,11 +290,11 @@ input[type="search"]:focus{
 }
 #notifi{
     margin-top: 40px;
-    float: right;
+    /*float: right;*/
 }
 #notifi img{
     padding-left: 10px;
-    padding-right: 10px;
+    /*padding-right: 10px;*/
     display: inline-block;
 
 }

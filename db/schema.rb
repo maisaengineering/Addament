@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801111347) do
+ActiveRecord::Schema.define(:version => 20130805100159) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(:version => 20130801111347) do
     t.string   "professional_headline"
     t.text     "aspriations"
     t.text     "achievements"
-    t.text     "affiliations"
+    t.text     "organization_id"
     t.string   "project_name"
     t.date     "project_end_date"
     t.date     "project_start_date"
@@ -225,7 +225,7 @@ ActiveRecord::Schema.define(:version => 20130801111347) do
     t.string   "mailbox_type",    :limit => 25
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.string   "priority",                      :default => "#FFFF00"
+    t.string   "priority",                      :default => "#FEFF75"
   end
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"

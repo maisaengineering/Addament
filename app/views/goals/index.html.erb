@@ -1,26 +1,26 @@
 <div id="container" class="backgroundShadeForContainer">
-  <div id="leftDIV">
-    <ul style = "margin-left: -2px; margin-top: -8px;">
-      <% goal_id = 1 %>
-      <% unless @goals.empty? %>
-          <% @goals[0..3].each do |goal| %>
-              <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)">
-                <li class="<%= goal_id %>">
-                  <label><%= goal.goal_name %></label>
-                  <p><%= goal.target_date %></p>
-                </li>
-              </a>
-              <% goal_id += 1 %>
-          <% end %>
-       <% else %>
-      <h2> No goals are added</h2>
-       <% end %>
-      <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
-    </ul>
-    <% if @goals.count > 3 %>
-        <%= link_to "see more goals", about_profiles_path %>
-    <% end %>
-  </div>
+      <div id="leftDIV">
+            <ul style = "margin-left: -2px; margin-top: -8px;">
+              <% goal_id = 1 %>
+              <% unless @goals.empty? %>
+                  <% @goals[0..3].each do |goal| %>
+                      <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)">
+                        <li class="<%= goal_id %>">
+                          <label><%= goal.goal_name %></label>
+                          <p><%= goal.target_date %></p>
+                        </li>
+                      </a>
+                      <% goal_id += 1 %>
+                  <% end %>
+              <% else %>
+                  <h2> No goals are added</h2>
+              <% end %>
+              <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
+            </ul>
+            <% if @goals.count > 3 %>
+                <%= link_to "see more goals", about_profiles_path %>
+            <% end %>
+      </div>
   <div id="centerDIV">
     <div id="lineDiv"></div>
     <% milestone_id = 1 %>
@@ -34,17 +34,17 @@
           <% margin_top_milestone = 111 %>
           <% milestone = goal.milestones %>
           <% unless milestone.empty? %>
-          <% milestone[0..3].each do |mile_stone| %>
-              <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
-                <label>STEP <%= i %></label>
-              </div>
-              <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
-                <label style="color: white;"><%=  mile_stone.mile_Stone_step %></label>
-              </div>
-              <% i += 1 %>
-              <% margin_top = margin_top + 100 %>
-              <% margin_top_milestone = margin_top_milestone + 100 %>
-          <% end %>
+              <% milestone[0..3].each do |mile_stone| %>
+                  <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
+                    <label>STEP <%= i %></label>
+                  </div>
+                  <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
+                    <label style="color: white;"><%=  mile_stone.mile_Stone_step %></label>
+                  </div>
+                  <% i += 1 %>
+                  <% margin_top = margin_top + 100 %>
+                  <% margin_top_milestone = margin_top_milestone + 100 %>
+              <% end %>
           <% else %>
               <!--<br/>-->
               <!--<br/>-->
@@ -72,12 +72,13 @@
   <div id="rightDIV" style="height:615px;">
     <h2>Comments</h2>
     <ul>
-      <% @goals_comment = Goal.all %>
 
-      <% @goals_comment[0..2].each do |goal| %>
-          <% @goal_comments = goal.goal_comment.limit(1) %>
+      <% goalss_id = 1 %>
+      <% @goals.each do |goal| %>
+          <% @goal_comments = goal.goal_comment %>
           <% @goal_comments[0..2].each do |goal_comment| %>
               <% user_name = User.find(goal_comment.commenter_id) %>
+              <div class="goal_comment<%= goalss_id %>" style="display:none;">
               <li>
                 <% unless user_name.profile.avatar_file.nil? %>
                     <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_name.profile.id ),{ :class => "thumb_image"} %>
@@ -88,13 +89,14 @@
                 <p><%= truncate(goal_comment.comment_description,:length => 20) %></p>
                 <label style="color:#96c953; font-size:10px; letter-spacing:1px;"><%= time_ago_in_words(goal_comment.created_at) %> ago</label>
               </li>
+                  </div>
+              <% goalss_id += 1 %>
           <% end %>
       <% end %>
     </ul>
-
-        <% if @goals_comment.length > 2 %>
-            <%= link_to "see more",about_profiles_path , :style => "float:right" %>
-        <% end %>
+     <% if @goal_comments.length > 2 %>
+        <%= link_to "see more",about_profiles_path , :style => "float:right" %>
+    <% end %>
 
   </div>
 </div>
@@ -103,6 +105,7 @@
 <script>
     $(document).ready(function(){
         $(".mile_stone1").show();
+        $(".goal_comment1").show();
 
     });
 </script>
@@ -115,10 +118,12 @@
         for(i = 1; i < 10; i++)
         {
             $('.mile_stone'+ i).css('display', 'none');
+            $('.goal_comment'+ i).css('display', 'none');
 
         }
 
         $('.mile_stone'+ e).css('display', 'block');
+        $('.goal_comment'+ e).css('display', 'block');
 
 
     }
