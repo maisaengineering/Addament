@@ -1,8 +1,12 @@
 class Professional < ActiveRecord::Base
-  attr_accessible :achievements,:organization_id, :affiliations_array, :aspriations, :company_id, :companyname, :description, :end_date, :location, :professional_headline, :project_description, :project_end_date, :project_name, :project_start_date, :role, :start_date, :title, :profile_id
+  attr_accessible :achievements,:organization_id, :affiliations_array, :org_name, :author_tokens, :organization_id, :aspriations, :company_id, :companyname, :description, :end_date, :location, :professional_headline, :project_description, :project_end_date, :project_name, :project_start_date, :role, :start_date, :title, :profile_id
   belongs_to :profile
   belongs_to :company
-  belongs_to :organization
+
+  #has_and_belongs_to_many :oraganizations
+  has_many :orgprofessions
+  has_many :organizations, through: :orgprofessions
+  #belongs_to :organization
   include PublicActivity::Model
 
  # validates_presence_of :companyname, :presence => true
@@ -31,17 +35,24 @@ class Professional < ActiveRecord::Base
 
   def affiliations_array=(input_data)
 
-     orgname = input_data.split(',')
-    orgg_name = orgname.first orgname.size - 1
-     orgname.each do |orgnames|
+    orgnames = input_data.split(',')
+    orgnames.compact!
 
-       self.organization = Organization.find_or_create_by_org_name(orgnames) unless orgnames.blank?
-     end
+    self.organizations.destroy(Organization.where(org_name:(affiliations-orgnames)))
 
+    (orgnames-affiliations).each do |orgname|
+      orgname.strip!
+      self.organizations << Organization.find_or_create_by_org_name(orgname)
+    end
   end
+
   def affiliations_array
-
-    self.organization.org_name if organization
+    affiliations.join(', ')
   end
+
+  def affiliations
+    self.organizations.map(&:org_name)
+  end
+
 
 end

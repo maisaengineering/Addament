@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805100159) do
+ActiveRecord::Schema.define(:version => 20130809060331) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -162,6 +162,20 @@ ActiveRecord::Schema.define(:version => 20130805100159) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "organizations_professionals", :id => false, :force => true do |t|
+    t.integer  "oraganization_id"
+    t.integer  "professional_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "orgprofessions", :force => true do |t|
+    t.integer  "professional_id"
+    t.integer  "organization_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.text     "current_post"
@@ -242,6 +256,13 @@ ActiveRecord::Schema.define(:version => 20130805100159) do
     t.string   "school_name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "steps", :force => true do |t|
+    t.integer  "milestone_id"
+    t.string   "step_description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "todos", :force => true do |t|

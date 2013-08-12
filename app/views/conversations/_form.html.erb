@@ -22,50 +22,50 @@
 </div>
 
 <script>
-     $(document).ready(function(){
-            var sampleTags = [<% for i in 0...@company.length %>
-                '<%= @company[i].first_name %>',
-                <% end %>];
+    $(document).ready(function(){
+        var sampleTags = [<% for i in 0...@company.length %>
+            '<%= @company[i].first_name %>',
+            <% end %>];
 
-            //-------------------------------
-            // Tag events
-            //-------------------------------
+        //-------------------------------
+        // Tag events
+        //-------------------------------
 
-            var eventTags = $('#conversation_recipients');
+        var eventTags = $('#conversation_recipients');
 
-            var addEvent = function(text) {
-                $('#events_container').append(text + '<br>');
-            };
+        var addEvent = function(text) {
+            $('#events_container').append(text + '<br>');
+        };
 
-            eventTags.tagit({
-                availableTags: sampleTags,
-                beforeTagAdded: function(evt, ui) {
-                    if (!ui.duringInitialization) {
+        eventTags.tagit({
+            availableTags: sampleTags,
+            beforeTagAdded: function(evt, ui) {
+                if (!ui.duringInitialization) {
 
-                        addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+                    addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
 
-                    }
-                },
-                afterTagAdded: function(evt, ui) {
-                    if (!ui.duringInitialization) {
-                        addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
-                    }
-                },
-                beforeTagRemoved: function(evt, ui) {
-                    addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-                },
-                afterTagRemoved: function(evt, ui) {
-                    addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-                },
-                onTagClicked: function(evt, ui) {
-                    addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
-                },
-                onTagExists: function(evt, ui) {
-                    addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
                 }
-            });
+            },
+            afterTagAdded: function(evt, ui) {
+                if (!ui.duringInitialization) {
+                    addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+                }
+            },
+            beforeTagRemoved: function(evt, ui) {
+                addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+            },
+            afterTagRemoved: function(evt, ui) {
+                addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+            },
+            onTagClicked: function(evt, ui) {
+                addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
+            },
+            onTagExists: function(evt, ui) {
+                addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
+            }
         });
-    </script>
+    });
+</script>
 
 
 

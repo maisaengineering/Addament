@@ -1,7 +1,15 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user_profile
-  helper_method :mailbox, :conversation
+  helper_method :mailbox, :conversation, :get_image
+
+
+  def get_image(profile_id)
+    profile = Profile.find(profile_id)
+    @image = profile.avatar_file
+    send_data(@image,:disposition => 'inline')
+
+  end
 
   def create
     recipient_emails = conversation_params(:recipients).split(',')

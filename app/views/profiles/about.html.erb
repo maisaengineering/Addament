@@ -14,7 +14,7 @@
             </div>
             <div style ="margin-left:148px;">
               <div class="profile_text">
-                <%= truncate(current_user.profile.about, :length => 15) %>
+                <div class="mystory_text"><%= best_in_place @profile, :about,:type => :textarea %></div>
               </div>
               <div class="profile_text2" style="display:none">
                 <%= f.text_area :about,  :style => "width:810px;height:65;", :rows => 2, :cols => 220 %>
@@ -77,9 +77,16 @@
                       <label class="about_meLft_col">Start Date:</label><label class="about_meRht_col"><%= present.start_date %></label><br>
                       <label class="about_meLft_col">Location:</label><label class="about_meRht_col"><%= present.location %></label><br>
                       <label class="about_meLft_col">Project Name:</label><label class="about_meRht_col"><%= present.project_name %></label><br>
-                        <% orgname = Organization.find(present.organization_id) %>
-                      <label class="about_meLft_col">Affiliations:</label><label class="about_meRht_col"><%= orgname.org_name %></label><br>
-                      <% else %>
+                        <label class="about_meLft_col">Affiliations:</label>
+                        <% orgname = present.orgprofessions %>
+
+                        <% orgname.each do |org_id| %>
+                          <% org_naa = Organization.find(org_id.organization_id) %>
+
+
+                            <label class="about_meRht_col"><%= org_naa.org_name %></label><br>
+                        <% end %>
+                            <% else %>
                           <p>There is No past professional information</p>
                       <% end %>
                   <% end %>

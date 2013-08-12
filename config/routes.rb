@@ -1,7 +1,16 @@
 Addament::Application.routes.draw do
 
-  resources :organizations
+  resources :steps
 
+
+  resources :organizations_professionals
+
+
+  resources :organizations do
+    collection do
+      get 'code_image'
+    end
+  end
 
   resources :requesttomentors
 
