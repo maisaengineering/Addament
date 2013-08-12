@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :org_admin_email, :org_name, :org_url, :user_id
+  attr_accessible :org_admin_email, :org_name, :org_description, :org_url, :org_logo1, :user_id
   belongs_to :users
   #has_many :professionals
   #has_and_belongs_to_many :professionals
@@ -9,4 +9,9 @@ class Organization < ActiveRecord::Base
   validates_presence_of :org_name, :presence => true
   #validates_presence_of :org_url, :presence => true
 
+
+  def org_logo1=(input_data)
+
+    self.org_logo = input_data.read
+  end
 end

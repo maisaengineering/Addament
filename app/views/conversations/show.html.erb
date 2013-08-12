@@ -16,7 +16,7 @@
             <% change_is_read(receipt) %>
             <% message = receipt.message %>
             <p style="margin-left:50px; color: #9CC955;margin-top:-12PX">Subject: <%=  message.subject %><p>
-            <p style="margin-left:50px;">Description: <%=  message.body %><p>
+            <p style="margin-left:50px;word-wrap:break-word">Description: <%=  message.body %><p>
     <% end %>
 
       <%= button_tag "Reply", :id=> "reply", :class => "replybtn" %>

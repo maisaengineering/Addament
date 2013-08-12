@@ -61,7 +61,7 @@
                       <% margin_top_milestone = margin_top_milestone + 50 %>
                       <% end %>
                   <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
-                    <label style="color: white;"><%=  mile_stone.mile_Stone_step %></label>
+                    <label style="color: white;"><%= best_in_place mile_stone, :mile_Stone_step, :class => "purr" %></label>
                   </div>
                   <% i += 1 %>
                   <% margin_top = margin_top + 100 %>
@@ -117,7 +117,6 @@
       <% end %>
     </ul>
 
-
   </div>
 </div>
 
@@ -147,4 +146,7 @@
 
 
     }
+</script>
+<script>
+    $('.best_in_place').best_in_place()
 </script>

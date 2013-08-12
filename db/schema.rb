@@ -158,8 +158,10 @@ ActiveRecord::Schema.define(:version => 20130809060331) do
     t.string   "org_url"
     t.string   "org_admin_email"
     t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "org_description"
+    t.binary   "org_logo",        :limit => 2147483647
   end
 
   create_table "organizations_professionals", :id => false, :force => true do |t|

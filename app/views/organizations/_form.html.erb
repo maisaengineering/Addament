@@ -11,16 +11,36 @@
         <label style="width: 154px;">Organization Domain</label>
         <%= f.text_field :org_url, :required => true,:class=>"txt_inp" %>
       </div>
+      <div class="input_fld_div" >
+        <label style="width: 154px;">Description</label>
+        <%= f.text_area :org_description, :id => "org_description", :style => "height:60px;width:260px" %>
+      </div>
       <div  class="input_fld_div">
         <label style="width: 154px;">Organization Email</label>
         <%= f.text_field :org_admin_email, :required => true,:class=>"txt_inp" %>
         <%= f.hidden_field :user_id, :value => current_user.id,:class=>"txt_inp" %>
       </div>
-
-      <div class="input_fld_div" style="padding-left: 330px;">
-        <%= f.submit "Create",:class=>'conv_send_btn' %></td>
+      <div class="input_fld_div">
+        <label style="width: 154px;">Organization Logo</label>
+        <%= f.file_field :org_logo1, :class => 'fileUploadButtonContainer', :value => "Choose file", :onchange =>"check_extn()" ,:title=>"bar"  %>
+      </div>
+      <br>
+      <div class="input_fld_div" style="padding-left: 350px;">
+        <%= f.submit "Create",:class=>'conv_send_btn' %>
+      </div>
 <% end %>
 
 </div>
 </div>
 </div>
+
+<script>
+    function check_extn()
+    {
+        var ext = $('.fileUploadButtonContainer').val().split('.').pop().toLowerCase();
+        if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+            $('#profile_avatar_file1').val('');
+            alert('Invalid file');
+        }
+    }
+</script>

@@ -232,7 +232,7 @@ h3{
     margin-top: 0px;
     margin-left: 2px;
     list-style-type: none;
-    width: 180px;
+    width: 166px;
     float: left;
     margin-top: 38px;
     margin-left: 5px;
@@ -646,13 +646,14 @@ td{
     border: 20px solid #96c953;
     background: rgba(255,255,255,1);
     position: absolute;float: left;
+    margin-left: 450px;
 }
 #dashboardDiv{
     height: 380px;width: 390px;
     background: rgba(242,242,242,1);
     border: 20px solid #f2f2f2;
     position: absolute;float: left;
-    margin-left: 550px;
+
 }
 /**/
 #activityDiv h3{
@@ -1261,11 +1262,13 @@ td{
     /*margin-left: 80px;*/
 }
 #actl_cmt_user_click p{
-    display: inline-block;
+    display: inline-block!important;
     width: 890px;
     position: relative;
     margin-left: 80px;
-    color: #000;
+    word-wrap: break-word;
+    margin-top:10px!important;
+    font-size:16px
 }
 
 #rightSideDiv{
@@ -2273,6 +2276,7 @@ ul#pinned_message{
     display: inline-block;
     float: left;
     width: 530px;
+    word-wrap: break-word;
 }
 .post_fld_input_div{
     width: 900px;
@@ -2301,6 +2305,7 @@ ul#pinned_message{
     cursor: default;
     text-align: left;
     color:#51a2d5;
+
 }
 .about_meRht_col{
     display: inline-block;
@@ -2309,6 +2314,7 @@ ul#pinned_message{
     cursor: default;
     text-align: left;
     color: #96c953;
+
 }
 .comp_sep{
     border: 0; border-bottom: 1px dashed #ccc; 
@@ -2555,6 +2561,68 @@ li.receipt{
     margin-top: -12px;
     margin-left: -8px;
 }
+#editbtn {
+    color: #000;
+    background: #96c953;
+    border: 0px;
+    font-size: 12px;
+    font-family:itc_avant_garde;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-left: 650px;
+    height: 30px;
+    margin-top: 3px;
+}
+#editbtn a:hover{
+    background: #96c953;
+    border: 0px;
+    border-radius: 20px;
+    height: 10px;
+}
+.best_in_place {
+    cursor: hand;
+    cursor: pointer;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+.best_in_place:hover {
+    padding-right: 1.5em;
+    background: url("editprofile.gif") no-repeat right;
+
+}
+.best_in_place textarea{
+    width: 780px!important;
+    height: 60px!important;
+    margin: 5px;
+}
+.org_logo{
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    padding-top: 5px;
+    float: left;
+}
+.mystory_text{
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    padding: 0px;
+    color: #0D0D0D!important;
+    width: 780px!important;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-family: itc_avant_garde!important;
+    margin-left: 0px!important;
+    word-wrap: break-word;
+    margin-top: 5px;
+}
 
 
 
@@ -2566,48 +2634,3 @@ li.receipt{
 
 
 
-
-
-#srch .has-sub {
-    z-index: 1;
-}
-#srch .has-sub:hover > ul {
-    display: block;
-}
-#srch .has-sub ul {
-    display: none;
-    position: absolute;
-    width: 200px;
-    top: 100%;
-    left: 0;
-}
-#srch .has-sub ul li {
-    *margin-bottom: -1px;
-}
-#srch .has-sub ul li a {
-    background: #0fa1e0;
-    border-bottom: 1px dotted #6fc7ec;
-    filter: none;
-    font-size: 11px;
-    display: block;
-    line-height: 120%;
-    padding: 10px;
-}
-#srch .has-sub ul li:hover a {
-    background: #0c7fb0;
-}
-#srch .has-sub .has-sub:hover > ul {
-    display: block;
-}
-#srch .has-sub .has-sub ul {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-}
-#srch .has-sub .has-sub ul li a {
-    background: #0c7fb0;
-    border-bottom: 1px dotted #6db2d0;
-}
-#srch .has-sub .has-sub ul li a:hover {
-    background: #095c80;

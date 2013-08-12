@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   before_filter :check_user_profile, only: [:about]
   before_filter :authenticate_user!
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:about_update, :update]
   #before_filter :find_or_build_profile,except: [:create]
   def index
     @profiles = Profile.all
@@ -95,11 +97,12 @@ class ProfilesController < ApplicationController
      respond_to do |format|
       if @profile.update_attributes(params[:profile])
           format.html {redirect_to new_education_path }
+          format.json { respond_with_bip(@profile) }
         #format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         #format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@profile) }
       end
     end
   end
@@ -112,6 +115,15 @@ class ProfilesController < ApplicationController
   def about_update
    @profile = current_user.profile
    @profile.update_column(:about, params[:profile][:about])
+   respond_to do |format|
+     if @profile.save
+       format.html { redirect_to about_profile_path, notice: 'Milestone was successfully created.' }
+       format.json { respond_with_bip(@profile) }
+     else
+       format.html { render action: "new" }
+       format.json { respond_with_bip(@profile) }
+     end
+   end
   end
 
   # DELETE /profiles/1
