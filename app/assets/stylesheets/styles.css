@@ -646,13 +646,14 @@ td{
     border: 20px solid #96c953;
     background: rgba(255,255,255,1);
     position: absolute;float: left;
+    margin-left: 450px;
 }
 #dashboardDiv{
     height: 380px;width: 390px;
     background: rgba(242,242,242,1);
     border: 20px solid #f2f2f2;
     position: absolute;float: left;
-    margin-left: 550px;
+
 }
 /**/
 #activityDiv h3{
@@ -1261,11 +1262,13 @@ td{
     /*margin-left: 80px;*/
 }
 #actl_cmt_user_click p{
-    display: inline-block;
+    display: inline-block!important;
     width: 890px;
     position: relative;
     margin-left: 80px;
-    color: #000;
+    word-wrap: break-word;
+    margin-top:10px!important;
+    font-size:16px
 }
 
 #rightSideDiv{
@@ -2273,6 +2276,7 @@ ul#pinned_message{
     display: inline-block;
     float: left;
     width: 530px;
+    word-wrap: break-word;
 }
 .post_fld_input_div{
     width: 900px;
@@ -2301,6 +2305,7 @@ ul#pinned_message{
     cursor: default;
     text-align: left;
     color:#51a2d5;
+
 }
 .about_meRht_col{
     display: inline-block;
@@ -2309,6 +2314,7 @@ ul#pinned_message{
     cursor: default;
     text-align: left;
     color: #96c953;
+
 }
 .comp_sep{
     border: 0; border-bottom: 1px dashed #ccc; 
@@ -2594,6 +2600,28 @@ li.receipt{
     width: 780px!important;
     height: 60px!important;
     margin: 5px;
+}
+.org_logo{
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    padding-top: 5px;
+    float: left;
+}
+.mystory_text{
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    padding: 0px;
+    color: #0D0D0D!important;
+    width: 780px!important;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-family: itc_avant_garde!important;
+    margin-left: 0px!important;
+    word-wrap: break-word;
+    margin-top: 5px;
 }
 
 

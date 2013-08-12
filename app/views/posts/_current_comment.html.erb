@@ -6,7 +6,7 @@
    <% else %>
    <%= image_tag("missing.png", :class => "thumb_image", :style=>"display:inline-block" ) %>
    <% end %>
-<p style="display:inline-block!important;margin-top:10px!important;font-size:22px">
+<p>
   <%=  @post.current_post %>
   <br />
   <label><span style="color:#666;cursor:default;">posted by</span> <%= profile.first_name %></label></p>

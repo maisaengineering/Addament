@@ -1,6 +1,8 @@
 class OrganizationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user_profile
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:update]
   # GET /organizations
   # GET /organizations.json
   def index
@@ -21,6 +23,12 @@ class OrganizationsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @organization }
     end
+  end
+
+  def code_image
+    orglogo = Organization.find(params[:id])
+    @image = orglogo.org_logo
+    send_data(@image)
   end
 
   # GET /organizations/new
@@ -46,7 +54,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+        format.html { redirect_to organizations_path, notice: 'Organization was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
@@ -59,14 +67,14 @@ class OrganizationsController < ApplicationController
   # PUT /organizations/1.json
   def update
     @organization = Organization.find(params[:id])
-
+    @organization.update_attributes(params[:organization])
     respond_to do |format|
-      if @organization.update_attributes(params[:organization])
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
-        format.json { head :no_content }
+      if @organization.save
+        format.html { redirect_to @organization, notice: 'Organization was successfully updated..' }
+        format.json { respond_with_bip(@organization) }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { respond_with_bip(@organization) }
       end
     end
   end

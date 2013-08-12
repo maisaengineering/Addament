@@ -1,19 +1,39 @@
 <div id="container" style="background-color: #ffffff">
-  <br/>
+  <br>
+  <%= link_to 'New Organization', new_organization_path, :class => "btn btn-link", :style => "margin-left:5px;font-family:bold"  %>
+  <hr/>
 <% @organizations.each do |organization| %>
+      <div>
+        <div class ="org_logo">
+      <% unless organization.org_logo? %>
+          <%= image_tag("missing.png",width:70,height:70) %>
+          <% else %>
 
-      <label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= organization.org_name %></label><br />
-      <label class="about_meLft_col">Organization Url:</label><label class="about_meRht_col"><%= organization.org_url %></label><br />
-      <label class="about_meLft_col">Organization Email:</label><label class="about_meRht_col"><%= organization.org_admin_email %></label><br />
+            <%= image_tag url_for(:controller => "organizations", :action => "code_image", :id => organization.id ) %>
 
+      <% end %>
+        </div>
+      <table>
 
+      <tr><td><label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= organization.org_name %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Description:</label><label class="about_meRht_col"><%= best_in_place organization, :org_description %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Organization Url:</label><label class="about_meRht_col"><%= organization.org_url %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Organization Email:</label><label class="about_meRht_col"><%= organization.org_admin_email %></label><br /></td></tr>
 
+      </table>
+
+      </div>
+      <hr>
 <% end %>
+
   <% if @organizations.length == 0 %>
       <h2 style="width:275px;margin-left: 270px;">No Organizations created </h2>
       <% end %>
- <hr/>
-<br />
 
-<%= link_to 'New Organization', new_organization_path %>
+
+
 </div>
+
+<script>
+    $('.best_in_place').best_in_place()
+</script>
