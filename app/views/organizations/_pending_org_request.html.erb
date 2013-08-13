@@ -1,0 +1,26 @@
+<% @organizations.each do |check_orgreq| %>
+    <% check_status = Orgrequest.where("org_id = ? and status = ?",check_orgreq.id, 'pending').first %>
+    <% if check_status %>
+        <% user_info = Profile.find_by_user_id(check_status.user_id) %>
+        <% if user_info %>
+
+            <table>
+              <tr>
+                <td>
+                      <% unless user_info.avatar_file? %>
+                        <%= image_tag("missing.png",width:120,height:120) %>
+                    <% else %>
+                        <div class ="profile_image_thumb">
+                          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_info.user_id), :style => "height:100%;" %>
+                        </div>
+                    <% end %>
+                </td>
+                <td> <label><%= user_info.first_name %><%= user_info.last_name %></label></td>
+                <td> <%= button_to "Accept", {:controller => :organizations, :action => :accept_user,  :id => check_status.id},:remote => true, :class => "requestbtn" %></td>
+                <td> <%= button_to "Reject", {:controller => :organizations, :action => :reject_user,  :id => check_status.id},:remote => true, :class => "requestbtn" %></td>
+              </tr>
+
+            </table>
+        <% end %>
+    <% end %>
+<% end %>

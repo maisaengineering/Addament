@@ -1,25 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div id="container" style="background-color: #ffffff">
+  <br/>
+  <h2>Our Story</h2>
+  <br/>
+  <div>
+    <div class ="org_logo">
+      <% unless @organization.org_logo? %>
+          <%= link_to image_tag("missing.png",width:70,height:70), url_for({:controller => 'organizations', :action => 'show', :id => @organization.id}) %>
 
-<p>
-  <b>Org name:</b>
-  <%= @organization.org_name %>
-</p>
+      <% else %>
 
-<p>
-  <b>Org url:</b>
-  <%= @organization.org_url %>
-</p>
+          <a href ="organizations/<%= @organization.id %>"><%= image_tag url_for(:controller => "organizations", :action => "code_image", :id => @organization.id) %></a>
 
-<p>
-  <b>Org admin email:</b>
-  <%= @organization.org_admin_email %>
-</p>
+      <% end %>
+    </div>
+    <table>
 
-<p>
-  <b>User:</b>
-  <%= @organization.user_id %>
-</p>
+      <tr><td><label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= @organization.org_name %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Description:</label><label class="about_meRht_col"><%= best_in_place @organization, :org_description %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Organization Url:</label><label class="about_meRht_col"><%= @organization.org_url %></label><br /></td></tr>
+      <tr><td><label class="about_meLft_col">Organization Email:</label><label class="about_meRht_col"><%= @organization.org_admin_email %></label><br /></td></tr>
 
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+    </table>
+</div>
+</div>
+
+<script>
+    $('.best_in_place').best_in_place()
+</script>

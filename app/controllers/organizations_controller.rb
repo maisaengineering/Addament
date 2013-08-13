@@ -90,4 +90,16 @@ class OrganizationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def accept_user
+    reqtoorg = Orgrequest.find(params[:id])
+    reqtoorg.update_column(:status, 'approved')
+    @organizations = current_user.organization
+  end
+
+  def reject_user
+    reqtoorg = Orgrequest.find(params[:id]).destroy
+    @organizations = current_user.organization
+  end
 end

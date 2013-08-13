@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @orgrequest.user_id %>
+</p>
+
+<p>
+  <b>Org:</b>
+  <%= @orgrequest.org_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @orgrequest.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_orgrequest_path(@orgrequest) %> |
+<%= link_to 'Back', orgrequests_path %>

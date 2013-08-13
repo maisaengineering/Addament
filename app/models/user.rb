@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :goals, :dependent => :destroy
   has_many :my_activity
   has_many :organization
+  has_many :orgrequest
 
   def self.get_current_company_name(user_id)
     company = user_id.profile.professionals

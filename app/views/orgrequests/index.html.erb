@@ -1,0 +1,27 @@
+<h1>Listing orgrequests</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Org</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orgrequests.each do |orgrequest| %>
+  <tr>
+    <td><%= orgrequest.user_id %></td>
+    <td><%= orgrequest.org_id %></td>
+    <td><%= orgrequest.status %></td>
+    <td><%= link_to 'Show', orgrequest %></td>
+    <td><%= link_to 'Edit', edit_orgrequest_path(orgrequest) %></td>
+    <td><%= link_to 'Destroy', orgrequest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Orgrequest', new_orgrequest_path %>

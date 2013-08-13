@@ -34,7 +34,6 @@ class Professional < ActiveRecord::Base
   end
 
   def affiliations_array=(input_data)
-
     orgnames = input_data.split(',')
     orgnames.compact!
 
@@ -42,6 +41,11 @@ class Professional < ActiveRecord::Base
 
     (orgnames-affiliations).each do |orgname|
       orgname.strip!
+      org_find = Organization.find_by_org_name(orgname)
+      if org_find
+
+         Orgrequest.create(:user_id => self.profile.user_id, :org_id => org_find.id, :status => "pending")
+      end
       self.organizations << Organization.find_or_create_by_org_name(orgname)
     end
   end

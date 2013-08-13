@@ -84,11 +84,15 @@
                         <% orgname = present.orgprofessions %>
 
                         <% orgname.each do |org_id| %>
+                            <% check_org_status = Orgrequest.where("org_id = ? and status = ?", org_id.organization_id, 'approved').first %>
+                          <% if check_org_status %>
                           <% org_naa = Organization.find(org_id.organization_id) %>
 
 
                             <label class="about_meRht_col"><%= org_naa.org_name %></label><br>
+                         <% end %>
                         <% end %>
+
                             <% else %>
                           <p>There is No past professional information</p>
                       <% end %>

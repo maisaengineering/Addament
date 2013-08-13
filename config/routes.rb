@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :orgrequests
+
+
   resources :steps
 
 
@@ -9,6 +12,8 @@ Addament::Application.routes.draw do
   resources :organizations do
     collection do
       get 'code_image'
+      post 'accept_user'
+      post 'reject_user'
     end
   end
 
