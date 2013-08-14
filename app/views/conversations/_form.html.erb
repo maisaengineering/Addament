@@ -1,9 +1,9 @@
-<%= form_for :conversation, url: :conversations do |f| %>
+<%= form_for :conversation,  url: :conversations, :html => { :id => "conv"} do |f| %>
 <div id="fom">
 	<div class="input_fld_div" >
 		<label>Recipients</label>
-		<%= f.text_field :recipients, :id => "conversation_recipients", :required => true,:class=>"txt_inp" %>
-	</div>
+		<%= f.text_field :recipients, :id => "conversationrecipients", :class=>"txt_inp" %>
+    </div>
 
 	<div class="input_fld_div">
 		<label>Subject</label>
@@ -14,57 +14,53 @@
 		<%= f.text_area :body, :rows => 5, :cols => 5, :required => true,:class=>"txt_inp" %>
 	</div>
 
+    <%= hidden_field_tag :get_id,'',:class=>"get_id" %>
+
 	<div class="input_fld_div" style="padding-left: 330px;">
 	<%= f.submit "send",:class=>'conv_send_btn' %></td>
 	<% end %>
-	<% @company = Profile.all %>
+
 	</div>
 </div>
 
 <script>
     $(document).ready(function(){
-        var sampleTags = [<% for i in 0...@company.length %>
-            '<%= @company[i].first_name %>',
-            <% end %>];
 
-        //-------------------------------
-        // Tag events
-        //-------------------------------
+       var availableTags = [<% for i in 0...get_user_list.length %>{"label":"<%= get_user_list[i].first_name %>","value":"<%= get_user_list[i].id %>"}, <% end %>];
+        jQuery("input#conversationrecipients").each(function(){
+            var target = jQuery(this);
+            var currenttags = target.val();
+            target.hide()
+                    .after("<ul class=\"tagit-new\"><li>"+currenttags+"</li></ul>");
+            var instance = target.next();
+            instance.tagit({
+                tagSource:availableTags,
+                tagsChanged:function () {
+                    var tags = instance.tagit('tags');
+                    var tagString = [];
+                    for (var i in tags){
 
-        var eventTags = $('#conversation_recipients');
-
-        var addEvent = function(text) {
-            $('#events_container').append(text + '<br>');
-        };
-
-        eventTags.tagit({
-            availableTags: sampleTags,
-            beforeTagAdded: function(evt, ui) {
-                if (!ui.duringInitialization) {
-
-                    addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
-
-                }
-            },
-            afterTagAdded: function(evt, ui) {
-                if (!ui.duringInitialization) {
-                    addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
-                }
-            },
-            beforeTagRemoved: function(evt, ui) {
-                addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-            },
-            afterTagRemoved: function(evt, ui) {
-                addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-            },
-            onTagClicked: function(evt, ui) {
-                addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
-            },
-            onTagExists: function(evt, ui) {
-                addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
-            }
+                        tagString.push(tags[i].value);
+                    }
+                    $(".get_id").val(tagString.join(','));
+                },
+                sortable:true,
+                triggerKeys: ['enter', 'comma', 'tab']
+            });
         });
     });
+
+</script>
+<script>
+  $('#conv').submit(function(){
+      if($('.get_id').val()=="")
+      {
+          alert("please enter any receipts");
+          return false;
+      }
+
+  });
+
 </script>
 
 

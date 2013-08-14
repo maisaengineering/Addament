@@ -11,12 +11,14 @@ class ConversationsController < ApplicationController
 
   end
 
-  def create
-    recipient_emails = conversation_params(:recipients).split(',')
-    usermail = []
-    recipient_emails.each do |firstname|
 
-      prof = Profile.where("first_name = ?", firstname).first
+  def create
+    #recipient_emails = conversation_params(:recipients).split(',')
+    recipient_emails = params[:get_id].split(',')
+    usermail = []
+    recipient_emails.each do |prof_id|
+
+      prof = Profile.find(prof_id)
 
       if prof
         user = User.find(prof.user_id)
