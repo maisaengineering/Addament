@@ -2,7 +2,7 @@ class MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
   before_filter :authenticate_user!
-  skip_before_filter :verify_authenticity_token, :only => [:update]
+  skip_before_filter :verify_authenticity_token, :only => [:update, :destroy]
   #respond_to :html, :json
   layout false
   def index
@@ -83,7 +83,7 @@ class MilestonesController < ApplicationController
     @milestone.destroy
 
     respond_to do |format|
-      format.html { redirect_to milestones_url }
+      format.html { redirect_to goals_url }
       format.json { head :no_content }
     end
   end

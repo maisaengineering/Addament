@@ -1,6 +1,8 @@
 class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:update, :destroy]
   layout false
   def index
     @steps = Step.all
@@ -78,7 +80,7 @@ class StepsController < ApplicationController
     @step.destroy
 
     respond_to do |format|
-      format.html { redirect_to steps_url }
+      format.html { redirect_to goals_path }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user_profile
+  skip_before_filter :verify_authenticity_token, :only => [:destroy]
   # GET /goals
   # GET /goals.json
   def index

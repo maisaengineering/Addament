@@ -1,0 +1,26 @@
+<h2>Comments</h2>
+<ul>
+
+  <% goalss_id = 1 %>
+  <% @goals.each do |goal| %>
+      <% @goal_comments = goal.goal_comment %>
+      <div class="goal_comment<%= goalss_id %>" style="display:none;">
+        <% @goal_comments.each do |goal_comment| %>
+            <% user_name = User.find(goal_comment.commenter_id) %>
+
+            <li>
+              <% unless user_name.profile.avatar_file.nil? %>
+                  <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_name.profile.id ),{ :class => "thumb_image"} %>
+              <% else %>
+                  <%=  image_tag("missing.png",height: 70,width: 70) %>
+              <% end %>
+              <label><%= user_name.profile.first_name %></label>
+              <p><%= truncate(goal_comment.comment_description,:length => 20) %></p>
+              <label style="color:#96c953; font-size:10px; letter-spacing:1px;"><%= time_ago_in_words(goal_comment.created_at) %> ago</label>
+            </li>
+
+        <% end %>
+        <% goalss_id += 1 %>
+      </div>
+  <% end %>
+</ul>

@@ -21,7 +21,7 @@
     <% unless current_user.profile.avatar_file.nil? %>
         <%= image_tag url_for(:controller => "profiles", :action => "code_image"),{ :class => "thumb_image_post"}  %>
      <% else %>
-        <div id ="image">
+        <div id ="image" style="margin-left: 10px;">
         <%=  image_tag("missing.png",height: 99,width: 92) %>
       </div>
     <% end %>

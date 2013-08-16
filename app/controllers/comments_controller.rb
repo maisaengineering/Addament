@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:destroy, :update]
   def index
     @comments = Comment.all
 
@@ -81,8 +83,11 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
+      @comment = Comment.new
+      @posts = Post.order('created_at desc')
+      format.js
+      #format.html { redirect_to comments_url }
+      #format.json { head :no_content }
     end
   end
 end

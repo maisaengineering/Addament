@@ -1,0 +1,23 @@
+<div id="leftDIV">
+  <ul style = "margin-left: -2px; margin-top: -8px;">
+    <% goal_id = 1 %>
+    <% unless @goals.empty? %>
+        <% @goals[0..3].each do |goal| %>
+
+            <li class="<%= goal_id %>">
+              <a href="javascript:void(0)" onclick ="open_form(<%= goal_id%>)"><label><%= goal.goal_name %></label></a>
+              <p><%= goal.target_date %></p>
+            </li>
+
+            <% goal_id += 1 %>
+            <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+    <% else %>
+        <h2> No goals are added</h2>
+    <% end %>
+    <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
+  </ul>
+  <% if @goals.count > 3 %>
+      <%= link_to "see more goals", about_profiles_path %>
+  <% end %>
+</div>

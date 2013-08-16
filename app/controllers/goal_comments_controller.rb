@@ -1,6 +1,8 @@
 class GoalCommentsController < ApplicationController
   # GET /goal_comments
   # GET /goal_comments.json
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:destroy, :update]
   def index
 
     @goals = Goal.all
@@ -56,7 +58,7 @@ class GoalCommentsController < ApplicationController
         #format.html { redirect_to @post, notice: 'Post was successfully created.' }
         #format.json { render json: @post, status: :created, location: @post }
         @goal_comment = Goal.new
-        @goal = Goal.where(user_id: current_user.id).order('created_at desc')
+        @goal = current_user.goals.order('created_at desc')
         @goal_comment = GoalComment.new
         format.js
       else
@@ -89,8 +91,10 @@ class GoalCommentsController < ApplicationController
     @goal_comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to goal_comments_url }
-      format.json { head :no_content }
+     #format.html { redirect_to about_profile_path }
+      #format.json { head :no_content }
+      @goal = current_user.goals.order('created_at desc')
+      format.js
     end
   end
 end

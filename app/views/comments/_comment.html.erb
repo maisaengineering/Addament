@@ -9,8 +9,18 @@
       <% end %>
 
       <p id="cmtOfCmt" style="display:inline-block;float:left; width:530px;">
-        <span id="cmt_first_name"><%=  profile.first_name %>: </span><%=  comment.description %>
+        <span id="cmt_first_name"><%=  profile.first_name %>: </span>
+        <% if current_user.id == comment.commenter_id %>
+           <%= best_in_place comment, :description %>
+            <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+          <% else %>
+            <%=  comment.description %>
+        <% end %>
+
          <span id="cmtPostedAgo"><%= time_ago_in_words(comment.created_at) %> ago</span>
       </p>
       <br style="clear:both;" />
 </div>
+<script>
+    $('.best_in_place').best_in_place()
+</script>

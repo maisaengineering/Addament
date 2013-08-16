@@ -38,6 +38,7 @@
         <li class="active"><a href="#tab1" data-toggle="tab"><b>Past</b></a></li>
         <li><a href="#tab2" data-toggle="tab" ><b>Present</b></a></li>
         <li><a href="#tab3" data-toggle="tab"><b>Future</b></a></li>
+        <li><a href="#tab4" data-toggle="tab"><b>Affiliations</b></a></li>
         <li id="editbtn"><%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) %> </li>
       </ul>
 
@@ -106,6 +107,42 @@
               <%=  render :partial => 'profile_about_goal' %>
             </div>
           </div>
+
+          <div class="tab-pane" id="tab4">
+                <label class="goals_tab_title">Organizations:</label>
+                    <div id="1oal_cmts">
+                      <% @organizations.each do |organization| %>
+
+                          <div>
+                            <div class ="org_logo">
+                              <% unless organization.org_logo? %>
+                                  <%= link_to image_tag("missing.png",width:70,height:70), url_for({:controller => 'organizations', :action => 'show', :id => organization.id}) %>
+
+                              <% else %>
+
+                                  <a href ="organizations/<%= organization.id %>"><%= image_tag url_for(:controller => "organizations", :action => "code_image", :id => organization.id) %></a>
+
+                              <% end %>
+                            </div>
+                            <table>
+
+                              <tr><td><label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= organization.org_name %></label><br /></td></tr>
+                              <tr><td><label class="about_meLft_col">Organization Url:</label><label class="about_meRht_col"><%= organization.org_url %></label><br /></td></tr>
+
+                            </table>
+
+                          </div>
+                          <hr>
+
+                      <% end %>
+
+                      <% if @organizations.length == 0 %>
+                          <h2 style="width:275px;margin-left: 270px;">No Organizations created </h2>
+                      <% end %>
+
+                    </div>
+      </div>
+
     </div>
 
 </div>

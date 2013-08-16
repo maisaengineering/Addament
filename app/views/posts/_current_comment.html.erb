@@ -1,7 +1,8 @@
 
 <% profile = Profile.find_by_user_id(@post.user_id) %>
-<% unless profile.avatar_file.nil? %>
 <div id="actl_cmt_user_click">
+<% unless profile.avatar_file.nil? %>
+
    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "thumb_image",:style=>"display:inline-block;"} %>
    <% else %>
    <%= image_tag("missing.png", :class => "thumb_image", :style=>"display:inline-block" ) %>

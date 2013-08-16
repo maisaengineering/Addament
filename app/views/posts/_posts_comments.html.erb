@@ -16,7 +16,8 @@
       </span>
       </label>
       <p class="cmt">
-        <%= post.current_post %>
+        <%= best_in_place post, :current_post, :class => "purr" %> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
       </p>
       <p>
         <span class="comments_cnt"style="display:inline-block;margin-left: -5px!important; padding-right:20px;">
@@ -32,7 +33,7 @@
       </p>
     
     <div id="allCMTS" class="profile_text<%= i %>" style="display: none;">
-      <div><%=render post.comments%></div>
+      <div><%=render post.comments %></div>
       <div class="commentbutton<%= i %>" style="margin-left:0px">
       <div>
         <div class="comment_form" style="margin-top:5px;">
@@ -61,4 +62,7 @@
         $('.profile_text'+ e).slideToggle();
         oldCmts = $('.profile_text'+ e);
     }
+</script>
+<script>
+    $('.best_in_place').best_in_place()
 </script>

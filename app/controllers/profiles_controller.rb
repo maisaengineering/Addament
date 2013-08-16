@@ -111,6 +111,7 @@ class ProfilesController < ApplicationController
      @goal = current_user.goals.order('created_at desc')
      @profile = current_user.profile
      @goal_comment = GoalComment.new
+     @organizations = current_user.organization
     end
   def about_update
    @profile = current_user.profile

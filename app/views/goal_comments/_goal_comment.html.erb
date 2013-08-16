@@ -12,7 +12,18 @@
         <% end %>
         <p style="margin-left:120px;margin-top: -5px; color:#555;">
             <span id="cmt_first_name"><%= user.profile.first_name %> : </span><br />
-            <%=  goalcomments.comment_description %>
+
+          <% if current_user.id == goalcomments.commenter_id %>
+              <%= best_in_place goalcomments, :comment_description,:type => :textarea %>
+                <%= link_to 'Destroy', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+          <% else %>
+              <%=  goalcomments.comment_description %>
+          <% end %>
         </p>
 
 <% end %>
+
+
+<script>
+    $('.best_in_place').best_in_place()
+</script>
