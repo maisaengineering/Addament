@@ -11,8 +11,8 @@
               <%= image_tag("missing.png",:class=>"goal_cmts_image") %>
             </div>
         <% end %>
-        <p style="">
-            <span id="cmt_first_name"><%= user.profile.first_name %> : <span style="float:right;margin-right: 10px;"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span></span><br />
+        <p>
+            <span id="cmt_first_name"><%= user.profile.first_name %> : <span id="goal_delete"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span></span><br />
 
           <% if current_user.id == goalcomments.commenter_id %>
               <%= best_in_place goalcomments, :comment_description,:type => :textarea %>

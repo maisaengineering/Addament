@@ -209,12 +209,12 @@ h3{
 #menu a{
     text-decoration: none;
     color: #51a2d5;
-    font-family: inconsolata;
+    font-family:calibri;
 }
 
 #menu .menuItem{
     float: left;
-    font-family: inconsolata;
+    font-family:calibri;
     font-size: 15px;
     color: #96c953;
     /*cursor: pointer;*/
@@ -1241,6 +1241,12 @@ td{
     height: 102px;
     margin: 5px;
 }
+.cmt a:hover{
+    color:#ff0000;
+}
+#cmtOfCmt a:hover{
+    color: #ff0000;
+}
 .thumb_image_post{
     height: 99px;
     width: 92px;
@@ -1779,6 +1785,13 @@ ul#pinned_message{
     font-size: 14px;
     color: #96c953;
     margin-top:10px;
+}
+#goal_delete{
+    float:right;
+    margin-right: 10px;
+}
+#goal_delete a:hover{
+    color:#ff0000;
 }
 /*-----------------------------------------------------------------------------------------*/
 
@@ -2547,6 +2560,26 @@ li.receipt{
     color: #000!important;
     font-size: 14px!important;
     /*font-weight: bold!important;*/
+}
+#goal_index{
+    float: right;
+    margin-top: -153px;
+    margin-right: -10px;
+    font-size: 12px;
+    font-family: avenir_next_lt_pro_demi;
+}
+#goal_index a:hover{
+    color: #ff0000;
+}
+#step_delete{
+    float: right;
+    margin-right: 4px;
+    margin-top: -12px;
+    font-family: avenir_next_lt_pro_demi;
+    font-size: 12px;
+}
+#step_delete a:hover{
+    color:#ff0000;
 }
 .connectbtn {
     color: #000;

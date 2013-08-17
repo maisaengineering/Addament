@@ -16,7 +16,7 @@
       </span>
       </label>
       <p class="cmt">
-        <%= best_in_place post, :current_post, :class => "purr" %> <%= link_to image_tag("/assets/close.jpg",:style => "width:10px"), post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= best_in_place post, :current_post, :class => "purr" %> <%= link_to 'X', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
       </p>
       <p>

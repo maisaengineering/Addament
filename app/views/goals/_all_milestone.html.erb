@@ -53,14 +53,14 @@
               <% no_of_steps.each do |step_no| %>
                   <div class="stepDiv" style="margin-top:<%= margin_top_milestone %>px;">
                     <label style="color: white;"><%= best_in_place step_no, :step_description, :class => "purr" %>
-                      <%= link_to 'Destroy', step_no, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <span id="step_delete"><%= link_to 'x', step_no, method: :delete, data: { confirm: 'Are you sure?' },:title => "delete step" %></span>
                     </label>
                   </div>
                   <% margin_top_milestone = margin_top_milestone + 50 %>
               <% end %>
               <div class="mileStone" style="margin-top:<%= margin_top_milestone %>px;">
                 <label style="color: white;"><%= best_in_place mile_stone, :mile_Stone_step, :class => "purr" %>
-                  <%= link_to 'Destroy', mile_stone, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <span id="step_delete"><%= link_to 'x', mile_stone, method: :delete, data: { confirm: 'Are you sure?' }, :title => "delete milestone" %></span>
                 </label>
               </div>
               <% i += 1 %>
