@@ -10,8 +10,13 @@
       <% milestone = goal.milestones %>
       <% unless milestone.empty? %>
           <% milestone[0..3].each do |mile_stone| %>
+
               <% no_of_steps = mile_stone.steps %>
+              <% if no_of_steps.length == 3 %>
+                  <% margin_top = margin_top + 148 %>
+              <% end %>
               <% unless no_of_steps.length >= 3 %>
+
                   <div class="stepDiv" style="margin-top:<%= margin_top %>px;">
 
                     <div class="button2">
@@ -28,6 +33,13 @@
 
 
                   </div>
+                  <% if no_of_steps.length ==1 %>
+                      <% margin_top = margin_top + 50 %>
+                  <% end %>
+                  <% if no_of_steps.length ==2 %>
+                      <% margin_top = margin_top + 100 %>
+                  <% end %>
+
               <% end %>
               <% no_of_steps.each do |step_no| %>
                   <div class="stepDiv" style="margin-top:<%= margin_top_milestone %>px;">
@@ -51,10 +63,10 @@
           <!--<br/>-->
           <!--<h2> No milestones are added</h2>-->
       <% end %>
-      <div class="roundCornDiv" style="margin-top:490px;">
+      <div class="roundCornDiv" style="margin-top:<%= margin_top + 50 %>px;">
         <label><%= goal.target_date.strftime("%B %d, %Y") %></label>
       </div>
-      <div style="position:absolute; width:360px;margin-top:560px;">
+      <div style="position:absolute; width:360px;margin-top:<%= margin_top %>px;">
         <div class="button2">
           <a class="btn" data-toggle="modal" data-target = "#myModal<%= milestone_id %>" href="/milestones/new/?id=<%= goal.id %>">Add Milestone</a>
           <div id="myModal<%= milestone_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
