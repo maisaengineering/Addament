@@ -10,7 +10,11 @@
             </li>
 
             <% goal_id += 1 %>
-            <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <span style="float: right;
+                    margin-top: -153px;
+                    margin-right: -10px;
+                    font-size: 12px;
+                    font-family: bold;"><%= link_to image_tag("close.jpg", :style => "width:14px"), goal, method: :delete, data: { confirm: 'Are you sure?' },:title => "delete goal" %></span>
         <% end %>
     <% else %>
         <h2> No goals are added</h2>

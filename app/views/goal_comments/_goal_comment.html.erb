@@ -1,25 +1,27 @@
 <% goal_comment = GoalComment.where(goal_id: id) %>
     <% goal_comment.each do |goalcomments| %>
+    <div id="goal_block">
         <% user = User.find(goalcomments.commenter_id) %>
         <% unless user.profile.avatar_file.nil? %>
             <div id="goal_cmts">
-              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "thumb_image",:style => "width:40px;height:40px;float:left;margin-left:70px;margin-right:10px;"} %>
+              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id),{ :class => "goal_cmts_image"} %>
             </div>
         <%else %>
             <div id="goal_cmts">
-              <%= image_tag("missing.png",:style => "width:40px;height:40px;float:left;margin-left:70px;margin-right:10px;") %>
+              <%= image_tag("missing.png",:class=>"goal_cmts_image") %>
             </div>
         <% end %>
-        <p style="margin-left:120px;margin-top: -5px; color:#555;">
-            <span id="cmt_first_name"><%= user.profile.first_name %> : <span style="float:right"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span></span><br />
+        <p style="">
+            <span id="cmt_first_name"><%= user.profile.first_name %> : <span style="float:right;margin-right: 10px;"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span></span><br />
 
           <% if current_user.id == goalcomments.commenter_id %>
               <%= best_in_place goalcomments, :comment_description,:type => :textarea %>
+
           <% else %>
               <%=  goalcomments.comment_description %>
           <% end %>
         </p>
-
+    </div>
 <% end %>
 
 

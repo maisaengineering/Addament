@@ -1024,7 +1024,7 @@ td{
     color: #fff;
     text-align: center;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 30px;
     border:solid 2px #96c953;
 }
 #leftDIV li:first-child{
@@ -1057,9 +1057,10 @@ td{
     border-bottom: 1px solid #ccc;
     clear: both;
     font-weight: bold;
-    padding-bottom: 15px;
-    margin-top: 20px;
-    margin-left: -24px; /*naveen code*/
+    margin-top: 25px;
+    margin-left: -24px;
+    background-color: #EBEBEB;
+    height: 47px;
 }
 #rightDIV li:last-child{
  border: none;
@@ -1069,11 +1070,12 @@ td{
     padding-right: 10px;
 }
 #rightDIV li label{
-    font-size: 11px;
+    font-size: 12px;
     list-style: none;
     display: block;
     color: #54a1d5;
-    margin-top: -4px;
+    margin-top: -18px;
+    font-weight: bold;
 }
 
 #rightDIV li p{
@@ -1084,6 +1086,7 @@ td{
     padding-top: 2px;
     padding-bottom: 3px;
     font-family:itc_avant_garde;
+    margin-top: -14px;
 }
 /* -------------------- CENTER DIV ------------------ */
 #centerDIV label{
@@ -2518,6 +2521,21 @@ li.receipt{
     display: block;
     /*background-color: #f00;*/
     /*border-bottom: 1px dotted #aaa;*/
+}
+.goal_cmts_image{
+    width:40px;
+    height:40px;
+    margin-right:10px;
+}
+#goal_block{
+    background-color:rgba(81,162,213,.2);width: 868px;
+    margin-left: 86px;
+}
+#goal_block p{
+    margin-left:60px;
+    margin-top: -50px;
+    color:#555;
+    word-wrap: break-word;
 }
 #goal_cmts2{
     padding: 10px;
