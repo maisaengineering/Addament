@@ -66,6 +66,7 @@ Addament::Application.routes.draw do
   resources :posts do
     member do
       get 'comment_current_post'
+      get 'del_comment'
       post 'create_comment'
       get 'follow_from_post'
     end

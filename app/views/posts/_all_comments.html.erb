@@ -1,0 +1,30 @@
+<div id="userCMT">
+
+  <% all_comment = Comment.where("post_id = ?", comment) %>
+  <% all_comment.each do |comment| %>
+  <% profile = Profile.where("user_id =? ",comment.commenter_id).first %>
+  <% unless profile.avatar_file.nil? %>
+
+
+      <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id),{ :class => "thumb_image",:style =>"width:40px;height:40px; margin:5px;padding:0px; float:left; display:inline-block"} %>
+  <% else %>
+      <%=  image_tag("missing.png",:style => "width:40px;height:40px; margin:5px;padding:0px; float:left; display:inline-block") %>
+  <% end %>
+
+  <p id="cmtOfCmt" style="display:inline-block;float:left; width:530px;">
+    <span id="cmt_first_name"><%=  profile.first_name %>:<span style="float:right"><%= link_to 'x', comment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :title => "delete this comment" %></span> </span>
+    <% if current_user.id == comment.commenter_id %>
+        <%= best_in_place comment, :description %>
+    <% else %>
+        <%=  comment.description %>
+    <% end %>
+
+    <span id="cmtPostedAgo"><%= time_ago_in_words(comment.created_at) %> ago</span>
+  </p>
+  <br style="clear:both;" />
+      <% end %>
+</div>
+
+<script>
+    $('.best_in_place').best_in_place()
+</script>

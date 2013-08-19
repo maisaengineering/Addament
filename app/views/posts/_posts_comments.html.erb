@@ -33,7 +33,7 @@
       </p>
     
     <div id="allCMTS" class="profile_text<%= i %>" style="display: none;">
-      <div><%=render post.comments %></div>
+      <div><%= render :partial => 'posts/all_comments', :locals => {:comment => post.id} %></div>
       <div class="commentbutton<%= i %>" style="margin-left:0px">
       <div>
         <div class="comment_form" style="margin-top:5px;">

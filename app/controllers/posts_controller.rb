@@ -40,6 +40,18 @@ class PostsController < ApplicationController
     #render :js=>"alert('ok')"
   end
 
+  def del_comment
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    respond_to do |format|
+      @post = Post.find(@comment.post_id)
+      @comment = Comment.new
+      format.js
+      end
+
+  end
+
   def follow_from_post
     Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     @users = User.where("id != ? ", current_user.id)

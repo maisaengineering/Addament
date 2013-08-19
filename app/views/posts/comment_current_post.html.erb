@@ -1,16 +1,16 @@
 <div id="container" style="background-color:#fff;padding:10px;">
-    <div class="comment_list_post"><%=  render :partial => 'current_comment' %>
-        <div class="current_comment_append"></div>
+    <div class="comment_list_post" style="margin-left: 80px;"><%=  render :partial => 'current_comment' %>
 
-    <div class = "post_fld_input_div" style="margin-left:80px;">
+    </div>
+  <div class = "post_fld_input_div" style="margin-left:80px;">
         <%= form_for(:comment, url: create_comment_post_path, :html => {:class => "current_post"}, :method => "post", :remote => true) do |f| %>
         <%= f.hidden_field :post_id, :value => @post.id %>
         <%= f.hidden_field :commenter_id, :value => current_user.id %>
         <%= f.text_area :description, :style => "height:40px;width:900px;margin-top:5px;" %> <br>
         <%= f.submit "comment", :class => "commentsbtn" %>
-    </div>  
+    </div>
   <% end %>
-      </div>
+
 </div>
 
 <script>
