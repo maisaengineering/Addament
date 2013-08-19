@@ -24,7 +24,7 @@
     <%=  image_tag("missing.png") %>
     <% end %>
     <p style="width:840px;margin-top:5px;">
-      <span id="cmt_first_name"><%=  profile.first_name %> commented : </span>
+      <span id="cmt_first_name"><%=  profile.first_name %>:  </span>
       <%=  comment_id.description %> <%= link_to 'x', :controller => "posts", :action => "del_comment", :id => comment_id.id, :remote => true %>
       <span id="cmtPostedAgo">
         <%= comment_id.created_at.strftime("%d %b") %>

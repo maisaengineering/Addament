@@ -40,4 +40,8 @@ module ProfilesHelper
     org = Organization.all
   end
 
+  def check_peer(prof_id)
+    find_peer = Peer.where(user_id: current_user.id, req_to_peer_id: prof_id).first
+  end
+
 end

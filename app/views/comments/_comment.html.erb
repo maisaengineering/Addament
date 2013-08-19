@@ -9,11 +9,11 @@
       <% end %>
 
       <p id="cmtOfCmt" style="display:inline-block;float:left; width:530px;">
-        <span id="cmt_first_name"><%=  profile.first_name %>:<span style="float:right"><%= link_to 'x', :controller => "posts", :action => "del_comment", :id => comment.id, :remote => true %></span> </span>
+        <span id="cmt_first_name"><%=  profile.first_name %>: </span>
         <% if current_user.id == comment.commenter_id %>
-           <%= best_in_place comment, :description %>
+           <%= best_in_place comment, :description %><%= link_to 'x', :controller => "posts", :action => "del_comment", :id => comment.id, :remote => true %>
         <% else %>
-            <%=  comment.description %>
+            <%=  comment.description %> <%= link_to 'x', :controller => "posts", :action => "del_comment", :id => comment.id, :remote => true %>
         <% end %>
 
          <span id="cmtPostedAgo"><%= time_ago_in_words(comment.created_at) %> ago</span>
