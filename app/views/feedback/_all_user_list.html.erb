@@ -1,0 +1,9 @@
+<% @prof_res.each do |profile_result| %>
+    <% if profile_result.avatar_file? %>
+        <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_result.id ),{ :class => "profile_image"} %>
+    <% else %>
+        <%= image_tag("missing.png",height: 70,width: 80) %>
+    <% end %>
+  <%= link_to "#{profile_result.first_name}", profile_result %>
+    <%= profile_result.last_name  %>
+<% end %>

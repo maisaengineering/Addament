@@ -42,5 +42,61 @@ class FeedbackController < ApplicationController
      render :partial => "filter_data"
   end
 
+  def search_for_user
+
+  end
+
+  def show_user_profile
+    @prof_res = []
+    @comp_res = []
+    if(params[:loation]!="" && params[:company]!="")
+      location_result = Profile.where("location like ?", "%#{params[:loation]}%")
+      if location_result
+        location_result.each do |prof_res|
+
+          @prof_res.push(prof_res)
+        end
+      end
+      @comp_name = Company.where("company_name like ?", "%#{params[:company]}%").first
+      all_prof = Professional.all
+      all_prof.each do |check_comp|
+        if (check_comp.company_id == @comp_name.id)
+          @comp_res.push(check_comp)
+        end
+      end
+    elsif(params[:loation]!="")
+      puts "--------location"
+    location_result = Profile.where("location like ?", "%#{params[:loation]}%")
+    if location_result
+      location_result.each do |prof_res|
+
+        @prof_res.push(prof_res)
+      end
+      end
+
+    elsif(params[:company]!="")
+      puts "--------com"
+      @comp_name = Company.where("company_name like ?", "%#{params[:company]}%").first
+      all_prof = Professional.all
+      all_prof.each do |check_comp|
+        if (check_comp.company_id == @comp_name.id)
+          @comp_res.push(check_comp)
+        end
+      end
+    end
+    if @comp_res
+      @comp_res.each do |get_prof|
+        prof = Profile.where("id = ?", get_prof.profile_id).first
+        if prof
+          @prof_res.push(prof)
+        end
+      end
+    end
+
+
+    render :partial => "all_user_list"
+
+  end
+
 
 end

@@ -1,0 +1,52 @@
+<div class ="bodycontainer">
+  <table>
+    <tr>
+      <td>Location:</td>
+      <td><%= text_field_tag :location %></td>
+    </tr>
+    <tr>
+      <td>Company:</td>
+      <td><%= text_field_tag :company %></td>
+    </tr>
+    <tr>
+      <td>School:</td>
+      <td><%= text_field_tag :school %></td>
+    </tr>
+    <tr>
+      <td>Organization:</td>
+      <td><%= text_field_tag :organization %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= submit_tag "search", :onclick => "get_user()" %></td>
+    </tr>
+  </table>
+
+
+</div>
+
+<script>
+  function  get_user()
+  {
+      $.ajax({
+          url: "/feedback/show_user_profile",
+
+          data: { location: $("#location").val(), company: $("#company").val()    },
+          cache: false,
+          beforeSend: function( ) {
+              $('.image_loading').show();
+              $('.bodycontainer').append("loading...");
+          },
+          success: function(html){
+
+              $('.image_loading').hide();
+              $('.bodycontainer').empty();
+              $('.bodycontainer').append(html);
+          },
+          error: function( ) {
+              $('.bodycontainer').append("...error loading...");
+          }
+
+      })
+  }
+</script>

@@ -41,9 +41,11 @@ Addament::Application.routes.draw do
   resources :feedback do
     collection do
       post 'send_email'
+      get 'search_for_user'
       get 'privacy_policy'
       get 'change_priority'
       get 'filter_data'
+      get 'show_user_profile'
     end
   end
   resources :educations do
