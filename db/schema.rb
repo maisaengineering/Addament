@@ -181,9 +181,9 @@ ActiveRecord::Schema.define(:version => 20130819061958) do
   create_table "orgrequests", :force => true do |t|
     t.integer  "user_id"
     t.integer  "org_id"
-    t.string   "status",     :default => "approved"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "peers", :force => true do |t|
