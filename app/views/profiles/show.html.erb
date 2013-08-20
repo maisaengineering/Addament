@@ -1,33 +1,20 @@
 <div id="container">
-      <table id="topDIV_about">
-          <tr>
-            <td id="about_td" style="padding:5px;">
+      <div id="topDIV_about">
+            <div id="about_td">
               <% if@profile.avatar_file? %>
                   <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => @profile.id ),{ :class => "profile_image"} %>
               <% else %>
-                  <%= image_tag("missing.png",height: 70,width: 80) %>
+                  <%= image_tag("missing.png",height: 100,width: 80) %>
               <% end %>
-            </td>
-            <td>
-              <table>
-                <tr>
-                  <td style="color:#96c953;">
-                    About
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= @profile.about %>
-                  </td>
-                </tr>
-              </table>
-            </td>
+              <div id="about_user">
+              <span>About</span>
+              <p><%= @profile.about %></p>
+              </div>
 
+            </div>
+        <div id ="show_preference"><%= render :partial => "follow_followee_peer" %></div>
+      </div>
 
-          </tr>
-
-      </table>
-           <div id ="show_preference"><%= render :partial => "follow_followee_peer" %></div>
         <div>
             <div id="bioDIV">
               <h2>PROFILE INFO</h2>

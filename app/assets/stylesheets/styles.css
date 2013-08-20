@@ -1437,8 +1437,8 @@ td{
 }
 
 .profile_image{
-    width: 90px;
-    height: 99px;
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -1709,14 +1709,29 @@ ul#pinned_message{
     margin: 0 auto;margin-top: 25px;
     position: relative;
     background-color:#ffffff;
-    height: 99;
+    height:132px;
     width:980px;
     margin-left:0px
 }
 #about_td{
     width:90px;
-    height: 99px;
+    height: 80px;
     vertical-align: top;
+    padding:9px;
+}
+#about_user{
+    margin-left: 96px;
+    margin-top: -80px;
+}
+#about_user span{
+    color: #51a2d5;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Calibri;
+}
+.users_about_connect{
+    margin-left: 600px;
+    margin-top: -59px;
 }
 
 .qtntab {
