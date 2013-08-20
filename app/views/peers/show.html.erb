@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @peer.user_id %>
+</p>
+
+<p>
+  <b>Req to peer:</b>
+  <%= @peer.req_to_peer_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_peer_path(@peer) %> |
+<%= link_to 'Back', peers_path %>

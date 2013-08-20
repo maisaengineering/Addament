@@ -1,0 +1,25 @@
+<table style="width: 500px; margin-top: 25px;">
+  <tr>
+    <% profile_user = User.where(id: @profile.user_id).first %>
+    <td>
+      <% unless current_user.following?(profile_user) %>
+          <%= button_to "Mentee", {:controller => :users, :action => :follow_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+                        :style => "width:90px;" %>
+      <% end %>
+    </td>
+    <td>
+      <% unless profile_user.following?(current_user) %>
+          <%= button_to "Mentor", {:controller => :users, :action => :follow_my_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+                        :style => "width:90px;" %>
+      <% end %>
+    </td>
+    <td>
+
+      <% unless check_peer(@profile.user_id) %>
+          <%= button_to "Peer", {:controller => :users, :action => :follow_as_peer,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+                        :style => "width:90px;" %>
+
+      <% end %>
+    </td>
+  </tr>
+</table>

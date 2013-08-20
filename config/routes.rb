@@ -1,5 +1,8 @@
 Addament::Application.routes.draw do
 
+  resources :peers
+
+
   resources :orgrequests
 
 
@@ -107,6 +110,8 @@ Addament::Application.routes.draw do
       get 'tokenizer'
       post 'follow'
       post 'follow_profile'
+      post 'follow_my_profile'
+      post 'follow_as_peer'
       post 'unfollow'
       post 'unfollow_profile'
       post 'follow_list'

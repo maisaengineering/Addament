@@ -31,8 +31,23 @@ class UsersController < ApplicationController
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
     current_user.follow(user)
-    @followee =  current_user.user_followers
+    prof_id = Profile.where(user_id: user.id).first
+    @profile = Profile.find(prof_id)
   end
+  def follow_my_profile
+    @users = User.where("id != ? ", current_user.id)
+    user = User.find(params[:id])
+    user.follow(current_user)
+    prof_id = Profile.where(user_id: user.id).first
+    @profile = Profile.find(prof_id)
+
+  end
+  def follow_as_peer
+    Peer.create(:user_id => current_user.id, :req_to_peer_id => params[:id])
+    prof_id = Profile.where(user_id: params[:id]).first
+    @profile = Profile.find(prof_id)
+  end
+
 
   def unfollow_profile
     @users = User.where("id != ? ", current_user.id)

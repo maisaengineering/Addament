@@ -1,7 +1,22 @@
+<% peer_list = current_user.peers %>
+<% peer_list.each do |peer_item| %>
+    <% profile = Profile.where(user_id: peer_item.req_to_peer_id).first %>
+    <% if profile %>
+
+          <% if profile.avatar_file.nil? %>
+              <%= image_tag("missing.png", :height => "50", :width => "50") %>
+          <% else %>
+              <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile.id ),{ :class => "medium_image"} %>
+          <% end %>
+          <label class="pp_sug_name"><%= profile.first_name %></label>
+
+    <% end  %>
+<% end %>
 <% @users.in_groups_of(2, false) do |lists| %>
     <%  for user in lists %>
 
                <% unless user.profile.nil? %>
+
                   <% unless current_user.following?(user) %>
                   <% reqtomentor = Requesttomentor.where(user_id: current_user.id, following_id:user.id ).first %>
                   <% unless reqtomentor %><br>
