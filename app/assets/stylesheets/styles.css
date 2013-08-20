@@ -1331,6 +1331,13 @@ td{
 .post_comment{
     width:640px!important;
 }
+#cmt_section{
+    float:right;
+    margin:0px;
+    padding:2px;
+    background:rgba(99,99,99,.001);
+    width:590px!important;
+}
 .post_status{
     width:690px;
     position: relative;

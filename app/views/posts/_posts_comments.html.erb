@@ -9,14 +9,14 @@
     <% else %>
     <%=  image_tag("missing.png",height: 70,width: 70) %>
     <% end %>
-    <div id="cmt_section" style="float:right; margin:0px;padding:0px; background:rgba(99,99,99,.001);width:590px!important;">
+    <div id="cmt_section">
       <label>
         <%= user.profile.first_name  %><span style="float:right;cursor:default;font-weight:100;">
         <%= post.created_at.strftime("%d %b") %>
       </span>
       </label>
       <p class="cmt">
-        <%= best_in_place post, :current_post, :class => "purr" %> <%= link_to 'X', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= best_in_place post, :current_post, :class => "purr" %> <span><%= link_to 'x', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
       </p>
       <p>
