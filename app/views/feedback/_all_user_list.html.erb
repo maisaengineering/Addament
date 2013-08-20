@@ -1,9 +1,24 @@
-<% @prof_res.each do |profile_result| %>
-    <% if profile_result.avatar_file? %>
-        <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_result.id ),{ :class => "profile_image"} %>
-    <% else %>
-        <%= image_tag("missing.png",height: 70,width: 80) %>
-    <% end %>
-  <%= link_to "#{profile_result.first_name}", profile_result %>
-    <%= profile_result.last_name  %>
-<% end %>
+<div id ="container">
+  <br>
+  <div class="search_container">
+    <div class="search_user">
+      <h2>Search Results</h2>
+      <div class="search_results_details">
+        <table style="color: #51a2d5;">
+          <% @prof_res.each do |profile_result| %>
+          <tr>
+             <% if profile_result.avatar_file? %>
+                <td><%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => profile_result.id ),{ :class => "profile_image"} %></td>
+             <% else %>
+                <td><%= image_tag("missing.png",height: 70,width: 80) %></td>
+             <% end %>
+                <td><%= link_to "#{profile_result.first_name}", profile_result %>
+                    <%= link_to "#{profile_result.last_name}", profile_result  %>
+                </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>

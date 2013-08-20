@@ -1,24 +1,27 @@
-<div class ="bodycontainer">
-  <table>
+<div id ="container" style="background-color: #ffffff">
+  <br>
+  <h3 style="text-align: center">Add To Network</h3>
+  <br>
+  <table align=center>
     <tr>
-      <td>Location:</td>
+      <td><label>Location:</label></td>
       <td><%= text_field_tag :location %></td>
     </tr>
     <tr>
-      <td>Company:</td>
+      <td><label>Company:</label></td>
       <td><%= text_field_tag :company %></td>
     </tr>
     <tr>
-      <td>School:</td>
+      <td><label>School:</label> </td>
       <td><%= text_field_tag :school %></td>
     </tr>
     <tr>
-      <td>Organization:</td>
+      <td><label>Organization:</label> </td>
       <td><%= text_field_tag :organization %></td>
     </tr>
     <tr>
       <td></td>
-      <td><%= submit_tag "search", :onclick => "get_user()" %></td>
+      <td><%= submit_tag "search", :onclick => "get_user()", :class=>"conv_send_btn" %></td>
     </tr>
   </table>
 
@@ -35,7 +38,7 @@
           cache: false,
           beforeSend: function( ) {
               $('.image_loading').show();
-              $('.bodycontainer').append("loading...");
+              $('#container').append("loading...");
           },
           success: function(html){
 
