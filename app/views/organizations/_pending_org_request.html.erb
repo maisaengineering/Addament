@@ -1,3 +1,4 @@
+<div id="request">
 <% @organizations.each do |check_orgreq| %>
     <% check_status = Orgrequest.where("org_id = ? and status = ?",check_orgreq.id, 'pending').first %>
     <% if check_status %>
@@ -8,11 +9,9 @@
               <tr>
                 <td>
                       <% unless user_info.avatar_file? %>
-                        <%= image_tag("missing.png",width:120,height:120) %>
+                        <%= image_tag("missing.png",width:70,height:70) %>
                     <% else %>
-                        <div class ="profile_image_thumb">
-                          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_info.user_id), :style => "height:100%;" %>
-                        </div>
+                          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user_info.id), { :class => "thumb_image"} %>
                     <% end %>
                 </td>
                 <td> <label><%= user_info.first_name %><%= user_info.last_name %></label></td>
@@ -22,5 +21,7 @@
 
             </table>
         <% end %>
+        <hr>
     <% end %>
 <% end %>
+</div>

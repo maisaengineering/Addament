@@ -39,7 +39,7 @@
         <li><a href="#tab2" data-toggle="tab" ><b>Present</b></a></li>
         <li><a href="#tab3" data-toggle="tab"><b>Future</b></a></li>
         <li><a href="#tab4" data-toggle="tab"><b>Affiliations</b></a></li>
-        <li id="editbtn"><%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) %> </li>
+        <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), :class => "btn btn-default btn-xs",:id=>"profile_edit_btn" %> </li>
       </ul>
 
 </div>
@@ -139,6 +139,7 @@
                       <% get_org_list.each do |org_show| %>
                          <% if org_show.status == "approved" %>
                             <% orgdetails = Organization.find(org_show.org_id) %>
+                            <div>
                               <div class ="org_logo">
                                 <% unless orgdetails.org_logo? %>
                                     <%= link_to image_tag("missing.png",width:70,height:70), url_for({:controller => 'organizations', :action => 'show', :id => orgdetails.id}) %>
@@ -149,11 +150,16 @@
 
                                 <% end %>
                               </div>
-
-                              Organization name:<%= orgdetails.org_name %>
-                              Organization url:<%= orgdetails.org_url %>
-
-
+                              <table>
+                                <tr>
+                                  <td><label class="about_meLft_col">Organization name:</label><label class="about_meRht_col"><%= orgdetails.org_name %></label><br /></td>
+                                </tr>
+                                <tr>
+                                  <td><label class="about_meLft_col">Organization url:</label><label class="about_meRht_col"><%= orgdetails.org_url %></label><br /></td>
+                                </tr>
+                              </table>
+                            </div>
+                            <hr>
                          <% end %>
                       <% end  %>
 

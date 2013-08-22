@@ -16,8 +16,7 @@
           <li class="network_li">Mentors<span class="net_count"><%= @following ? @following : "0" %></span></li>
           <li class="network_li">Peers<span class="net_count"><%= @peer ? @peer : "0" %></span></li>
         </ul>
-        <p><%= link_to "Add a Ment", search_for_user_feedback_index_path, :style => "background-color: #51a2d5;
-padding: 5;", :title => "Click Here To Add Network" %></p>
+        <p><%= link_to "Add A Ment....", search_for_user_feedback_index_path, :class => "btn btn-default btn-xs",:id => "addament_btn",:title => "Click Here To Add Network" %></p>
       </div>
       <div id="chatUpdatesDiv">
         <h2 class="chatUpdatesHk2">Chat Updates</h2>

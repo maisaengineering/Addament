@@ -2635,26 +2635,6 @@ li.receipt{
     margin-top: -12px;
     margin-left: -8px;
 }
-#editbtn {
-    color: #000;
-    background: #96c953;
-    border: 0px;
-    font-size: 12px;
-    font-family:itc_avant_garde;
-    cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border-radius: 20px;
-    margin-left: 536px;
-    height: 30px;
-    margin-top: 3px;
-}
-#editbtn a:hover{
-    background: #96c953;
-    border: 0px;
-    border-radius: 20px;
-    height: 10px;
-}
 .best_in_place {
     cursor: hand;
     cursor: pointer;
@@ -2681,21 +2661,37 @@ li.receipt{
     padding: 5px;
     padding-top: 5px;
     float: left;
+    margin-top: -12px;
 }
 .mystory_text{
     margin: 0px;
-    padding: 0px;
     font-size: 12px;
     padding: 0px;
     color: #0D0D0D!important;
     width: 780px!important;
     display: block;
-    margin-top: -10px;
     margin-bottom: 0px;
-    font-family: itc_avant_garde!important;
+    font-family: calibri!important;
     margin-left: 0px!important;
     word-wrap: break-word;
     margin-top: 5px;
+}
+#profile_edit_btn{
+    height: 15px;
+    width: 140px;
+    color: white;
+    margin-left:492px;
+    margin-top: 2px;
+    background: #96c953;
+    font-family: avenir_next_lt_pro_demi;
+    font-size: 15px;
+}
+#addament_btn{
+    margin-top: -9px;
+    width: 143px;
+    background: #96c953;
+    color: #ffffff;
+    font-size: 15px;
 }
 
 
