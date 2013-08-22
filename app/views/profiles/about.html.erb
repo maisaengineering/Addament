@@ -135,13 +135,38 @@
                           <hr>
 
                       <% end %>
+                      <% get_org_list = current_user.orgrequest %>
+                      <% get_org_list.each do |org_show| %>
+                         <% if org_show.status == "approved" %>
+                            <% orgdetails = Organization.find(org_show.org_id) %>
+                              <div class ="org_logo">
+                                <% unless orgdetails.org_logo? %>
+                                    <%= link_to image_tag("missing.png",width:70,height:70), url_for({:controller => 'organizations', :action => 'show', :id => orgdetails.id}) %>
+
+                                <% else %>
+
+                                    <a href ="organizations/<%= orgdetails.id %>"><%= image_tag url_for(:controller => "organizations", :action => "code_image", :id => orgdetails.id) %></a>
+
+                                <% end %>
+                              </div>
+
+                              Organization name:<%= orgdetails.org_name %>
+                              Organization url:<%= orgdetails.org_url %>
+
+
+                         <% end %>
+                      <% end  %>
 
                       <% if @organizations.length == 0 %>
                           <h2 style="width:275px;margin-left: 270px;">No Organizations created </h2>
                       <% end %>
 
                     </div>
-      </div>
+
+            <h2 style="width: 250px;">Organization requests</h2>
+            <div id="orgrequest"><%= render :partial => 'organizations/pending_org_request' %></div>
+
+          </div>
 
     </div>
 
