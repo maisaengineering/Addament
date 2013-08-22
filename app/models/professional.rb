@@ -43,8 +43,10 @@ class Professional < ActiveRecord::Base
       orgname.strip!
       org_find = Organization.find_by_org_name(orgname)
       if org_find
-
+         org_req_check = Orgrequest.where(org_id: org_find.id, user_id: self.profile.user_id).first
+         unless org_req_check
          Orgrequest.create(:user_id => self.profile.user_id, :org_id => org_find.id, :status => "pending")
+           end
       end
       self.organizations << Organization.find_or_create_by_org_name(orgname)
     end
