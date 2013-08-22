@@ -25,8 +25,13 @@
     <% end %>
     <p style="width:840px;margin-top:5px;">
 
-      <span id="cmt_first_name"><%=  profile.first_name %>: </span><span style="float: right"><%= link_to 'x', :controller => "posts", :action => "del_comment", :id => comment_id.id, :remote => true %></span>
+      <span id="cmt_first_name"><%=  profile.first_name %>: </span>
+      <% if current_user.id == comment_id.commenter_id %>
+          <%= best_in_place comment_id, :description %><span style="float:right"><%= link_to 'x', comment_id, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :title => "delete this comment" %></span>
+
+      <% else %>
       <%=  comment_id.description %>
+          <% end %>
 
       <span id="cmtPostedAgo">
         <%= comment_id.created_at.strftime("%d %b") %>
@@ -38,3 +43,6 @@
   <% end %>
 
 </div>
+<script>
+    $('.best_in_place').best_in_place()
+</script>

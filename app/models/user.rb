@@ -21,17 +21,20 @@ class User < ActiveRecord::Base
   has_many :orgrequest
   has_many :peers
 
+
+  # attr_accessible :title, :body
+  devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google]
+
   def self.get_current_company_name(user_id)
     company = user_id.profile.professionals
     company.each do |get_company|
       if get_company.end_date==nil
-         @current_company =  get_company.company_id
+        @current_company =  get_company.company_id
       end
     end
     return @current_company
   end
-  # attr_accessible :title, :body
-  devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google]
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -106,7 +109,7 @@ class User < ActiveRecord::Base
     @user_post = Array.new
     all_users.each do |follow_user|
      if user.following?(follow_user)
-       follow_user.posts.each do |post_message|
+       follow_user.posts.order('created_at desc').each do |post_message|
 
          @user_post.push(post_message)
        end

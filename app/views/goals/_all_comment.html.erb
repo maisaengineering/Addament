@@ -3,9 +3,11 @@
 
   <% goalss_id = 1 %>
   <% @goals.each do |goal| %>
-      <% @goal_comments = goal.goal_comment %>
+      <% @goal_comments = goal.goal_comment.order('created_at desc') %>
+
       <div class="goal_comment<%= goalss_id %>" style="display:none;">
-        <% @goal_comments.each do |goal_comment| %>
+
+        <% @goal_comments[0..9].each do |goal_comment| %>
             <% user_name = User.find(goal_comment.commenter_id) %>
 
             <li>
@@ -21,6 +23,10 @@
 
         <% end %>
         <% goalss_id += 1 %>
+        <% if @goal_comments.length > 10 %>
+            <br/>
+             <%= link_to "See More Comments", about_profiles_path %>
+        <% end %>
       </div>
   <% end %>
 </ul>

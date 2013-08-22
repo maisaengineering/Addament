@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819061958) do
+ActiveRecord::Schema.define(:version => 20130821065531) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(:version => 20130819061958) do
     t.datetime "updated_at",                         :null => false
     t.string   "image"
     t.binary   "avatar_file",  :limit => 2147483647
+    t.integer  "age"
   end
 
   create_table "receipts", :force => true do |t|

@@ -34,7 +34,7 @@
       $.ajax({
           url: "/feedback/show_user_profile",
 
-          data: { location: $("#location").val(), company: $("#company").val()    },
+          data: { location: $("#location").val(), company: $("#company").val(), school: $("#school").val()   },
           cache: false,
           beforeSend: function( ) {
               $('.image_loading').show();

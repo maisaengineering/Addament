@@ -95,6 +95,7 @@
               <td colspan="2" style="background-color:#fff;" align="center">
                 <%=  f.submit "Update Profile", :class =>"update_prf_btn"  %>
                 <%= f.file_field :avatar_file1, :class => 'fileUploadButtonContainer', :value => "Choose file", :onchange =>"check_extn()" ,:title=>"bar"  %>
+                <%= f.hidden_field :cal_age %>
               </td>
             </tr>
           </table>

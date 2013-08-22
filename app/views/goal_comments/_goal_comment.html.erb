@@ -12,10 +12,11 @@
             </div>
         <% end %>
         <p>
-            <span id="cmt_first_name"><%= user.profile.first_name %> : <span id="goal_delete"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span></span><br />
+            <span id="cmt_first_name"><%= user.profile.first_name %> : </span><br />
 
           <% if current_user.id == goalcomments.commenter_id %>
               <%= best_in_place goalcomments, :comment_description,:type => :textarea %>
+              <span id="goal_delete"><%= link_to 'x', goalcomments, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></span>
 
           <% else %>
               <%=  goalcomments.comment_description %>

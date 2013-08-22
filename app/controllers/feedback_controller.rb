@@ -49,7 +49,30 @@ class FeedbackController < ApplicationController
   def show_user_profile
     @prof_res = []
     @comp_res = []
-    if(params[:loation]!="" && params[:company]!="")
+    @school_res = []
+    if(params[:loation]!="" && params[:company]!="" && params[:school]!="")
+      location_result = Profile.where("location like ?", "%#{params[:loation]}%")
+      if location_result
+        location_result.each do |prof_res|
+
+          @prof_res.push(prof_res)
+        end
+      end
+      @comp_name = Company.where("company_name like ?", "%#{params[:company]}%").first
+      all_prof = Professional.all
+      all_prof.each do |check_comp|
+        if (check_comp.company_id == @comp_name.id)
+          @comp_res.push(check_comp)
+        end
+      end
+      @school = School.where("school_name like ?", "%#{params[:school]}%").first
+      all_edu = Education.all
+      all_edu.each do |check_edu|
+        if (check_edu.school_id == @school.id)
+          @school_res.push(check_edu)
+        end
+      end
+    elsif(params[:loation]!="" && params[:company]!="")
       location_result = Profile.where("location like ?", "%#{params[:loation]}%")
       if location_result
         location_result.each do |prof_res|
@@ -65,7 +88,6 @@ class FeedbackController < ApplicationController
         end
       end
     elsif(params[:loation]!="")
-      puts "--------location"
     location_result = Profile.where("location like ?", "%#{params[:loation]}%")
     if location_result
       location_result.each do |prof_res|
@@ -81,6 +103,23 @@ class FeedbackController < ApplicationController
       all_prof.each do |check_comp|
         if (check_comp.company_id == @comp_name.id)
           @comp_res.push(check_comp)
+        end
+      end
+    elsif(params[:school!=""])
+      @school = School.where("school_name like ?", "%#{params[:school]}%").first
+      all_edu = Education.all
+      all_edu.each do |check_edu|
+        if (check_edu.school_id == @school.id)
+          @school_res.push(check_edu)
+        end
+      end
+
+    end
+    if @school_res
+      @school_res.each do |get_prof|
+        prof = Profile.where("id = ?", get_prof.profile_id).first
+        if prof
+          @prof_res.push(prof)
         end
       end
     end
