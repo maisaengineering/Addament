@@ -12,7 +12,8 @@
               </div>
 
             </div>
-        <div id ="show_preference"><%= render :partial => "follow_followee_peer" %></div>
+        <input type="button" value="Add a ment.." onclick="showbutton()">
+        <div id ="show_preference" style="display: none;"><%= render :partial => "follow_followee_peer" %></div>
       </div>
 
         <div>
@@ -113,3 +114,17 @@
 </div>
 
 
+<script>
+    function showbutton()
+
+    {
+        if (document.getElementById('show_preference').style.display == 'block')
+        {
+            document.getElementById('show_preference').style.display = 'none'
+        }
+        else
+        {
+        document.getElementById('show_preference').style.display = 'block'
+        }
+    }
+</script>
