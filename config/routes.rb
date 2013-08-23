@@ -115,6 +115,7 @@ Addament::Application.routes.draw do
       post 'follow_my_profile'
       post 'follow_as_peer'
       post 'unfollow'
+      post 'unfollow_mentee'
       post 'unfollow_profile'
       post 'follow_list'
       post 'accept_user'

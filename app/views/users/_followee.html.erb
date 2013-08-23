@@ -11,6 +11,8 @@
           <%=  image_tag("missing.png",height: 70,width: 70) %>
       <% end %></td>
         <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
+          <td><%= button_to "Disconnect", {:controller => :users, :action => :unfollow_mentee, :id => user.id}, :remote => true, :class => "disconnectbtn",
+                        :style => "width:108px" %></td>
         </tr>
       </table>
 

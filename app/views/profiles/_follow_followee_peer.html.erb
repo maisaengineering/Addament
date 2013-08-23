@@ -1,15 +1,21 @@
     <div class="users_about_connect">
+
     <% profile_user = User.where(id: @profile.user_id).first %>
-
-      <% unless current_user.following?(profile_user) %>
-          <%= button_to "Mentee", {:controller => :users, :action => :follow_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+      <% userrole = profile_user.user_role %>
+      <% userrole.each do |check_role| %>
+           <% if check_role == "Mentee" %>
+            <% unless current_user.following?(profile_user) %>
+                <%= button_to "Mentee", {:controller => :users, :action => :follow_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
                         :style => "width:90px;" %>
-      <% end %><br />
-
-      <% unless profile_user.following?(current_user) %>
-          <%= button_to "Mentor", {:controller => :users, :action => :follow_my_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+            <% end %><br />
+            <% end %>
+          <% if check_role == "Mentor" %>
+            <% unless profile_user.following?(current_user) %>
+                <%= button_to "Mentor", {:controller => :users, :action => :follow_my_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
                         :style => "width:90px;" %>
-      <% end %><br />
+            <% end %><br />
+              <% end  %>
+      <% end %>
 
 
       <% unless check_peer(@profile.user_id) %>

@@ -15,8 +15,8 @@ class UsersController < ApplicationController
    end
 
   def follow
-
-    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
+     Peer.where(:user_id => current_user.id, :req_to_peer_id => params[:id]).first.destroy
+    #Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     current_user_company = User.get_current_company_name(current_user)
     unless  current_user_company.nil?
 
@@ -58,9 +58,20 @@ class UsersController < ApplicationController
 
   def unfollow
     user = User.find(params[:id])
-    reqtomentor = Requesttomentor.where(following_id: params[:id]).first
-    Requesttomentor.find(reqtomentor.id).destroy
+    #reqtomentor = Requesttomentor.where(following_id: params[:id]).first
+    #Requesttomentor.find(reqtomentor.id).destroy
     current_user.stop_following(user)
+    @followee =  current_user.user_followers
+    current_user_company = User.get_current_company_name(current_user)
+    unless  current_user_company.nil?
+
+      @users = User.check_peers(current_user_company, current_user.profile.id)
+    end
+  end
+
+  def unfollow_mentee
+    user = User.find(params[:id])
+    user.stop_following(current_user)
     @followee =  current_user.user_followers
     current_user_company = User.get_current_company_name(current_user)
     unless  current_user_company.nil?

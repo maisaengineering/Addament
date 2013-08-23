@@ -2501,9 +2501,9 @@ li.receipt{
       min-height: 50px;
       margin-bottom: 10px;
   }
-  .feedback_fbtn{
+.feedback_fbtn{
     position: fixed;
-    bottom: 0px; right: 0px;color: white;
+    bottom: 280px; right: -36px;color: white;
     background: #51A2D5;
     border: 0px;
     height: 20px !important;
@@ -2514,6 +2514,10 @@ li.receipt{
     font-family: itc_avant_garde;
     cursor: pointer;
     padding-top: 5px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb;
 }
 /*------------------------------------------000000000000000000000000000 ----------------------------------*/
 #reply{
