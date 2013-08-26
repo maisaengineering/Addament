@@ -94,9 +94,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    feed = Feedzirra::Feed.fetch_and_parse("http://news.google.com/news?q=cricket&output=rss")
-    @entry = feed.entries
+     unless current_user.profile.interests.empty?
+       interest = current_user.profile.interests.split(',')
+       @entry =[]
+       new_entry = []
+       interest.each do |prof_interest|
 
+         feed = Feedzirra::Feed.fetch_and_parse("news.google.com/news?q=#{prof_interest}&output=rss")
+         if feed
+           array_feed = feed.entries
+           new_entry.push(array_feed)
+        end
+       end
+       @entry = new_entry.flatten
+     end
 
     #@page_content = open('http://news.google.com/news?q=cricket&output=rss')
 
