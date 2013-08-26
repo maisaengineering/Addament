@@ -25,6 +25,7 @@ gem 'impressionist','1.3.1'
 gem 'acts_as_follower'
 gem 'select2-rails'
 gem 'will_paginate', '~> 3.0'
+gem 'feedzirra'
 gem 'thin', :group => [:production]
 
 #group :production do

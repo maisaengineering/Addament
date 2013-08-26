@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
+  require 'net/http'
+  require 'uri'
+  require 'feedzirra'
   before_filter :authenticate_user!
   before_filter :check_user_profile
   #helper_method :mailbox, :conversation
   def index
   end
+
+  def open(url)
+    Net::HTTP.get(URI.parse(url))
+  end
+
+
 
   def public_profile
     current_user_company = User.get_current_company_name(current_user)
@@ -85,6 +94,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    feed = Feedzirra::Feed.fetch_and_parse("http://news.google.com/news?q=cricket&output=rss")
+    raise feed.inspect
+    @page_content = open('http://news.google.com/news?q=cricket&output=rss')
+
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending').count
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     affiliation = current_user.profile.professionals
