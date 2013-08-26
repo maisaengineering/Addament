@@ -95,8 +95,10 @@ class UsersController < ApplicationController
 
   def show
     feed = Feedzirra::Feed.fetch_and_parse("http://news.google.com/news?q=cricket&output=rss")
-    raise feed.inspect
-    @page_content = open('http://news.google.com/news?q=cricket&output=rss')
+    @entry = feed.entries
+
+
+    #@page_content = open('http://news.google.com/news?q=cricket&output=rss')
 
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending').count
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)

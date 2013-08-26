@@ -81,8 +81,15 @@
     <div id="newsFeedsDiv">
 
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
-      <div style="margin-left: 2px;"><iframe src="http://news.google.com/news?q=cricket&output=rss" width='488' height="380" frameborder='0'></iframe></div>
+      <div class="news_feed" style="overflow-y: auto; height: 380px;">
+        <% @entry.each do |e| %>
 
+             <a href="<%= e.title %>" target="_blank"><%= e.title %></a>
+
+              <%= e.summary.html_safe %>
+
+        <% end %>
+        </div>
     </div>
     <div id="dashboardDiv">
 
