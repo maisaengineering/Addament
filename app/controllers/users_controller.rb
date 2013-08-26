@@ -99,7 +99,7 @@ class UsersController < ApplicationController
        @entry =[]
        new_entry = []
        interest.each do |prof_interest|
-          erest = prof_interest.strip()
+         user_interest = prof_interest.strip()
          feed = Feedzirra::Feed.fetch_and_parse("news.google.com/news?q=#{user_interest}&output=rss")
          if feed
            array_feed = feed.entries
