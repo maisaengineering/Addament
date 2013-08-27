@@ -81,13 +81,13 @@
     <div id="newsFeedsDiv">
 
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
-      <div class="news_feed" style="overflow-y: auto; height: 380px;">
+      <div id="news_feed">
         <% unless @entry.nil? %>
         <% @entry.each do |e| %>
 
-             <a href="<%= e.url %>" target="_blank"><%= e.title %></a>
+             <h3><a href="<%= e.url %>" target="_blank"><%= e.title %></a></h3>
 
-              <%= e.summary.html_safe %>
+
 
         <% end %>
             <% else %>
@@ -160,3 +160,12 @@
     </div>
   </div>
 </div>
+
+<script>
+
+        $(window).load(function(){
+
+            $('#news_feed').mCustomScrollbar();
+        });
+
+ </script>

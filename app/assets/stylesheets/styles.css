@@ -2589,8 +2589,8 @@ li.receipt{
 }
 #goal_index{
     float: right;
-    margin-top: -153px;
-    margin-right: -10px;
+    margin-top: -151px;
+    /*margin-right: -10px;*/
     font-size: 12px;
     font-family: avenir_next_lt_pro_demi;
 }
@@ -2697,6 +2697,19 @@ li.receipt{
     color: #ffffff;
     font-size: 15px;
 }
+#news_feed{
+height: 380px;
+background: #F5F5F5;
+
+}
+#goal_index {
+    display: block;
+}
+#leftDIV li:hover + #goal_index {
+    display: block;
+
+}
+
 
 
 
