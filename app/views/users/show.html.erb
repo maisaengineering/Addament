@@ -81,15 +81,37 @@
     <div id="newsFeedsDiv">
 
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
-      <div id="news_feed">
+      <div id="newsss_feed" style="overflow-x: scroll;">
+        <table style="height: 283px;">
+          <tr>
         <% unless @entry.nil? %>
-        <% @entry.each do |e| %>
+            <% i = 1 %>
 
-             <h3><a href="<%= e.url %>" target="_blank"><%= e.title %></a></h3>
+                <% @entry.each do |e| %>
+             <td class = "news_title<%= i %>" style="display: none; width: 100px; white-space:pre;vertical-align: text-top;">
+             <h3 style="padding-left: 80px; width: 300px; word-wrap: break-word;"><a href="<%= e.url %>" target="_blank"><%= e.title %></a></h3>
+             </td>
+
+                <% i+=1 %>
+            <% end %>
+         </tr>
+        </table>
+                <div id="newsss_feed" style="overflow-x: scroll;">
+            <table>
+              <tr>
+                <% j = 1 %>
+            <% @entry.each do |e| %>
+
+                <td style="width: 100px; white-space:pre;"> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
 
 
 
+            <% j+=1 %>
         <% end %>
+              </tr>
+              </table>
+                </div>
+
             <% else %>
           <h2>No News Feed </h2>
         <% end %>
@@ -164,8 +186,20 @@
 <script>
 
         $(window).load(function(){
-
+            $('.news_title1').css('display', 'block');
             $('#news_feed').mCustomScrollbar();
         });
 
  </script>
+<script>
+    function current_news_feed(e)
+    {
+        for(i = 1; i < 30; i++)
+        {
+
+            $('.news_title'+ i).css('display', 'none');
+
+        }
+        $('.news_title'+ e).css('display', 'block');
+    }
+</script>

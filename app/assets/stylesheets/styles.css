@@ -641,6 +641,7 @@ td{
     overflow: hidden;
 }
 #newsFeedsDiv{
+    overflow: hidden;
     height: 380px;width: 490px;
     /*background: rgba(150,201,83,1);*/
     border: 20px solid #96c953;
@@ -2709,6 +2710,12 @@ background: #F5F5F5;
     display: block;
 
 }
+ul#news_feedss {
+    float: left;
+    width: 100%;
+}
+
+
 
 
 
