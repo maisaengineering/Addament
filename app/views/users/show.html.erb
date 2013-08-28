@@ -79,44 +79,38 @@
   <!-- .................. BOTTOM DIV ..................... -->
   <div id="bottomDIV"  style ="margin-left:-47px">
     <div id="newsFeedsDiv">
-
+      <% unless @entry.nil? %>
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
-      <div id="newsss_feed" style="overflow-x: scroll;">
+
         <table style="height: 283px;">
           <tr>
-        <% unless @entry.nil? %>
-            <% i = 1 %>
 
+                <% i = 1 %>
                 <% @entry.each do |e| %>
-             <td class = "news_title<%= i %>" style="display: none; width: 100px; white-space:pre;vertical-align: text-top;">
-             <h3 style="padding-left: 80px; width: 300px; word-wrap: break-word;"><a href="<%= e.url %>" target="_blank"><%= e.title %></a></h3>
-             </td>
-
-                <% i+=1 %>
-            <% end %>
+                    <td class = "news_title<%= i %>" style="display: none; width: 100px; white-space:pre;vertical-align: text-top;">
+                        <h3 style="padding-left: 80px; width: 300px; word-wrap: break-word;"><a href="<%= e.url %>" target="_blank"><%= e.title %></a></h3>
+                    </td>
+                    <% i+=1 %>
+                <% end %>
          </tr>
         </table>
-                <div id="newsss_feed" style="overflow-x: scroll;">
+           <div id="newsss_feed" style="overflow-x: scroll;">
             <table>
               <tr>
                 <% j = 1 %>
-            <% @entry.each do |e| %>
-
-                <td style="width: 100px; white-space:pre;"> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
-
-
-
-            <% j+=1 %>
-        <% end %>
+                <% @entry.each do |e| %>
+                    <td style="width: 100px; white-space:pre;"> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
+                    <% j+=1 %>
+                <% end %>
               </tr>
-              </table>
-                </div>
+            </table>
+          </div>
 
             <% else %>
           <h2>No News Feed </h2>
         <% end %>
         </div>
-    </div>
+
     <div id="dashboardDiv">
 
       <div id="user_info">
