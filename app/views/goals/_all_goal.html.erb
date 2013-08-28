@@ -15,9 +15,25 @@
     <% else %>
         <h2> No goals are added</h2>
     <% end %>
-    <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;" %>
+    <%= link_to 'Add New Goal', new_goal_path,:style=>"color:#51a2d5;", :onclick => " return check_goal(#{@goals.length})" %>
   </ul>
   <% if @goals.count > 3 %>
       <%= link_to "see more goals", about_profiles_path %>
   <% end %>
 </div>
+
+<script>
+  function check_goal(goal)
+  {
+
+     if (goal < 3)
+     {
+         return true;
+     }
+      else
+     {
+         alert("You have exceeded the Number of Goals");
+         return false;
+     }
+  }
+</script>
