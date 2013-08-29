@@ -27,6 +27,8 @@ gem 'select2-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'feedzirra'
 gem 'thin', :group => [:production]
+gem 'rufus-scheduler'
+
 
 #group :production do
 #  gem 'pg'
