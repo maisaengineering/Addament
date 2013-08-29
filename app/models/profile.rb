@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :birthday, :city, :first_name, :interests, :last_name, :location, :phone_number, :state, :image, :user_id, :about, :avatar_file1, :cal_age, :professionals_attributes
+  attr_accessible :birthday, :city, :first_name,  :last_name, :location, :phone_number, :state, :image, :user_id, :about, :avatar_file1, :cal_age, :professionals_attributes
   #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
  # has_attached_file :avatar, :storage => :database
   #has_attached_file :avatar,
@@ -8,6 +8,9 @@ class Profile < ActiveRecord::Base
 
    #after_save :check_method
   #validates :first_name,  :uniqueness => {:message => "Name already exists"}
+  INTEREST = %w(cricket politics)
+  serialize :interests,Array
+  attr_accessible :interests
    is_impressionable
   has_many :professionals
   has_many :education

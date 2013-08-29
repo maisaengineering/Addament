@@ -26,10 +26,11 @@
 <script>
     $(document).ready(function(){
 
-       var availableTags = [<% for i in 0...get_user_list.length %>{"label":'<img src="/assets/missing.png"/><%= get_user_list[i].first_name %>',"value":"<%= get_user_list[i].id %>"}, <% end %>];
+       var availableTags = [<% for i in 0...get_user_list.length %>{"label":'<%= get_user_list[i].first_name %>',"value":"<%= get_user_list[i].id %>" , "icon": ' <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => get_user_list[i].id ) %>'}, <% end %>];
         jQuery("input#conversationrecipients").each(function(){
             var target = jQuery(this);
             var currenttags = target.val();
+
             target.hide()
                     .after("<ul class=\"tagit-new\"><li>"+currenttags+"</li></ul>");
             var instance = target.next();

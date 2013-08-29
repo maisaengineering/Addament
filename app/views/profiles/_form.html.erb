@@ -60,10 +60,19 @@
               <td>State</td>
               <td><%= f.text_field :state %></td>
             </tr>
-            <tr>
-              <td>Interests</td>
-              <td><%= f.text_area :interests, :rows => 3, :cols => 32 %>
-            </tr>
+
+                <tr>
+                  <td>Interests</td>
+                  <td>
+
+                    <% Profile::INTEREST.each do |interest| %>
+                        <% check =  current_user.profile.nil? ? false : current_user.profile.interests.include?(interest) %>
+                        <%= check_box_tag "profile[interests][]",interest,check %> <%= interest %>
+                    <% end %>
+
+                  </td>
+                </tr>
+
             <tr>
               <td colspan="2" class="exmp" style="background-color:#fff; ">Examples: Sports, News, Politics,world Affairs, Economics, etc,</td>
             </tr>
