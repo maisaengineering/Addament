@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
 
    #after_save :check_method
   #validates :first_name,  :uniqueness => {:message => "Name already exists"}
-  INTEREST = ["Top Stories","World News","U.S. News","Business","Technology","Entertainment","Sports","Science","Health"]
+  INTEREST = ["Topstories","Worldnews","U.S.News","Business","Technology","Entertainment","Sports","Science","Health"]
   serialize :interests,Array
   attr_accessible :interests
    is_impressionable

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  require 'net/http'
-  require 'uri'
   require 'feedzirra'
   before_filter :authenticate_user!
   before_filter :check_user_profile

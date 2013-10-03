@@ -19,7 +19,7 @@ Devise.setup do |config|
   require "omniauth-twitter"
   require 'openid/store/filesystem'
 
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+  #OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
   config.omniauth :facebook, "376018912499299", "dc7b246664eab1ac18e283f6628a764c", {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
   config.omniauth :twitter, "F9MvIhjRGs0PMiBPS70w", "Zx2uGZtkEhBFKujxso2b0ZlHONXr181My8RBHGqaQ",  {client_options: {ssl: {ca_path: "/etc/ssl/certs"}}}#, :display => 'popup'
   config.omniauth :linkedin, "6e4lz34dftbp", "fjPA6POIBrPc5YEw",
