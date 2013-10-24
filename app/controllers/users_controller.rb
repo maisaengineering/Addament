@@ -13,11 +13,12 @@ class UsersController < ApplicationController
 
 
   def public_profile
-    current_user_company = User.get_current_company_name(current_user)
-    unless  current_user_company.nil?
-      @users = User.check_peers(current_user_company, current_user.profile.id)
-    end
-    # @users = User.where("id != ? ", current_user.id)
+
+    #current_user_company = User.get_current_company_name(current_user)
+    #unless  current_user_company.nil?
+    #  @users = User.check_peers(current_user_company, current_user.profile.id)
+    #end
+    @users = User.where("id != ? ", current_user.id)
     @followee =  current_user.user_followers
    end
 
@@ -37,14 +38,16 @@ class UsersController < ApplicationController
   def follow_profile
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
-    current_user.follow(user)
+    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
+    #current_user.follow(user)
     prof_id = Profile.where(user_id: user.id).first
     @profile = Profile.find(prof_id)
   end
   def follow_my_profile
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
-    user.follow(current_user)
+    #user.follow(current_user)
+    Requesttomentor.create(:following_id => current_user.id, :user_id => params[:id], :status => 'pending')
     prof_id = Profile.where(user_id: user.id).first
     @profile = Profile.find(prof_id)
 
@@ -65,6 +68,9 @@ class UsersController < ApplicationController
 
   def unfollow
     user = User.find(params[:id])
+
+    @users = User.where("id != ? ", current_user.id)
+    @followee =  current_user.user_followers
     #reqtomentor = Requesttomentor.where(following_id: params[:id]).first
     #Requesttomentor.find(reqtomentor.id).destroy
     current_user.stop_following(user)
@@ -109,7 +115,7 @@ class UsersController < ApplicationController
 
     #@page_content = open('http://news.google.com/news?q=cricket&output=rss')
 
-    @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending').count
+    @reqtomentor = Requesttomentor.where(:status => 'pending').count
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     affiliation = current_user.profile.professionals
     education = current_user.profile.education
@@ -149,9 +155,18 @@ class UsersController < ApplicationController
 
   def accept_user
     user = User.find(params[:id])
+    reqtomentor = Requesttomentor.where(:user_id => params[:id], :following_id => current_user.id).first
+    if reqtomentor
     user.follow(current_user)
-    reqtomentor = Requesttomentor.where(user_id: params[:id]).first
     reqtomentor.update_column(:status, 'approved')
+    end
+    reqtomentee = Requesttomentor.where(:following_id => params[:id], :user_id => current_user.id).first
+    if reqtomentee
+      current_user.follow(user)
+      reqtomentee.update_column(:status, 'approved')
+    end
+
+
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
   def reject_user

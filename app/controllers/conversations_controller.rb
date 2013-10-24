@@ -3,6 +3,10 @@ class ConversationsController < ApplicationController
   before_filter :check_user_profile
   helper_method :mailbox, :conversation
 
+  def index
+    @conversation = Conversation.all
+  end
+
   def create
     #recipient_emails = conversation_params(:recipients).split(',')
     recipient_emails = params[:get_id].split(',')

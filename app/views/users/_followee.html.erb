@@ -1,23 +1,33 @@
-<% @followee.in_groups_of(2, false) do |lists| %>
+<% @users.in_groups_of(2, false) do |lists| %>
+    <%  for user in lists %>
+        <% if user.following?(current_user) %>
+            <%  unless user.profile.nil? %>
 
-    <%  for user in lists %><br>
+                <% unless user.profile.avatar_file.nil? %>
+                    <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+                <% else %>
+                    <%=  image_tag("missing.png",height: 70,width: 70) %>
+                <% end %>
 
-      <table>
-        <tr>
-          <td>
-      <% unless user.profile.avatar_file.nil? %>
-          <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
-      <% else %>
-          <%=  image_tag("missing.png",height: 70,width: 70) %>
-      <% end %></td>
-        <td><%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %></td>
-          <td><%= button_to "Disconnect", {:controller => :users, :action => :unfollow_mentee, :id => user.id}, :remote => true, :class => "disconnectbtn",
-                        :style => "width:108px" %></td>
-        </tr>
-      </table>
+                <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
 
-             
+                <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "disconnectbtn",
+                              :style => "width:108px" %>
+            <% end %>
+        <% end %>
+        <% reqtomentor = Requesttomentor.where(following_id: current_user.id, user_id: user.id, status: 'pending' ).first %>
+        <% if reqtomentor %>
+
+            <% unless user.profile.avatar_file.nil? %>
+                <%= image_tag url_for(:controller => "profiles", :action => "other_user_image", :id => user.profile.id ),{ :class => "thumb_image"} %>
+            <% else %>
+                <%=  image_tag("missing.png",height: 70,width: 70) %>
+            <% end %>
+            <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
+
+            <%= button_to "Requested", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :disable => true, :class => "disconnectbtn",
+                          :style => "width:90px" %>
+        <% end %>
+
     <% end %>
-  
-
 <% end %>

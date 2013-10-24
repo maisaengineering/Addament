@@ -10,7 +10,7 @@
           %span.messages_count #{mailbox.inbox.count}
 
   %ul#messages_ul
-    = render mailbox.inbox
+    = render :partial => 'conversation'
 
 -#%h2 Sentbox
 -#%ul= render mailbox.sentbox

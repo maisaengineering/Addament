@@ -43,5 +43,12 @@ module ProfilesHelper
   def check_peer(prof_id)
     find_peer = Peer.where(user_id: current_user.id, req_to_peer_id: prof_id).first
   end
+  def check_request_to_mentee(showed_user_id)
+   result = Requesttomentor.where(:user_id => current_user.id, :following_id =>  showed_user_id).first
+  end
+
+  def check_request_to_mentor(showed_user_id)
+    result = Requesttomentor.where(:following_id => current_user.id, :user_id =>  showed_user_id).first
+  end
 
 end

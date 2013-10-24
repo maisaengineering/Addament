@@ -121,25 +121,25 @@ class User < ActiveRecord::Base
 
   end
 
-  def self.check_peers(current_company, current_profile_id)
-     @peer_array = []
-     @profile_array =[]
-    check_peer = Professional.where("company_id = ? and profile_id != ?",current_company, current_profile_id)
-    check_peer.each do |check_user|
-         profile = Profile.find(check_user.profile_id)
-      if profile
-        @profile_array.push(profile)
-      end
-
-    end
-    @profile_array.each do |prof|
-      user_data = User.find(prof.user_id)
-      if user_data
-        @peer_array.push(user_data)
-      end
-    end
-    return @peer_array
-  end
+  #def self.check_peers(current_company, current_profile_id)
+  #   @peer_array = []
+  #   @profile_array =[]
+  #  check_peer = Professional.where("company_id = ? and profile_id != ?",current_company, current_profile_id)
+  #  check_peer.each do |check_user|
+  #       profile = Profile.find(check_user.profile_id)
+  #    if profile
+  #      @profile_array.push(profile)
+  #    end
+  #
+  #  end
+  #  @profile_array.each do |prof|
+  #    user_data = User.find(prof.user_id)
+  #    if user_data
+  #      @peer_array.push(user_data)
+  #    end
+  #  end
+  #  return @peer_array
+  #end
 
 
 end
