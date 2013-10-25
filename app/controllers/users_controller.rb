@@ -168,8 +168,15 @@ class UsersController < ApplicationController
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
   def reject_user
-    reqtomentor = Requesttomentor.where(user_id: params[:id]).first
-    Requesttomentor.find(reqtomentor.id).destroy
+    request_to_mentee = Requesttomentor.where(:following_id => params[:id], :user_id => current_user.id, :status => 'pending').first
+    if request_to_mentee
+      request_to_mentee.destroy
+    end
+    request_to_mentor = Requesttomentor.where(:user_id => params[:id], :following_id => current_user.id, :status => 'pending').first
+    if request_to_mentor
+      request_to_mentor.destroy
+    end
+
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
   end
 

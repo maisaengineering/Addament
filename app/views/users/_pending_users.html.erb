@@ -17,7 +17,7 @@
                         </td>
                          <td> <label><%=  user.profile.first_name %></label></td>
                          <td> <%= button_to "Accept", {:controller => :users, :action => :accept_user,  :id => accept.user_id},:remote => true, :class => "requestbtn" %></td>
-                         <td> <%= button_to "Reject", {:controller => :users, :action => :reject_user,  :id => accept.user_id},:remote => true, :class => "requestbtn" %></td>
+                         <td> <%= button_to "Decline", {:controller => :users, :action => :reject_user,  :id => accept.user_id},:remote => true, :class => "requestbtn" %></td>
                     </tr>
 
                 </table>
