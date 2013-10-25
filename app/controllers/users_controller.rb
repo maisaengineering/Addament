@@ -72,6 +72,9 @@ class UsersController < ApplicationController
     if reqtomentee
       user.stop_following(current_user)
       reqtomentee.destroy
+    else
+      reqtomentee = Requesttomentor.where(:following_id => current_user.id, :user_id => params[:id], :status => 'pending').first
+      reqtomentee.destroy
     end
     @users = User.where("id != ? ", current_user.id)
     @followee =  current_user.user_followers
@@ -83,6 +86,9 @@ class UsersController < ApplicationController
     reqtomentee = Requesttomentor.where(:user_id => current_user.id, :following_id => params[:id], :status => 'approved').first
     if reqtomentee
       current_user.stop_following(user)
+      reqtomentee.destroy
+    else
+      reqtomentee = Requesttomentor.where(:user_id => current_user.id, :following_id => params[:id], :status => 'pending').first
       reqtomentee.destroy
     end
     @users = User.where("id != ? ", current_user.id)

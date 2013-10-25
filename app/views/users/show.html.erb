@@ -99,7 +99,7 @@
               <tr>
                 <% j = 1 %>
                 <% @entry.each do |e| %>
-                    <td style="width: 100px; white-space:pre;"> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
+                    <td> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
                     <% j+=1 %>
                 <% end %>
               </tr>
