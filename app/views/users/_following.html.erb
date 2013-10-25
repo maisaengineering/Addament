@@ -11,7 +11,7 @@
 
                     <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", profile_path(user.profile.id),:style=>"color:#51a2d5"   %>
 
-               <%= button_to "Disconnect", {:controller => :users, :action => :unfollow, :id => user.id}, :remote => true, :class => "disconnectbtn",
+               <%= button_to "Disconnect", {:controller => :users, :action => :unfollow_mentee, :id => user.id}, :remote => true, :class => "disconnectbtn",
                           :style => "width:108px" %>
               <% end %>
               <% end %>

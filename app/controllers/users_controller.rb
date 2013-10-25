@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def follow_profile
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
-    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
+    Requesttomentor.create(:following_id => current_user.id, :user_id => params[:id], :status => 'pending')
     #current_user.follow(user)
     prof_id = Profile.where(user_id: user.id).first
     @profile = Profile.find(prof_id)
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @users = User.where("id != ? ", current_user.id)
     user = User.find(params[:id])
     #user.follow(current_user)
-    Requesttomentor.create(:following_id => current_user.id, :user_id => params[:id], :status => 'pending')
+    Requesttomentor.create(:user_id => current_user.id, :following_id => params[:id], :status => 'pending')
     prof_id = Profile.where(user_id: user.id).first
     @profile = Profile.find(prof_id)
 
@@ -68,29 +68,27 @@ class UsersController < ApplicationController
 
   def unfollow
     user = User.find(params[:id])
-
+    reqtomentee = Requesttomentor.where(:following_id => current_user.id, :user_id => params[:id], :status => 'approved').first
+    if reqtomentee
+      user.stop_following(current_user)
+      reqtomentee.destroy
+    end
     @users = User.where("id != ? ", current_user.id)
     @followee =  current_user.user_followers
-    #reqtomentor = Requesttomentor.where(following_id: params[:id]).first
-    #Requesttomentor.find(reqtomentor.id).destroy
-    current_user.stop_following(user)
-    @followee =  current_user.user_followers
-    current_user_company = User.get_current_company_name(current_user)
-    unless  current_user_company.nil?
-
-      @users = User.check_peers(current_user_company, current_user.profile.id)
-    end
   end
 
   def unfollow_mentee
-    user = User.find(params[:id])
-    user.stop_following(current_user)
-    @followee =  current_user.user_followers
-    current_user_company = User.get_current_company_name(current_user)
-    unless  current_user_company.nil?
 
-      @users = User.check_peers(current_user_company, current_user.profile.id)
+    user = User.find(params[:id])
+    reqtomentee = Requesttomentor.where(:user_id => current_user.id, :following_id => params[:id], :status => 'approved').first
+    if reqtomentee
+      current_user.stop_following(user)
+      reqtomentee.destroy
     end
+    @users = User.where("id != ? ", current_user.id)
+    @followee =  current_user.user_followers
+
+
   end
 
   def show_all_activity

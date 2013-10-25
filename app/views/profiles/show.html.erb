@@ -25,7 +25,7 @@
               <label class="qtn">Location</label><label class="ans"><%= @profile.location %></label><br />
               <label class="qtn">City</label><label class="ans"><%= @profile.city %></label><br />
               <label class="qtn">State</label><label class="ans"><%= @profile.state %></label><br />
-              <label class="qtn">Interests</label><label class="ans"><%= @profile.interests %></label><br />
+              <label class="qtn">Interests</label><label class="ans"><%= @profile.interests.to_sentence %></label><br />
             </div>
         </div>
         <div id="ppfDIV">

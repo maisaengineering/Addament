@@ -1,27 +1,25 @@
-    <div class="users_about_connect">
-
+<div class="users_about_connect">
     <% profile_user = User.where(id: @profile.user_id).first %>
       <% userrole = profile_user.user_role %>
       <% userrole.each do |check_role| %>
-          <% if check_role == "Mentee" %>
-              <% unless check_request_to_mentee(profile_user.id) %>
-                    <% unless current_user.following?(profile_user)  %>
-                        <%= button_to "Mentee", {:controller => :users, :action => :follow_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
-                        :style => "width:90px;" %>
-                    <% end %>
-                  <br />
-            <% end %>
-          <% end %>
+
           <% if check_role == "Mentor" %>
              <% unless check_request_to_mentor(profile_user.id) %>
-                <% unless profile_user.following?(current_user)  %>
+              <% unless current_user.following?(profile_user)  %>
+
                     <%= button_to "Mentor", {:controller => :users, :action => :follow_my_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
                         :style => "width:90px;" %>
                 <% end %><br />
               <% end %>
           <% end  %>
+          <% if check_role == "Mentee" %>
+          <% unless check_request_to_mentee(profile_user.id) %>
+              <% unless profile_user.following?(current_user)  %>
+                  <%= button_to "Mentee", {:controller => :users, :action => :follow_profile,  :id => @profile.user_id},:remote => true, :class => "connectbtn",
+                                :style => "width:90px;" %>
+              <% end %>
+              <br />
+          <% end %>
       <% end %>
-
-
-
-    </div>
+      <% end %>
+</div>
