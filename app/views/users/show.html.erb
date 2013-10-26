@@ -82,7 +82,7 @@
       <% unless @entry.nil? %>
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
 
-        <table style="height: 283px;">
+        <table style="height: 336px;">
           <tr>
 
                 <% i = 1 %>
@@ -94,12 +94,13 @@
                 <% end %>
          </tr>
         </table>
-           <div id="newsss_feed" style="overflow-x: scroll;">
+           <div style="overflow-x: scroll; width:490px;">
             <table>
               <tr>
                 <% j = 1 %>
                 <% @entry.each do |e| %>
                     <td> <a href="javascript:void(0)" onclick ="current_news_feed(<%= j %>)"><%= get_img(e).html_safe %></a> </td>
+
                     <% j+=1 %>
                 <% end %>
               </tr>
@@ -188,7 +189,7 @@
 <script>
     function current_news_feed(e)
     {
-        for(i = 1; i < 30; i++)
+        for(i = 1; i < 50; i++)
         {
 
             $('.news_title'+ i).css('display', 'none');

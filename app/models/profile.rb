@@ -1,13 +1,5 @@
 class Profile < ActiveRecord::Base
   attr_accessible :birthday, :city, :first_name,  :last_name, :location, :phone_number, :state, :image, :user_id, :about, :avatar_file1, :cal_age, :professionals_attributes
-  #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
- # has_attached_file :avatar, :storage => :database
-  #has_attached_file :avatar,
-  #                  :styles => { :thumb => "75x75>", :small => "150x150>" },
-  #                  :url => '/:class/:id/:attachment?style=:style'
-
-   #after_save :check_method
-  #validates :first_name,  :uniqueness => {:message => "Name already exists"}
   INTEREST = ["Topstories","Worldnews","U.S.News","Business","Technology","Entertainment","Sports","Science","Health"]
   serialize :interests,Array
   attr_accessible :interests
@@ -19,6 +11,7 @@ class Profile < ActiveRecord::Base
   include PublicActivity::Model
   tracked
   validates_presence_of :first_name,:last_name, :birthday, :presence => true
+  scope :get_profile, ->(location, user) { where("location like ? or id != ?", "%#{location}%", user)}
   def avatar_file1=(input_data)
 
     self.avatar_file = input_data.read

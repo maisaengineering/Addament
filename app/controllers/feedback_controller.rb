@@ -50,8 +50,9 @@ class FeedbackController < ApplicationController
     @prof_res = []
     @comp_res = []
     @school_res = []
-    if(params[:loation]!="" && params[:company]!="" && params[:school]!="")
-      location_result = Profile.where("location like ?", "%#{params[:loation]}%")
+    if(params[:location]!="" && params[:company]!="" && params[:school]!="")
+      puts "aaaaaaaaaaaaaaaaaaaa"
+      location_result = Profile.where("location like ? and id != ?", "%#{params[:location]}%", current_user.profile.id)
       if location_result
         location_result.each do |prof_res|
 
@@ -72,8 +73,8 @@ class FeedbackController < ApplicationController
           @school_res.push(check_edu)
         end
       end
-    elsif(params[:loation]!="" && params[:company]!="")
-      location_result = Profile.where("location like ?", "%#{params[:loation]}%")
+    elsif(params[:location]!="" && params[:company]!="")
+      location_result = Profile.where("location like ? and id != ?", "%#{params[:location]}%", current_user.profile.id)
       if location_result
         location_result.each do |prof_res|
 
@@ -87,9 +88,15 @@ class FeedbackController < ApplicationController
           @comp_res.push(check_comp)
         end
       end
-    elsif(params[:loation]!="")
-    location_result = Profile.where("location like ?", "%#{params[:loation]}%")
-    if location_result
+    elsif(params[:location]!="")
+    #location_result = Profile.where("location like ? and id != ?", "%#{params[:location]}%", current_user.profile.id)
+      puts "---------------------------------"
+      puts params[:location]
+    location_result = Profile.get_profile(params[:location],current_user.profile.id)
+      puts "xxxxxxxxxxxxxx"
+      puts location_result
+      puts "xxxxxxxxxxxxxx"
+      if location_result
       location_result.each do |prof_res|
 
         @prof_res.push(prof_res)
@@ -97,8 +104,7 @@ class FeedbackController < ApplicationController
       end
 
     elsif(params[:company]!="")
-      puts "--------com"
-      @comp_name = Company.where("company_name like ?", "%#{params[:company]}%").first
+     @comp_name = Company.where("company_name like ?", "%#{params[:company]}%").first
       all_prof = Professional.all
       all_prof.each do |check_comp|
         if (check_comp.company_id == @comp_name.id)
