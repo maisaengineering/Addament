@@ -82,7 +82,7 @@
       <% unless @entry.nil? %>
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
 
-        <table style="height: 336px;">
+        <table style="height: 314px;">
           <tr>
 
                 <% i = 1 %>
@@ -166,10 +166,18 @@
         <ul>
           <li>
             <label>Mentees</label>
-            <% if @reqtomentor > 0 %>
-            <p><%= link_to @reqtomentor, show_request_path %></p>
+            <% if @reqtomentee  > 0 %>
+            <p><%= link_to @reqtomentee, show_mentee_request_path %></p>
             <% else %>
             <p>No Requests</p>
+            <%  end %>
+          </li>
+          <li>
+            <label>Mentors</label>
+            <% if @reqtomentor  > 0 %>
+                <p><%= link_to @reqtomentor, show_mentor_request_path %></p>
+            <% else %>
+                <p>No Requests</p>
             <%  end %>
           </li>
         </ul>

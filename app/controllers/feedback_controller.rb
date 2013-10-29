@@ -51,7 +51,6 @@ class FeedbackController < ApplicationController
     @comp_res = []
     @school_res = []
     if(params[:location]!="" && params[:company]!="" && params[:school]!="")
-      puts "aaaaaaaaaaaaaaaaaaaa"
       location_result = Profile.where("location like ? and id != ?", "%#{params[:location]}%", current_user.profile.id)
       if location_result
         location_result.each do |prof_res|
@@ -90,12 +89,8 @@ class FeedbackController < ApplicationController
       end
     elsif(params[:location]!="")
     #location_result = Profile.where("location like ? and id != ?", "%#{params[:location]}%", current_user.profile.id)
-      puts "---------------------------------"
-      puts params[:location]
+
     location_result = Profile.get_profile(params[:location],current_user.profile.id)
-      puts "xxxxxxxxxxxxxx"
-      puts location_result
-      puts "xxxxxxxxxxxxxx"
       if location_result
       location_result.each do |prof_res|
 

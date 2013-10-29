@@ -7,7 +7,7 @@
       #message_prog
         %p
           MESSAGES
-          %span.messages_count #{mailbox.inbox.count}
+          %span.messages_count #{mailbox.inbox.count + mailbox.sentbox.count}
 
   %ul#messages_ul
     = render :partial => 'conversation'

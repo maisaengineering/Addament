@@ -12,15 +12,11 @@ class ConversationsController < ApplicationController
     recipient_emails = params[:get_id].split(',')
     usermail = []
     recipient_emails.each do |prof_id|
-
       prof = Profile.find(prof_id)
-
       if prof
         user = User.find(prof.user_id)
         usermail.push(user.email)
       end
-
-
     end
     recipients = User.where(email: usermail).all
 

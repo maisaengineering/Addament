@@ -119,7 +119,8 @@ class UsersController < ApplicationController
 
     #@page_content = open('http://news.google.com/news?q=cricket&output=rss')
 
-    @reqtomentor = Requesttomentor.where(:status => 'pending').count
+    @reqtomentee = Requesttomentor.where(:user_id => current_user.id, :status => 'pending').count
+    @reqtomentor = Requesttomentor.where(:following_id => current_user.id, :status => 'pending').count
     #@activities = PublicActivity::Activity.where("trackable_id != ? ", current_user.id).limit(3)
     affiliation = current_user.profile.professionals
     education = current_user.profile.education
@@ -153,25 +154,23 @@ class UsersController < ApplicationController
     @conversation ||= mailbox.conversations.find(params[:id])
   end
 
-  def show_request
-    @reqtomentor = Requesttomentor.where(following_id: current_user.id)
+  def show_mentee_request
+    @reqtomentee = Requesttomentor.where(:user_id => current_user.id, :status => 'pending')
+  end
+  def show_mentor_request
+    @reqtomentor = Requesttomentor.where(:following_id => current_user.id, :status => 'pending')
   end
 
   def accept_user
     user = User.find(params[:id])
-    reqtomentor = Requesttomentor.where(:user_id => params[:id], :following_id => current_user.id).first
-    if reqtomentor
-    user.follow(current_user)
-    reqtomentor.update_column(:status, 'approved')
-    end
-    reqtomentee = Requesttomentor.where(:following_id => params[:id], :user_id => current_user.id).first
+   reqtomentee = Requesttomentor.where(:following_id => params[:id], :user_id => current_user.id).first
     if reqtomentee
       current_user.follow(user)
       reqtomentee.update_column(:status, 'approved')
     end
 
 
-    @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
+    @reqtomentee = Requesttomentor.where(:user_id => current_user.id, :status => 'pending')
   end
   def reject_user
     request_to_mentee = Requesttomentor.where(:following_id => params[:id], :user_id => current_user.id, :status => 'pending').first
@@ -184,6 +183,17 @@ class UsersController < ApplicationController
     end
 
     @reqtomentor = Requesttomentor.where(following_id: current_user.id, status: 'pending')
+  end
+
+
+  def accept_mentor
+    user = User.find(params[:id])
+    reqtomentor = Requesttomentor.where(:user_id => params[:id], :following_id => current_user.id).first
+    if reqtomentor
+      user.follow(current_user)
+      reqtomentor.update_column(:status, 'approved')
+    end
+    @reqtomentor = Requesttomentor.where(:following_id => current_user.id, :status => 'pending')
   end
 
 end
