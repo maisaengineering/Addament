@@ -31,4 +31,13 @@ module ApplicationHelper
       end
     return @user_list
   end
+
+  def get_all_message(mes)
+    @new_msg_arr = []
+    mes.each do |msg|
+      @new_msg_arr.push(msg)
+    end
+    return @new_msg_arr
+    raise @new_msg_arr.inspect
+  end
 end

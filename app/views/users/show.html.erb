@@ -82,7 +82,7 @@
       <% unless @entry.nil? %>
       <!-- WebRSS.com NOTE: Do not modify code below this line  -->
 
-        <table style="height: 314px;">
+        <table style="height: 290px;">
           <tr>
 
                 <% i = 1 %>
@@ -94,8 +94,8 @@
                 <% end %>
          </tr>
         </table>
-           <div style="overflow-x: scroll; width:490px;">
-            <table>
+            <div style="overflow-x: scroll;" >
+            <table style="width:1000px;">
               <tr>
                 <% j = 1 %>
                 <% @entry.each do |e| %>
@@ -105,7 +105,7 @@
                 <% end %>
               </tr>
             </table>
-          </div>
+            </div>
 
             <% else %>
           <h2>No News Feed </h2>
@@ -197,7 +197,7 @@
 <script>
     function current_news_feed(e)
     {
-        for(i = 1; i < 50; i++)
+        for(i = 1; i < 80; i++)
         {
 
             $('.news_title'+ i).css('display', 'none');

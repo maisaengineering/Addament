@@ -28,6 +28,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'feedzirra'
 gem 'thin', :group => [:production]
 gem 'rufus-scheduler'
+gem 'friendly_id' #this gem is used for not to show id when user show other user profile details
 
 
 #group :production do
