@@ -8,13 +8,42 @@
         %p
           MESSAGES
           %span.messages_count #{mailbox.inbox.count + mailbox.sentbox.count}
-
+  %br
+  %br
+  = select_tag :mailbox_type, options_for_select([["All"],["inbox"], ["sentbox"]])
   %ul#messages_ul
-    = render :partial => 'conversation'
+    -#= render :partial => 'conversation'
 
 -#%h2 Sentbox
 -#%ul= render mailbox.sentbox
 -#%h2 Trash
 -#%ul= render mailbox.trash
+:javascript
+  $(document).ready(function() {
+      get_the_messages("All")
+  });
+  $('#mailbox_type').change(function () {
+      get_the_messages(this.value)
+  });
+  function get_the_messages(msg_type)
+  {
+    $.ajax({
+                 url: "/conversations/filter_result",
+
+                 data: { mailboxtype: msg_type  },
+                 cache: false,
+                 beforeSend: function( ) {
+                     $('#messages_ul').append("loading...");
+                 },
+                 success: function(html){
+                     $('#messages_ul').empty();
+                     $('#messages_ul').append(html);
+                 },
+                 error: function( ) {
+                     $('#messages_ul').append("...error loading...");
+                 }
+
+             })
+  }
 
 

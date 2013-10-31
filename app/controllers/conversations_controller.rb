@@ -41,6 +41,12 @@ class ConversationsController < ApplicationController
     redirect_to :conversations
   end
 
+  def filter_result
+    @conversation = Conversation.all
+    @mailtype = params[:mailboxtype]
+    render :partial => 'conversation'
+  end
+
   private
 
   def mailbox

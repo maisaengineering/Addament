@@ -2,7 +2,10 @@
   - notification  = Notification.where("conversation_id = ?", conversation.id).first
   -#- raise current_user.id.inspect
   -#- raise notification.inspect
-  - messages =  notification.receipts.where(receiver_id: current_user.id)
+  - if @mailtype != "All"
+    - messages =  notification.receipts.where(receiver_id: current_user.id, mailbox_type: @mailtype)
+  -else
+    - messages =  notification.receipts.where(receiver_id: current_user.id)
   %br/
   %br/
   - messages.each do |message|

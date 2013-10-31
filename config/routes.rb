@@ -88,6 +88,9 @@ Addament::Application.routes.draw do
       post :trash
       post :untrash
     end
+    collection do
+      get :filter_result
+    end
   end
 
 
