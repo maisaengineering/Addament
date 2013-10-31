@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def index
-    @conversation = Conversation.all
+    #@conversation = Conversation.all
   end
 
   def create
@@ -42,7 +42,7 @@ class ConversationsController < ApplicationController
   end
 
   def filter_result
-    @conversation = Conversation.all
+    @conversation = Conversation.order('created_at desc')
     @mailtype = params[:mailboxtype]
     render :partial => 'conversation'
   end
